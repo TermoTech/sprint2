@@ -4,11 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3625/3625050.png" type="image/x-icon">
     <link rel="stylesheet" href="./CSS/reset.css">
     <link rel="stylesheet" href="./CSS/simulador.css">
 </head>
 <body>
-    
+    <section class="calc-content" id="section_content">
+        <div class="values-calc">
+            <div class="div-inputs">
+                <label for="hora">Quanto a sua Extrusora produz por hora(kg)</label>
+                <input name="hora" type="text" id="input_hora" class="inputs-values" placeholder="Informe o valor em KG">
+                <label for="kg">Qual o valor do kg material(R$)</label>
+                <input name="kg" type="text" id="input_kg" class="inputs-values" placeholder="Informe o valor em R$">
+            </div>
+            <button id="btn_result" class="btn-result" onclick="calcula()">Como vocês vão me ajudar</button>
+        </div>
+    </section>
 </body>
 </html>
 <script src="./JS/simulador.js"></script>
