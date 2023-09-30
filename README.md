@@ -7,7 +7,7 @@
  
 <h3>Reuniões</h3> 
 
-As reuniões ocorrerão on-line via Discord as terças e quintas (a partir das 19h). Haverá uma reunião presencial todas as segundas. 
+As reuniões ocorrerão on-line via Discord as terças as 20:30 e quintas as 19:00. Haverá uma reunião presencial todas as segundas. 
 
 As reuniões devem durar entre 1 e 2 horas. 
 
