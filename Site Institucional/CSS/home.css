@@ -2,6 +2,7 @@
 /* font-family: 'Montserrat', sans-serif; */
 .fundo{
     background-image: url(../imagens/fundo.png);
+    background-attachment: fixed;
 }
 
 header{
@@ -9,7 +10,6 @@ header{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid white;
 }
 .header-text{
     color: #FFF;
@@ -24,7 +24,6 @@ header{
     height: 120px;
     align-items: center;
     justify-content: space-around;
-    border: 1px solid white;
 }
 picture{
     width: 50%;
