@@ -14,43 +14,27 @@
 body{
     background-image: url(../imagens/fundo.png);
     background-attachment: fixed;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
+main{
+    width: 80%;
+    height: 100%;
 }
 header{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
     height: 100px;
-    max-width: 94%;
-    display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: start;
+    justify-content: space-between;
 }
-.logo-header{
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.img-section{
-    transition: 0.5s;
-}
-.img-section:hover{
-    width: 266px;
-}
-nav{
-    width: 50%;
-    max-width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-}
-.titulo-nav{
-    display: flex;
-    width: auto;
-    height: 25px;
-    flex-direction: row;
-    justify-content: start;
-
+header h2{
     color: #FFF;
     text-align: center;
     font-family: Montserrat;
@@ -59,95 +43,61 @@ nav{
     font-weight: 500;
     line-height: normal;
 }
-.link{
-    text-decoration: none;
-    color: white;
-    width: auto;
-}
-.tela{
+section{
+    height: 512px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 100%;
-    height: 512px;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
-.logo-section{
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.artigo{
-    width: 50%;
+article{
+    width: 283px;
+    height: 283px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content: space-around;
 }
-.titulo{
+article h1{
     color: #FFF;
-    text-align: start;
     font-family: Montserrat;
     font-size: 48px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
 }
-.subtitulo{
+article h2{
     color: #FFF;
-    text-align: start;
     font-family: Montserrat;
-    font-size: 36px;
+    font-size: 26px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
 }
 .linha{
-    width: 172px;
+    width: 183px;
     height: 5px;
     background: #FFF;
 }
-.paragrafo{
+article p{
     color: #FFF;
-    text-align: start;
     font-family: Montserrat;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    margin-top: 6px;
-    margin-bottom: 35px;
 }
-.artigo-2{
-    width: 50%;
+.saiba-mais{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
-.logo-section-2{
-    width: 50%;
+.botao{
+    width: 179px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-button{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 169px;
-    height: 30px;
-    border-radius: 10px;
+    border-radius: 10px 0px 0px 10px;
     background: #FFF;
-    justify-content: space-around;
-    border: none;
-    transition: 0.5S;
-}
-button:hover{
-    cursor: pointer;
-}
-.titulo-botao{
     color: #000;
     text-align: center;
     font-family: Montserrat;
@@ -156,32 +106,13 @@ button:hover{
     font-weight: 500;
     line-height: normal;
 }
-.seta-botao{
-    width: 35px;
-    height: 30px;
-    border-radius: 0px 10px 10px 0px;
-    border-left: 1px solid #000;
-    background: #FFF;
+.seta{
+    width: 32px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-left: 6px;
-}
-svg{
-    stroke-width: 2px;
-    stroke: #08151C;
-}
-svg:hover{
-    animation: seta-entrando 700ms ease infinite;
-}
-.saiba-mais{
-    transition: 0.5s;
-}
-@keyframes seta-entrando{
-    50% {
-        transform: translate(8px, 0);
-      }
-    100% {
-      transform: translate(0, 0);
-    }
+    border-radius: 0px 10px 10px 0px;
+    border-left: 1px solid #000;
+    background: #FFF;
 }
