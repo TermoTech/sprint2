@@ -7,7 +7,7 @@ body{
     color: #ffffff;
 }
 header{
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -20,27 +20,28 @@ ul{
 }
 li{
     list-style: none;
-    margin: 10px;
+    margin-left: 30px;
 }
-a{
+li a{
     color: white;
     text-decoration: none;
     font-size: 20px;
 }
-a:hover{
+li a:hover{
     border-bottom: solid white 1px;
 }
 main{
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    width: 80%;
+    width: 65%;
     flex-direction: column;
 }
 h1{
     font-size: 36px;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+    margin: 30px 0 46px;
 }
 .sessoes{
     width: 100%;
@@ -49,7 +50,7 @@ h1{
     margin-bottom: 200px;
 }
 p{
-    font-size: 40px;
+    font-size: 35px;
     width: 45%;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
