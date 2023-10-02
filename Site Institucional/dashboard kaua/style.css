@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+*{
+    padding: 0%;
+    margin: 0;
+}
+body {
+    width: 100%;
+    height: 100vh;
+    background-image: url(fundo.png);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.contanier {
+    display: flex;
+    width: 90%;
+    height: 80%;
+    border-radius: 10px;
+    background-color: #ffffff20;
+    border: 2px solid #D9D9D9;
+
+}
+.menu{
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+    width: 20%;
+    height: 100%;
+    background-color: #D9D9D9;
+    border-radius: 10px 0 0 10px;
+    
+}
+.logo_criacao{
+    width: 10%;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+.criacao_usuario{
+    width: 80%;
+    height: 100%;
+}
+.bem_vindo{
+    width: 100%;
+    height: 100%;
+}
+.p_bem_vindo{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 175%;
+    margin-left: 10%;
+    margin-top: 15%;
+}
+.nome{
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 175%;
+    margin-left: 10%;
+    margin-top: 30%;
+}
+.painel{
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 175%;
+    margin-left: 30%;
+    margin-top: 15%;
+}
+.historico{ 
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 175%;
+    margin-left: 30%;
+    margin-top: 5%;
+}
+.maquinas{
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 175%;
+    margin-left: 30%;
+    margin-top: 5%;
+}
+.ajustes{
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 175%;
+    margin-left: 30%;
+    margin-top: 5%;
+}
+.usuarios{
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 175%;
+    margin-left: 30%;
+    margin-top: 5%;
+}
+.home{
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 175%;
+    margin-left: 30%;
+    margin-top: 70%;
+}
+.sair{
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 175%;
+    margin-left: 30%;
+    margin-top: 5%;
+}
+.titulo_usuario{
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 300%;
+    width: 10%;
+    margin-left: 13%;
+    margin-top: -6%;
+    color: #D9D9D9;
+}
+.data{
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 110%;
+    margin-left: 33%;
+    margin-top: -2.5%;
+    color: #D9D9D9;
+}
+.pesquisar{
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 110%;
+    margin-left: 70%;
+    margin-top: -6%;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 25%;
+    height: 5%;
+}
+.div_criacao_usuario{
+    width: 80%;
+    height: 70%;
+    margin-left: 10%;
+    margin-top: 2%;
+    background-color: #D9D9D950;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+.criacao_titulo{
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 300%;
+    margin-top: -40%;
+    margin-left: 0;
+}
+.button_usuario{
+    margin-top: -20%;
+}
