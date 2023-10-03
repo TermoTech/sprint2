@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/* font-family: 'Montserrat', sans-serif; */
+
+body {
+    background-image: url(../imagens/imagensPaineis/Fundo.png);
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+#div_conteiner {
+    width: 90%;
+    height: 90%;
+    background-color: rgb(255, 255, 255, 0.3);
+    border: 1px solid white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#div_principal {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#div_lateral {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: grey;
+}
+
+#div_lateral h3 {
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+}
+
+.menu-lateral ul {
+    list-style-type: none;
+}
+
+.menu-lateral li {
+    padding: 5px;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.menu-lateral ul li img {
+    height: 30px;
+    width: 30px;
+    margin-right: 15px;
+}
+
+.menu-lateral a {
+    text-decoration: none;
+    color: black
+}
+
+.menu-lateral ul #id_usuario {
+    margin-top: 50%;
+}
+
+#div_lateral .menu-lateral li:hover {
+    border-radius: 5px;
+    background-color: lightgray;
+}
+
+.section-principal {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#div_principal_topo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 20%;
+}
+
+#id_logo {
+    width: 120px;
+    height: auto;
+
+}
+
+.page-title {
+    margin-right: 50%;
+    margin-top: 0%;
+    font-size: 54px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+#div_principal_central {
+    box-sizing: border-box;
+    width: 90%;
+    height: 80%;
+    background-color: rgb(255, 255, 255, 0.3);
+    margin-bottom: 5%;
+    margin-left: 5%;
+    margin-right: 3%;
+    border-radius: 5px;
+}
+
+.titulo_div_principal_central {
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-left: 35%;
+    margin-top: 1%;
+}
+
+.chk_input_usuarios {
+    color: black;
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    
+    
+}
+
+#div_inputs {
+    justify-content: left;
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+
+}
+
+#button_criar_usuario {
+    color: #EAEAEA;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    border-radius: 5px;
+    background: rgba(77, 77, 77, 0.90);
+    margin-top: 42.5%;
+
+}
+
+.input_label {
+    font-size: 20px;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    margin-top: 50px;
+
+}
+
+.chk_cores{
+    background-color: black;
+    margin-right: 10px;
+}

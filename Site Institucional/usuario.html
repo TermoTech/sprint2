@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TermoTech</title>
+    <link rel="stylesheet" href="./CSS/reset.css">
+    <link rel="stylesheet" href="./CSS/usuario.css" />
+</head>
+
+<body>
+    <div id="div_conteiner">
+        <div id="div_principal">
+            <div id="div_lateral">
+                <h3>Bem vindo(a),</h3>
+                <div class="menu-lateral">
+                    <ul>
+                        <li><a href=""><img src="./imagens/imagensPaineis/Vetor Painel.png" alt="vetorPainel">Painel</a>
+                        </li>
+                        <li><a href=""><img src="./imagens/imagensPaineis/Calendar.png" alt="vetorCalendario">
+                                Histórico</a></li>
+                        <li><a href=""><img src="./imagens/imagensPaineis/Vetor Maquinas.png"
+                                    alt="vetorMaquinas">Máquinas</a></li>
+                        <li> <a href=""><img src="./imagens/imagensPaineis/Vetor ajustes.png"
+                                    alt="vetorAjustes">Ajustes</a></li>
+                        <li><a href=""><img src="./imagens/imagensPaineis/Vetor Usuarios.png"
+                                    alt="vetorUsuario">Usuários</a></li>
+
+                        <li id="id_usuario"><a href=""><img src="./imagens/imagensPaineis/Home.png"
+                                    alt="vetorHome">Home</a></li>
+                        <li><a href=""><img src="./imagens/imagensPaineis/log-out.png" alt="vetorLogOut">Sair</a></li>
+                    </ul>
+                </div>
+            </div>
+            <section class="section-principal">
+                <div id="div_principal_topo">
+                    <img id="id_logo" src="./imagens/imagensPaineis/logo.png" alt="logo_termoTech">
+                    <h3 class="page-title">Usuários</h3>
+                    <a href=""><img src="./imagens/imagensPaineis/Notification.png" alt="vetorNotificacao"></a>
+                </div>
+                <div id="div_principal_central">
+                    <h3 class="titulo_div_principal_central">Criação De Usuários</h3>
+                    <div id="div_inputs">
+                        <div class="chk_input_usuarios">
+                            <div class="input_label">
+                                <input type="checkbox" name="" id="chk_usuario" class="chk_cores" checked="checked">
+                                <label for="chk_usuario">Usuário</label>
+                            </div>
+                            <div class="input_label">
+                                <input type="checkbox" name="" id="chk_supervisor" class="chk_cores">
+                                <label for="chk_supervisor">Supervisor</label>
+                            </div>
+                            <div class="input_label">
+                                <input type="checkbox" name="" id="chk_gerente" class="chk_cores">
+                                <label for="chk_gerente">Gerente</label>
+                            </div>
+                        </div>
+                        <button onclick="CriarUsuario()" id="button_criar_usuario">Criar Usuário</button>
+                    </div>
+                </div>
+        </div>
+    </div>
+    </section>
+    </div>
+    </div>
+</body>
+
+</html>
