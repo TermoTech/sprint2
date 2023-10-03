@@ -6,6 +6,7 @@
     <title>Home</title>
     <link rel="stylesheet" href="./CSS/reset.css" />
     <link rel="stylesheet" href="./CSS/home.css" />
+    <link rel="stylesheet" href="./CSS/faleConosco.css">
   </head>
   <body>
     <main>
@@ -80,8 +81,30 @@
       </div>
     </div>
 
+    <!--Aqui começa o footer-->
+
+    <footer class="footer">
+      <div id="div_esquerda" class="div-footer-esquerda">
+        <a href="https://www.instagram.com/">Instagram <img src="./imagens/home/iconeInstagram.png"></a> <br>
+        <a href="tel:+1199999999">Telefone <img src="./imagens/home/iconeTelefone.png"></a> <br>
+        <a href="mailto:termoTechContato@gmail.com">E-mail <img src="./imagens/home/iconeEmail.png"></a>
+      </div>
+      <div id="div_centro" class="div-footer-centro">
+        <a href="">Faça Login <img src="./imagens/home/iconeLogin.png"></a> <br>
+        <button onclick="abrirPopUp()">
+          Fale Conosco <img src="./imagens/home/iconeFaleConosco.png">
+        </button>
+      </div>
+      <div id="div_direita" class="div-footer-direita">
+        <img src="./imagens/home/iconeLogo.png" alt="">
+      </div>
+    </footer>
+
+    <div id="fale_conosco"></div>
+
     </main>
   </body>
 </html>
 <script src="./JS/home.js"></script>
 <script src="./JS/valores.js"></script>
+<script src="./JS/faleConosco.js"></script>
