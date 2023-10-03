@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+/* font-family: 'Montserrat', sans-serif; */
+
+.div-pop-up-fc {
+    width: 45vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url(../imagens/background.PNG);
+    color: white;
+    border-radius: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.margem-titulos-fc {
+    margin-left: 13%;
+}
+
+.margem-header-fc {
+    margin-left: 10%;
+}
+
+.botao-enviar-fc {
+    width: 40%;
+    height: 30px;
+    border-radius: 10px;
+    margin-top: 5%;
+    margin-left: 30%;
+    margin-bottom: 2.5%;
+    color: white;
+    background-color: black;
+    border-color: white;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#ipt_email {
+    width: 75%;
+    margin-left: 10%;
+}
+
+#ipt_assunto {
+    position: absolute;
+    width: 75%;
+    margin-left: 10%;
+}
+
+#text-msg {
+    height: 35%;
+    width: 75%;
+    margin-left: 10%;
+    resize: none;
+}
+
+#quit_fc {
+    width: 8%;
+    margin-left: 38%;
+    cursor: pointer;
+}
+
+.mensagem-erro {
+    margin-left: 10%;
+}

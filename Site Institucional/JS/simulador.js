@@ -59,7 +59,7 @@ function calcula(){
                 Como podemos perceber, em minutos de desatenção você pode ter uma perda considerável.
                 Quer mesmo depender do fator humano?
             </h4>
-            <button class="btn-chamada">NÃO!!!</button>
+            <button class="btn-chamada" onclick="abrirPopUp()">NÃO!!!</button>
         </div>
         `
     }
