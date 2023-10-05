@@ -2,7 +2,7 @@ function abrirPopUp() {
     fale_conosco.innerHTML = `
     <div class="div-fora">
     <div class="div-pop-up-fc">
-        <br> <u class="margem-header-fc">Fale conosco</u> <img onclick="fecharPopUp()" id="quit_fc" src="./imagens/quitFC.png"><br> <br> <br>
+        <br> <u class="margem-header-fc">Fale conosco</u> <img onclick="fecharPopUp()" id="quit_fc" src="../imagens/quitFC.png"><br> <br> <br>
         <form>
         <span class="margem-titulos-fc">Seu email</span> <br>
         <input type="text" id="ipt_email" onchange="validarEmail()" name="email" required> <br> 
