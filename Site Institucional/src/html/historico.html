@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TermoTech</title>
     <link rel="stylesheet" href="../CSS/reset.css">
-    <link rel="stylesheet" href="../CSS/historico.css" />
+    <link rel="stylesheet" href="../CSS/historico.css">
 </head>
 
 <body>
@@ -16,7 +16,8 @@
                 <h3>Bem vindo(a),</h3>
                 <div class="menu-lateral">
                     <ul>
-                        <li><a href=""><img src="../imagens/imagensPaineis/Vetor Painel.png" alt="vetorPainel">Painel</a>
+                        <li><a href=""><img src="../imagens/imagensPaineis/Vetor Painel.png"
+                                    alt="vetorPainel">Painel</a>
                         </li>
                         <li><a href=""><img src="../imagens/imagensPaineis/Calendar.png" alt="vetorCalendario">
                                 Histórico</a></li>
@@ -36,15 +37,20 @@
             <section class="section-principal">
                 <div id="div_principal_topo">
                     <img id="id_logo" src="../imagens/imagensPaineis/logo.png" alt="logo_termoTech">
-                    <h3 class="page-title">Usuários</h3>
+                    <h3 class="page-title">Histórico</h3>
                     <a href=""><img src="../imagens/imagensPaineis/Notification.png" alt="vetorNotificacao"></a>
                 </div>
                 <div id="div_principal_central">
-                    <h3 class="titulo_div_principal_central">Histórico</h3>
+                   <div class="topo-tabela"><img class="icon-ampulheta" src="../imagens/ampulheta.svg" alt="ampulhetaPNG">
+                    <h3 class="title-tabela">Histórico</h3>
+                    <button onclick="Filtrar()" id="button_filtrar">Filtrar</button>
+                </div>
+                   <div class="div-tabela"></div>
 
                 </div>
-            </section>
         </div>
+        </section>
+    </div>
     </div>
 </body>
 
