@@ -1,7 +1,8 @@
 function abrirPopUp() {
     fale_conosco.innerHTML = `
+    <div class="div-fora">
     <div class="div-pop-up-fc">
-        <br> <u class="margem-header-fc">Fale conosco</u> <img onclick="fecharPopUp()" id="quit_fc" src="imagens/quitFC.png"><br> <br> <br>
+        <br> <u class="margem-header-fc">Fale conosco</u> <img onclick="fecharPopUp()" id="quit_fc" src="./imagens/quitFC.png"><br> <br> <br>
         <form>
         <span class="margem-titulos-fc">Seu email</span> <br>
         <input type="text" id="ipt_email" onchange="validarEmail()" name="email" required> <br> 
@@ -9,7 +10,16 @@ function abrirPopUp() {
         
         <span class="margem-titulos-fc">Nome</span> <br>
         <input type="text" id="ipt_assunto" required> <br>
-        <p id="erro_nome" class="mensagem-erro"></p><br> <br>
+        <p id="erro_nome" class="mensagem-erro"></p><br> 
+
+        <span class="margem-titulos-fc">Assunto</span> <br>
+        <select id="select_assunto" class="select-assunto">
+        <option value="1">Contratar-nos</option>
+        <option value="2">Dúvidas sobre o projeto</option>
+        <option value="3">Fazer orçamento</option>
+        <option value="4">Adionar uma nova máquina</option>
+        <option value="5">Outro</option>
+        </select> <br> 
         
         <span class="margem-titulos-fc">Mensagem</span> <br>
         <textarea id="text-msg" cols="30" rows="10" required></textarea>
@@ -19,7 +29,7 @@ function abrirPopUp() {
             Enviar email
         </button> 
         </form>
-
+    </div>
     </div>
         `;
 }

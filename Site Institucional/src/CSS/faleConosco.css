@@ -1,13 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
 /* font-family: 'Montserrat', sans-serif; */
 
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.div-fora {
+    margin: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(2px);
+}
+
 .div-pop-up-fc {
     width: 45vh;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-image: url(../imagens/background.PNG);
+    background-image: url(./imagens/background.PNG);
     color: white;
     border-radius: 15px;
     font-family: 'Montserrat', sans-serif;
@@ -61,4 +74,12 @@
 
 .mensagem-erro {
     margin-left: 10%;
+}
+
+.select-assunto{
+    text-align: center;
+    margin-bottom: 15px;
+    margin-left: 10%;
+    width: 75%;
+    font-family: 'Montserrat', sans-serif;
 }
