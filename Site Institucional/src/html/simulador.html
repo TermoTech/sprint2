@@ -20,7 +20,46 @@
             </div>
             <button id="btn_result" class="btn-result" onclick="calcula()">Como vocês vão me ajudar</button>
         </div>
+        <div class="values-result" id="div_table" style="display: none;">
+            <div class="table-res">
+                <h1 class="table-title">Simulação de perdas</h1>
+                <table class="table-results">
+                    <tr>
+                        <th>Tempo em temperatura inadequada</th>
+                        <th>Perda em <b><u>KG</u></b></th>
+                        <th>Perda em <b><u>R$</u></b></th>
+                    </tr>
+                    <tr>
+                        <td>7 minutos</td>
+                        <td id="td1"></td>
+                        <td id="td2"></td>
+                    </tr>
+                    <tr>
+                        <td>15 minutos</td>
+                        <td id="td3"></td>
+                        <td id="td4"></td>
+                    </tr>
+                    <tr>
+                        <td>30 minutos</td>
+                        <td id="td5"></td>
+                        <td id="td6"></td>
+                    </tr>
+                    <tr>
+                        <td>1 hora e 30 minutos</td>
+                        <td id="td7"></td>
+                        <td id="td8"></td>
+                    </tr>
+                </table>
+            </div>
+            <h4 class="txt-finance">
+                Como podemos perceber, em minutos de desatenção você pode ter uma perda considerável.
+                Quer mesmo depender do fator humano?
+            </h4>
+            <button class="btn-chamada" onclick="abrirPopUp()">NÃO!!!</button>
+        </div>
+
         <div id="fale_conosco"></div>
+        
         
     </section>
 </body>
