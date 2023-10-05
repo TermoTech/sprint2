@@ -9,7 +9,7 @@ function abrirPopUp() {
         <p id="erro" class="mensagem-erro"></p><br>
         
         <span class="margem-titulos-fc">Nome</span> <br>
-        <input type="text" id="ipt_assunto" required> <br>
+        <input type="text" id="ipt_nome" required> <br>
         <p id="erro_nome" class="mensagem-erro"></p><br> 
 
         <span class="margem-titulos-fc">Assunto</span> <br>
@@ -32,6 +32,7 @@ function abrirPopUp() {
     </div>
     </div>
         `;
+
 }
 
 function validarEmail() {

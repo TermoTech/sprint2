@@ -1,25 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
 /* font-family: 'Montserrat', sans-serif; */
 
-*{
-    margin: 0;
-    padding: 0;
-}
 
 .div-fora {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0;
     position: fixed;
     height: 100%;
     width: 100%;
+    top: 0%;
+    left: 0%;
     backdrop-filter: blur(2px);
 }
 
 .div-pop-up-fc {
     width: 45vh;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     background-image: url(../imagens/background.PNG);
     color: white;
     border-radius: 15px;
@@ -53,8 +50,7 @@
     margin-left: 10%;
 }
 
-#ipt_assunto {
-    position: absolute;
+#ipt_nome {
     width: 75%;
     margin-left: 10%;
 }
