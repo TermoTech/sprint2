@@ -2,7 +2,7 @@
 /* font-family: 'Montserrat', sans-serif; */
 
 body{
-    background-image: url(../imagens/imagensPaineis/Fundo.png);  /* Aqui eu defino como será o fundo */
+    background-image: url(../imagens/fundo.png);  /* Aqui eu defino como será o fundo */
     margin: 0;
     padding: 0;
     background-repeat: no-repeat;

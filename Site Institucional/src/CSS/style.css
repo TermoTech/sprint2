@@ -17,7 +17,7 @@ html{
     scroll-behavior: smooth;
 }
 body{
-    background-image: url(../../imagens/fundo.png);
+    background-image: url(../imagens/fundo.png);
     background-color: #000000;
     background-attachment: fixed;
     background-repeat: no-repeat;
