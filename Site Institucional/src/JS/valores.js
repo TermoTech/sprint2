@@ -1,17 +1,17 @@
 function mudarValores1(){
     div_tudo_valores.innerHTML = `
     <section class="template-valores">
-    <img src="./imagens/home/iconeSeguranca.png" class="icone-valores">
+    <img src="/../imagens/home/iconeSeguranca.png" class="icone-valores">
     <h1 class="valores-titulo">Segurança</h1>
     <p class="valores-paragrafo">As informações são armazenadas em banco de dados seguro feito pela própria TermoTech, garantindo que a integridade da empresa e dos operadores seja mantida a qualquer custo.</p>
     </section>
     <section class="template-valores">
-    <img src="./imagens/home/iconeParceria.png" class="icone-valores">
+    <img src="/../imagens/home/iconeParceria.png" class="icone-valores">
     <h1 class="valores-titulo">Parceria</h1>
     <p class="valores-paragrafo">Valorizamos parcerias de longo prazo. Visamos entender as necessidades dos clientes e fornecer soluções personalizadas de acordo com o seu padrão de negócio, oferecendo sempre mais.</p>
     </section>
     <section class="template-valores">
-    <img src="./imagens/home/iconeSustentavel.png" class="icone-valores">
+    <img src="/../imagens/home/iconeSustentavel.png" class="icone-valores">
     <h1 class="valores-titulo">Sustentável</h1>
     <p class="valores-paragrafo">Nosso compromisso com a responsabilidade ambiental nos guia na busca de práticas sustentáveis e na redução de nosso impacto no meio ambiente.</p>
     </section>
