@@ -1,0 +1,93 @@
+.section-principal {
+    height: 100%;
+    width: 100%;
+    display: flex; /*Aqui eu configuro como ficará a sessão que contera os dois graficos*/
+    flex-direction: column;
+}
+
+
+#div_principal_central {
+    width: 100%;
+    height: 80%;
+    display: flex;  /*Aqui define como as duas div de graficos ficarão separadas*/
+    justify-content: center;
+    align-items: center;
+    gap: 2.5%;
+}
+
+.chart {
+    background-color: rgb(255, 255, 255, 0.3);
+    width: 45%;     /*Aqui é a classe que estiliza as divs dos graficos*/
+    height: 90%;
+}
+
+.select_maquinas {
+    font-family: 'Montserrat', sans-serif;
+    align-content: center;
+    border: 2px solid rgba(8, 6, 0, 0.166);
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-left: 78%;
+    margin-top: 3%;
+}
+#div_chart2 {
+    width: 45%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+progress {
+    width: 100px;
+    height: 16px;
+    border: 1px solid #1D1E2C;
+    border-radius: 8px;
+}
+
+progress::-webkit-progress-value {
+    background: rgb(219,166,137);
+    background: linear-gradient(100deg, rgba(219,166,137,1) 0%, rgba(255,222,222,1) 50%, rgba(230,177,123,1) 100%);
+border-radius: 8px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #1D1E2C;
+    border-radius: 8px;
+}
+
+.div-maquinas-progress {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 2%;
+}
+.div-maquinas-texto {
+    align-items: center;
+    justify-content: center;
+    margin-left: 5%;
+}
+.div-maquinas-geral {
+    display: flex;
+    margin-top: 10%;
+}
+
+#div_chart2::-webkit-scrollbar {
+    width: 8px;
+    height: 4px; /* largura da barra de rolagem */
+}
+
+#div_chart2::-webkit-scrollbar-thumb {
+    background-color: white; /* cor do polegar da barra de rolagem */
+    border-radius: 6px; /* borda arredondada do polegar */
+}
+
+#div_chart2::-webkit-scrollbar-track {
+    background-color: #1D1E2C; /* cor da trilha da barra de rolagem */
+}
+
+.titulo-maquina {
+    font-weight: bolder;
+}

@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/* font-family: 'Montserrat', sans-serif; */
+
+body{
+    background-image: url(../imagens/imagensPaineis/Fundo.png);  /* Aqui eu defino como será o fundo */
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+#div_conteiner {
+    width: 90%;
+    height: 90%;
+    background-color: rgb(255, 255, 255, 0.3); /* Aqui eu crio o conteiner (Bloco central) */
+    border: 1px solid white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#div_principal {
+    height: 100%;
+    width: 100%;
+    display: flex;      /* Aqui eu defino como ficarão alinhadas as divisorias dentro do conteine*/
+    align-items: center;
+    justify-content: center;
+}
+
+
+#div_lateral {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; /* Aqui cria a lacuna lateral em cinza */
+    align-items: center;
+    background-color: grey;
+}
+
+#div_lateral h3 {
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif; /* Aqui muda o titulo*/
+    font-weight: bolder;
+}
+.menu-lateral{
+    width: 100%;
+}
+.menu-lateral ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    list-style-type: none; /* Aqui tira a marcação de tópico */
+    padding: 0;
+}
+
+.menu-lateral ul li {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: 10%;
+    font-size: 20px; /* Aqui define os tamanhos da lista*/
+    font-family: 'Montserrat', sans-serif;
+    width: 80%;
+}
+
+.menu-lateral ul li img {
+    width: 20%; /*Aqui define os tamanhos da img*/
+    margin-right: 8%;
+}
+.menu-lateral a {
+    text-decoration: none; /* Aqui tira os efeitos visuais da ancora*/
+    color: black;
+    display: flex;
+    padding: 2px;
+    width: 80%;
+    align-items: center;
+}
+
+.menu-lateral ul #id_usuario {
+    margin-top: 50%; /*Da o espaçamento entre os vetores*/
+}
+
+#div_lateral .menu-lateral ul li a:hover {
+    border-radius: 5px; /*Cria o efeito ao passar o mouse em cima*/ 
+    background-color: lightgray; 
+}
+
+#id_logo{
+    width: 120px;
+    height: auto;   /*Tamanho do logo*/
+}
+
+
+/* Aqui acaba o painel Central */
+
+.section-principal {
+    height: 100%;
+    width: 100%;
+    display: flex; /*Aqui eu configuro como ficará a sessão que contera os dois graficos*/
+    flex-direction: column;
+}
+
+
+#div_principal_central {
+    width: 100%;
+    height: 80%;
+    display: flex;  /*Aqui define como as duas div de graficos ficarão separadas*/
+    justify-content: center;
+    align-items: center;
+    gap: 2.5%;
+}
+
+#div_principal_topo {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+    margin-top: 2%;
+}
+.page-title {
+    margin-right: 0%; /*Configurações do titulo baseadas no Figma*/
+    font-size: 54px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    width: 35%;
+    font-size: 54px;
+}
+.vetor-contato-a{
+    margin-left: 30%;
+}
+.vetor-notificacao-a{
+    margin-left: 2%;
+}
+#vetor_contato {
+    width: 20px;
+    margin-left: 30%;
+}
+
+#vetor_notificacao {
+   width: 30px;
+   margin-left: 5%;
+}
+
+#id_logo{
+    margin-left: 5%;
+    margin-right: 2%;
+    width: 120px;
+    height: auto;   /*Tamanho do logo*/
+}

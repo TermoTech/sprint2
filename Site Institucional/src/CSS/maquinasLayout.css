@@ -1,0 +1,53 @@
+#div_principal_central {
+    box-sizing:border-box;
+    width: 90%;
+    height: 80%;
+    background-color: rgb(255, 255, 255, 0.3);
+    margin-bottom: 5%;
+    margin-left: 5%;
+    margin-right: 3%;
+    border-radius: 5px;
+    display: flex;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.funcionamento-maquinas {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.maquinas {
+    margin-top: 5%;
+    margin-left: 5%;
+    flex-direction: column;
+}
+
+.maquinas-logo-texto {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+.maquinas-logo-texto h1 {
+    margin-left: 10%;
+    width: 150px;
+    font-size: 24px;
+}
+
+.funcionamento-maquinas::-webkit-scrollbar {
+    width: 8px;
+    height: 4px; /* largura da barra de rolagem */
+}
+
+.funcionamento-maquinas::-webkit-scrollbar-thumb {
+    background-color: white; /* cor do polegar da barra de rolagem */
+    border-radius: 6px; /* borda arredondada do polegar */
+}
+
+.funcionamento-maquinas::-webkit-scrollbar-track {
+    background-color: #1D1E2C; /* cor da trilha da barra de rolagem */
+}

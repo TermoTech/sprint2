@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TermoTech</title>
+    <link rel="stylesheet" href="../CSS/reset.css" />
+    <link rel="stylesheet" href="../CSS/layout.css" />
+    <link rel="stylesheet" href="../CSS/StyleDashboard.css">
+    <link rel="stylesheet" href="../CSS/faleConosco.css">
+
+  </head>
+  <body>
+    <div id="div_conteiner">
+      <div id="div_principal">
+        <div id="div_lateral">
+          <h3>Bem vindo(a),</h3>
+          <div class="menu-lateral">
+            <ul>
+              <li>
+                <a href="dashboard.html">
+                    <img
+                    src="../imagens/imagensPaineis/Vetor Painel.png"
+                    alt="vetorPainel"
+                  />Painel
+                </a>
+
+              </li>
+              <li>
+                <a href="historico.html"
+                  ><img
+                    src="../imagens/imagensPaineis/Calendar.png"
+                    alt="vetorCalendario"
+                  />
+                  Histórico</a
+                >
+              </li>
+              <li>
+                <a href="maquinas.html"
+                  ><img
+                    src="../imagens/imagensPaineis/Vetor Maquinas.png"
+                    alt="vetorMaquinas"
+                  />Máquinas</a
+                >
+              </li>
+              <li>
+                <a href="ajustes.html"
+                  ><img
+                    src="../imagens/imagensPaineis/Vetor ajustes.png"
+                    alt="vetorAjustes"
+                  />Ajustes</a
+                >
+              </li>
+              <li>
+                <a href="usuarios.html"
+                  ><img
+                    src="../imagens/imagensPaineis/Vetor usuarios.png"
+                    alt="vetorUsuario"
+                  />Usuários</a
+                >
+              </li>
+
+              <li id="id_usuario">
+                <a href=""
+                  ><img
+                    src="../imagens/imagensPaineis/Home.png"
+                    alt="vetorHome"
+                  />Home</a
+                >
+              </li>
+              <li>
+                <a href=""
+                  ><img
+                    src="../imagens/imagensPaineis/log-out.png"
+                    alt="vetorLogOut"
+                  />Sair</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <section class="section-principal">
+          <div id="div_principal_topo">
+            <img id="id_logo" src="../imagens/imagensPaineis/logo.png" alt="logo_termoTech"/>
+            <span class="page-title">Painel</span>
+
+              <img
+              class="logos-topo"
+                onclick="abrirPopUp()"
+                src="../imagens/imagensPaineis/vetor contato.png"
+                alt="vetorContato"
+                id="vetor_contato"
+                />
+
+              <img
+                class="logos-topo"            
+                src="../imagens/imagensPaineis/Notification.png"
+                alt="vetorNotificacao"
+                id="vetor_notificacao"
+              />
+           
+          </div>
+
+          <div id="div_principal_central">
+
+            <div class="chart" id="div_chart1">
+              <select name="maquinas" class="select_maquinas">
+                <option value="1">Maquina 1</option>
+                <option value="2">Maquina 2</option>
+                <option value="3">Maquina 3</option>
+                <option value="4">Maquina 4</option>
+              </select>
+
+              <div>
+                <canvas id="myChart"></canvas>
+              </div>
+
+            </div>
+
+            <div class="chart" id="div_chart2">
+            <div>
+              <div class="div-maquinas-geral">
+
+                <div class ='div-maquinas-texto'>
+                  <span class="titulo-maquina">Maquina 1</span> <br> <br>
+                  Reator <br> <br>
+                  Matriz <br> <br>
+                  Anel de Resfriamento <br> <br>
+                </div>
+
+              <div class ='div-maquinas-progress'>
+                <br> <br>
+              <progress id="progress" class="barra-progresso" value="240" max="280"></progress>
+                <br>
+                <progress id="progress" class="barra-progresso" value="280" max="280"></progress>
+                <br>
+                <progress id="progress" class="barra-progresso" value="70" max="280"></progress>
+              </div>
+
+              <div class ='div-maquinas-texto'>
+                <br>
+                Temperatura atual xx°C <br> <br>
+                Temperatura atual xx°C <br> <br>
+                Temperatura atual xx°C <br> <br>
+              </div>
+            </div>
+
+              </div>
+
+              <div class="div-maquinas-geral">
+
+                <div class ='div-maquinas-texto'>
+                  <span class="titulo-maquina">Maquina 2</span> <br> <br>
+                  Reator <br> <br>
+                  Matriz <br> <br>
+                  Anel de Resfriamento <br> <br>
+                </div>
+
+              <div class ='div-maquinas-progress'>
+                <br> <br>
+              <progress id="progress" class="barra-progresso" value="70" max="280"></progress>
+                <br>
+                <progress id="progress" class="barra-progresso" value="70" max="280"></progress>
+                <br>
+                <progress id="progress" class="barra-progresso" value="70" max="280"></progress>
+              </div>
+
+              <div class ='div-maquinas-texto'>
+                <br>
+                Temperatura atual xx°C <br> <br>
+                Temperatura atual xx°C <br> <br>
+                Temperatura atual xx°C <br> <br>
+              </div>
+              
+              </div>
+
+              <div class="div-maquinas-geral">
+
+                <div class ='div-maquinas-texto'>
+                  <span class="titulo-maquina">Maquina 3</span> <br> <br>
+                  Reator <br> <br>
+                  Matriz <br> <br>
+                  Anel de Resfriamento <br> <br>
+                </div>
+
+              <div class ='div-maquinas-progress'>
+                <br> <br>
+              <progress id="progress" class="barra-progresso" value="70" max="280"></progress>
+                <br>
+                <progress id="progress" class="barra-progresso" value="70" max="280"></progress>
+                <br>
+                <progress id="progress" class="barra-progresso" value="70" max="280"></progress>
+              </div>
+
+              <div class ='div-maquinas-texto'>
+                <br>
+                Temperatura atual xx°C <br> <br>
+                Temperatura atual xx°C <br> <br>
+                Temperatura atual xx°C <br> <br>
+              </div>
+              
+              </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script src="./JS/dashboard.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById("myChart");
+
+  new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+      datasets: [
+        {
+          backgroundColor: [
+            "Red",
+            "Blue",
+            "Yellow",
+            "Green",
+            "Purple",
+            "Orange",
+          ],
+          label: "# of Votes",
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+</script>
+
+<script src="../JS/faleConosco.js"></script>

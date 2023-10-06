@@ -1,0 +1,111 @@
+#div_principal_central {
+    box-sizing:border-box;
+    width: 90%;
+    height: 80%;
+    background-color: rgb(255, 255, 255, 0.3);
+    margin-bottom: 5%;
+    margin-left: 5%;
+    margin-right: 3%;
+    border-radius: 5px;
+    display: flex;
+    overflow: hidden;
+    gap: 2%;
+}
+/* Caixa Central */
+
+
+/* Parte dos usuarios*/
+.usuario {
+    height: 100%;
+    width: 50%;
+    overflow: auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.usuario::-webkit-scrollbar {
+    width: 8px;
+    height: 4px; /* largura da barra de rolagem */
+}
+
+.usuario::-webkit-scrollbar-thumb {
+    background-color: white; /* cor do polegar da barra de rolagem */
+    border-radius: 6px; /* borda arredondada do polegar */
+}
+
+.usuario::-webkit-scrollbar-track {
+    background-color: #1D1E2C; /* cor da trilha da barra de rolagem */
+}
+
+.usuario-alterar {
+    height: 100%;
+    width: 50%;
+}
+
+.caixa-usuario {
+    margin-top: 5%;
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
+}
+.caixa-usuario-texto {
+    margin-left: 4%;
+}
+
+.caixa-usuario-texto h1 {
+    width: 120px;
+}
+
+.caixa-usuario-editores {
+    margin-left: 40%;
+}
+/**/
+
+.usuario-alterar {
+    display: flex; /* Adicionado para ativar o modelo de layout flexível */
+    height: 100%;
+    width: 50%;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.usuario-alterar-dados h1 {
+    font-size: 24px;
+    margin-left: 30%;
+    margin-bottom: 5%;
+}
+
+.usuario-alterar-dados h2 {
+    font-size: 16px;
+    width: 110px;
+}
+
+.usuario-alterar-dados button {
+    background-color: #4a4a4a; 
+    color: #fff; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; /* Ícone de cursor ao passar por cima */
+    transition: background-color 0.3s;
+    font-size: 16px;
+    margin-left: 40%;
+    margin-top: 5%;
+}
+
+.usuario-alterar-dados button:hover {
+    background-color: #606060;
+}
+
+.alterar-dados {
+    display: flex;
+    align-items: center;
+}
+
+.input_alterar {
+    width: 301px;
+    height: 43px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    border: 1.5px solid #000;
+    background: none;
+}
