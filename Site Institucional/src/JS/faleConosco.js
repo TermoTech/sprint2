@@ -6,11 +6,11 @@ function abrirPopUp() {
         <form>
         <span class="margem-titulos-fc">Seu email</span> <br>
         <input type="text" id="ipt_email" onchange="validarEmail()" name="email" required> <br> 
-        <p id="erro" class="mensagem-erro"></p><br>
+        <p id="erro" class="mensagem-erro-pop-up"></p><br>
         
         <span class="margem-titulos-fc">Nome</span> <br>
         <input type="text" id="ipt_nome" required> <br>
-        <p id="erro_nome" class="mensagem-erro"></p><br> 
+        <p id="erro_nome" class="mensagem-erro-pop-up"></p><br> 
 
         <span class="margem-titulos-fc">Assunto</span> <br>
         <select id="select_assunto" class="select-assunto">
