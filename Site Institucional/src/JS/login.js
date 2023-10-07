@@ -3,7 +3,7 @@ function fazerLogin(){
     var senha = ipt_senha.value;
 
     if(user.toUpperCase() == "CARAMICO" && senha == "ipt1234"){
-        window.location = "";
+        window.location = "dashboard.html";
     } else{
         mensagem_erro.style.display = "flex";
     }
