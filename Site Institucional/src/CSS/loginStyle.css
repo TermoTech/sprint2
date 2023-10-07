@@ -1,0 +1,176 @@
+body{
+    margin: 0;
+    background-color: #000;
+}
+
+.main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagem{
+
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    height: 90%;
+    width: 60%;
+    margin: 0;
+    box-shadow: 0.5px 0.5px 10px 1px white;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-name: slidein;
+    animation-direction: alternate;
+}
+
+@keyframes slidein {
+    from{
+        background-image: url('https://www.an-tech.ind.br/wp-content/uploads/2020/05/banner_antech3-1-1.jpg');
+        background-size: 100% 100%;
+    }
+    50%{
+        background-image: url('https://maispolimeros.com.br/wp-content/uploads/2019/09/processo-de-injecao-870x510.jpg');
+        background-size: 100% 100%;
+    }
+    75%{
+        background-image: url('https://www.an-tech.ind.br/wp-content/uploads/2020/05/banner_antech3-1-1.jpg');
+        background-size: 100% 100%;
+    }
+    to{
+        background-image: url('https://eplax.com.br/blog/wp-content/uploads/2020/12/AdobeStock_287551852-scaled.jpeg');
+        background-size: 100% 100%;
+    }
+}
+
+.login-detalhes{
+    width: 35%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.caixa-login{
+    display: inline-block;
+    color: white;
+}
+
+.caixa-login h1{
+    margin: 0;
+}
+
+.usuario-input{
+    border: white 2px solid;
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    align-items: start;
+}
+
+.user-senha{
+    background-color: black;
+    color: white;
+    border: none;
+    width: 80%;
+    margin: auto 0 auto 10px;
+}
+.user-senha:focus{
+    outline: none;
+}
+
+.mensagem-erro{
+    display: none;
+    color: #ff0000a7;
+    margin: 10px 0;
+    font-size: 15px;
+}
+
+.lembrar-esqueci{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: -7.5px;
+    margin-top: 20px;
+}
+.lembrar-esqueci .user-senha{
+    background-color: black;
+    color: white;
+    border: none;
+    width: 50%;
+    margin: auto 0 auto 10px;
+    color: #ffffff87;
+}
+
+.lembrar-esqueci a{
+    text-decoration: none;
+    color: #ffffff87;
+    margin-top: auto;
+}
+
+.customize{
+    all:unset;
+    position:relative;
+    display: inline-block;
+    border: solid 1px white;
+    width:15px;
+    height: 15px;
+    background: black;
+    border-radius: 10%;
+    
+}
+  
+.customize:checked{
+    border: solid 1px white;
+  }
+  
+.customize:checked::after{
+    content:"";
+    position:absolute;
+    width:7px;
+    height:7px;
+    left: calc(50% - 3.5px);
+    top: calc(50% - 5px);
+    border-radius:50%;
+    
+  }
+  
+.customize.green:checked{
+    background: black;
+  }
+
+.customize.green:checked::after{
+    background: white;
+  }
+button{
+    cursor: pointer;
+}
+
+
+button.login{
+    margin-top: 20px;
+    width: 100%;
+    padding: 5px;
+    border: solid white 1px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    transition: 1s;
+}
+
+button:hover.login{
+    background-color: white;
+    color: black;
+    transition: 1s;
+}
+
+.btn-conta{
+    background-color: #000;
+    border: none;
+    font-size: 15px;
+    color: #ffffff87;
+}

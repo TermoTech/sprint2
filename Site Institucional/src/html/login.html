@@ -1,14 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="../CSS/reset.css">
-    <link rel="stylesheet" href="../CSS/login.css">
+    <title>Dashboard - Login</title>
+    <link rel="stylesheet" href="../CSS/loginStyle.css">
+
 </head>
+
 <body>
-    
+    <div class="main">
+        <div class="login-detalhes">
+            <div class="caixa-login">
+                <h1>Bem Vindo de volta!</h1>
+                <br>
+                <div class="usuario-input">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        style="color: #ffffff87;">
+                        <path fill="currentColor"
+                            d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z" />
+                    </svg>
+                    <input placeholder="Usuário" id="ipt_user" class="user-senha">
+                </div>
+
+                <div class="usuario-input">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 14 14">
+                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            style="color: #ffffff87;">
+                            <path
+                                d="M7.36 13.43h0a1 1 0 0 1-.72 0h0a9.67 9.67 0 0 1-6.14-9V1.5a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v2.92a9.67 9.67 0 0 1-6.14 9.01Z" />
+                            <rect width="5" height="4" x="4.5" y="5.5" rx="1" />
+                            <path d="M8.5 5.5v-1a1.5 1.5 0 1 0-3 0v1" />
+                        </g>
+                    </svg>
+
+                    <input placeholder="Senha" id="ipt_senha" class="user-senha" type="password">
+                </div>
+                <p id="mensagem_erro" class="mensagem-erro">Usuário  ou senha inválidos!</p>
+                <div class="lembrar-esqueci">
+                    <div class="user-senha">
+                        <input type="checkbox" id="lembrar_senha" class="customize green"> <label
+                            for="lembrar_senha">Lembrar Senha</label>
+                    </div>
+
+                    <a href="#">
+                        Esqueci a senha
+                    </a>
+                </div>
+                <button class="login" onclick="fazerLogin()">
+                    Login
+                </button>
+                <br><br>
+                <button class="btn-conta">
+                    Não tem uma conta?
+                </button>
+            </div>
+        </div>
+        <div class="imagem"></div>
+    </div>
+    <script src="../JS/login.js"></script>
 </body>
+
 </html>
-<script src="../JS/login.js"></script>
