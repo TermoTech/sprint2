@@ -31,6 +31,12 @@ a{
     color: white;
     text-decoration: none;
 }
+img{
+    transition: 0.5s;
+}
+img:hover{
+    transform: scale(1.05);
+}
 .conteudo-site{
     width: 90%;
     max-width: 1480px;
@@ -116,6 +122,10 @@ a{
 }
 .saiba-mais-1{
     display: flex;
+    transition: .3s;
+}
+.saiba-mais-1:hover{
+    transform: scale(1.03);
 }
 .saiba-mais-1 .botao{
     width: 179px;
@@ -217,6 +227,10 @@ a{
 }
 .saiba-mais-2{
     display: flex;
+    transition: .3s;
+}
+.saiba-mais-2:hover{
+    transform: scale(1.03);
 }
 .saiba-mais-2 .botao{
     width: 179px;
