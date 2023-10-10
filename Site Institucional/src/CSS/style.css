@@ -289,9 +289,6 @@ img:hover{
 .seta{
     width: 35px;
 }
-.seta-direita{
-
-}
 
 .seta-esquerda{
     transform: scaleX(-1);
