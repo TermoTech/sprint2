@@ -19,28 +19,32 @@ body{
     width: 60%;
     margin: 0;
     box-shadow: 0.5px 0.5px 10px 1px white;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
-    animation-name: slidein;
-    animation-direction: alternate;
+    animation: slidein 5s linear infinite;
 }
 
 @keyframes slidein {
-    from{
+    0%{
         background-image: url('https://www.an-tech.ind.br/wp-content/uploads/2020/05/banner_antech3-1-1.jpg');
-        background-size: 100% 100%;
-    }
+        background-size: 100% 100% ;
+        background-repeat: no-repeat;
+
+       }
     50%{
         background-image: url('https://maispolimeros.com.br/wp-content/uploads/2019/09/processo-de-injecao-870x510.jpg');
-        background-size: 100% 100%;
+        background-size: 100% 100% ;
+        background-repeat: no-repeat;
+
     }
     75%{
         background-image: url('https://www.an-tech.ind.br/wp-content/uploads/2020/05/banner_antech3-1-1.jpg');
-        background-size: 100% 100%;
+        background-size: 100% 100% ;
+        background-repeat: no-repeat;
+
     }
-    to{
+    100%{
         background-image: url('https://eplax.com.br/blog/wp-content/uploads/2020/12/AdobeStock_287551852-scaled.jpeg');
-        background-size: 100% 100%;
+        background-size: 100% 100% ;
+        background-repeat: no-repeat;
     }
 }
 
