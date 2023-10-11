@@ -2,7 +2,7 @@
 /* font-family: 'Montserrat', sans-serif; */
 
 body{
-    background-image: url(../imagens/imagensPaineis/Fundo.png);  /* Aqui eu defino como será o fundo */
+    background-image: url(../img/fundo.png);  /* Aqui eu defino como será o fundo */
     margin: 0;
     padding: 0;
     background-repeat: no-repeat;
@@ -106,16 +106,21 @@ body{
     width: 100%;
     display: flex; /*Aqui eu configuro como ficará a sessão que contera os dois graficos*/
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 
 #div_principal_central {
-    width: 100%;
+    width: 90%;
     height: 80%;
     display: flex;  /*Aqui define como as duas div de graficos ficarão separadas*/
     justify-content: center;
     align-items: center;
-    gap: 2.5%;
+    background-color: #d9d9d985;
+    flex-direction: column;
+    margin-bottom: 3%;
+    border-radius: 10px;
 }
 
 #div_principal_topo {
@@ -141,12 +146,10 @@ body{
 }
 #vetor_contato {
     width: 20px;
-    margin-left: 30%;
 }
 
 #vetor_notificacao {
    width: 30px;
-   margin-left: 5%;
 }
 
 #id_logo{
@@ -155,3 +158,54 @@ body{
     width: 120px;
     height: auto;   /*Tamanho do logo*/
 }
+
+.titulo_div_principal_central {
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    text-align: center;
+    margin: 0%;
+}
+
+.topo-tabela{
+    width: 100%;
+    height: 20%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.div-tabela{
+    width: 100%;
+    height: 80%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.title-tabela{
+    font-size: 20px;
+    margin-right: 70%;
+    margin-left: 1%;
+
+}
+
+#button_filtrar{
+    width: 10%;
+    height: 40%;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#button_filtrar:hover{
+    background-color: gray;
+    width: 11%;
+    height: 41%;
+    font-size: 15px;
+
+}
+

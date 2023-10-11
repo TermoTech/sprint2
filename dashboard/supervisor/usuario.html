@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TermoTech</title>
-    <link rel="stylesheet" href="../CSS/reset.css">
-    <link rel="stylesheet" href="../CSS/usuario.css">
+    <link rel="stylesheet" href="../src/css/reset.css">
+    <link rel="stylesheet" href="../src/css/usuario.css">
 </head>
 
 <body>
@@ -16,28 +16,28 @@
                 <h3>Bem vindo(a),</h3>
                 <div class="menu-lateral">
                     <ul>
-                        <li><a href=""><img src="../imagens/imagensPaineis/Vetor Painel.png" alt="vetorPainel">Painel</a>
+                        <li><a href=""><img src="../src/img/imagensPaineis/Vetor Painel.png" alt="vetorPainel">Painel</a>
                         </li>
-                        <li><a href=""><img src="../imagens/imagensPaineis/Calendar.png" alt="vetorCalendario">
+                        <li><a href=""><img src="../src/img/imagensPaineis/Calendar.png" alt="vetorCalendario">
                                 Histórico</a></li>
-                        <li><a href=""><img src="../imagens/imagensPaineis/Vetor Maquinas.png"
+                        <li><a href=""><img src="../src/img/imagensPaineis/Vetor Maquinas.png"
                                     alt="vetorMaquinas">Máquinas</a></li>
-                        <li> <a href=""><img src="../imagens/imagensPaineis/Vetor ajustes.png"
+                        <li> <a href=""><img src="../src/img/imagensPaineis/Vetor ajustes.png"
                                     alt="vetorAjustes">Ajustes</a></li>
-                        <li><a href=""><img src="../imagens/imagensPaineis/Vetor Usuarios.png"
+                        <li><a href=""><img src="../src/img/imagensPaineis/Vetor Usuarios.png"
                                     alt="vetorUsuario">Usuários</a></li>
 
-                        <li id="id_usuario"><a href=""><img src="../imagens/imagensPaineis/Home.png"
+                        <li id="id_usuario"><a href=""><img src="../src/img/imagensPaineis/Home.png"
                                     alt="vetorHome">Home</a></li>
-                        <li><a href=""><img src="../imagens/imagensPaineis/log-out.png" alt="vetorLogOut">Sair</a></li>
+                        <li><a href=""><img src="../src/img/imagensPaineis/log-out.png" alt="vetorLogOut">Sair</a></li>
                     </ul>
                 </div>
             </div>
             <section class="section-principal">
                 <div id="div_principal_topo">
-                    <img id="id_logo" src="../imagens/imagensPaineis/logo.png" alt="logo_termoTech">
+                    <img id="id_logo" src="../src/img/imagensPaineis/logo.png" alt="logo_termoTech">
                     <h3 class="page-title">Usuários</h3>
-                    <a href=""><img src="../imagens/imagensPaineis/Notification.png" alt="vetorNotificacao"></a>
+                    <a href=""><img src="../src/img/imagensPaineis/Notification.png" alt="vetorNotificacao"></a>
                 </div>
                 <div id="div_principal_central">
                     <h3 class="titulo_div_principal_central">Criação De Usuários</h3>
@@ -47,14 +47,14 @@
                                 <input type="checkbox" name="" id="chk_usuario" class="chk_cores" checked="checked">
                                 <label for="chk_usuario">Usuário</label>
                             </div>
-                            <div class="input_label">
+                            <!-- <div class="input_label">
                                 <input type="checkbox" name="" id="chk_supervisor" class="chk_cores">
                                 <label for="chk_supervisor">Supervisor</label>
                             </div>
                             <div class="input_label">
                                 <input type="checkbox" name="" id="chk_gerente" class="chk_cores">
                                 <label for="chk_gerente">Gerente</label>
-                            </div>
+                            </div> -->
 
                         </div>
                         <div id="inputs_dados">
@@ -74,6 +74,15 @@
                                 <label for="nome_repetir_senha" class="inputs_label">Repetir Senha:</label>
                                 <input type="password" id="input_repetir_senha" class="inputs_campos">
                             </div>
+                            <div class="inputs_style">
+                                <label for="Maquina_usuario" class="inputs_label">Responsável pela máquina:</label>
+                                <select name="maquinas" class="select_maquinas">
+                                    <option value="1">Maquina 1</option>
+                                    <option value="2">Maquina 2</option>
+                                    <option value="3">Maquina 3</option>
+                                    <option value="4">Maquina 4</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <button onclick="CriarUsuario()" id="button_criar_usuario">Criar Usuário</button>
@@ -86,3 +95,4 @@
 </body>
 
 </html>
+<script src="../src/js/faleConosco.js"></script>
