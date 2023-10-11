@@ -8,6 +8,7 @@
 ::-webkit-scrollbar {
     width: 10px;
     background: #000000;
+    transition: .3s;
 }
 ::-webkit-scrollbar-thumb {
     background: #ffffff;
@@ -30,6 +31,9 @@ body{
 a{
     color: white;
     text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
 }
 img{
     transition: 0.5s;
@@ -56,6 +60,17 @@ img:hover{
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+}
+.titulo-header{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.logo-header{
+    width: 70%;
+    height: 100%;
 }
 
 /* Primeira Secao */
@@ -154,7 +169,6 @@ img:hover{
     background: #FFF;
 }
 .seta svg{
-    transform: rotate(90deg);
     stroke-width: 3px;
     stroke: #08151C;
 }
@@ -259,7 +273,6 @@ img:hover{
     background: #FFF;
 }
 .seta img{
-    transform: rotate(90deg);
     stroke-width: 3px;
     stroke: #08151C;
 }
@@ -310,85 +323,49 @@ img:hover{
     transform: scaleX(-1);
 } */
 .div-tudo-valores{
-    width: 100%;
+    width: 100%;    
     height: auto;
     display: flex;
-    overflow: auto;
+    overflow: hidden;
 }
+
 .div-tudo-valores::-webkit-scrollbar{
     height: 8px;
 }
 .div-tudo-valores::-webkit-scrollbar-thumb{
     border-radius: 6px;
 }
-/* .cards {
-    display: flex;
-    animation: scroll 60s infinite linear;
-    gap: 200px;
-} */
 .template-valores{
     width: 224px;
     height: 255px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin: 0 150px;
 
 
     border-radius: 10px;
     border: 2px solid #FFF;
     background: #000;
 }
-/* @keyframes scroll {
+@keyframes scroll {
     0% {
         transform: translateX(10%);
     }
-    5%{
-        transform: translateX(0);
-    }
-    10% {
-        transform: translateX(-10%);
-    }
-    15%{
-        transform: translateX(-15%);
-    }
-    20%{
-        transform: translateX(-20%);
-    }
-    25% {
-        transform: translateX(-25%);
-    }
-    35% {
-        transform: translateX(-35%);
-    }
-    40%{
-        transform: translateX(-40%);
-    }
+    
     50% {
-        transform: translateX(-50%);
-    }
-    60% {
-        transform: translateX(-60%);
-    }
-    70%{
-        transform: translateX(-70%);
-    }
-    75% {
         transform: translateX(-75%);
     }
-    85% {
-        transform: translateX(-85%);
-    }
-    90%{
-        transform: translateX(-90%);
-    }
-    95%{
-        transform: translateX(-95%);
-    }
+    
     100% {
-        transform: translateX(0);
+        transform: translateX(10%);
     }
-} */
+}
+.cards {
+    display: flex;
+    gap: 120px;
+    animation: scroll 120s infinite linear; 
+}
+
 .valores-titulo{
     width: 182px;
     height: 28px;
@@ -471,6 +448,7 @@ img:hover{
     font-family: 'Montserrat', sans-serif;
     display: flex;
     margin-bottom: 20px;
+    margin-top: 40px;
 }
 
 .div-footer-esquerda a{
