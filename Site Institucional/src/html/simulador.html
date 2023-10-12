@@ -10,9 +10,22 @@
     <link rel="stylesheet" href="../CSS/faleConosco.css">
 </head>
 <body>
+    <sectio class="section-introduce">
+        <nav class="cabecalho-home">
+            <div class="cabecalho-conteudo">
+              <div class="logo-header"><img src="../imagens/logo.png" alt="logo" width="100px" id="logo_home" onclick="home()"></div>
+              <div class="titulo-header">
+                <h2 class="subtitulo"><a href="simulador.html" target="_blank">Entenda como <br>vamos te ajudar</a>
+                </h2>
+                <h2 class="subtitulo"><a href="../html/login.html" target="_blank">Login</a></h2>
+              </div>
+            </div>
+        </nav>
+    </sectio>
     <section class="calc-content" id="section_content">
         <div class="values-calc">
             <div class="div-inputs">
+                <h5>Use nossa calculadora integrada para estimar as perdas devido a fatores humanos. Você informa a taxa de produção de sua extrusora por hora e os custos em Reais por quilograma de material. </h5>
                 <label for="input_hora">Quanto a sua Extrusora produz por hora(kg)</label>
                 <input name="hora" type="text" id="input_hora" class="inputs-values" placeholder="Informe o valor em KG">
                 <label for="input_kg">Qual o valor do kg material(R$)</label>
@@ -66,3 +79,8 @@
 </html>
 <script src="../JS/simulador.js"></script>
 <script src="../JS/faleConosco.js"></script>
+<script>
+    function home(){
+        window.location.href = '../../index.html';
+    }
+</script>
