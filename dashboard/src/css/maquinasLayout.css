@@ -1,4 +1,4 @@
-#div_principal_central {
+/* #div_principal_central {
     box-sizing:border-box;
     width: 90%;
     height: 80%;
@@ -36,8 +36,62 @@
     margin-left: 10%;
     width: 150px;
     font-size: 24px;
+} 
+
+.funcionamento-maquinas::-webkit-scrollbar {
+    width: 8px;
+    height: 4px; largura da barra de rolagem
 }
 
+.funcionamento-maquinas::-webkit-scrollbar-thumb {
+    background-color: white; cor do polegar da barra de rolagem
+    border-radius: 6px; borda arredondada do polegar
+}
+
+.funcionamento-maquinas::-webkit-scrollbar-track {
+    background-color: #1D1E2C; cor da trilha da barra de rolagem
+}
+*/
+/* Nova estilização da section das máquinas */
+
+#div_principal_central {
+    box-sizing:border-box;
+    width: 90%;
+    height: 80%;
+    background-color: rgb(255, 255, 255, 0.3);
+    margin-bottom: 5%;
+    margin-left: 5%;
+    margin-right: 3%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    justify-content: start;
+    align-items: center;
+    padding: 2%;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.funcionamento-maquinas {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.maquinas {
+    margin-top: 2%;
+    display: flex;
+    width: 100%;
+}
+.circle-stats{
+    width: 10%;
+    height: 30%;
+    border-radius: 100%;
+    background-color: green;
+}
 .funcionamento-maquinas::-webkit-scrollbar {
     width: 8px;
     height: 4px; /* largura da barra de rolagem */
@@ -50,4 +104,101 @@
 
 .funcionamento-maquinas::-webkit-scrollbar-track {
     background-color: #1D1E2C; /* cor da trilha da barra de rolagem */
+}
+.card-sensor{
+    width: 25%;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.maq-details{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: all ease-in-out 0.5s;
+    justify-content: center;
+    padding: 5px;
+
+}
+.maq-details:hover{
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.848);
+}
+.maq-details summary{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.maq-details summary img{
+    width: 30px;
+    height: auto;
+    margin-left: 5%;
+}
+.maquinas-sensores{
+    width: 50%;
+    display: flex;
+    gap: 5%;
+}
+.maq_inp_temp{
+    align-items: center;
+    width: 50%;
+    display: flex;
+    font-size: 13px;
+    gap: 5%;
+}
+.maq_inp_temp input{
+    width: 35%;
+}
+.maq_inp_temp img{
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+.temps-interval{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 12px;
+}
+.user-maq{
+    margin-top: 2%;
+    width: 98%;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    border-radius: 5px;
+}
+.title-func{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 4%;
+    gap: 10%;
+}
+.func-info{
+    width: 98%;
+    display: flex;
+    align-items: center;
+    gap: 1%;
+    border-bottom: #1D1E2C 2px solid;
+    padding: 1%;
+}
+.func-info img{
+    width: 2%;
+    height: auto;
+}
+.update-interval{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.update-interval input{
+    width: 100%;
+}
+.update-interval button{
+    width: 100%;
 }
