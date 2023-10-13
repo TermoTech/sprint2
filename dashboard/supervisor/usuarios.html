@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TermoTech</title>
-    <link rel="stylesheet" href="../src/css/reset.css">
+    <link rel="stylesheet" href="../src/css/layout.css" />
     <link rel="stylesheet" href="../src/css/usuario.css">
 </head>
 
@@ -16,7 +16,8 @@
                 <h3>Bem vindo(a),</h3>
                 <div class="menu-lateral">
                     <ul>
-                        <li><a href=""><img src="../src/img/imagensPaineis/Vetor Painel.png" alt="vetorPainel">Painel</a>
+                        <li><a href=""><img src="../src/img/imagensPaineis/Vetor Painel.png"
+                                    alt="vetorPainel">Painel</a>
                         </li>
                         <li><a href=""><img src="../src/img/imagensPaineis/Calendar.png" alt="vetorCalendario">
                                 Histórico</a></li>
@@ -35,12 +36,65 @@
             </div>
             <section class="section-principal">
                 <div id="div_principal_topo">
-                    <img id="id_logo" src="../src/img/imagensPaineis/logo.png" alt="logo_termoTech">
-                    <h3 class="page-title">Usuários</h3>
-                    <a href=""><img src="../src/img/imagensPaineis/Notification.png" alt="vetorNotificacao"></a>
-                </div>
+                    <img id="id_logo" src="../src/img/imagensPaineis/logo.png" alt="logo_termoTech" />
+                    <span class="page-title" style="margin-right: 25%;">Funcionários</span>
+          
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" class="logos-topo" style="color: white;"><g id="galaAdd0" fill="none" stroke="currentColor" stroke-dasharray="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" stroke-opacity="1" stroke-width="16"><circle id="galaAdd1" cx="128" cy="128" r="112"/><path id="galaAdd2" d="M 79.999992,128 H 176.0001"/><path id="galaAdd3" d="m 128.00004,79.99995 v 96.0001"/></g></svg>
+
+                    <a href="" class="logos-topo"><img src="../src/img/imagensPaineis/Notification.png" alt="vetorNotificacao" width="40" height="40" style="margin-bottom: -3px;"></a>
+          
+                  </div>
                 <div id="div_principal_central">
-                    <h3 class="titulo_div_principal_central">Criação De Usuários</h3>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    Nome
+                                </th>
+                                <th>
+                                    Email
+                                </th>
+                                <th>
+                                    Editar
+                                </th>
+                                <th>
+                                    Excluir
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Caramico Herreira
+                                </td>
+                                <td>
+                                    caramico.herreira@premium.funcionaria
+                                </td>
+                                <td>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M7 7H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-1"/><path d="M20.385 6.585a2.1 2.1 0 0 0-2.97-2.97L9 12v3h3l8.385-8.415zM16 5l3 3"/></g></svg>
+                                </td>
+                                <td>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19 4h-3.5l-1-1h-5l-1 1H5v2h14M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6v12Z"/></svg>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Caramico Herreira
+                                </td>
+                                <td>
+                                    caramico.herreira@premium.funcionaria
+                                </td>
+                                <td>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M7 7H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-1"/><path d="M20.385 6.585a2.1 2.1 0 0 0-2.97-2.97L9 12v3h3l8.385-8.415zM16 5l3 3"/></g></svg>
+                                </td>
+                                <td>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19 4h-3.5l-1-1h-5l-1 1H5v2h14M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6v12Z"/></svg>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
                     <!-- <div id="div_inputs">
                         <div class="chk_input_usuarios">
                              <div class="input_label">
@@ -57,37 +111,37 @@
                             </div>
 
                         </div> -->
-                        <div id="inputs_dados" style="display: none;">
-                            <div class="inputs_style">
-                                <label for="nome_do_usuario" class="inputs_label">Nome:</label>
-                                <input type="text" id="input_nome" class="inputs_campos">
-                            </div>
-                            <div class="inputs_style">
-                                <label for="nome_email" class="inputs_label">Email:</label>
-                                <input type="text" id="input_email" class="inputs_campos">
-                            </div>
-                            <div class="inputs_style">
-                                <label for="nome_senha" class="inputs_label">Senha:</label>
-                                <input type="password" id="input_senha" class="inputs_campos">
-                            </div>
-                            <div class="inputs_style">
-                                <label for="nome_repetir_senha" class="inputs_label">Repetir Senha:</label>
-                                <input type="password" id="input_repetir_senha" class="inputs_campos">
-                            </div>
-                            <div class="inputs_style">
-                                <label for="Maquina_usuario" class="inputs_label">Responsável pela máquina:</label>
-                                <select name="maquinas" class="select_maquinas">
-                                    <option value="1">Maquina 1</option>
-                                    <option value="2">Maquina 2</option>
-                                    <option value="3">Maquina 3</option>
-                                    <option value="4">Maquina 4</option>
-                                </select>
-                            </div>
+                    <div id="inputs_dados" style="display: none;">
+                        <div class="inputs_style">
+                            <label for="nome_do_usuario" class="inputs_label">Nome:</label>
+                            <input type="text" id="input_nome" class="inputs_campos">
+                        </div>
+                        <div class="inputs_style">
+                            <label for="nome_email" class="inputs_label">Email:</label>
+                            <input type="text" id="input_email" class="inputs_campos">
+                        </div>
+                        <div class="inputs_style">
+                            <label for="nome_senha" class="inputs_label">Senha:</label>
+                            <input type="password" id="input_senha" class="inputs_campos">
+                        </div>
+                        <div class="inputs_style">
+                            <label for="nome_repetir_senha" class="inputs_label">Repetir Senha:</label>
+                            <input type="password" id="input_repetir_senha" class="inputs_campos">
+                        </div>
+                        <div class="inputs_style">
+                            <label for="Maquina_usuario" class="inputs_label">Responsável pela máquina:</label>
+                            <select name="maquinas" class="select_maquinas">
+                                <option value="1">Maquina 1</option>
+                                <option value="2">Maquina 2</option>
+                                <option value="3">Maquina 3</option>
+                                <option value="4">Maquina 4</option>
+                            </select>
                         </div>
                     </div>
-                    <button onclick="CriarUsuario()" id="button_criar_usuario">Criar Usuário</button>
+                    <!-- <button onclick="CriarUsuario()" id="button_criar_usuario">Criar Usuário</button> -->
                 </div>
         </div>
+    </div>
     </div>
     </section>
     </div>
