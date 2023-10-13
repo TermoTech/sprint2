@@ -37,11 +37,14 @@ function geraDados() {
 }
 
 function updateChart(dMatriz, dAnelResfriamento, dReator, dUmidade, t) {
+    //Gráficos
     temperaturasMatriz.push(dMatriz);
     temperaturasAnelResfriamento.push(dAnelResfriamento);
     temperaturasReator.push(dReator);
     temperaturasUmidade.push(dUmidade);
     tempo.push(t);
+    //Ranges
+    
 
     if (tempo.length > 10) {
         tempo.shift();
@@ -61,7 +64,8 @@ function updateChart(dMatriz, dAnelResfriamento, dReator, dUmidade, t) {
                     label: 'Matriz',
                     data: temperaturasMatriz,
                     borderWidth: 1,
-                    borderColor: 'red'
+                    borderColor: 'red',
+                    
                 }, {
                     label: 'Anel de Resfriamento',
                     data: temperaturasAnelResfriamento,
