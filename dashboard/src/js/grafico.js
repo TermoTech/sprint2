@@ -20,6 +20,7 @@ function geraDados() {
     indexChart++;
     ultimaHoraApresentada = new Date(time);
     updateChart(dadosMatriz, dadosAnelResfriamento, dadosReator, dadosUmidade, horaComoString);
+    updateProgress(dadosMatriz, dadosAnelResfriamento, dadosReator);
 
     if (hist.children.length >= 4) {
         hist.removeChild(hist.lastElementChild);
@@ -34,6 +35,15 @@ function geraDados() {
             <br>
         </div>
     ` + hist.innerHTML;
+}
+
+function updateProgress(dMatriz, dAnelResfriamento, dReator,){
+    progress_reator1.value = dReator;
+    progress_matriz1.value = dMatriz;
+    progress_anel1.value = dAnelResfriamento;
+    temp_reator1.innerHTML = dReator;
+    temp_matriz1.innerHTML = dMatriz;
+    temp_anel1.innerHTML = dAnelResfriamento;
 }
 
 function updateChart(dMatriz, dAnelResfriamento, dReator, dUmidade, t) {
