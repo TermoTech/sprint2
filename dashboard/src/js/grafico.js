@@ -17,10 +17,12 @@ function geraDados() {
         time.setMinutes(time.getMinutes() + 15);
     }
     var horaComoString = time.getHours() + ':' + time.getMinutes();
+
     indexChart++;
+
     ultimaHoraApresentada = new Date(time);
     updateChart(dadosMatriz, dadosAnelResfriamento, dadosReator, dadosUmidade, horaComoString);
-    updateProgress(dadosMatriz, dadosAnelResfriamento, dadosReator);
+    updateProgress(dadosMatriz, dadosAnelResfriamento, dadosReator, dadosUmidade);
 
     if (hist.children.length >= 4) {
         hist.removeChild(hist.lastElementChild);
@@ -37,13 +39,15 @@ function geraDados() {
     ` + hist.innerHTML;
 }
 
-function updateProgress(dMatriz, dAnelResfriamento, dReator,){
+function updateProgress(dMatriz, dAnelResfriamento, dReator, dUmidade){
     progress_reator1.value = dReator;
     progress_matriz1.value = dMatriz;
     progress_anel1.value = dAnelResfriamento;
+    progress_umidade1.value = dUmidade;
     temp_reator1.innerHTML = dReator;
     temp_matriz1.innerHTML = dMatriz;
     temp_anel1.innerHTML = dAnelResfriamento;
+    umidade_maq1.innerHTML = dUmidade
 }
 
 function updateChart(dMatriz, dAnelResfriamento, dReator, dUmidade, t) {

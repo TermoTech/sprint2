@@ -70,10 +70,16 @@ progress::-webkit-progress-bar {
     align-items: center;
     justify-content: center;
     margin-left: 5%;
+    height: 90%;
+    font-size: 12px;
+}
+.div-maquinas-geral:nth-child(1) .div-maquinas-texto:nth-child(2){
+    margin-top: 10%;
 }
 .div-maquinas-geral {
     display: flex;
     margin-top: 10%;
+    align-items: center;
 }
 
 #div_chart2::-webkit-scrollbar {
@@ -93,4 +99,6 @@ progress::-webkit-progress-bar {
 .titulo-maquina {
     font-weight: bolder;
     font-size: 20px;
+    width: 100%;
+    height: 10%;
 }

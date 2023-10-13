@@ -83,12 +83,13 @@
 
 .maquinas {
     margin-top: 2%;
+    justify-content: space-between;
     display: flex;
     width: 100%;
 }
 .circle-stats{
     width: 10%;
-    height: 30%;
+    height: 40%;
     border-radius: 100%;
     background-color: green;
 }
@@ -106,12 +107,15 @@
     background-color: #1D1E2C; /* cor da trilha da barra de rolagem */
 }
 .card-sensor{
-    width: 25%;
+    width: 50%;
     height: 25px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+}
+.card-sensor h6{
+    width: 20%;
+    font-size: 12px;
 }
 .maq-details{
     width: 90%;
@@ -121,41 +125,67 @@
     transition: all ease-in-out 0.5s;
     justify-content: center;
     padding: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.539);
+    border-radius: 2px;
 
 }
-.maq-details:hover{
-    border-radius: 1rem;
-    background-color: rgba(255, 255, 255, 0.848);
-}
+
 .maq-details summary{
     display: flex;
     align-items: center;
     cursor: pointer;
+    justify-content: space-between;
 }
 .maq-details summary img{
     width: 30px;
     height: auto;
-    margin-left: 5%;
 }
 .maquinas-sensores{
-    width: 50%;
+    width: 25%;
     display: flex;
+    flex-direction: column;
     gap: 5%;
 }
-.maq_inp_temp{
+.column-text{
+    width: 100%;
+    text-align: center;
+}
+.info-temp-table{
+    font-size: 10px;
+    border-collapse: separate;
+    border-spacing: 2px;
+    height: 100%;
+}
+.info-temp-table tr td,th{
+    border: 1px solid #1D1E2C;
+    text-align: center;
+    padding: 2px;
+}
+.info-temp-table tr th:nth-child(1){
+    border: none;
+}
+.maq-inp-temp {
     align-items: center;
-    width: 50%;
+    justify-content: center;
+    width: 75%;
     display: flex;
     font-size: 13px;
-    gap: 5%;
 }
-.maq_inp_temp input{
+.maq-inp-temp input{
     width: 35%;
 }
-.maq_inp_temp img{
-    width: 15px;
-    height: 15px;
+.maq-inp-temp .div-pen{
+    height: 100%;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    background-color: #4f4f5280;
+    border-radius: 0 5px 5px 0;
+}
+.div-pen img{
+    width: 15px;
 }
 .temps-interval{
     display: flex;
@@ -184,7 +214,7 @@
     display: flex;
     align-items: center;
     gap: 1%;
-    border-bottom: #1D1E2C 2px solid;
+    border: #1D1E2C 1px solid;
     padding: 1%;
 }
 .func-info img{
@@ -194,11 +224,38 @@
 .update-interval{
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    background-color: #4f4f52b1;
+    padding: 13px;
+    width: 25%;
+    font-size: 10px;
+}
+.update-interval:nth-child(1){
+    border-radius: 5px 0 0 5px;
 }
 .update-interval input{
-    width: 100%;
+    width: 85%;
+    border: none;
+    border-bottom: 1px solid #1D1E2C;
+    background-color: #1d1e2c00;
+    color: #fff;
+    outline: none;
 }
-.update-interval button{
-    width: 100%;
+.div-btns{
+    height: 100%;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 15%;
+    background-color: #4f4f5280;
+    border-radius: 0 5px 5px 0;
+    
+}
+.maq-inp-temp button{
+    cursor: pointer;
+    border: none;
+    background-color: #1d1e2c00;
+
 }
