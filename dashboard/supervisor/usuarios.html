@@ -36,14 +36,30 @@
             </div>
             <section class="section-principal">
                 <div id="div_principal_topo">
-                    <img id="id_logo" src="../src/img/imagensPaineis/logo.png" alt="logo_termoTech" />
-                    <span class="page-title" style="margin-right: 25%;">Funcionários</span>
-          
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" class="logos-topo" style="color: white;"><g id="galaAdd0" fill="none" stroke="currentColor" stroke-dasharray="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" stroke-opacity="1" stroke-width="16"><circle id="galaAdd1" cx="128" cy="128" r="112"/><path id="galaAdd2" d="M 79.999992,128 H 176.0001"/><path id="galaAdd3" d="m 128.00004,79.99995 v 96.0001"/></g></svg>
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 30%;">
+                        <img id="id_logo" src="../src/img/imagensPaineis/logo.png" alt="logo_termoTech" />
 
-                    <a href="" class="logos-topo"><img src="../src/img/imagensPaineis/Notification.png" alt="vetorNotificacao" width="40" height="40" style="margin-bottom: -3px;"></a>
-          
-                  </div>
+                        <span class="page-title" style="margin-right: 25%;">Funcionários</span>
+
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 15%;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256"
+                            class="logos-topo" style="color: white; cursor: pointer;" onclick="abrirAddFunc()">
+                            <g id="galaAdd0" fill="none" stroke="currentColor" stroke-dasharray="none"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" stroke-opacity="1"
+                                stroke-width="16">
+                                <circle id="galaAdd1" cx="128" cy="128" r="112" />
+                                <path id="galaAdd2" d="M 79.999992,128 H 176.0001" />
+                                <path id="galaAdd3" d="m 128.00004,79.99995 v 96.0001" />
+                            </g>
+                        </svg>
+
+
+                        <a href="" class="logos-topo"><img src="../src/img/imagensPaineis/Notification.png"
+                                alt="vetorNotificacao" width="40" height="40" style="margin-bottom: -3px;"></a>
+
+                    </div>
+                </div>
                 <div id="div_principal_central">
 
                     <table>
@@ -56,6 +72,9 @@
                                     Email
                                 </th>
                                 <th>
+                                    Responsável
+                                </th>
+                                <th>
                                     Editar
                                 </th>
                                 <th>
@@ -63,35 +82,8 @@
                                 </th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    Caramico Herreira
-                                </td>
-                                <td>
-                                    caramico.herreira@premium.funcionaria
-                                </td>
-                                <td>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M7 7H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-1"/><path d="M20.385 6.585a2.1 2.1 0 0 0-2.97-2.97L9 12v3h3l8.385-8.415zM16 5l3 3"/></g></svg>
-                                </td>
-                                <td>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19 4h-3.5l-1-1h-5l-1 1H5v2h14M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6v12Z"/></svg>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Caramico Herreira
-                                </td>
-                                <td>
-                                    caramico.herreira@premium.funcionaria
-                                </td>
-                                <td>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M7 7H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-1"/><path d="M20.385 6.585a2.1 2.1 0 0 0-2.97-2.97L9 12v3h3l8.385-8.415zM16 5l3 3"/></g></svg>
-                                </td>
-                                <td>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19 4h-3.5l-1-1h-5l-1 1H5v2h14M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6v12Z"/></svg>
-                                </td>
-                            </tr>
+                        <tbody id="exibir">
+                            
                         </tbody>
                     </table>
 
@@ -109,44 +101,101 @@
                                 <input type="checkbox" name="" id="chk_gerente" class="chk_cores">
                                 <label for="chk_gerente">Gerente</label>
                             </div>
-
                         </div> -->
-                    <div id="inputs_dados" style="display: none;">
-                        <div class="inputs_style">
-                            <label for="nome_do_usuario" class="inputs_label">Nome:</label>
-                            <input type="text" id="input_nome" class="inputs_campos">
-                        </div>
-                        <div class="inputs_style">
-                            <label for="nome_email" class="inputs_label">Email:</label>
-                            <input type="text" id="input_email" class="inputs_campos">
-                        </div>
-                        <div class="inputs_style">
-                            <label for="nome_senha" class="inputs_label">Senha:</label>
-                            <input type="password" id="input_senha" class="inputs_campos">
-                        </div>
-                        <div class="inputs_style">
-                            <label for="nome_repetir_senha" class="inputs_label">Repetir Senha:</label>
-                            <input type="password" id="input_repetir_senha" class="inputs_campos">
-                        </div>
-                        <div class="inputs_style">
-                            <label for="Maquina_usuario" class="inputs_label">Responsável pela máquina:</label>
-                            <select name="maquinas" class="select_maquinas">
-                                <option value="1">Maquina 1</option>
-                                <option value="2">Maquina 2</option>
-                                <option value="3">Maquina 3</option>
-                                <option value="4">Maquina 4</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- <button onclick="CriarUsuario()" id="button_criar_usuario">Criar Usuário</button> -->
                 </div>
         </div>
     </div>
-    </div>
-    </section>
-    </div>
-    </div>
-</body>
+  </section>
+</div>
 
+<!-- pop-up para add funcionário -->
+
+<div id="popop_add_func" style="display: none; background-color: #0000004d; backdrop-filter: blur(2px); position: fixed; width: 100%; height: 100%; justify-content: center; align-items: center;">
+    <div id="inputs_dados">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" style="position: absolute; left: 70%; cursor: pointer;" width="32" height="32" viewBox="0 0 32 32" onclick="fecharAddFunc()"><path fill="currentColor" d="M16 2C8.2 2 2 8.2 2 16s6.2 14 14 14s14-6.2 14-14S23.8 2 16 2zm0 26C9.4 28 4 22.6 4 16S9.4 4 16 4s12 5.4 12 12s-5.4 12-12 12z"/><path fill="currentColor" d="M21.4 23L16 17.6L10.6 23L9 21.4l5.4-5.4L9 10.6L10.6 9l5.4 5.4L21.4 9l1.6 1.6l-5.4 5.4l5.4 5.4z"/></svg>
+
+        <h3 style="color: black; font-size: 30px;">Adicionar Funcionários</h3>
+        <div class="inputs_style">
+            <label for="nome_do_usuario" class="inputs_label">Nome:</label>
+            <input type="text" id="input_nome" class="inputs_campos">
+        </div>
+        <div class="inputs_style">
+            <label for="nome_email" class="inputs_label">Email:</label>
+            <input type="text" id="input_email" class="inputs_campos">
+        </div>
+        <div class="inputs_style">
+            <label for="nome_senha" class="inputs_label">Senha:</label>
+            <input type="password" id="input_senha" class="inputs_campos">
+        </div>
+        <div class="inputs_style">
+            <label for="input_repetir_senha" class="inputs_label">Repetir Senha:</label>
+            <input type="password" onchange="mensagemDeErro()" id="input_repetir_senha" class="inputs_campos">
+        </div>
+
+        <div id="erro" class="inputs_style" style="display: none; height: 5px;">    
+            <p style="color: red;">
+                Senha incorreta!
+            </p>
+        </div>
+
+        <div class="inputs_style">
+            <label for="Maquina_usuario" class="inputs_label">Responsável pela máquina:</label>
+            
+            <div style="display: flex; justify-content: center;">
+                <input type="checkbox" id="chk_maquina1" value="Maquina 1">
+                <label for="chk_maquina1">Maquina 1</label>
+            </div>
+
+            <div style="display: flex; justify-content: center;">
+                <input type="checkbox" id="chk_maquina2" value="Maquina 2">
+                <label for="chk_maquina1">Maquina 2</label>
+            </div>
+
+            <div style="display: flex; justify-content: center;">
+                <input type="checkbox" id="chk_maquina3" value="Maquina 3">
+                <label for="chk_maquina1">Maquina 3</label>
+            </div>
+
+            <div style="display: flex; justify-content: center;">
+                <input type="checkbox" id="chk_maquina4" value="Maquina 4">
+                <label for="chk_maquina1">Maquina 4</label>
+            </div>
+        </div>
+
+        <button onclick="criarUsuario()" id="button_criar_usuario">Criar Usuário</button>
+    </div>
+</div>
+
+</body>
 </html>
+
 <script src="../src/js/faleConosco.js"></script>
+<script src="../src/js/funcionarios.js"></script>
+<script>
+    function abrirAddFunc(){
+        popop_add_func.style.display = "flex";
+        input_nome.value = ``;
+        input_email.value = ``;
+        input_senha.value = ``;
+        input_repetir_senha.value = ``;
+
+        //capturar valores do check
+        if(chk_maquina1.checked){ 
+            chk_maquina1.checked = false;  
+
+        }  if(chk_maquina2.checked){ 
+            chk_maquina2.checked = false;
+
+        }  if(chk_maquina3.checked){ 
+            chk_maquina3.checked = false;
+
+        }  if(chk_maquina4.checked){
+            chk_maquina4.checked = false;
+
+        }
+    }
+    function fecharAddFunc(){
+        popop_add_func.style.display = "none";
+    }
+</script>
