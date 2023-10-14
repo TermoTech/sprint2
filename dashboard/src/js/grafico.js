@@ -23,20 +23,6 @@ function geraDados() {
     ultimaHoraApresentada = new Date(time);
     updateChart(dadosMatriz, dadosAnelResfriamento, dadosReator, dadosUmidade, horaComoString);
     updateProgress(dadosMatriz, dadosAnelResfriamento, dadosReator, dadosUmidade);
-
-    if (hist.children.length >= 4) {
-        hist.removeChild(hist.lastElementChild);
-    }
-
-    hist.innerHTML = `
-        <div>
-            Temperatura (Matriz): ${dadosMatriz}°C Hora: ${horaComoString}<br>
-            Temperatura (Anel de resfriamento): ${dadosAnelResfriamento}°C Hora: ${horaComoString}<br>
-            Temperatura (Reator): ${dadosReator}°C Hora: ${horaComoString}<br>
-            Temperatura (Umidade): ${dadosUmidade}% Hora: ${horaComoString}<br>
-            <br>
-        </div>
-    ` + hist.innerHTML;
 }
 
 function updateProgress(dMatriz, dAnelResfriamento, dReator, dUmidade){
@@ -115,3 +101,128 @@ function updateChart(dMatriz, dAnelResfriamento, dReator, dUmidade, t) {
     }
 }
 setInterval(geraDados, 2000);
+
+//Gerando dados do segundo gráfico
+
+var temperaturasMatriz2 = [];
+var temperaturasAnelResfriamento2 = [];
+var temperaturasReator2 = [];
+var temperaturasUmidade2 = [];
+var tempo2 = [];
+var chart2;
+var ultimaHoraApresentada2 = new Date();
+var indexChart2 = 0;
+
+function geraDados2() {
+    var dadosMatriz2 = Math.floor(Math.random() * (300 - 150) + 150);
+    var dadosAnelResfriamento2 = Math.floor(Math.random() * (80 - 20)+ 20);
+    var dadosReator2 = Math.floor(Math.random() * (300 - 100) + 100);
+    var dadosUmidade2 = Math.floor(Math.random() * (100 - 20) + 20);
+    var time2 = new Date(ultimaHoraApresentada2);
+    if (indexChart2 >= 1) {
+        time2.setMinutes(time2.getMinutes() + 15);
+    }
+    var horaComoString2 = time2.getHours() + ':' + time2.getMinutes();
+
+    indexChart2++;
+
+    ultimaHoraApresentada2 = new Date(time2);
+    updateChart2(dadosMatriz2, dadosAnelResfriamento2, dadosReator2, dadosUmidade2, horaComoString2);
+    updateProgress2(dadosMatriz2, dadosAnelResfriamento2, dadosReator2, dadosUmidade2);
+}
+
+function updateProgress2(dMatriz2, dAnelResfriamento2, dReator2, dUmidade2){
+    progress_reator2.value = dReator2;
+    progress_matriz2.value = dMatriz2;
+    progress_anel2.value = dAnelResfriamento2;
+    progress_umidade2.value = dUmidade2;
+    temp_reator2.innerHTML = dReator2;
+    temp_matriz2.innerHTML = dMatriz2;
+    temp_anel2.innerHTML = dAnelResfriamento2;
+    umidade_maq2.innerHTML = dUmidade2
+}
+
+function updateChart2(dMatriz2, dAnelResfriamento2, dReator2, dUmidade2, t2) {
+    //Gráficos
+    temperaturasMatriz2.push(dMatriz2);
+    temperaturasAnelResfriamento2.push(dAnelResfriamento2);
+    temperaturasReator2.push(dReator2);
+    temperaturasUmidade2.push(dUmidade2);
+    tempo2.push(t2);
+    //Ranges
+    
+
+    if (tempo2.length > 10) {
+        tempo2.shift();
+        temperaturasMatriz2.shift();
+        temperaturasAnelResfriamento2.shift();
+        temperaturasReator2.shift();
+        temperaturasUmidade2.shift();
+    }
+
+    if (!chart2) {
+        var ctx2 = document.getElementById('myChart2');
+        chart2 = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: tempo2,
+                datasets: [{
+                    label: 'Matriz',
+                    data: temperaturasMatriz2,
+                    borderWidth: 1,
+                    borderColor: 'red',
+                    
+                }, {
+                    label: 'Anel de Resfriamento',
+                    data: temperaturasAnelResfriamento2,
+                    borderWidth: 1,
+                    borderColor: 'blue'
+                }, {
+                    label: 'Núcleo',
+                    data: temperaturasReator2,
+                    borderWidth: 1,
+                    borderColor: 'green'
+                }, {
+                    label: 'Umidade',
+                    data: temperaturasUmidade2,
+                    borderWidth: 1,
+                    borderColor: 'orange'
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    } else {
+        chart2.data.labels = tempo;
+        chart2.data.datasets[0].data = temperaturasMatriz2;
+        chart2.data.datasets[1].data = temperaturasAnelResfriamento2;
+        chart2.data.datasets[2].data = temperaturasReator2;
+        chart2.data.datasets[3].data = temperaturasUmidade2;
+        chart2.update();
+    }
+}
+setInterval(geraDados2, 2000);
+
+
+
+
+var selectorMachine = document.getElementById('selector_machine');
+var grafico1 = document.getElementById('myChart');
+var grafico2 = document.getElementById('myChart2');
+
+selectorMachine.addEventListener('change', function() {
+  var valueSelectedMachine = selectorMachine.value;
+
+  if (valueSelectedMachine === 'maquina1') {
+    grafico1.style.display = 'block';
+    grafico2.style.display = 'none';
+  } else{
+    grafico1.style.display = 'none';
+    grafico2.style.display = 'block';
+  }
+});
