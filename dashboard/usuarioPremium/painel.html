@@ -70,74 +70,154 @@
           </div>
           
           <div class="chart" id="div_chart2">
-              <div class="div-maquinas-geral">
+            <div class="div-maquinas-geral">
 
-                <div class='div-maquinas-texto'>
-                  <span class="titulo-maquina">Maquina 1</span> <br> <br>
-                  Núcleo <br> <br>
-                  Matriz <br> <br>
-                  Anel de Resfriamento <br> <br>
-                  Ambiente da maquina
+              <div class="div-maquinas-geral-titulo">
+                <h1>Maquina 1</h1>
+              </div>
+
+              <div class="div-maquinas-geral-conteudo">
+
+                <div class="div-maquinas-geral-filho">
+                  <div class="div-maquinas-geral-neto">
+                    <h1>Nucleo</h1>
+                  </div>
+                  <div class="div-maquinas-geral-neto">
+                    <h1>Matriz</h1>
+                  </div>
+                  <div class="div-maquinas-geral-neto">
+                    <h1>Anel de Resfriamento</h1>
+                  </div>
+                  <div class="div-maquinas-geral-neto">
+                    <h1>Ambiente da Maquina</h1>
+                  </div>
                 </div>
 
-                <div class='div-maquinas-progress'>
-                  <br> <br>
-                  <progress id="progress_reator1" class="barra-progresso" value="0" max="300" min="10"></progress>
-                  <br>
-                  <progress id="progress_matriz1" class="barra-progresso" value="0" max="300" min="15"></progress>
-                  <br>
-                  <progress id="progress_anel1" class="barra-progresso" value="0" max="100" min="20"></progress>
-                  <br>
-                  <progress id="progress_umidade1" class="barra-progresso" value="0" max="100" min="10"></progress>
+                <div class="div-maquinas-geral-filho">
+
+                  <div class="div-maquinas-geral-neto">
+                    <progress id="progress_reator1" class="barra-progresso" value="0" max="300" min="10"></progress>
+                  </div>
+
+                  <div class="div-maquinas-geral-neto">
+                    <progress id="progress_matriz1" class="barra-progresso" value="0" max="300" min="15"></progress>
+                  </div>
+
+                  <div class="div-maquinas-geral-neto">
+                    <progress id="progress_anel1" class="barra-progresso" value="0" max="100" min="20"></progress>
+                  </div>
+
+                  <div class="div-maquinas-geral-neto">
+                    <progress id="progress_umidade1" class="barra-progresso" value="0" max="100" min="10"></progress>
+                  </div>
+
                 </div>
 
-                <div class='div-maquinas-texto'>
-                  <br>
-                  Temperatura atual <span id="temp_reator1">00</span>°C <br> <br>
-                  Temperatura atual <span id="temp_matriz1">00</span>°C <br> <br>
-                  Temperatura atual <span id="temp_anel1">00</span>°C <br> <br>
-                  Umidade atual <span id="umidade_maq1">00</span>% <br> <br>
+                <div class="div-maquinas-geral-filho">
+                  <div class="div-maquinas-geral-neto">
+                    <span>Temperatura atual </span>
+                    <span id="temp_reator1">00</span>°C
+                  </div>
+
+                  <div class="div-maquinas-geral-neto">
+                    <span>Temperatura atual </span>
+                    <span id="temp_matriz1">00</span>°C
+                  </div>
+
+                  <div class="div-maquinas-geral-neto">
+                    <span>Temperatura atual</span>
+                    <span id="temp_anel1">00</span>°C
+                  </div>
+
+                  <div class="div-maquinas-geral-neto">
+                    <span>Umidade atual</span>
+                    <span id="umidade_maq1">00</span>%
+                  </div>
+
                 </div>
               </div>
-              <!-- <div class="div-maquinas-geral">
-                <div class='div-maquinas-texto'>
-                  <span class="titulo-maquina">Maquina 2</span> <br> <br>
-                  Núcleo <br> <br>
-                  Matriz <br> <br>
-                  Anel de Resfriamento <br> <br>
-                  Ambiente da maquina
+            </div>
+
+            <!-- <div class="div-maquinas-geral">
+
+              <div class="div-maquinas-geral-titulo">
+                <h1>Maquina 2</h1>
+              </div>
+
+              <div class="div-maquinas-geral-conteudo">
+
+                <div class="div-maquinas-geral-filho">
+                  <div class="div-maquinas-geral-neto">
+                    <h1>Nucleo</h1>
+                  </div>
+                  <div class="div-maquinas-geral-neto">
+                    <h1>Matriz</h1>
+                  </div>
+                  <div class="div-maquinas-geral-neto">
+                    <h1>Anel de Resfriamento</h1>
+                  </div>
+                  <div class="div-maquinas-geral-neto">
+                    <h1>Ambiente da Maquina</h1>
+                  </div>
                 </div>
 
-                <div class='div-maquinas-progress'>
-                  <br> <br>
-                  <progress id="progress_reator2" class="barra-progresso" value="0" max="300" min="10"></progress>
-                  <br>
-                  <progress id="progress_matriz2" class="barra-progresso" value="0" max="300" min="15"></progress>
-                  <br>
-                  <progress id="progress_anel2" class="barra-progresso" value="0" max="100" min="20"></progress>
-                  <br>
-                  <progress id="progress_umidade2" class="barra-progresso" value="0" max="100" min="10"></progress>
+                <div class="div-maquinas-geral-filho">
+
+                  <div class="div-maquinas-geral-neto">
+                    <progress id="progress_reator2" class="barra-progresso" value="0" max="300" min="10"></progress>
+                  </div>
+
+                  <div class="div-maquinas-geral-neto">
+                    <progress id="progress_matriz2" class="barra-progresso" value="0" max="300" min="15"></progress>
+                  </div>
+
+                  <div class="div-maquinas-geral-neto">
+                    <progress id="progress_anel2" class="barra-progresso" value="0" max="100" min="20"></progress>
+                  </div>
+
+                  <div class="div-maquinas-geral-neto">
+                    <progress id="progress_umidade2" class="barra-progresso" value="0" max="100" min="10"></progress>
+                  </div>
+
                 </div>
 
-                <div class='div-maquinas-texto'>
-                  <br>
-                  Temperatura atual <span id="temp_reator2">00</span>°C <br> <br>
-                  Temperatura atual <span id="temp_matriz2">00</span>°C <br> <br>
-                  Temperatura atual <span id="temp_anel2">00</span>°C <br> <br>
-                  Umidade atual <span id="umidade_maq2">00</span>% <br> <br>
+                <div class="div-maquinas-geral-filho">
+                  <div class="div-maquinas-geral-neto">
+                    <span>Temperatura atual </span>
+                    <span id="temp_reator2">00</span>°C
+                  </div>
+
+                  <div class="div-maquinas-geral-neto">
+                    <span>Temperatura atual </span>
+                    <span id="temp_matriz2">00</span>°C
+                  </div>
+
+                  <div class="div-maquinas-geral-neto">
+                    <span>Temperatura atual</span>
+                    <span id="temp_anel2">00</span>°C
+                  </div>
+
+                  <div class="div-maquinas-geral-neto">
+                    <span>Umidade atual</span>
+                    <span id="umidade_maq2">00</span>%
+                  </div>
+
                 </div>
-              </div> -->
+              </div>
+            </div> -->
           </div>
+
       </section>
     </div>
     <div id="fale_conosco"></div>
   </div>
-</body>
-
-</html>
 
 <script src="./JS/dashboard.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script src="../src/js/faleConosco.js"></script>
 <script src="../src/js/grafico.js"></script>
+
+</body>
+
+</html>
