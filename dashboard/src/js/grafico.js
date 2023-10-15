@@ -244,13 +244,15 @@ function verificaAlerta(tempM, tempA, tempR, umidade,hora, maquina){
 
         divAlerta.innerHTML += `
             <div class='container-alert'>
+            <div class="container-alert-border">
                 <h1>ATENÇÃO</h1>
-                <h2>Temperatura perto do limite.<br>Melhor ir verificar!!!</h2>
-                <h5>O problema esta na ${maquina}<br>
-                O registro ocorreu as ${hora}<br>
-                A parte do processo perto do limite é a da MATRIZ!!!<br>
-                Temperatura registrada ${tempM}
+                <h2>Temperatura perto <br> do limite.<br>Melhor ir verificar!!!</h2>
+                <h5>O problema esta na ${maquina}<br><br>
+                O registro ocorreu as ${hora}<br><br>
+                A parte do processo perto do limite<br> é a da MATRIZ!!!<br><br>
+                Temperatura registrada ${tempM}°C
                 </h5>
+                </div>
             </div>
         `;
     } else if (tempM == 300){
@@ -258,13 +260,15 @@ function verificaAlerta(tempM, tempA, tempR, umidade,hora, maquina){
 
         divAlerta.innerHTML += `
         <div class='container-alert'>
+        <div class="container-alert-border">
             <h1>PERIGO!!!</h1>
             <h2>Temperatura chegou ao limite.<br>Você deve ir verificar AGORA!!!</h2>
-            <h5>O problema esta na ${maquina}<br>
-            O registro ocorreu as ${hora}<br>
-            A parte no limite é a da MATRIZ!!!<br>
+            <h5>O problema esta na ${maquina}<br><br>
+            O registro ocorreu as ${hora}<br><br>
+            A parte no limite é a da MATRIZ!!!<br><br>
             Temperatura registrada ${tempM}°C
             </h5>
+            </div>
         </div>
     `;
     }
@@ -273,13 +277,15 @@ function verificaAlerta(tempM, tempA, tempR, umidade,hora, maquina){
 
         divAlerta.innerHTML += `
             <div class='container-alert'>
+            <div class="container-alert-border">
                 <h1>ATENÇÃO</h1>
-                <h2>Temperatura perto do limite.<br>Melhor ir verificar!!!</h2>
-                <h5>O problema esta na ${maquina}<br>
-                O registro ocorreu as ${hora}<br>
-                A parte do processo perto do limite é a do ANEL DE RESFRIAMENTO!!!<br>
+                <h2>Temperatura perto <br> do limite.<br>Melhor ir verificar!!!</h2>
+                <h5>O problema esta na ${maquina}<br><br>
+                O registro ocorreu as ${hora}<br><br>
+                A parte do processo perto do limite <br>é a do ANEL DE RESFRIAMENTO!!!<br><br>
                 Temperatura registrada ${tempA}°C
                 </h5>
+                </div>
             </div>
         `;
     } else if (tempA == 80){
@@ -287,13 +293,15 @@ function verificaAlerta(tempM, tempA, tempR, umidade,hora, maquina){
 
         divAlerta.innerHTML += `
         <div class='container-alert'>
+        <div class="container-alert-border">
             <h1>PERIGO!!!</h1>
-            <h2>Temperatura chegou ao limite.<br>Você deve ir verificar AGORA!!!</h2>
-            <h5>O problema esta na ${maquina}<br>
-            O registro ocorreu as ${hora}<br>
-            A parte no limite é a do ANEL DE RESFRIAMENTO!!!<br>
+            <h2>Temperatura chegou ao limite.<br>Você deve ir verificar AGORA!!!</h2><br>
+            <h5>O problema esta na ${maquina}<br><br>
+            O registro ocorreu as ${hora}<br><br>
+            A parte no limite é a do <br> ANEL DE RESFRIAMENTO!!!<br><br>
             Temperatura registrada ${tempA}°C
             </h5>
+            </div>
         </div>
     `;
     }
@@ -302,13 +310,15 @@ function verificaAlerta(tempM, tempA, tempR, umidade,hora, maquina){
 
         divAlerta.innerHTML += `
             <div class='container-alert'>
+            <div class="container-alert-border">
                 <h1>ATENÇÃO</h1>
-                <h2>Temperatura perto do limite.<br>Melhor ir verificar!!!</h2>
-                <h5>O problema esta na ${maquina}<br>
-                O registro ocorreu as ${hora}<br>
-                A parte do processo perto do limite é a do REATOR!!<br>
+                <h2>Temperatura perto <br> do limite.<br>Melhor ir verificar!!!</h2><br>
+                <h5>O problema esta na ${maquina}<br><br>
+                O registro ocorreu as ${hora}<br><br>
+                A parte do processo perto do limite <br> é a do REATOR!!<br><br>
                 Temperatura registrada ${tempR}°C
                 </h5>
+                </div>
             </div>
         `;
     } else if (tempR == 300){
@@ -316,13 +326,15 @@ function verificaAlerta(tempM, tempA, tempR, umidade,hora, maquina){
 
         divAlerta.innerHTML += `
         <div class='container-alert'>
+        <div class="container-alert-border">
             <h1>PERIGO!!!</h1>
-            <h2>Temperatura chegou ao limite.<br>Você deve ir verificar AGORA!!!</h2>
-            <h5>O problema esta na ${maquina}<br>
-            O registro ocorreu as ${hora}<br>
-            A parte no limite é a do REATOR!!!<br>
+            <h2>Temperatura chegou ao limite.<br>Você deve ir verificar AGORA!!!</h2><br>
+            <h5>O problema esta na ${maquina}<br><br>
+            O registro ocorreu as ${hora}<br><br>
+            A parte no limite é a do <br> REATOR!!!<br><br>
             Temperatura registrada ${tempR}°C
             </h5>
+            </div>
         </div>
     `;
     }
@@ -331,12 +343,14 @@ function verificaAlerta(tempM, tempA, tempR, umidade,hora, maquina){
 
         divAlerta.innerHTML += `
             <div class='container-alert'>
+            <div class="container-alert-border">
                 <h1>ATENÇÃO</h1>
-                <h2>Umidade perto do limite.<br>Melhor ir verificar!!!</h2>
-                <h5>O problema esta na ${maquina}<br>
-                O registro ocorreu as ${hora}<br>
+                <h2>Umidade perto <br> do limite.<br>Melhor ir verificar!!!</h2><br>
+                <h5>O problema esta na ${maquina}<br><br>
+                O registro ocorreu as ${hora}<br><br>
                 Umidade registrada ${umidade}%.
                 </h5>
+                </div>
             </div>
         `;
     } else if (umidade == 100){
@@ -344,12 +358,14 @@ function verificaAlerta(tempM, tempA, tempR, umidade,hora, maquina){
 
         divAlerta.innerHTML += `
         <div class='container-alert'>
+        <div class="container-alert-border">
             <h1>PERIGO!!!</h1>
             <h2>Temperatura chegou ao limite.<br>Você deve ir verificar AGORA!!!</h2>
             <h5>O problema esta na ${maquina}<br>
             O registro ocorreu as ${hora}<br>
             Umidade registrada ${umidade}%.
             </h5>
+            </div>
         </div>
     `;
     }
