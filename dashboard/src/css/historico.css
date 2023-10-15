@@ -14,7 +14,7 @@ body{
     width: 100%;
 }
 
-#div_conteiner {
+.div-conteiner {
     width: 90%;
     height: 90%;
     background-color: rgb(255, 255, 255, 0.3); /* Aqui eu crio o conteiner (Bloco central) */
@@ -25,7 +25,7 @@ body{
     justify-content: center;
 }
 
-#div_principal {
+.div-principal {
     height: 100%;
     width: 100%;
     display: flex;      /* Aqui eu defino como ficarão alinhadas as divisorias dentro do conteine*/
@@ -34,7 +34,7 @@ body{
 }
 
 
-#div_lateral {
+.div-lateral {
     height: 100%;
     width: 20%;
     display: flex;
@@ -44,9 +44,9 @@ body{
     background-color: grey;
 }
 
-#div_lateral h3 {
+.div-lateral h3 {
     font-size: 25px;
-    font-family: 'Montserrat', sans-serif; /* Aqui muda o titulo*/
+    font-family: 'Montserrat', sans-serif;
     font-weight: bolder;
 }
 .menu-lateral{
@@ -84,16 +84,16 @@ body{
     align-items: center;
 }
 
-.menu-lateral ul #id_usuario {
+.menu-lateral ul .usuario {
     margin-top: 50%; /*Da o espaçamento entre os vetores*/
 }
 
-#div_lateral .menu-lateral ul li a:hover {
+.div-lateral .menu-lateral ul li a:hover {
     border-radius: 5px; /*Cria o efeito ao passar o mouse em cima*/ 
     background-color: lightgray; 
 }
 
-#id_logo{
+.logo{
     width: 120px;
     height: auto;   /*Tamanho do logo*/
 }
@@ -104,26 +104,29 @@ body{
 .section-principal {
     height: 100%;
     width: 100%;
-    display: flex; /*Aqui eu configuro como ficará a sessão que contera os dois graficos*/
+    display: flex; 
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
 
-#div_principal_central {
+.div-principal-central {
+    box-sizing: border-box;
     width: 90%;
     height: 80%;
-    display: flex;  /*Aqui define como as duas div de graficos ficarão separadas*/
+    display: flex;  
     justify-content: center;
     align-items: center;
-    background-color: #d9d9d985;
+    background-color: rgb(255, 255, 255, 0.3);
     flex-direction: column;
-    margin-bottom: 3%;
-    border-radius: 10px;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    margin-right: 3%;
+    border-radius: 5px;
 }
 
-#div_principal_topo {
+.div-principal-topo {
     display: flex;
     align-items: center;
     width: 100%;
@@ -131,12 +134,11 @@ body{
     margin-top: 2%;
 }
 .page-title {
-    margin-right: 0%; /*Configurações do titulo baseadas no Figma*/
-    font-size: 54px;
     font-family: 'Montserrat', sans-serif;
     color: white;
     width: 35%;
     font-size: 54px;
+    font-weight: 500;
 }
 .vetor-contato-a{
     margin-left: 30%;
@@ -144,15 +146,20 @@ body{
 .vetor-notificacao-a{
     margin-left: 2%;
 }
-#vetor_contato {
-    width: 20px;
+
+.vetor-contato {
+    width: 30px;
+    margin-left: 30%;
+    cursor: pointer;
 }
 
-#vetor_notificacao {
-   width: 30px;
+.vetor-notificacao {
+   width: 35px;
+   margin-left: 5%;
+   cursor: pointer;
 }
 
-#id_logo{
+.logo{
     margin-left: 5%;
     margin-right: 2%;
     width: 120px;
@@ -177,22 +184,15 @@ body{
     display: flex;
 }
 
-.div-tabela{
-    width: 100%;
-    height: 80%;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-}
 
 .title-tabela{
     font-size: 20px;
     margin-right: 70%;
     margin-left: 1%;
-
+    
 }
 
-#button_filtrar{
+.button-filtrar{
     width: 10%;
     height: 40%;
     border-radius: 5px;
@@ -201,11 +201,30 @@ body{
     transition: all 0.2s ease-in-out;
 }
 
-#button_filtrar:hover{
+.button-filtrar:hover{
     background-color: gray;
-    width: 11%;
-    height: 41%;
+    width: 10%;
+    height: 40%;
     font-size: 15px;
 
 }
+
+.icon-ampulheta{
+    width: 15px;
+}
+
+.div-tabela{
+    margin-bottom: 20px;
+    width: 90%;
+    height: 330px;
+    overflow-y: auto;
+}
+
+table{
+    width: 100%;
+}
+
+
+
+
 

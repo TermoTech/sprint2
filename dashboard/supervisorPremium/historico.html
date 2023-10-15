@@ -7,52 +7,132 @@
     <title>TermoTech</title>
     <link rel="stylesheet" href="../src/css/reset.css">
     <link rel="stylesheet" href="../src/css/historico.css">
+    <link rel="stylesheet" href="../src/css/faleConosco.css">
+    <link rel="stylesheet" href="../src/css/filtrarHistorico.css">
 </head>
 
 <body>
-    <div id="div_conteiner">
-        <div id="div_principal">
-            <div id="div_lateral">
+    <div class="div-conteiner">
+        <div class="div-principal">
+            <div class="div-lateral">
                 <h3>Bem vindo(a),</h3>
                 <div class="menu-lateral">
                     <ul>
-                        <li><a href="dashboard.html"><img src="../src/img/imagensPaineis/Vetor Painel.png"
+                        <li><a href="./dashboard.html"><img src="../src/img/imagensPaineis/Vetor Painel.png"
                                     alt="vetorPainel">Painel</a>
                         </li>
                         <li><a href=""><img src="../src/img/imagensPaineis/Calendar.png" alt="vetorCalendario">
                                 Histórico</a></li>
-                        <li><a href=""><img src="../src/img/imagensPaineis/Vetor Maquinas.png"
+                        <li><a href="./maquinas.html"><img src="../src/img/imagensPaineis/Vetor Maquinas.png"
                                     alt="vetorMaquinas">Máquinas</a></li>
-                        <li> <a href=""><img src="../src/img/imagensPaineis/Vetor ajustes.png"
+                        <li> <a href="./ajustes.html"><img src="../src/img/imagensPaineis/Vetor ajustes.png"
                                     alt="vetorAjustes">Ajustes</a></li>
                         <li><a href=""><img src="../src/img/imagensPaineis/Vetor Usuarios.png"
                                     alt="vetorUsuario">Usuários</a></li>
 
-                        <li id="id_usuario"><a href=""><img src="../src/img/imagensPaineis/Home.png"
+                        <li class="usuario"><a href="./usuarios.html"><img src="../src/img/imagensPaineis/Home.png"
                                     alt="vetorHome">Home</a></li>
-                        <li><a href=""><img src="../src/img/imagensPaineis/log-out.png" alt="vetorLogOut">Sair</a></li>
+                        <li><a href="../../Site Institucional/src/html/login.html"><img
+                                    src="../src/img/imagensPaineis/log-out.png" alt="vetorLogOut">Sair</a></li>
                     </ul>
                 </div>
             </div>
             <section class="section-principal">
-                <div id="div_principal_topo">
-                    <img id="id_logo" src="../src/img/imagensPaineis/logo.png" alt="logo_termoTech">
+                <div class="div-principal-topo">
+                    <img class="logo" src="../src/img/imagensPaineis/logo.png" alt="logo_termoTech">
                     <h3 class="page-title">Histórico</h3>
-                    <a href=""><img src="../src/img/imagensPaineis/Notification.png" alt="vetorNotificacao"></a>
+                    <img class="vetor-contato" onclick="abrirPopUp()"
+                        src=".././src/img/imagensPaineis/vetor contato.png">
+                    <img class="vetor-notificacao" src="../src/img/imagensPaineis/Notification.png">
                 </div>
-                <div id="div_principal_central">
-                   <div class="topo-tabela"><img class="icon-ampulheta" src="../src/img/ampulheta.svg" alt="ampulhetaPNG">
-                    <h3 class="title-tabela">Histórico</h3>
-                    <button onclick="Filtrar()" id="button_filtrar">Filtrar</button>
-                </div>
-                   <div class="div-tabela"></div>
+                <div class="div-principal-central">
+                    <div class="topo-tabela"><img class="icon-ampulheta" src="../src/img/ampulheta.svg"
+                            alt="ampulhetaPNG">
+                        <h3 class="title-tabela">Histórico</h3>
+                        <button class="button-filtrar" onclick="abrirPopUpFtr()">Filtrar</button>
+                    </div>
+
+                    <div class="div-tabela">
+                        <table>
+                            <tr>
+                                <th>
+                                    Data
+                                </th>
+                                <th>
+                                    Hora
+                                </th>
+                                <th>
+                                    Parte do Processo
+                                </th>
+                                <th>
+                                    Temperatura
+                                </th>
+                                <th>
+                                    Máquina
+                                </th>
+                            </tr>
+                            <tbody id="tabela_historico"></tbody>
+                        </table>
+                    </div>
 
                 </div>
         </div>
         </section>
     </div>
     </div>
+
+    <!-- div filtrar -->
+    <div id="pop_up_ftr" style="display: none;">
+        <div class="div-fora-ftr">
+            <div class="div-pop-up-ftr">
+                <div class="header-ftr"><u>Filtrar histórico</u> <img onclick="fecharPopUpFtr()" class="quit-ftr"
+                        src="../src/img/quitFC.png"></div>
+
+                    <span class="titulos-ftr">Intervalo de dias</span>
+
+                <div class="selects-intervalo"> 
+                    De: <select id="select_de_dia">
+                        <option value="dia">Dia</option>
+                    </select> <select id="select_de_mes">
+                        <option value="mês">Mês</option>
+                    </select> <select id="select_de_ano">
+                        <option value="2023">2023</option>
+                    </select>
+                </div>
+                    <p id="erro" class="mensagem-erro-pop-up"></p>
+
+                <div class="selects-intervalo2"> 
+                    Até: <select id="select_ate_dia">
+                        <option value="dia">Dia</option>
+                    </select> <select id="select_ate_mes">
+                        <option value="mês">Mês</option>
+                    </select> <select id="select_ate_ano">
+                        <option value="2023">2023</option>
+                    </select>
+                </div>
+
+
+                <span class="titulos-ftr">Intervalo de tempo</span>
+                    <div class="intervalo-tempo">De: <input type="time" id="ipt_intervalo_de"></div>
+                    <p id="erro_nome" class="mensagem-erro-pop-up"></p>
+
+                    <div class="intervalo-tempo2">Até: <input type="time" id="ipt_intervalo_ate"></div>
+                    <p id="erro_nome" class="mensagem-erro-pop-up"></p>
+                    
+                    <span class="titulos-ftr">Intervalo entre as capturas</span>
+                    <div class="intervalo-captura"><input type="time" id="ipt_intervalo_capturas"></div>
+
+                    <div class="div-botao"> <button class="botao-filtrar" id="botao_filtrar" onclick="mostrarHistorico(), fecharPopUpFtr()" disabled>
+                        Filtrar
+                    </button> </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Div para o fale conosco -->
+    <div id="fale_conosco"></div>
 </body>
 
 </html>
 <script src="../src/js/faleConosco.js"></script>
+<script src="../src/js/historico.js"></script>

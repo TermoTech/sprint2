@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+/* font-family: 'Montserrat', sans-serif; */
+
+.div-fora-ftr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0%;
+    left: 0%;
+    backdrop-filter: blur(2px);
+}
+
+.div-pop-up-ftr {
+    width: 45vh;
+    background-image: url(../img/background.PNG);
+    color: white;
+    border-radius: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header-ftr {
+    margin-left: 10%;
+    margin-bottom: 20px;
+    margin-top: 25px;
+    display: flex;
+    align-items: baseline;
+    gap: 38%;
+}
+
+.quit-ftr {
+    width: 9%;
+    cursor: pointer;
+}
+
+.titulos-ftr {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.selects-intervalo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    gap: 7%;
+    align-items: baseline;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.selects-intervalo2 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    gap: 6.5%;
+    align-items: baseline;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.intervalo-tempo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    gap: 7%;
+    align-items: baseline;
+}
+
+.intervalo-tempo2 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    gap: 5%;
+    align-items: baseline;
+}
+
+.intervalo-captura {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.botao-filtrar {
+    margin-left: 30%;
+    margin-bottom: 30px;
+    width: 40%;
+    height: 30px;
+    border-radius: 10px;
+    color: white;
+    background-color: black;
+    border-color: white;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
