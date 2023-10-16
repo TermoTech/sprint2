@@ -82,71 +82,87 @@ while (ateMes <= 12) {
 }
 
 botao_filtrar.addEventListener("mouseover", function () {
-    if(select_ate_dia.value!=`dia` && 
-    select_de_dia.value!=`dia` &&
-    ipt_intervalo_de.value!=`` &&
-    ipt_intervalo_ate.value!=`` &&
-    ipt_intervalo_capturas.value!=``) {
+    if (select_ate_dia.value != `dia` &&
+        select_de_dia.value != `dia` &&
+        ipt_intervalo_de.value != `` &&
+        ipt_intervalo_ate.value != `` &&
+        ipt_intervalo_capturas.value != ``) {
         botao_filtrar.disabled = false;
     } else {
         botao_filtrar.disabled = true;
     }
 });
 
+
+
 function mostrarHistorico() {
     tabela_historico.innerHTML = ``;
 
-    tabela_historico.innerHTML += `
+    var tempMin = Math.random() * (100 - 80) + 80;
+    tempMin = tempMin.toFixed(2);
+
+    var tempMax = Math.random() * (300 - 260) + 260;
+    tempMax = tempMax.toFixed(2);
+
+    var umidMax = Math.random() * (100 - 61) + 61;
+    umidMax = umidMax.toFixed(2);
+
+    var parteProcesso = [`Matriz`, `Reator`, `Anel de resfriamento`];
+    var temperatura = [tempMin, tempMax];
+    var umidade = [umidMax];
+    var maquina = ["1", "2"];
+
+    var indiceTemp = Math.floor(Math.random() * temperatura.length);
+    var indiceParte = Math.floor(Math.random() * parteProcesso.length);
+    var indiceMaquina = Math.floor(Math.random() * maquina.length);
+
+    var diaInicial = Number(select_de_dia.value);
+    var diaFinal = Number(select_ate_dia.value);
+    var mesInicial = Number(select_de_mes.value);
+    var mesFinal = Number(select_ate_mes.value);
+    var diaAtual = diaInicial;
+    var mesAtual = mesInicial;
+
+    while (mesAtual <= mesFinal) {
+        tabela_historico.innerHTML += `
     <tr>
         <th>
-        24/10/2023
+        ${diaAtual}/${mesAtual}/2023
         </th>
         <th>
         09:00
         </th>
         <th>
-        Matriz
+        ${parteProcesso[indiceParte]}
         </th>
         <th>
-        265
+        ${temperatura[indiceTemp]}
         </th>
         <th>
-        1
-        </th>
-    </tr>
-    <tr>
-        <th>
-        24/10/2023
+        ${umidade[0]}%
         </th>
         <th>
-        09:10
-        </th>
-        <th>
-        Matriz
-        </th>
-        <th>
-        262
-        </th>
-        <th>
-        1
-        </th>
-    </tr>
-    <tr>
-        <th>
-        24/10/2023
-        </th>
-        <th>
-        09:20
-        </th>
-        <th>
-        Matriz
-        </th>
-        <th>
-        261
-        </th>
-        <th>
-        1
+        ${maquina[indiceMaquina]}
         </th>
     </tr>
     `;
+
+        if ((mesAtual == 1|| mesAtual == 3|| mesAtual == 5|| mesAtual == 7|| mesAtual == 8|| mesAtual == 10|| mesAtual == 12) && diaAtual == 31) {
+            diaAtual = 1;
+            mesAtual++;
+        } else if (mesAtual == 2 && diaAtual == 28) {
+            diaAtual = 1
+            mesAtual++;
+        } else if ((mesAtual == 4 || mesAtual == 6 || mesAtual == 9 || mesAtual == 11) && diaAtual == 30) {
+            diaAtual = 1
+            mesAtual++;
+        } else {
+            diaAtual++;
+        }
+
+        if (mesAtual == mesFinal && diaAtual>diaFinal) {
+            break;
+        }
+    }
+
 }
