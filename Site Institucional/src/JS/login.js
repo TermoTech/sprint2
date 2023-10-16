@@ -15,7 +15,7 @@ function fazerLogin(){
         window.location = "../../../dashboard/supervisorPremium/dashboard.html"; 
     
     } if(users.indexOf(user) >= 0 && senha == senhas[3]){
-        window.location = "../../../dashboard/supervisor/dashboard.html"; 
+        window.location = "../../../dashboard/supervisorPremium/dashboard.html"; 
     
     } else{
          mensagem_erro.style.display = "flex";
