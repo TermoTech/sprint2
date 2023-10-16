@@ -347,23 +347,23 @@ img:hover{
     border: 2px solid #FFF;
     background: #000;
 }
-@keyframes scroll {
-    0% {
-        transform: translateX(10%);
-    }
-    
-    50% {
-        transform: translateX(-75%);
-    }
-    
-    100% {
-        transform: translateX(10%);
-    }
-}
 .cards {
     display: flex;
-    gap: 120px;
-    animation: scroll 120s infinite linear; 
+    gap: 240px;
+    animation: slider 20s infinite linear; 
+}
+@keyframes slider {
+
+    0% { margin-left: 0px;}
+
+    30% { margin-left: 0px;}
+
+    33% { margin-left: -115%;}
+
+    63% { margin-left: -115%;}
+
+    100% { margin-left: 0px;}
+
 }
 
 .valores-titulo{

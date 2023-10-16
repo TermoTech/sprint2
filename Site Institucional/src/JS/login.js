@@ -9,10 +9,10 @@ function fazerLogin(){
             window.location = "../../../dashboard/supervisor/dashboard.html"; 
         
     } if(users.indexOf(user) >= 0 && senha == senhas[1]){
-        window.location = "../../../dashboard/supervisor/dashboard.html"; 
+        window.location = "../../../dashboard/supervisorPremium/dashboard.html"; 
     
     } if(users.indexOf(user) >= 0 && senha == senhas[2]){
-        window.location = "../../../dashboard/supervisor/dashboard.html"; 
+        window.location = "../../../dashboard/supervisorPremium/dashboard.html"; 
     
     } if(users.indexOf(user) >= 0 && senha == senhas[3]){
         window.location = "../../../dashboard/supervisor/dashboard.html"; 
