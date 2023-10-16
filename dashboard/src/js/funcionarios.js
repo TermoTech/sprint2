@@ -1,7 +1,7 @@
-let nomes = [];
-let emails = [];
-let senhas = [];
-let ListaMaquinas = []
+var nomes = [];
+var emails = [];
+var senhas = [];
+var ListaMaquinas = []
 
 function criarUsuario(){
     exibir.innerHTML = ``;
@@ -49,7 +49,7 @@ function criarUsuario(){
             ${ListaMaquinas[idt]}
             </td>
             <td>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" onclick="abrirAtualFunc()">
                     <g fill="none" stroke="currentColor" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2">
                         <path d="M7 7H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-1" />

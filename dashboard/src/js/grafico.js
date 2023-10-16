@@ -8,6 +8,7 @@ var ultimaHoraApresentada = new Date();
 var indexChart = 0;
 
 function geraDados() {
+    var nomeMaquina = 'Maquina 1';
     var dadosMatriz = Math.floor(Math.random() * (300 - 150) + 150);
     var dadosAnelResfriamento = Math.floor(Math.random() * (80 - 20)+ 20);
     var dadosReator = Math.floor(Math.random() * (300 - 100) + 100);
@@ -23,6 +24,7 @@ function geraDados() {
     ultimaHoraApresentada = new Date(time);
     updateChart(dadosMatriz, dadosAnelResfriamento, dadosReator, dadosUmidade, horaComoString);
     updateProgress(dadosMatriz, dadosAnelResfriamento, dadosReator, dadosUmidade);
+    verificaAlerta(dadosMatriz, dadosAnelResfriamento, dadosReator, dadosUmidade, horaComoString, nomeMaquina)
 }
 
 function updateProgress(dMatriz, dAnelResfriamento, dReator, dUmidade){
@@ -114,6 +116,8 @@ var ultimaHoraApresentada2 = new Date();
 var indexChart2 = 0;
 
 function geraDados2() {
+    var nomeMaquina = 'Maquina 2';
+
     var dadosMatriz2 = Math.floor(Math.random() * (300 - 150) + 150);
     var dadosAnelResfriamento2 = Math.floor(Math.random() * (80 - 20)+ 20);
     var dadosReator2 = Math.floor(Math.random() * (300 - 100) + 100);
@@ -129,6 +133,8 @@ function geraDados2() {
     ultimaHoraApresentada2 = new Date(time2);
     updateChart2(dadosMatriz2, dadosAnelResfriamento2, dadosReator2, dadosUmidade2, horaComoString2);
     updateProgress2(dadosMatriz2, dadosAnelResfriamento2, dadosReator2, dadosUmidade2);
+    verificaAlerta(dadosMatriz2, dadosAnelResfriamento2, dadosReator2, dadosUmidade2, horaComoString2, nomeMaquina)
+
 }
 
 function updateProgress2(dMatriz2, dAnelResfriamento2, dReator2, dUmidade2){
@@ -226,3 +232,147 @@ selectorMachine.addEventListener('change', function() {
     grafico2.style.display = 'block';
   }
 });
+
+
+//Logica alerta
+
+function verificaAlerta(tempM, tempA, tempR, umidade,hora, maquina){
+    const divAlerta = document.getElementById('div_alerta');
+
+    if(tempM < 300 && tempM >= 290){
+        divAlerta.style.display = 'block'
+
+        divAlerta.innerHTML += `
+            <div class='container-alert'>
+            <div class="container-alert-border">
+                <h1>ATENÇÃO</h1>
+                <h2>Temperatura perto <br> do limite.<br>Melhor ir verificar!!!</h2>
+                <h5>O problema esta na ${maquina}<br><br>
+                O registro ocorreu as ${hora}<br><br>
+                A parte do processo perto do limite<br> é a da MATRIZ!!!<br><br>
+                Temperatura registrada ${tempM}°C
+                </h5>
+                </div>
+            </div>
+        `;
+    } else if (tempM == 300){
+        divAlerta.style.display += 'block'
+
+        divAlerta.innerHTML += `
+        <div class='container-alert'>
+        <div class="container-alert-border">
+            <h1>PERIGO!!!</h1>
+            <h2>Temperatura chegou ao limite.<br>Você deve ir verificar AGORA!!!</h2>
+            <h5>O problema esta na ${maquina}<br><br>
+            O registro ocorreu as ${hora}<br><br>
+            A parte no limite é a da MATRIZ!!!<br><br>
+            Temperatura registrada ${tempM}°C
+            </h5>
+            </div>
+        </div>
+    `;
+    }
+    if(tempA < 80 && tempA >= 70){
+        divAlerta.style.display += 'block'
+
+        divAlerta.innerHTML += `
+            <div class='container-alert'>
+            <div class="container-alert-border">
+                <h1>ATENÇÃO</h1>
+                <h2>Temperatura perto <br> do limite.<br>Melhor ir verificar!!!</h2>
+                <h5>O problema esta na ${maquina}<br><br>
+                O registro ocorreu as ${hora}<br><br>
+                A parte do processo perto do limite <br>é a do ANEL DE RESFRIAMENTO!!!<br><br>
+                Temperatura registrada ${tempA}°C
+                </h5>
+                </div>
+            </div>
+        `;
+    } else if (tempA == 80){
+        divAlerta.style.display = 'block'
+
+        divAlerta.innerHTML += `
+        <div class='container-alert'>
+        <div class="container-alert-border">
+            <h1>PERIGO!!!</h1>
+            <h2>Temperatura chegou ao limite.<br>Você deve ir verificar AGORA!!!</h2><br>
+            <h5>O problema esta na ${maquina}<br><br>
+            O registro ocorreu as ${hora}<br><br>
+            A parte no limite é a do <br> ANEL DE RESFRIAMENTO!!!<br><br>
+            Temperatura registrada ${tempA}°C
+            </h5>
+            </div>
+        </div>
+    `;
+    }
+    if(tempR < 300 && tempR >= 290){
+        divAlerta.style.display = 'block'
+
+        divAlerta.innerHTML += `
+            <div class='container-alert'>
+            <div class="container-alert-border">
+                <h1>ATENÇÃO</h1>
+                <h2>Temperatura perto <br> do limite.<br>Melhor ir verificar!!!</h2><br>
+                <h5>O problema esta na ${maquina}<br><br>
+                O registro ocorreu as ${hora}<br><br>
+                A parte do processo perto do limite <br> é a do REATOR!!<br><br>
+                Temperatura registrada ${tempR}°C
+                </h5>
+                </div>
+            </div>
+        `;
+    } else if (tempR == 300){
+        divAlerta.style.display = 'block'
+
+        divAlerta.innerHTML += `
+        <div class='container-alert'>
+        <div class="container-alert-border">
+            <h1>PERIGO!!!</h1>
+            <h2>Temperatura chegou ao limite.<br>Você deve ir verificar AGORA!!!</h2><br>
+            <h5>O problema esta na ${maquina}<br><br>
+            O registro ocorreu as ${hora}<br><br>
+            A parte no limite é a do <br> REATOR!!!<br><br>
+            Temperatura registrada ${tempR}°C
+            </h5>
+            </div>
+        </div>
+    `;
+    }
+    if(umidade < 100 && umidade >= 90){
+        divAlerta.style.display += 'block'
+
+        divAlerta.innerHTML += `
+            <div class='container-alert'>
+            <div class="container-alert-border">
+                <h1>ATENÇÃO</h1>
+                <h2>Umidade perto <br> do limite.<br>Melhor ir verificar!!!</h2><br>
+                <h5>O problema esta na ${maquina}<br><br>
+                O registro ocorreu as ${hora}<br><br>
+                Umidade registrada ${umidade}%.
+                </h5>
+                </div>
+            </div>
+        `;
+    } else if (umidade == 100){
+        divAlerta.style.display = 'block'
+
+        divAlerta.innerHTML += `
+        <div class='container-alert'>
+        <div class="container-alert-border">
+            <h1>PERIGO!!!</h1>
+            <h2>Temperatura chegou ao limite.<br>Você deve ir verificar AGORA!!!</h2>
+            <h5>O problema esta na ${maquina}<br>
+            O registro ocorreu as ${hora}<br>
+            Umidade registrada ${umidade}%.
+            </h5>
+            </div>
+        </div>
+    `;
+    }
+    var btnClose = document.getElementById('btn_close').addEventListener('click', () => {
+        divAlerta.style.display = 'none';
+        divAlerta.innerHTML =`
+        <button id="btn_close" class="btn-close-alert">FECHAR</button>
+        `
+    })
+}
