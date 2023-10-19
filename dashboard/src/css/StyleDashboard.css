@@ -17,9 +17,14 @@
 .chart {
     background-color: rgba(255, 255, 255, 0.767);
     width: 50%;     /*Aqui é a classe que estiliza as divs dos graficos*/
-    border-radius: 5px;    
     padding: 5px;
     height: 90%;
+}
+.chart:nth-child(1){
+    border-radius: 5px 0 0 5px;
+}
+.chart:nth-child(2){
+    border-radius: 0 5px 5px 0;
 }
 
 .select_maquinas {
@@ -129,3 +134,13 @@ progress::-webkit-progress-bar {
     background-color: #1D1E2C; /* cor da trilha da barra de rolagem */
 }
 
+.menu-lateral ul li {
+    padding: 2px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 10%;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    width: 99%;
+}
