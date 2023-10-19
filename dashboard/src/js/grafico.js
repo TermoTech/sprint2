@@ -272,6 +272,10 @@ function verificaAlerta(tempM, tempA, tempR, umidade, hora, maquina) {
   const divAlerta = document.getElementById("div_alerta");
 
   if (tempM < 300 && tempM >= 290) {
+    // swal é o mesmo que o alert, mas com uma estilização
+    // para usar é do mesmo jeito, chama a tag swal e informa o que quer exibir
+    // alguns parametros diferentes:
+    // swal("Titulo" , "texto/paragrafo", "icone")
     swal(
       "Oops",
       `A temperatura da ${maquina} esta  em ${tempM}°C
@@ -289,6 +293,7 @@ function verificaAlerta(tempM, tempA, tempR, umidade, hora, maquina) {
     );
   }
   if (tempA < 80 && tempA >= 70) {
+    // swal("Titulo" , "texto/paragrafo", "icone")
     swal(
         "Oops",
         `A temperatura da ${maquina} esta  em ${tempA}°C
@@ -297,6 +302,7 @@ function verificaAlerta(tempM, tempA, tempR, umidade, hora, maquina) {
         "info"
       );
   } else if (tempA == 80) {
+    // swal("Titulo" , "texto/paragrafo", "icone")
     swal(
         "Oops",
         `A temperatura da ${maquina} esta  em ${tempA}°C
@@ -306,6 +312,7 @@ function verificaAlerta(tempM, tempA, tempR, umidade, hora, maquina) {
       );
   }
   if (tempR < 300 && tempR >= 290) {
+    // swal("Titulo" , "texto/paragrafo", "icone")
     swal(
       "Oops",
       `A temperatura da ${maquina} esta  em ${tempR}°C
@@ -314,6 +321,7 @@ function verificaAlerta(tempM, tempA, tempR, umidade, hora, maquina) {
       "info"
     );
   } else if (tempR == 300) {
+    // swal("Titulo" , "texto/paragrafo", "icone")
     swal(
         "Oops",
         `A temperatura da ${maquina} esta  em ${tempM}°C
@@ -323,6 +331,7 @@ function verificaAlerta(tempM, tempA, tempR, umidade, hora, maquina) {
       );
   }
   if (umidade < 100 && umidade >= 90) {
+    // swal("Titulo" , "texto/paragrafo", "icone")
     swal(
         "Oops",
         `A Umidade da sala esta  em ${umidade}%
@@ -331,6 +340,7 @@ function verificaAlerta(tempM, tempA, tempR, umidade, hora, maquina) {
         "info"
       );
   } else if (umidade == 100) {
+    // swal("Titulo" , "texto/paragrafo", "icone")
     swal(
         "Oops",
         `A Umidade da sala esta  em ${umidade}%
