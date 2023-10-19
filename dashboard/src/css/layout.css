@@ -39,7 +39,7 @@ body{
     width: 20%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly; /* Aqui cria a lacuna lateral em cinza */
+    justify-content: center; /* Aqui cria a lacuna lateral em cinza */
     align-items: center;
     background-color: grey;
 }
@@ -48,17 +48,29 @@ body{
     font-size: 25px;
     font-family: 'Montserrat', sans-serif; /* Aqui muda o titulo*/
     font-weight: bolder;
+    width: 90%;
+    margin-bottom: 5%;
 }
 .menu-lateral{
     width: 100%;
+    height: 60%;
 }
 .menu-lateral ul {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
     list-style-type: none; /* Aqui tira a marcação de tópico */
     padding: 0;
+    height: 110%;
+}
+
+.sair-logout{
+    height: 10%;
+    width: 100%;
+}
+
+.menu-principal{
+    width: 90%;
 }
 
 .menu-lateral ul li {
@@ -68,24 +80,31 @@ body{
     margin-top: 10%;
     font-size: 20px; /* Aqui define os tamanhos da lista*/
     font-family: 'Montserrat', sans-serif;
-    width: 80%;
+    width: 100%;
 }
 
-.menu-lateral ul li img {
-    width: 20%; /*Aqui define os tamanhos da img*/
+.menu-lateral ul .sair-logout li img {
+    width: 30px; /*Aqui define os tamanhos da img*/
     margin-right: 8%;
 }
+
+.menu-lateral ul .menu-principal li img {
+    width: 30px; /*Aqui define os tamanhos da img*/
+    margin-right: 8%;
+}
+
 .menu-lateral a {
     text-decoration: none; /* Aqui tira os efeitos visuais da ancora*/
     color: black;
     display: flex;
     padding: 2px;
-    width: 80%;
+    width: 90%;
     align-items: center;
+    padding: 5px;
 }
 
 .menu-lateral ul #id_usuario {
-    margin-top: 50%; /*Da o espaçamento entre os vetores*/
+    margin-top: 60%; /*Da o espaçamento entre os vetores*/
 }
 
 #div_lateral .menu-lateral ul li a:hover {
