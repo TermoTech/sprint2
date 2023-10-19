@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TermoTech</title>
   <link rel="stylesheet" href="../src/css/reset.css" />
+  <link rel="stylesheet" href="../src/css/layout.css" />
   <link rel="stylesheet" href="../src/css/StyleDashboard.css">
   <link rel="stylesheet" href="../src/css/faleConosco.css">
   <link rel="stylesheet" href="../src/css/popupAlert.css">
-  <link rel="stylesheet" href="../src/css/layout.css" />
 </head>
 
 <body>
@@ -19,32 +19,31 @@
         <h3>Bem vindo(a), Caramico</h3>
         <div class="menu-lateral">
           <ul>
-            <div class="menu-principal">
-              <li>
-                <a href="dashboard.html">
-                  <img src="../src/img/imagensPaineis/Vetor Painel.png" alt="vetorPainel" />Painel
-                </a>
+          <div class="menu-principal">
+            <li>
+              <a href="dashboard.html">
+                <img src="../src/img/imagensPaineis/Vetor Painel.png" alt="vetorPainel" />Painel
+              </a>
 
-              </li>
-              <li>
-                <a href="historico.html"><img src="../src/img/imagensPaineis/Calendar.png" alt="vetorCalendario" />
-                  Histórico</a>
-              </li>
-              <li>
-                <a href="maquinas.html"><img src="../src/img/imagensPaineis/Vetor Maquinas.png"
-                    alt="vetorMaquinas" />Máquinas</a>
-              </li>
-              <li>
-                <a href="usuarios.html"><img src="../src/img/imagensPaineis/Vetor usuarios.png"
-                    alt="vetorUsuario" />Usuários</a>
-              </li>
-            </div>
-            <div class="sair-logout">
-              <li>
-                <a href="../../Site Institucional/src/html/login.html"><img src="../src/img/imagensPaineis/log-out.png"
-                    alt="vetorLogOut" />Sair</a>
-              </li>
-            </div>
+            </li>
+            <li>
+              <a href="historico.html"><img src="../src/img/imagensPaineis/Calendar.png" alt="vetorCalendario" />
+                Histórico</a>
+            </li>
+            <li>
+              <a href="maquinas.html"><img src="../src/img/imagensPaineis/Vetor Maquinas.png"
+                  alt="vetorMaquinas" />Máquinas</a>
+            </li>
+            <li>
+              <a href="usuarios.html"><img src="../src/img/imagensPaineis/Vetor usuarios.png"
+                  alt="vetorUsuario" />Usuários</a>
+            </li>
+          </div>
+          <div class="sair-logout">
+            <li>
+              <a href="../../Site Institucional/src/html/login.html"><img src="../src/img/imagensPaineis/log-out.png" alt="vetorLogOut" />Sair</a>
+            </li>
+          </div>
           </ul>
         </div>
       </div>
@@ -98,9 +97,9 @@
                   <div class="div-maquinas-geral-neto">
                     <h1>Anel de Resfriamento</h1>
                   </div>
-                  <div class="div-maquinas-geral-neto">
+                  <!-- <div class="div-maquinas-geral-neto">
                     <h1>Ambiente da Maquina</h1>
-                  </div>
+                  </div> -->
                 </div>
 
                 <div class="div-maquinas-geral-filho">
@@ -117,9 +116,9 @@
                     <progress id="progress_anel1" class="barra-progresso" value="0" max="100" min="20"></progress>
                   </div>
 
-                  <div class="div-maquinas-geral-neto">
+                  <!-- <div class="div-maquinas-geral-neto">
                     <progress id="progress_umidade1" class="barra-progresso" value="0" max="100" min="10"></progress>
-                  </div>
+                  </div> -->
 
                 </div>
 
@@ -139,10 +138,10 @@
                     <span id="temp_anel1">00</span>°C
                   </div>
 
-                  <div class="div-maquinas-geral-neto">
+                  <!-- <div class="div-maquinas-geral-neto">
                     <span>Umidade atual</span>
                     <span id="umidade_maq1">00</span>%
-                  </div>
+                  </div> -->
 
                 </div>
               </div>
@@ -166,9 +165,9 @@
                   <div class="div-maquinas-geral-neto">
                     <h1>Anel de Resfriamento</h1>
                   </div>
-                  <div class="div-maquinas-geral-neto">
+                  <!-- <div class="div-maquinas-geral-neto">
                     <h1>Ambiente da Maquina</h1>
-                  </div>
+                  </div> -->
                 </div>
 
                 <div class="div-maquinas-geral-filho">
@@ -185,9 +184,9 @@
                     <progress id="progress_anel2" class="barra-progresso" value="0" max="100" min="20"></progress>
                   </div>
 
-                  <div class="div-maquinas-geral-neto">
+                  <!-- <div class="div-maquinas-geral-neto">
                     <progress id="progress_umidade2" class="barra-progresso" value="0" max="100" min="10"></progress>
-                  </div>
+                  </div> -->
 
                 </div>
 
@@ -207,10 +206,10 @@
                     <span id="temp_anel2">00</span>°C
                   </div>
 
-                  <div class="div-maquinas-geral-neto">
+                  <!-- <div class="div-maquinas-geral-neto">
                     <span>Umidade atual</span>
                     <span id="umidade_maq2">00</span>%
-                  </div>
+                  </div> -->
 
                 </div>
               </div>
@@ -228,19 +227,12 @@
 
   <script src="./JS/dashboard.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+  
   <script src="../src/js/faleConosco.js"></script>
-  <script src="../src/js/grafico.js"></script>
+  <script src="../src/js/graficoBasic.js"></script>
 
-  <!-- API para alertas personalizados -->
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <!-- Para usar o alerta, basta usar o comando swal
-  Exemplo de uso:
-  swal ( "Oops" ,  "A temperatura da maquina esta  muito quente" ,  "info" )
-  chama o alerta ( Informa o titulo da mensagem, o texto da mensagem, e o icone da mensagem)
-
--->
 
 </body>
 
 </html>
+

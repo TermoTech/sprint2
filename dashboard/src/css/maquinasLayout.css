@@ -74,6 +74,20 @@
     overflow-x: hidden;
 }
 
+#div_principal_central::-webkit-scrollbar {
+    width: 8px;
+    height: 4px; /* largura da barra de rolagem */
+}
+
+#div_principal_central::-webkit-scrollbar-thumb {
+    background-color: white; /* cor do polegar da barra de rolagem */
+    border-radius: 6px; /* borda arredondada do polegar */
+}
+
+#div_principal_central::-webkit-scrollbar-track {
+    background-color: #1D1E2C; /* cor da trilha da barra de rolagem */
+}
+
 .funcionamento-maquinas {
     width: 100%;
     height: 100%;
@@ -127,6 +141,7 @@
     padding: 5px;
     border: 1px solid rgba(255, 255, 255, 0.539);
     border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.767);
 
 }
 
@@ -155,6 +170,7 @@
     border-collapse: separate;
     border-spacing: 2px;
     height: 100%;
+    width: 100%;
 }
 .info-temp-table tr td,th{
     border: 1px solid #1D1E2C;
@@ -167,9 +183,12 @@
 .maq-inp-temp {
     align-items: center;
     justify-content: center;
-    width: 75%;
+    margin-right: 2.5%;
+    width: 65%;
     display: flex;
     font-size: 13px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.539);
 }
 .maq-inp-temp input{
     width: 35%;
@@ -181,7 +200,7 @@
     align-items: center;
     justify-content: center;
     width: 15%;
-    background-color: #4f4f5280;
+    border: solid 1px #4f4f5280;
     border-radius: 0 5px 5px 0;
 }
 .div-pen img{
@@ -224,7 +243,7 @@
 .update-interval{
     display: flex;
     flex-direction: column;
-    background-color: #4f4f52b1;
+    background-color: rgba(255, 255, 255, 0.767);
     padding: 13px;
     width: 25%;
     font-size: 10px;
@@ -233,11 +252,11 @@
     border-radius: 5px 0 0 5px;
 }
 .update-interval input{
-    width: 85%;
+    width: 100%;
     border: none;
     border-bottom: 1px solid #1D1E2C;
     background-color: #1d1e2c00;
-    color: #fff;
+    color: #000;
     outline: none;
 }
 .div-btns{
