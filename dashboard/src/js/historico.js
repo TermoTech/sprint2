@@ -73,6 +73,7 @@ select_ate_mes.addEventListener("change", function () {
     }
 });
 
+// Aqui carrego o select de mês
 var ateMes = 1;
 while (ateMes <= 12) {
     select_ate_mes.innerHTML += `
@@ -81,41 +82,10 @@ while (ateMes <= 12) {
     ateMes++;
 }
 
-botao_filtrar.addEventListener("mouseover", function () {
-    if (select_ate_dia.value != `dia` &&
-        select_de_dia.value != `dia` &&
-        ipt_intervalo_de.value != `` &&
-        ipt_intervalo_ate.value != `` &&
-        ipt_intervalo_capturas.value != ``) {
-        botao_filtrar.disabled = false;
-    } else {
-        botao_filtrar.disabled = true;
-    }
-});
-
-
-
+// Aqui crio a função para exibir o histórico filtrado e também faço as validações de preenchimento
 function mostrarHistorico() {
     tabela_historico.innerHTML = ``;
-
-    var tempMin = Math.random() * (100 - 80) + 80;
-    tempMin = tempMin.toFixed(2);
-
-    var tempMax = Math.random() * (300 - 260) + 260;
-    tempMax = tempMax.toFixed(2);
-
-    var umidMax = Math.random() * (100 - 61) + 61;
-    umidMax = umidMax.toFixed(2);
-
-    var parteProcesso = [`Matriz`, `Reator`, `Anel de resfriamento`];
-    var temperatura = [tempMin, tempMax];
-    var umidade = [umidMax];
-    var maquina = ["1", "2"];
-
-    var indiceTemp = Math.floor(Math.random() * temperatura.length);
-    var indiceParte = Math.floor(Math.random() * parteProcesso.length);
-    var indiceMaquina = Math.floor(Math.random() * maquina.length);
-
+    
     var diaInicial = Number(select_de_dia.value);
     var diaFinal = Number(select_ate_dia.value);
     var mesInicial = Number(select_de_mes.value);
@@ -123,14 +93,74 @@ function mostrarHistorico() {
     var diaAtual = diaInicial;
     var mesAtual = mesInicial;
 
+    var maquinaSelecionada = Number(select_maquina.value);
+    var processoSelecionado = Number(select_processo.value);
+    
+    if (isNaN(diaInicial) ||
+        isNaN(diaFinal)
+        ) {
+        erro_filtrar.style.display = "flex";
+    } else if (diaInicial>diaFinal && mesFinal<=mesInicial || (mesFinal<mesInicial)) {
+        erro_filtrar.style.display = "flex";
+    }
+     else {
+        erro_filtrar.style.display = "none";
     while (mesAtual <= mesFinal) {
+        var quantidadeRegistrosDia = Math.floor(Math.random() * (4));
+        var contadorRegistros = 1;
+        while (contadorRegistros<=quantidadeRegistrosDia) {
+            var tempMin = Math.random() * (100 - 80) + 80;
+            tempMin = tempMin.toFixed(2);
+        
+            var tempMax = Math.random() * (300 - 260) + 260;
+            tempMax = tempMax.toFixed(2);
+        
+            var umidMax = Math.random() * (100 - 61) + 61;
+            umidMax = umidMax.toFixed(2);
+
+            var hora = Math.floor(Math.random() * (24));
+            var minutos = Math.floor(Math.random() * (60));
+
+            if (hora<10) {
+                hora = "0" + hora;
+            }
+            if (minutos<10) {
+                minutos = "0" + minutos;
+            }
+            
+            var temperatura = [tempMin, tempMax];
+            var umidade = [umidMax];
+            
+            if (processoSelecionado==0) {
+            var parteProcesso = [`Matriz`, `Reator`, `Anel de resfriamento`];
+            } else if (processoSelecionado==1) {
+                var parteProcesso = ["Matriz"]
+            } else if (processoSelecionado==2) {
+                var parteProcesso = ["Reator"]
+            } else {
+                var parteProcesso = ["Anel de resfriamento"]
+            }
+            
+            if (maquinaSelecionada==0){
+            var maquina = ["1", "2"];
+            } else if (maquinaSelecionada==1){
+                var maquina = ["1"]
+            } else {
+                var maquina = ["2"]
+            }
+
+            
+            var indiceTemp = Math.floor(Math.random() * temperatura.length);
+            var indiceParte = Math.floor(Math.random() * parteProcesso.length);
+            var indiceMaquina = Math.floor(Math.random() * maquina.length);
+
         tabela_historico.innerHTML += `
     <tr>
         <th>
         ${diaAtual}/${mesAtual}/2023
         </th>
         <th>
-        09:00
+        ${hora}:${minutos}
         </th>
         <th>
         ${parteProcesso[indiceParte]}
@@ -146,6 +176,9 @@ function mostrarHistorico() {
         </th>
     </tr>
     `;
+
+        contadorRegistros++;
+        }
 
         if ((mesAtual == 1|| mesAtual == 3|| mesAtual == 5|| mesAtual == 7|| mesAtual == 8|| mesAtual == 10|| mesAtual == 12) && diaAtual == 31) {
             diaAtual = 1;
@@ -164,5 +197,6 @@ function mostrarHistorico() {
             break;
         }
     }
-
+    fecharPopUpFtr()
+}
 }

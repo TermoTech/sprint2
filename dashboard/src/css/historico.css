@@ -34,6 +34,43 @@ body{
 }
 
 
+.div-lateral {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; /* Aqui cria a lacuna lateral em cinza */
+    align-items: center;
+    background-color: grey;
+}
+
+.div-lateral h3 {
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+}
+.menu-lateral{
+    width: 100%;
+}
+.menu-lateral ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    list-style-type: none; /* Aqui tira a marcação de tópico */
+    padding: 0;
+}
+
+.menu-lateral ul li {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: 10%;
+    font-size: 20px; /* Aqui define os tamanhos da lista*/
+    font-family: 'Montserrat', sans-serif;
+    width: 80%;
+}
+
 .menu-lateral ul li img {
     width: 20%; /*Aqui define os tamanhos da img*/
     margin-right: 8%;
@@ -87,6 +124,7 @@ body{
     margin-left: 5%;
     margin-right: 3%;
     border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .div-principal-topo {
@@ -162,6 +200,7 @@ body{
     border: none;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .button-filtrar:hover{
@@ -169,7 +208,7 @@ body{
     width: 10%;
     height: 40%;
     font-size: 15px;
-
+    font-family: 'Montserrat', sans-serif;
 }
 
 .icon-ampulheta{

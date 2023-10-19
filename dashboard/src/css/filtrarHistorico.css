@@ -49,7 +49,11 @@
     margin-bottom: 15px;
     gap: 7%;
     align-items: baseline;
-    font-family: 'Montserrat', sans-serif;
+}
+
+.selects-intervalo .select-item {
+    text-align: center;
+    font-family: 'montserrat', sans-serif;
 }
 
 .selects-intervalo2 {
@@ -61,26 +65,34 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.intervalo-tempo {
+.selects-intervalo2 .select-item {
+    text-align: center;
+    font-family: 'montserrat', sans-serif;
+}
+
+.selects-maquina-processo {
     display: flex;
     justify-content: center;
     margin-bottom: 15px;
-    gap: 7%;
-    align-items: baseline;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.intervalo-tempo2 {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 15px;
-    gap: 5%;
-    align-items: baseline;
+.selects-maquina-processo .select-maquina {
+    text-align: center;
+    font-family: 'montserrat', sans-serif;
 }
 
-.intervalo-captura {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
+.selects-maquina-processo .select-processo {
+    text-align: center;
+    font-family: 'montserrat', sans-serif;
+}
+
+.erro-filtrar {
+    display: none;
+    text-align: center;
+    font-family: 'montserrat', sans-serif;
+    margin-bottom: 20px;
+    color: red;
 }
 
 .botao-filtrar {

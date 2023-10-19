@@ -25,12 +25,10 @@
                                 Histórico</a></li>
                         <li><a href="./maquinas.html"><img src="../src/img/imagensPaineis/Vetor Maquinas.png"
                                     alt="vetorMaquinas">Máquinas</a></li>
-                        <li> <a href="./ajustes.html"><img src="../src/img/imagensPaineis/Vetor ajustes.png"
-                                    alt="vetorAjustes">Ajustes</a></li>
-                        <li><a href=""><img src="../src/img/imagensPaineis/Vetor Usuarios.png"
+                        <li><a href="usuarios.html"><img src="../src/img/imagensPaineis/Vetor Usuarios.png"
                                     alt="vetorUsuario">Usuários</a></li>
 
-                        <li class="usuario"><a href="./usuarios.html"><img src="../src/img/imagensPaineis/Home.png"
+                        <li class="usuario"><a href="../../Site Institucional/index.html"><img src="../src/img/imagensPaineis/Home.png"
                                     alt="vetorHome">Home</a></li>
                         <li><a href="../../Site Institucional/src/html/login.html"><img
                                     src="../src/img/imagensPaineis/log-out.png" alt="vetorLogOut">Sair</a></li>
@@ -68,6 +66,9 @@
                                     Temperatura
                                 </th>
                                 <th>
+                                    Umidade
+                                </th>
+                                <th>
                                     Máquina
                                 </th>
                             </tr>
@@ -91,38 +92,54 @@
                     <span class="titulos-ftr">Intervalo de dias</span>
 
                 <div class="selects-intervalo"> 
-                    De: <select id="select_de_dia">
+                    De: <select class="select-item" id="select_de_dia">
                         <option value="dia">Dia</option>
-                    </select> <select id="select_de_mes">
+                    </select> 
+                    <select class="select-item" id="select_de_mes">
                         <option value="mês">Mês</option>
-                    </select> <select id="select_de_ano">
+                    </select> 
+                    <select class="select-item" id="select_de_ano">
                         <option value="2023">2023</option>
                     </select>
                 </div>
-                    <p id="erro" class="mensagem-erro-pop-up"></p>
+
 
                 <div class="selects-intervalo2"> 
-                    Até: <select id="select_ate_dia">
+                    Até: <select class="select-item" id="select_ate_dia">
                         <option value="dia">Dia</option>
-                    </select> <select id="select_ate_mes">
+                    </select> 
+                    <select class="select-item" id="select_ate_mes">
                         <option value="mês">Mês</option>
-                    </select> <select id="select_ate_ano">
+                    </select> 
+                    <select class="select-item" id="select_ate_ano">
                         <option value="2023">2023</option>
                     </select>
                 </div>
 
+                <span class="titulos-ftr">Selecione a máquina</span>
 
-                <span class="titulos-ftr">Intervalo de tempo</span>
-                    <div class="intervalo-tempo">De: <input type="time" id="ipt_intervalo_de"></div>
-                    <p id="erro_nome" class="mensagem-erro-pop-up"></p>
+                <div class="selects-maquina-processo">
+                    <select class="select-maquina" id="select_maquina">
+                        <option value="0">Todas</option>
+                        <option value="1">Máquina 1</option>
+                        <option value="2">Máquina 2</option>
+                    </select>
+                </div>
 
-                    <div class="intervalo-tempo2">Até: <input type="time" id="ipt_intervalo_ate"></div>
-                    <p id="erro_nome" class="mensagem-erro-pop-up"></p>
-                    
-                    <span class="titulos-ftr">Intervalo entre as capturas</span>
-                    <div class="intervalo-captura"><input type="time" id="ipt_intervalo_capturas"></div>
+                <span class="titulos-ftr">Selecione a parte do processo</span>
 
-                    <div class="div-botao"> <button class="botao-filtrar" id="botao_filtrar" onclick="mostrarHistorico(), fecharPopUpFtr()" disabled>
+                <div class="selects-maquina-processo">
+                    <select class="select-processo" id="select_processo">
+                        <option value="0">Todas</option>
+                        <option value="1">Matriz</option>
+                        <option value="2">Reator</option>
+                        <option value="3">Anel de resfriamento</option>
+                    </select>
+                </div>
+
+                <p class="erro-filtrar" id="erro_filtrar">Preencha os campos corretamente para filtrar</p>
+
+                    <div class="div-botao"> <button class="botao-filtrar" id="botao_filtrar" onclick="mostrarHistorico()">
                         Filtrar
                     </button> </div>
             </div>
