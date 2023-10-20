@@ -277,7 +277,7 @@ function verificaAlerta(tempM, tempA, tempR, umidade, hora, maquina) {
     // alguns parametros diferentes:
     // swal("Titulo" , "texto/paragrafo", "icone")
     swal(
-      "Oops",
+      "Atenção",
       `A temperatura da ${maquina} esta  em ${tempM}°C
         Registro: ${hora}
         `,
@@ -285,7 +285,7 @@ function verificaAlerta(tempM, tempA, tempR, umidade, hora, maquina) {
     );
   } else if (tempM == 300) {
     swal(
-      "Oops",
+      "Atenção",
       `A temperatura da ${maquina} esta  em ${tempM}°C
         Registro: ${hora}
         `,
@@ -295,7 +295,7 @@ function verificaAlerta(tempM, tempA, tempR, umidade, hora, maquina) {
   if (tempA < 80 && tempA >= 70) {
     // swal("Titulo" , "texto/paragrafo", "icone")
     swal(
-        "Oops",
+        "Atenção",
         `A temperatura da ${maquina} esta  em ${tempA}°C
           Registro: ${hora}
           `,
@@ -304,7 +304,7 @@ function verificaAlerta(tempM, tempA, tempR, umidade, hora, maquina) {
   } else if (tempA == 80) {
     // swal("Titulo" , "texto/paragrafo", "icone")
     swal(
-        "Oops",
+        "Atenção",
         `A temperatura da ${maquina} esta  em ${tempA}°C
           Registro: ${hora}
           `,
@@ -314,7 +314,7 @@ function verificaAlerta(tempM, tempA, tempR, umidade, hora, maquina) {
   if (tempR < 300 && tempR >= 290) {
     // swal("Titulo" , "texto/paragrafo", "icone")
     swal(
-      "Oops",
+      "Atenção",
       `A temperatura da ${maquina} esta  em ${tempR}°C
         Registro: ${hora}
         `,
@@ -323,7 +323,7 @@ function verificaAlerta(tempM, tempA, tempR, umidade, hora, maquina) {
   } else if (tempR == 300) {
     // swal("Titulo" , "texto/paragrafo", "icone")
     swal(
-        "Oops",
+        "Atenção",
         `A temperatura da ${maquina} esta  em ${tempM}°C
           Registro: ${hora}
           `,
@@ -333,7 +333,7 @@ function verificaAlerta(tempM, tempA, tempR, umidade, hora, maquina) {
   if (umidade < 100 && umidade >= 90) {
     // swal("Titulo" , "texto/paragrafo", "icone")
     swal(
-        "Oops",
+        "Atenção",
         `A Umidade da sala esta  em ${umidade}%
           Registro: ${hora}
           `,
@@ -342,7 +342,7 @@ function verificaAlerta(tempM, tempA, tempR, umidade, hora, maquina) {
   } else if (umidade == 100) {
     // swal("Titulo" , "texto/paragrafo", "icone")
     swal(
-        "Oops",
+        "Atenção",
         `A Umidade da sala esta  em ${umidade}%
           Registro: ${hora}
           `,
