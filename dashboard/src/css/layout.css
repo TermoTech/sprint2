@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-/* font-family: 'Montserrat', sans-serif; */
-
 body{
     background-image: url(../img/imagensPaineis/Fundo.png);  /* Aqui eu defino como será o fundo */
     margin: 0;
@@ -13,8 +10,7 @@ body{
     height: 100vh;
     width: 100%;
 }
-
-#div_conteiner {
+.div-conteiner {
     width: 90%;
     height: 90%;
     background-color: rgb(255, 255, 255, 0.3); /* Aqui eu crio o conteiner (Bloco central) */
@@ -24,120 +20,100 @@ body{
     align-items: center;
     justify-content: center;
 }
-
-#div_principal {
+.div-principal {
     height: 100%;
     width: 100%;
     display: flex;      /* Aqui eu defino como ficarão alinhadas as divisorias dentro do conteine*/
     align-items: center;
     justify-content: center;
 }
-
-
-#div_lateral {
+.div-lateral {
     height: 100%;
     width: 20%;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Aqui cria a lacuna lateral em cinza */
+    justify-content: space-evenly; /* Aqui cria a lacuna lateral em cinza */
     align-items: center;
     background-color: grey;
-}
 
-#div_lateral h3 {
+}
+.div-lateral h3 {
     font-size: 25px;
     font-family: 'Montserrat', sans-serif; /* Aqui muda o titulo*/
     font-weight: bolder;
-    width: 90%;
-    margin-bottom: 5%;
+    text-align: center;
 }
-.menu-lateral{
-    width: 100%;
-    height: 60%;
+.div-lateral{
+    width: 20%;
 }
-.menu-lateral ul {
+.div-lateral ul {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     list-style-type: none; /* Aqui tira a marcação de tópico */
     padding: 0;
-    height: 110%;
-}
-
-.sair-logout{
-    height: 10%;
     width: 100%;
 }
-
-.menu-principal{
-    width: 90%;
-}
-
-.menu-lateral ul li {
+.div-lateral ul li {
+    margin-left: 2%;
     display: flex;
-    justify-content: start;
+    justify-content: left;
     align-items: center;
     margin-top: 10%;
     font-size: 20px; /* Aqui define os tamanhos da lista*/
     font-family: 'Montserrat', sans-serif;
-    width: 100%;
+    width: 80%;
 }
-
-.menu-lateral ul .sair-logout li img {
-    width: 30px; /*Aqui define os tamanhos da img*/
+.div-lateral ul li img {
+    width: 20%; /*Aqui define os tamanhos da img*/
     margin-right: 8%;
 }
 
-.menu-lateral ul .menu-principal li img {
-    width: 30px; /*Aqui define os tamanhos da img*/
-    margin-right: 8%;
-}
-
-.menu-lateral a {
+.div-lateral ul li a {
     text-decoration: none; /* Aqui tira os efeitos visuais da ancora*/
     color: black;
     display: flex;
     padding: 2px;
-    width: 90%;
+    width: 72%;
     align-items: center;
-    padding: 5px;
 }
-
-.menu-lateral ul #id_usuario {
-    margin-top: 60%; /*Da o espaçamento entre os vetores*/
+.div-lateral ul .sair {
+    margin-top: 50%; /*Da o espaçamento entre os vetores*/
 }
-
-#div_lateral .menu-lateral ul li a:hover {
+.div-lateral ul li:hover {
     border-radius: 5px; /*Cria o efeito ao passar o mouse em cima*/ 
     background-color: lightgray; 
 }
-
-#id_logo{
+.id-logo{
     width: 120px;
     height: auto;   /*Tamanho do logo*/
 }
-
-
 /* Aqui acaba o painel Central */
-
 .section-principal {
     height: 100%;
     width: 100%;
     display: flex; /*Aqui eu configuro como ficará a sessão que contera os dois graficos*/
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-
-
-#div_principal_central {
-    width: 100%;
+.div-principal-central {
+    box-sizing: border-box;
+    width: 90%;
     height: 80%;
-    display: flex;  /*Aqui define como as duas div de graficos ficarão separadas*/
+    display: flex;  
     justify-content: center;
     align-items: center;
-    gap: 2.5%;
+    background-color: rgb(255, 255, 255, 0.3);
+    flex-direction: column;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    margin-right: 3%;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
 }
-
-#div_principal_topo {
+.div-principal-topo {
     display: flex;
     align-items: center;
     width: 100%;
@@ -151,27 +127,29 @@ body{
     color: white;
     width: 35%;
     font-size: 54px;
-    font-weight: 500;
-}
-.vetor-contato-a{
-    margin-left: 30%;
-}
-.vetor-notificacao-a{
-    margin-left: 2%;
-}
-#vetor_contato {
-    width: 30px;
-    margin-left: 30%;
 }
 
-#vetor_notificacao {
-   width: 35px;
-   margin-left: 5%;
-}
-
-#id_logo{
+.id-logo{
     margin-left: 5%;
     margin-right: 2%;
     width: 120px;
     height: auto;   /*Tamanho do logo*/
+}
+
+.logos-topo{
+    width: 35px;
+    margin-left: 5%;
+}
+.vetor-contato-a{
+    margin-left: 20%;
+    margin-right: 5%;
+}
+.vetor-contato{
+    width: 35px;
+}
+.vetor-notificacao{
+    width: 40px;
+}
+.vetor-notificacao-a{
+    width: 40px;
 }

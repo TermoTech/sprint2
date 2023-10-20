@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-/* font-family: 'Montserrat', sans-serif; */
+
 
 body{
     background-image: url(../img/fundo.png);  /* Aqui eu defino como será o fundo */
@@ -131,44 +130,8 @@ body{
     height: 20%;
     margin-top: 2%;
 }
-.page-title {
-    margin-right: 0%; /*Configurações do titulo baseadas no Figma*/
-    font-size: 54px;
-    font-family: 'Montserrat', sans-serif;
-    color: white;
-    width: 35%;
-    font-size: 54px;
-}
-.vetor-contato-a{
-    margin-left: 30%;
-}
-.vetor-notificacao-a{
-    margin-left: 2%;
-}
-#vetor_contato {
-    width: 20px;
-}
+ 
 
-#vetor_notificacao {
-   width: 30px;
-}
-
-#id_logo{
-    margin-left: 5%;
-    margin-right: 2%;
-    width: 120px;
-    height: auto;   /*Tamanho do logo*/
-}
-
-.titulo_div_principal_central {
-    color: #000;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 600;
-    text-align: center;
-    margin: 0%;
-}
 
 .chk_input_usuarios {
     color: black;
