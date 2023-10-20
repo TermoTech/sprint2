@@ -266,6 +266,39 @@ selectorMachine.addEventListener("change", function () {
   }
 });
 
+const divAlerta = document.getElementById("div_alerta");
+
+function alerta() {
+  alert("Alerta!", "Temperatura em ");
+}
+
+function alertaSwal() {
+  swal("Atencao", "Temperatura atual XX", "info");
+}
+function alertaDiv() {
+
+  divAlerta.style.display = "block";
+
+  divAlerta.innerHTML += `
+        <div class='container-alert'
+            <h1>PERIGO!!!</h1>
+            <h2>Temperatura chegou ao limite.<br>Você deve ir verificar AGORA!!!</h2>
+            <h5>O problema esta na MaquinaXX<br><br>
+            O registro ocorreu as 00:00<br><br>
+            A parte no limite é a da MATRIZ!!!<br><br>
+            Temperatura registrada XX°C
+            </h5>
+        </div>
+    `;
+
+  var btnClose = document
+    .getElementById("btn_close")
+    .addEventListener("click", () => {
+      divAlerta.style.display = "none";
+      divAlerta.innerHTML = ``;
+    });
+}
+
 // //Logica alerta
 
 // // function verificaAlerta(tempM, tempA, tempR, umidade, hora, maquina) {
@@ -280,7 +313,7 @@ selectorMachine.addEventListener("change", function () {
 //       `A temperatura da ${maquina} esta  em ${tempM}°C
 //         Registro: ${hora}
 //         `,
-//       "info"  
+//       "info"
 //     );
 //   } else if (tempM == 300) {
 //     swal(
