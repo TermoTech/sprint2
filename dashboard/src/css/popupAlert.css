@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/* font-family: 'Montserrat', sans-serif; */
+
 #div_alerta{
     display: none;
     width: 100%;
@@ -26,15 +29,15 @@
 .container-alert h1{
     font-size: large;
     font-weight: bolder;
-    font-family: Montserrat;
+    font-family: 'Montserrat', sans-serif;
 }
 .container-alert h2{
-    font-family: Montserrat;
+    font-family: 'Montserrat', sans-serif;
     font-size: medium;
     font-weight: 800;
 }
 .container-alert h5{
-    font-family: Montserrat;
+    font-family: 'Montserrat', sans-serif;
     font-size: medium;
     font-weight: 800;
 }
