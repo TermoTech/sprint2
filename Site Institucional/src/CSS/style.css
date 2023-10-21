@@ -326,6 +326,7 @@ img:hover{
     width: 100%;    
     height: auto;
     display: flex;
+    overflow: hidden;
 }
 
 /* .div-tudo-valores::-webkit-scrollbar{
@@ -348,21 +349,25 @@ img:hover{
 }
 .cards {
     display: flex;
-    width: 100%;
-    justify-content: space-between;
-    /* animation: slider 20s infinite linear;  */
+    gap: 170px;
+    animation: slider 20s infinite linear;
+    /* padding: 0 70px; */
 }
 @keyframes slider {
 
     0% { margin-left: 0px;}
 
-    30% { margin-left: 0px;}
+    40% { margin-left: 0px;}
 
-    33% { margin-left: -115%;}
+    /* 40% { margin-left: -33%;}
 
-    63% { margin-left: -115%;}
+    50% { margin-left: -33%;} */
 
-    100% { margin-left: 0px;}
+    60% { margin-left: -115%;}
+    
+    80% { margin-left: -115%;}
+
+    100% { margin-left: 0%;}
 
 }
 

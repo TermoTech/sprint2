@@ -8,11 +8,12 @@
   <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="src/CSS/style.css">
   <link rel="shortcut icon" href="./src/imagens/logo.png" type="image/png" sizes="64x64">
+  <link rel="stylesheet" href="./src/CSS/faleConosco.css">
 </head>
 
 <body>
   <main class="conteudo-site">
-    <header class="cabecalho-home">
+    <header class="cabecalho-home" id="cabecalho-home">
       <div class="cabecalho-conteudo">
         <div class="logo-header"><img src="./src/imagens/logo.png" alt="logo" width="100px"></div>
         <div class="titulo-header">
@@ -86,6 +87,24 @@
           a
           integração IoT para monitoramento avançado, beneficiando clientes que almejam mudar a perspectiva.</p>
       </section>
+      <section class="template-valores">
+        <img src="./src/imagens/home/iconeSeguranca.png" class="icone-valores">
+        <h1 class="valores-titulo">Segurança</h1>
+        <p class="valores-paragrafo">As informações são armazenadas em banco de dados seguro feito pela própria
+          TermoTech, garantindo que a integridade da empresa e dos operadores seja mantida a qualquer custo.</p>
+      </section>
+      <section class="template-valores">
+        <img src="./src/imagens/home/iconeParceria.png" class="icone-valores">
+        <h1 class="valores-titulo">Parceria</h1>
+        <p class="valores-paragrafo">Valorizamos parcerias de longo prazo. Visamos entender as necessidades dos clientes
+          e fornecer soluções personalizadas de acordo com o seu padrão de negócio, oferecendo sempre mais.</p>
+      </section>
+      <section class="template-valores">
+        <img src="./src/imagens/home/iconeSustentavel.png" class="icone-valores">
+        <h1 class="valores-titulo">Sustentável</h1>
+        <p class="valores-paragrafo">Nosso compromisso com a responsabilidade ambiental nos guia na busca de práticas
+          sustentáveis e na redução de nosso impacto no meio ambiente.</p>
+      </section>
       </div>
     </div>
     <footer class="footer">
@@ -95,18 +114,20 @@
         <a href="mailto:termoTechContato@gmail.com">E-mail <img src="./src/imagens/home/iconeEmail.png"></a>
       </div>
       <div id="div_centro" class="div-footer-centro">
-        <a href="">Faça Login <img src="./src/imagens/home/iconeLogin.png"></a> <br>
+        <a href="./src/html/login.html" target="_blank">Faça Login <img src="./src/imagens/home/iconeLogin.png"></a> <br>
         <button onclick="abrirPopUp()">
           Fale Conosco <img src="./src/imagens/home/iconeFaleConosco.png">
         </button>
       </div>
       <div id="div_direita" class="div-footer-direita">
-        <img src="./src/imagens/home/iconeLogo.png" width="215px">
+        <a href="#cabecalho-home"><img src="./src/imagens/home/iconeLogo.png" width="215px"></a>
       </div>
     </footer>
+    <div id="fale_conosco"></div>
   </main>
 </body>
 
 </html>
 <script src="./src/JS/valores.js"></script>
 <script src="./src/JS/home.js"></script>
+<script src="./src/JS/faleConosco.js"></script>
