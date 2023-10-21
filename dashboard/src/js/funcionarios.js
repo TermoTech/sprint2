@@ -19,15 +19,16 @@ function criarUsuario(){
         var maquina2 = chk_maquina2.value;
         maquinas += `<br>${maquina2}`;
 
-    }  if(chk_maquina3.checked){ 
-        var maquina3 = chk_maquina3.value;
-        maquinas += `<br>${maquina3}`;
+    }  
+    // if(chk_maquina3.checked){ 
+    //     var maquina3 = chk_maquina3.value;
+    //     maquinas += `<br>${maquina3}`;
 
-    }  if(chk_maquina4.checked){
-        var maquina4 = chk_maquina4.value;
-        maquinas += `<br>${maquina4}`;
+    // }  if(chk_maquina4.checked){
+    //     var maquina4 = chk_maquina4.value;
+    //     maquinas += `<br>${maquina4}`;
 
-    }
+    // }
 
     nomes.push(nomeFunc);
     emails.push(email);

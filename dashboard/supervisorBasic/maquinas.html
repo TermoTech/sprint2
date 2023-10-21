@@ -44,10 +44,10 @@
               <img src="../src/img/imagensPaineis/Notification.png" alt="vetorNotificacao" class="vetor-notificacao" id="vetor_notificacao" />
             </a>
           </div>
-          <div class="div-principal-central" style="justify-content: start;">
+          <div class="div-principal-central" style="justify-content: start; overflow: auto;">
   
               <details class="maq-details" style="margin-top: 2%;">
-                <summary><h1>Maquina 1</h1><img src="../src/img/imagensPaineis/Vetor Maquina.png" alt="Vetor Maquinas"></summary>
+                <summary><h1>Máquina 1</h1><img src="../src/img/imagensPaineis/Vetor Maquina.png" alt="Vetor Maquinas"></summary>
                 <div class="column-text">
                   Configuração dos sensores:
                 </div>
@@ -149,6 +149,91 @@
                     </div>
                 </div>
               </details>
+              <details class="maq-details" style="margin-top: 2%;">
+                <summary><h1>Máquina 2</h1><img src="../src/img/imagensPaineis/Vetor Maquina.png" alt="Vetor Maquinas"></summary>
+                <div class="column-text">
+                  Configuração dos sensores:
+                </div>
+                <div class="maquinas">
+                  <div class="maquinas-sensores">
+                    <div class="card-sensor">
+                      <h6>Matriz</h6>
+                      <div class="circle-stats"></div>
+                    </div>
+                    <div class="card-sensor">
+                      <h6>Anel</h6>
+                      <div class="circle-stats"></div>
+                    </div>
+                    <div class="card-sensor">
+                        <h6>Reator</h6>
+                        <div class="circle-stats"></div>
+                    </div>
+                    <!-- <div class="card-sensor">
+                      <h6>Umidade</h6>
+                      <div class="circle-stats"></div>
+                    </div> -->
+                  </div>
+                  <div class="maq-inp-temp" id="div_interval_temp2">
+                        <table class="info-temp-table">
+                          <tr>
+                            <th></th>
+                            <th>MATRIZ</th>
+                            <th>REATOR</th>
+                            <th>ANEL DE RESFRIAMENTO</th>
+                            <!-- <th>UMIDADE</th> -->
+                          </tr>
+                          <tr>
+                            <td>MAX</td>
+                            <td id="td_max_matriz2">300°C</td>
+                            <td id="td_max_reator2">300°C</td>
+                            <td id="td_max_anel2">80°C</td>
+                            <!-- <td id="td_max_umidade">50%</td> -->
+                          </tr>
+                          <tr>
+                            <td>MIN</td>
+                            <td id="td_min_matriz2">150°C</td>
+                            <td id="td_min_reator2">100°C</td>
+                            <td id="td_min_anel22">20°C</td>
+                            <!-- <td id="td_min_umidade">20%</td> -->
+                          </tr>
+                        </table>
+                        <div onclick="trocar2()" class="div-pen">
+                          <img  src="../src/img/imagensPaineis/Vetor lapis.png" alt="">
+                        </div>
+                  </div>
+                </div>
+                <div class="user-maq">
+                    <div class="title-func">
+                        <h6>Nome</h6>
+                        <h6>Status</h6>
+                        <h6>Email</h6>
+                    </div>
+                    <div class="func-info">
+                        <img src="../src/img/imagensPaineis/Vetor usuario.png" alt="">
+                        <h6>Fernanda Caramico</h6>
+                        <h6>Supervisor</h6>
+                        <h6>fernanda.caramico@sptech.school</h6>
+                    </div>
+                    <div class="func-info">
+                        <img src="../src/img/imagensPaineis/Vetor usuario.png" alt="">
+                        <h6>Sergio Almeida</h6>
+                        <h6>Funcionário</h6>
+                        <h6>sergio.almeida@sptech.school</h6>
+                    </div>                        
+                    <div class="func-info">
+                        <img src="../src/img/imagensPaineis/Vetor usuario.png" alt="">
+                        <h6>Isabela Ferreira</h6>
+                        <h6>Funcionário</h6>
+                        <h6>isabela.ferreira@sptech.school</h6>
+                    </div>
+                    <div class="func-info">
+                        <img src="../src/img/imagensPaineis/Vetor usuario.png" alt="">
+                        <h6>Laura Basco</h6>
+                        <h6>Funcionário</h6>
+                        <h6>laura.basco@sptech.school</h6>
+                    </div>
+                </div>
+              </details>
             </div>
         </div>
       </section>
@@ -165,23 +250,23 @@
             <div class="update-interval">
                 <h6>Temperatura Matriz</h6><br>
                 <h6>Max</h6>
-                <input tupe="number" id="input_temp_max_matriz"><br>
+                <input type="number" id="input_temp_max_matriz"><br>
                 <h6>Min</h6>
-                <input tupe="number" id="input_temp_min_matriz">
+                <input type="number" id="input_temp_min_matriz">
             </div>
             <div class="update-interval">
               <h6>Temperatura Reator</h6><br>
               <h6>Max</h6>
-              <input tupe="number" id="input_temp_max_reator"><br>
+              <input type="number" id="input_temp_max_reator"><br>
               <h6>Min</h6>
-              <input tupe="number" id="input_temp_min_reator">
+              <input type="number" id="input_temp_min_reator">
             </div>
             <div class="update-interval">
               <h6>Temperatura Anel</h6><br>
               <h6>Max</h6>
-              <input tupe="number" id="input_temp_max_anel"><br>
+              <input type="number" id="input_temp_max_anel"><br>
               <h6>Min</h6>
-              <input tupe="number" id="input_temp_min_anel">
+              <input type="number" id="input_temp_min_anel">
             </div>
             <div class="div-btns"> 
               <button onclick="save()">Salvar</button>
@@ -204,7 +289,7 @@
             input_temp_min_anel.placeholder = 'Insira um valor';
             input_temp_max_anel.placeholder = 'Insira um valor';
 
-        } else if(tempMaxMatriz <= tempMinMatriz || tempMaxReator <= tempMinReator){
+        } else if(tempMaxMatriz <= tempMinMatriz || tempMaxReator <= tempMinReator || tempMinAnel <= tempMaxAnel){
             input_temp_max_matriz.placeholder = '';
             input_temp_min_matriz.value = '';
             input_temp_min_reator.value = '';
@@ -243,6 +328,95 @@
                 </table>
                 <div class="div-pen">
                   <img onclick="trocar()" src="../src/img/imagensPaineis/Vetor lapis.png" alt="">
+                </div>
+            `;
+        }
+    }
+
+    function trocar2(){
+        div_interval_temp2.innerHTML = '';
+        div_interval_temp2.innerHTML = `
+            <div class="update-interval">
+                <h6>Temperatura Matriz</h6><br>
+                <h6>Max</h6>
+                <input type="number" id="input_temp_max_matriz2"><br>
+                <h6>Min</h6>
+                <input type="number" id="input_temp_min_matriz2">
+            </div>
+            <div class="update-interval">
+              <h6>Temperatura Reator</h6><br>
+              <h6>Max</h6>
+              <input type="number" id="input_temp_max_reator2"><br>
+              <h6>Min</h6>
+              <input type="number" id="input_temp_min_reator2">
+            </div>
+            <div class="update-interval">
+              <h6>Temperatura Anel</h6><br>
+              <h6>Max</h6>
+              <input type="number" id="input_temp_max_anel2"><br>
+              <h6>Min</h6>
+              <input type="number" id="input_temp_min_anel2">
+            </div>
+            <div class="div-btns"> 
+              <button onclick="save2()">Salvar</button>
+            </div>
+        `;
+      }
+      function save2(){
+        var tempMinMatriz2 = Number(input_temp_min_matriz2.value)
+        var tempMaxMatriz2 = Number(input_temp_max_matriz2.value)
+        var tempMinReator2 = Number(input_temp_min_reator2.value)
+        var tempMaxReator2 = Number(input_temp_max_reator2.value)
+        var tempMinAnel2 = Number(input_temp_min_anel2.value)
+        var tempMaxAnel2 = Number(input_temp_max_anel2.value)
+
+        if(tempMaxMatriz2 == '' || tempMinMatriz2 == '' || tempMaxAnel2 == '' || tempMaxReator2 == '' || tempMinAnel2 == '' || tempMinReator2 == ''){
+            input_temp_max_matriz2.placeholder = 'Insira um valor';
+            input_temp_min_matriz2.placeholder = 'Insira um valor';
+            input_temp_min_reator2.placeholder = 'Insira um valor';
+            input_temp_max_reator2.placeholder = 'Insira um valor';
+            input_temp_min_anel2.placeholder = 'Insira um valor';
+            input_temp_max_anel2.placeholder = 'Insira um valor';
+
+        } else if(tempMaxMatriz2 <= tempMinMatriz2 || tempMaxReator2 <= tempMinReator2 || tempMinAnel2 <= tempMaxAnel2){
+            input_temp_max_matriz2.placeholder = '';
+            input_temp_min_matriz2.value = '';
+            input_temp_min_reator2.value = '';
+            input_temp_max_reator2.value = '';
+            input_temp_min_anel2.value = '';
+            input_temp_max_anel2.value = '';
+
+            input_temp_max_matriz2.placeholder = 'Intervalo inválido';
+            input_temp_min_matriz2.placeholder = 'Intervalo inválido';
+            input_temp_min_reator2.placeholder = 'Intervalo inválido';
+            input_temp_max_reator2.placeholder = 'Intervalo inválido';
+            input_temp_min_anel2.placeholder = 'Intervalo inválido';
+            input_temp_max_anel2.placeholder = 'Intervalo inválido';
+        } else{
+            div_interval_temp2.innerHTML = "";
+            div_interval_temp2.innerHTML = `
+                <table class="info-temp-table">
+                  <tr>
+                    <th></th>
+                    <th>MATRIZ</th>
+                    <th>REATOR</th>
+                    <th>ANEL DE RESFRIAMENTO</th>
+                  </tr>
+                  <tr>
+                    <td>MAX</td>
+                    <td id="td_max_matriz2">${tempMaxMatriz2}°C</td>
+                    <td id="td_max_reator2">${tempMaxReator2}°C</td>
+                    <td id="td_max_anel2">${tempMaxAnel2}°C</td>
+                  </tr>
+                  <tr>
+                    <td>MIN</td>
+                    <td id="td_min_matriz2">${tempMinMatriz2}°C</td>
+                    <td id="td_min_reator2">${tempMinReator2}°C</td>
+                    <td id="td_min_anel2">${tempMinAnel2}°C</td>
+                  </tr>
+                </table>
+                <div class="div-pen">
+                  <img onclick="trocar2()" src="../src/img/imagensPaineis/Vetor lapis.png" alt="">
                 </div>
             `;
         }
