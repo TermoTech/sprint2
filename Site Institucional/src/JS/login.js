@@ -29,15 +29,19 @@ function slideImagens(){
     cont0 += 1;
 
     if(cont0 == 1){ 
-        slides_imagem.style.backgroundImage = `url("https://maispolimeros.com.br/wp-content/uploads/2019/09/processo-de-injecao-870x510.jpg")`;
+        slides_imagem.style.backgroundImage = `url("../imagens/imgSlide1.jpeg")`;
 
     }
     if(cont0 == 2){ 
-        slides_imagem.style.backgroundImage = `url("https://eplax.com.br/blog/wp-content/uploads/2020/12/AdobeStock_287551852-scaled.jpeg")`;
+        slides_imagem.style.backgroundImage = `url("../imagens/imgSlide2.jpeg")`;
     
     }
     if(cont0 == 3){ 
-        slides_imagem.style.backgroundImage = `url("https://www.an-tech.ind.br/wp-content/uploads/2020/05/banner_antech3-1-1.jpg")`;
+        slides_imagem.style.backgroundImage = `url("../imagens/imgSlide3.jpeg")`;
+    
+    }
+    if(cont0 == 5){ 
+        slides_imagem.style.backgroundImage = `url("../imagens/imgSlide0.jpeg")`;
         cont0 = 0;
     }
 }

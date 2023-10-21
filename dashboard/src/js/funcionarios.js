@@ -46,7 +46,7 @@ function criarUsuario(){
                 ${emails[idt]}
             </td>
             <td>
-            ${ListaMaquinas[idt]}
+                ${ListaMaquinas[idt]}
             </td>
             <td>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" onclick="abrirAtualFunc()">
@@ -71,6 +71,14 @@ function criarUsuario(){
     }
 
     popop_add_func.style.display = "none";
+}
+
+function gerarEmail(){
+    var nomeFunc = input_nome.value;
+    var nome = nomeFunc.split(" ");
+    var ultimaPosicao = nome.length - 1;
+    input_email.value = `${nome[0].toLowerCase()}.${nome[ultimaPosicao].toLowerCase()}@nomeEmpresa.termo`
+
 }
 
 function mensagemDeErro(){
