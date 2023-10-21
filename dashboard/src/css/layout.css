@@ -146,9 +146,11 @@ body{
 }
 .vetor-contato{
     width: 35px;
+    cursor: pointer;
 }
 .vetor-notificacao{
     width: 40px;
+    cursor: pointer
 }
 .vetor-notificacao-a{
     width: 40px;

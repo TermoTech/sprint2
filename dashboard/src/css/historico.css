@@ -87,24 +87,6 @@ body{
     font-size: 54px;
     font-weight: 500;
 }
-.vetor-contato-a{
-    margin-left: 30%;
-}
-.vetor-notificacao-a{
-    margin-left: 2%;
-}
-
-.vetor-contato {
-    width: 30px;
-    margin-left: 30%;
-    cursor: pointer;
-}
-
-.vetor-notificacao {
-   width: 35px;
-   margin-left: 5%;
-   cursor: pointer;
-}
 
 .logo{
     margin-left: 5%;

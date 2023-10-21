@@ -6,7 +6,7 @@ function abrirPopUp() {
         <form>
         <span class="margem-titulos-fc">Seu email</span> <br>
         <input type="text" id="ipt_email" onchange="validarEmail()" name="email" required> <br> 
-        <p id="erro" class="mensagem-erro-pop-up"></p><br>
+        <p id="erro_fale_conosco" class="mensagem-erro-pop-up"></p><br>
         
         <span class="margem-titulos-fc">Nome</span> <br>
         <input type="text" id="ipt_nome" required> <br>
@@ -37,10 +37,10 @@ function abrirPopUp() {
 function validarEmail() {
     var email = ipt_email.value;
     if (/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.]+\.[a-zA-Z]+$/.test(email)) {
-        erro.innerHTML = ``;
+        erro_fale_conosco.innerHTML = ``;
         botao_submit.disabled = false;
     } else {
-        erro.innerHTML = `Email inválido!`;
+        erro_fale_conosco.innerHTML = `Email inválido!`;
     }
 }
 
