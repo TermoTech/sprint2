@@ -326,15 +326,14 @@ img:hover{
     width: 100%;    
     height: auto;
     display: flex;
-    overflow: hidden;
 }
 
-.div-tudo-valores::-webkit-scrollbar{
+/* .div-tudo-valores::-webkit-scrollbar{
     height: 8px;
 }
 .div-tudo-valores::-webkit-scrollbar-thumb{
     border-radius: 6px;
-}
+} */
 .template-valores{
     width: 224px;
     height: 255px;
@@ -349,8 +348,9 @@ img:hover{
 }
 .cards {
     display: flex;
-    gap: 240px;
-    animation: slider 20s infinite linear; 
+    width: 100%;
+    justify-content: space-between;
+    /* animation: slider 20s infinite linear;  */
 }
 @keyframes slider {
 
