@@ -2,7 +2,7 @@ function fazerLogin(){
     var user = ipt_user.value;
     var senha = ipt_senha.value;
 
-    var users = ['caramico.herreira@basic.admin', 'caramico.herreira@premium.admin', 'caramico.herreira@basic.funcionario', 'caramico.herreira@premium.funcionario'];
+    var users = ['fernanda.caramico@basic.admin', 'fernanda.caramico@premium.admin', 'fernanda.caramico@basic.funcionario', 'fernanda.caramico@premium.funcionario'];
 
     var senhas = ['ipt1230', 'ipt1231', 'ipt1232', 'ipt1233'];
     if(user == users[0] && senha == senhas[0]){
