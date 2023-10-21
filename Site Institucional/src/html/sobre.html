@@ -6,10 +6,11 @@
     <title>Sobre</title>
     <link rel="stylesheet" href="./CSS/reset.css">
     <link rel="stylesheet" href="../CSS/sobre.css">
-    <link rel="shortcut icon" href="../imagens/icone.png" type="image/png" sizes="64x64">
+    <link rel="shortcut icon" href="../imagens/logo.png" type="image/png" sizes="64x64">
+    <link rel="stylesheet" href="../CSS/faleConosco.css">
 </head>
 <body>
-    <header>
+    <header id="cabecalho-home">
         <a href="../../index.html"><img src="../imagens/logo.png" width="100"></a>
 
         <ul>
@@ -60,10 +61,23 @@
             </p>
         </div>
     </main>
-    <footer>
-        <span>
-            2023 © Todos os direitos reservados
-        </span>
-    </footer>
+    <footer class="footer">
+        <div id="div_esquerda" class="div-footer-esquerda">
+          <a href="https://www.instagram.com/" target="_blank">Instagram <img src="../imagens/home/iconeInstagram.png"></a> <br>
+          <a href="https://api.whatsapp.com/" target="_blank">Telefone <img src="../imagens/home/iconeTelefone.png"></a> <br>
+          <a href="mailto:termoTechContato@gmail.com" target="_blank">E-mail <img src="../imagens/home/iconeEmail.png"></a>
+        </div>
+        <div id="div_centro" class="div-footer-centro">
+          <a href="../html/login.html" target="_blank">Faça Login <img src="../imagens/home/iconeLogin.png"></a> <br>
+          <button onclick="abrirPopUp()">
+            Fale Conosco <img src="../imagens/home/iconeFaleConosco.png">
+          </button>
+        </div>
+        <div id="div_direita" class="div-footer-direita">
+          <a href="#cabecalho-home"><img src="../imagens/home/iconeLogo.png" width="215px"></a>
+        </div>
+      </footer>
+      <div id="fale_conosco"></div>
 </body>
 </html>
+<script src="../JS/faleConosco.js"></script>
