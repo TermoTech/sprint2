@@ -28,19 +28,19 @@ INSERT INTO usuario_maquina VALUES
 
 -- DANDO INSERT NA TABELA SENSORES
 INSERT INTO sensores VALUES
-(null, 'LM35', 'Nucleo', 153, null, default, 1),
-(null, 'LM35', 'Matrix', 210.12, null, default, 1),
+(null, 'LM35', 'Reator', 153, null, default, 1),
+(null, 'LM35', 'Matriz', 210.12, null, default, 1),
 (null, 'LM35', 'Anel de Resfriamento', 48.52, null, default, 1),
 (null, 'DHT11', null, null, 62.60, default , 1),
-(null, 'LM35', 'Nucleo', 123, null, default, 2),
-(null, 'LM35', 'Matrix', 190.42, null, default, 2),
+(null, 'LM35', 'Reator', 123, null, default, 2),
+(null, 'LM35', 'Matriz', 190.42, null, default, 2),
 (null, 'LM35', 'Anel de Resfriamento', 50.52, null, default, 2),
 (null, 'DHT11', null, null, 40.60, default , 2),
-(null, 'LM35', 'Nucleo', 140, null, default, 3),
-(null, 'LM35', 'Matrix', 209, null, default, 3),
+(null, 'LM35', 'Reator', 140, null, default, 3),
+(null, 'LM35', 'Matriz', 209, null, default, 3),
 (null, 'LM35', 'Anel de Resfriamento', 38.52, null, default, 3),
 (null, 'DHT11', null, null, 32.60, default , 3),
-(null, 'LM35', 'Nucleo', 173.67, null, default, 4),
-(null, 'LM35', 'Matrix', 156.62, null, default, 4),
+(null, 'LM35', 'Reator', 173.67, null, default, 4),
+(null, 'LM35', 'Matriz', 156.62, null, default, 4),
 (null, 'LM35', 'Anel de Resfriamento', 58.11, null, default, 4),
 (null, 'DHT11', null, null, 70.60, default , 4);
