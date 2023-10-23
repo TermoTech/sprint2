@@ -90,7 +90,8 @@ function mensagemDeErro(){
     if(senha != senha2){ 
         erro.style.display = "flex";
         button_criar_usuario.disabled = true;
-    } 
-    else erro.style.display = "none";
-    button_criar_usuario.disabled = false;
+    } else {
+        erro.style.display = "none";
+        button_criar_usuario.disabled = false;
+    }
 }
