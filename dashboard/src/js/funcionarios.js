@@ -1,7 +1,13 @@
 var nomes = [];
 var emails = [];
 var senhas = [];
-var ListaMaquinas = []
+var ListaMaquinas = [];
+
+function chkForm(){
+    if(erro.style.display == "none" && (chk_maquina1.checked || chk_maquina1.checked)){
+        button_criar_usuario.disabled = false;
+    }
+}
 
 function criarUsuario(){
     exibir.innerHTML = ``;
@@ -14,8 +20,8 @@ function criarUsuario(){
     if(chk_maquina1.checked){ 
         var maquina1 = chk_maquina1.value;
         maquinas += `${maquina1}`;    
-    
-    }  if(chk_maquina2.checked){ 
+        
+    } else if(chk_maquina2.checked){ 
         var maquina2 = chk_maquina2.value;
         maquinas += `<br>${maquina2}`;
 
@@ -89,9 +95,9 @@ function mensagemDeErro(){
     //Mensagem de erro
     if(senha != senha2){ 
         erro.style.display = "flex";
-        button_criar_usuario.disabled = true;
+        
     } else {
         erro.style.display = "none";
-        button_criar_usuario.disabled = false;
+        
     }
 }
