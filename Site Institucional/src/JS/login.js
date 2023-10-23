@@ -31,16 +31,13 @@ function slideImagens(){
     if(cont0 == 1){ 
         slides_imagem.style.backgroundImage = `url("../imagens/imgSlide1.jpeg")`;
 
-    }
-    if(cont0 == 2){ 
+    } else if(cont0 == 2){ 
         slides_imagem.style.backgroundImage = `url("../imagens/imgSlide2.jpeg")`;
     
-    }
-    if(cont0 == 3){ 
+    } else if(cont0 == 3){ 
         slides_imagem.style.backgroundImage = `url("../imagens/imgSlide3.jpeg")`;
     
-    }
-    if(cont0 == 5){ 
+    } else if(cont0 == 4){ 
         slides_imagem.style.backgroundImage = `url("../imagens/imgSlide0.jpeg")`;
         cont0 = 0;
     }

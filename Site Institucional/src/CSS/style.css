@@ -349,8 +349,8 @@ img:hover{
 }
 .cards {
     display: flex;
-    gap: 170px;
-    animation: slider 20s infinite linear;
+    gap: 190px;
+    animation: slider 15s infinite linear;
     /* padding: 0 70px; */
 }
 @keyframes slider {
@@ -363,9 +363,9 @@ img:hover{
 
     50% { margin-left: -33%;} */
 
-    60% { margin-left: -115%;}
+    60% { margin-left: -100%;}
     
-    80% { margin-left: -115%;}
+    80% { margin-left: -100%;}
 
     100% { margin-left: 0%;}
 
