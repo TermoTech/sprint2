@@ -12,11 +12,9 @@ function fazerLogin(){
         window.location = "../../../dashboard/supervisorPremium/dashboard.html"; 
     
     } else if(user == users[2] && senha == senhas[2]){
-        window.location = "../../../dashboard/usuarioPremium/dashboard.html"; 
-    
-    } else if(user == users[3] && senha == senhas[3]){
         window.location = "../../../dashboard/usuarioBasic/painel.html"; 
-    
+    } else if(user == users[3] && senha == senhas[3]){
+        window.location = "../../../dashboard/usuarioPremium/painel.html"; 
     } else{
          mensagem_erro.style.display = "flex";
     }
