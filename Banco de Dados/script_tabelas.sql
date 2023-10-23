@@ -9,7 +9,8 @@ CREATE TABLE empresa (
 idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
  nome VARCHAR(45),
  email VARCHAR(45),
- plano TINYINT);
+ plano TINYINT,
+ constraint chkPlano check (plano in(0, 1)));
  
  -- TABELA USUÁRIO
  CREATE TABLE usuario (
@@ -19,7 +20,8 @@ idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
  nome VARCHAR(45),
  acesso TINYINT,
  fkEmpresa INT,
- FOREIGN KEY (fkEmpresa) references empresa (idEmpresa));
+ FOREIGN KEY (fkEmpresa) references empresa (idEmpresa),
+ constraint chkAcesso check (acesso in(0, 1)));
  
  -- TABELA MÁQUINA
  CREATE TABLE maquina (
