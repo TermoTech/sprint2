@@ -10,12 +10,20 @@
 }
 
 
-#div_principal_central {
-    width: 100%;
-    display: flex;  /*Aqui define como as duas div de graficos ficarão separadas*/
-    justify-content: center;
-    align-items: flex-start;
-    gap: 1%;
+.div-principal-central {
+    box-sizing: border-box;
+    width: 90%;
+    height: 80%;
+    display: flex;  
+    justify-content: space-evenly;
+    /* align-items: center; */
+    background-color: rgb(255, 255, 255, 0.3);
+    flex-direction: row;
+    /* margin-bottom: 5%;
+    margin-left: 5%;
+    margin-right: 3%;
+    border-radius: 5px; */
+    font-family: 'Montserrat', sans-serif;
 }
 
 .chart {

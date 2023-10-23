@@ -74,7 +74,7 @@ function updateChart(dMatriz, dAnelResfriamento, dReator, dUmidade, t) {
                     borderWidth: 1,
                     borderColor: 'blue'
                 }, {
-                    label: 'Núcleo',
+                    label: 'Reator',
                     data: temperaturasReator,
                     borderWidth: 1,
                     borderColor: 'green'
@@ -91,7 +91,19 @@ function updateChart(dMatriz, dAnelResfriamento, dReator, dUmidade, t) {
                     y: {
                         beginAtZero: true
                     }
-                }
+                },
+                plugins: {
+                    title: {
+                      display: true,
+                      text: 'Medidas Atuais',
+                      fontSize: 18
+                    },
+                    legend: {
+                      display:true,
+                      position: "bottom",
+                    },
+          
+                  },
             }
         });
     } else {
@@ -185,7 +197,7 @@ function updateChart2(dMatriz2, dAnelResfriamento2, dReator2, dUmidade2, t2) {
                     borderWidth: 1,
                     borderColor: 'blue'
                 }, {
-                    label: 'Núcleo',
+                    label: 'Reator',
                     data: temperaturasReator2,
                     borderWidth: 1,
                     borderColor: 'green'
@@ -201,7 +213,19 @@ function updateChart2(dMatriz2, dAnelResfriamento2, dReator2, dUmidade2, t2) {
                     y: {
                         beginAtZero: true
                     }
-                }
+                },
+                plugins: {
+                    title: {
+                      display: true,
+                      text: 'Medidas Atuais',
+                      fontSize: 18
+                    },
+                    legend: {
+                      display:true,
+                      position: "bottom",
+                    },
+          
+                  },
             }
         });
     } else {
