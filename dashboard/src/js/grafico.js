@@ -30,14 +30,14 @@ function geraDados() {
     horaComoString
   );
   updateProgress(dadosMatriz, dadosAnelResfriamento, dadosReator, dadosUmidade);
-  // verificaAlerta(
-  //   dadosMatriz,
-  //   dadosAnelResfriamento,
-  //   dadosReator,
-  //   dadosUmidade,
-  //   horaComoString,
-  //   nomeMaquina
-  // );
+  verificaAlerta(
+    dadosMatriz,
+    dadosAnelResfriamento,
+    dadosReator,
+    dadosUmidade,
+    horaComoString,
+    nomeMaquina
+  );
 }
 
 function updateProgress(dMatriz, dAnelResfriamento, dReator, dUmidade) {
@@ -173,14 +173,14 @@ function geraDados2() {
     dadosReator2,
     dadosUmidade2
   );
-  // verificaAlerta(
-  //   dadosMatriz2,
-  //   dadosAnelResfriamento2,
-  //   dadosReator2,
-  //   dadosUmidade2,
-  //   horaComoString2,
-  //   nomeMaquina
-  // );
+  verificaAlerta(
+    dadosMatriz2,
+    dadosAnelResfriamento2,
+    dadosReator2,
+    dadosUmidade2,
+    horaComoString2,
+    nomeMaquina
+  );
 }
 
 function updateProgress2(dMatriz2, dAnelResfriamento2, dReator2, dUmidade2) {
@@ -326,178 +326,178 @@ function alertaDiv() {
 
 // //Logica alerta
 
-// // function verificaAlerta(tempM, tempA, tempR, umidade, hora, maquina) {
-// //   const divAlerta = document.getElementById("div_alerta");
-//   if (tempM < 300 && tempM >= 290) {
-//     // swal é o mesmo que o alert, mas com uma estilização
-//     // para usar é do mesmo jeito, chama a tag swal e informa o que quer exibir
-//     // alguns parametros diferentes:
-//     // swal("Titulo" , "texto/paragrafo", "icone")
-//     swal(
-//       "Atenção",
-//       `A temperatura da ${maquina} esta  em ${tempM}°C
-//         Registro: ${hora}
-//         `,
-//       "info"
-//     );
-//   } else if (tempM == 300) {
-//     swal(
-//       "Atenção",
-//       `A temperatura da ${maquina} esta  em ${tempM}°C
-//         Registro: ${hora}
-//         `,
-//       "error"
-//     );
-//   }
-//   if (tempA < 80 && tempA >= 70) {
-//     // swal("Titulo" , "texto/paragrafo", "icone")
-//     swal(
-//         "Atenção",
-//         `A temperatura da ${maquina} esta  em ${tempA}°C
-//           Registro: ${hora}
-//           `,
-//         "info"
-//       );
-//   } else if (tempA == 80) {
-//     // swal("Titulo" , "texto/paragrafo", "icone")
-//     swal(
-//         "Atenção",
-//         `A temperatura da ${maquina} esta  em ${tempA}°C
-//           Registro: ${hora}
-//           `,
-//         "error"
-//       );
-//   }
-//   if (tempR < 300 && tempR >= 290) {
-//     // swal("Titulo" , "texto/paragrafo", "icone")
-//     swal(
-//       "Atenção",
-//       `A temperatura da ${maquina} esta  em ${tempR}°C
-//         Registro: ${hora}
-//         `,
-//       "info"
-//     );
-//   } else if (tempR == 300) {
-//     // swal("Titulo" , "texto/paragrafo", "icone")
-//     swal(
-//         "Atenção",
-//         `A temperatura da ${maquina} esta  em ${tempM}°C
-//           Registro: ${hora}
-//           `,
-//         "error"
-//       );
-//   }
-//   if (umidade < 100 && umidade >= 90) {
-//     // swal("Titulo" , "texto/paragrafo", "icone")
-//     swal(
-//         "Atenção",
-//         `A Umidade da sala esta  em ${umidade}%
-//           Registro: ${hora}
-//           `,
-//         "info"
-//       );
-//   } else if (umidade == 100) {
-//     // swal("Titulo" , "texto/paragrafo", "icone")
-//     swal(
-//         "Atenção",
-//         `A Umidade da sala esta  em ${umidade}%
-//           Registro: ${hora}
-//           `,
-//         "error"
-//       );
-//   }
-//   var btnClose = document
-//     .getElementById("btn_close")
-//     .addEventListener("click", () => {
-//       divAlerta.style.display = "none";
-//       divAlerta.innerHTML = `
-//         <button id="btn_close" class="btn-close-alert">FECHAR</button>
-//         `;
-//     });
-//   if (tempM < 300 && tempM >= 290) {
-//     // swal é o mesmo que o alert, mas com uma estilização
-//     // para usar é do mesmo jeito, chama a tag swal e informa o que quer exibir
-//     // alguns parametros diferentes:
-//     // swal("Titulo" , "texto/paragrafo", "icone")
-//     swal(
-//       "Oops",
-//       `A temperatura da ${maquina} esta  em ${tempM}°C
-//         Registro: ${hora}
-//         `,
-//       "info"
-//     );
-//   } else if (tempM == 300) {
-//     swal(
-//       "Oops",
-//       `A temperatura da ${maquina} esta  em ${tempM}°C
-//         Registro: ${hora}
-//         `,
-//       "error"
-//     );
-//   }
-//   if (tempA < 80 && tempA >= 70) {
-//     // swal("Titulo" , "texto/paragrafo", "icone")
-//     swal(
-//         "Oops",
-//         `A temperatura da ${maquina} esta  em ${tempA}°C
-//           Registro: ${hora}
-//           `,
-//         "info"
-//       );
-//   } else if (tempA == 80) {
-//     // swal("Titulo" , "texto/paragrafo", "icone")
-//     swal(
-//         "Oops",
-//         `A temperatura da ${maquina} esta  em ${tempA}°C
-//           Registro: ${hora}
-//           `,
-//         "error"
-//       );
-//   }
-//   if (tempR < 300 && tempR >= 290) {
-//     // swal("Titulo" , "texto/paragrafo", "icone")
-//     swal(
-//       "Oops",
-//       `A temperatura da ${maquina} esta  em ${tempR}°C
-//         Registro: ${hora}
-//         `,
-//       "info"
-//     );
-//   } else if (tempR == 300) {
-//     // swal("Titulo" , "texto/paragrafo", "icone")
-//     swal(
-//         "Oops",
-//         `A temperatura da ${maquina} esta  em ${tempM}°C
-//           Registro: ${hora}
-//           `,
-//         "error"
-//       );
-//   }
-//   if (umidade < 100 && umidade >= 90) {
-//     // swal("Titulo" , "texto/paragrafo", "icone")
-//     swal(
-//         "Oops",
-//         `A Umidade da sala esta  em ${umidade}%
-//           Registro: ${hora}
-//           `,
-//         "info"
-//       );
-//   } else if (umidade == 100) {
-//     // swal("Titulo" , "texto/paragrafo", "icone")
-//     swal(
-//         "Oops",
-//         `A Umidade da sala esta  em ${umidade}%
-//           Registro: ${hora}
-//           `,
-//         "error"
-//       );
-//   }
-//   var btnClose = document
-//     .getElementById("btn_close")
-//     .addEventListener("click", () => {
-//       divAlerta.style.display = "none";
-//       divAlerta.innerHTML = `
-//         <button id="btn_close" class="btn-close-alert">FECHAR</button>
-//         `;
-//     });
-// }
+function verificaAlerta(tempM, tempA, tempR, umidade, hora, maquina) {
+  const divAlerta = document.getElementById("div_alerta");
+  if (tempM < 300 && tempM >= 290) {
+    // swal é o mesmo que o alert, mas com uma estilização
+    // para usar é do mesmo jeito, chama a tag swal e informa o que quer exibir
+    // alguns parametros diferentes:
+    // swal("Titulo" , "texto/paragrafo", "icone")
+    swal(
+      "Atenção",
+      `A temperatura da ${maquina} esta  em ${tempM}°C
+        Registro: ${hora}
+        `,
+      "info"
+    );
+  } else if (tempM == 300) {
+    swal(
+      "Atenção",
+      `A temperatura da ${maquina} esta  em ${tempM}°C
+        Registro: ${hora}
+        `,
+      "error"
+    );
+  }
+  if (tempA < 80 && tempA >= 70) {
+    // swal("Titulo" , "texto/paragrafo", "icone")
+    swal(
+        "Atenção",
+        `A temperatura da ${maquina} esta  em ${tempA}°C
+          Registro: ${hora}
+          `,
+        "info"
+      );
+  } else if (tempA == 80) {
+    // swal("Titulo" , "texto/paragrafo", "icone")
+    swal(
+        "Atenção",
+        `A temperatura da ${maquina} esta  em ${tempA}°C
+          Registro: ${hora}
+          `,
+        "error"
+      );
+  }
+  if (tempR < 300 && tempR >= 290) {
+    // swal("Titulo" , "texto/paragrafo", "icone")
+    swal(
+      "Atenção",
+      `A temperatura da ${maquina} esta  em ${tempR}°C
+        Registro: ${hora}
+        `,
+      "info"
+    );
+  } else if (tempR == 300) {
+    // swal("Titulo" , "texto/paragrafo", "icone")
+    swal(
+        "Atenção",
+        `A temperatura da ${maquina} esta  em ${tempM}°C
+          Registro: ${hora}
+          `,
+        "error"
+      );
+  }
+  if (umidade < 100 && umidade >= 90) {
+    // swal("Titulo" , "texto/paragrafo", "icone")
+    swal(
+        "Atenção",
+        `A Umidade da sala esta  em ${umidade}%
+          Registro: ${hora}
+          `,
+        "info"
+      );
+  } else if (umidade == 100) {
+    // swal("Titulo" , "texto/paragrafo", "icone")
+    swal(
+        "Atenção",
+        `A Umidade da sala esta  em ${umidade}%
+          Registro: ${hora}
+          `,
+        "error"
+      );
+  }
+  var btnClose = document
+    .getElementById("btn_close")
+    .addEventListener("click", () => {
+      divAlerta.style.display = "none";
+      divAlerta.innerHTML = `
+        <button id="btn_close" class="btn-close-alert">FECHAR</button>
+        `;
+    });
+  if (tempM < 161 || tempM > 197) {
+    // swal é o mesmo que o alert, mas com uma estilização
+    // para usar é do mesmo jeito, chama a tag swal e informa o que quer exibir
+    // alguns parametros diferentes:
+    // swal("Titulo" , "texto/paragrafo", "icone")
+    swal(
+      "Atenção",
+      `A temperatura da ${maquina} esta  em ${tempM}°C
+        Registro: ${hora}
+        `,
+      "info"
+    );
+  } else if (tempM < 162 || tempM >= 198) {
+    swal(
+      "Atenção",
+      `A temperatura da ${maquina} esta  em ${tempM}°C
+        Registro: ${hora}
+        `,
+      "error"
+    );
+  }
+  if (tempA < 17 || tempA > 26) {
+    // swal("Titulo" , "texto/paragrafo", "icone")
+    swal(
+        "Atenção",
+        `A temperatura da ${maquina} esta  em ${tempA}°C
+          Registro: ${hora}
+          `,
+        "info"
+      );
+  } else if (tempA < 18 || tempA > 27) {
+    // swal("Titulo" , "texto/paragrafo", "icone")
+    swal(
+        "Atenção",
+        `A temperatura da ${maquina} esta  em ${tempA}°C
+          Registro: ${hora}
+          `,
+        "error"
+      );
+  }
+  if (tempR < 142 || tempR > 242) {
+    // swal("Titulo" , "texto/paragrafo", "icone")
+    swal(
+      "Atenção",
+      `A temperatura da ${maquina} esta  em ${tempR}°C
+        Registro: ${hora}
+        `,
+      "info"
+    );
+  } else if (tempR < 144 || tempR > 243) {
+    // swal("Titulo" , "texto/paragrafo", "icone")
+    swal(
+        "Atenção",
+        `A temperatura da ${maquina} esta  em ${tempM}°C
+          Registro: ${hora}
+          `,
+        "error"
+      );
+  }
+  if (umidade < 0 || umidade > 44) {
+    // swal("Titulo" , "texto/paragrafo", "icone")
+    swal(
+        "Atenção",
+        `A Umidade da sala esta  em ${umidade}%
+          Registro: ${hora}
+          `,
+        "info"
+      );
+  } else if (umidade > 45) {
+    // swal("Titulo" , "texto/paragrafo", "icone")
+    swal(
+        "Atenção",
+        `A Umidade da sala esta  em ${umidade}%
+          Registro: ${hora}
+          `,
+        "error"
+      );
+  }
+  var btnClose = document
+    .getElementById("btn_close")
+    .addEventListener("click", () => {
+      divAlerta.style.display = "none";
+      divAlerta.innerHTML = `
+        <button id="btn_close" class="btn-close-alert">FECHAR</button>
+        `;
+    });
+}
