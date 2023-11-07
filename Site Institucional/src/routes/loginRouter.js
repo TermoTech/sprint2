@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/simulador", (req, res) => {
-    res.render("siteInstitucional/simulador");
+router.get("/login", (req, res) => {
+    res.render("siteInstitucional/login");
 })
 
 module.exports = router;
