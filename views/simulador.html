@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3625/3625050.png" type="image/x-icon">
+    <link rel="stylesheet" href="../CSS/reset.css">
+    <link rel="stylesheet" href="../CSS/simulador.css">
+    <link rel="stylesheet" href="../CSS/faleConosco.css">
+</head>
+<body>
+    <sectio class="section-introduce">
+        <nav class="cabecalho-home">
+            <div class="cabecalho-conteudo">
+              <div class="logo-header"><img src="../imagens/logo.png" alt="logo" width="100px" id="logo_home" onclick="home()"></div>
+              <div class="titulo-header">
+                <h2 class="subtitulo"><a href="/">Inicio</a>
+                </h2>
+                <h2 class="subtitulo"><a href="../html/login.html" target="_blank">Login</a></h2>
+              </div>
+            </div>
+        </nav>
+    </sectio>
+    <section class="calc-content" id="section_content">
+        <div class="values-calc">
+            <div class="div-inputs">
+                <h5>Use nossa calculadora integrada para estimar as perdas devido a fatores humanos. Você informa a taxa de produção de sua extrusora por hora e os custos em Reais por quilograma de material. </h5>
+                <label for="input_hora">Quanto a sua Extrusora produz por hora(kg)</label>
+                <input name="hora" type="text" id="input_hora" class="inputs-values" placeholder="Informe o valor em KG">
+                <label for="input_kg">Qual o valor do kg do material(R$)</label>
+                <input name="kg" type="text" id="input_kg" class="inputs-values" placeholder="Informe o valor em R$">
+            </div>
+            <button id="btn_result" class="btn-result" onclick="calcula()">Como vocês vão me ajudar</button>
+        </div>
+        <div class="values-result" id="div_table" style="display: none;">
+            <div class="table-res">
+                <h1 class="table-title">Simulação de perdas</h1>
+                <table class="table-results">
+                    <tr>
+                        <th>Tempo em temperatura inadequada</th>
+                        <th>Perdas em <b><u>KG</u></b></th>
+                        <th>Perdas em <b><u>R$</u></b></th>
+                    </tr>
+                    <tr>
+                        <td>7 minutos</td>
+                        <td id="td1"></td>
+                        <td id="td2"></td>
+                    </tr>
+                    <tr>
+                        <td>15 minutos</td>
+                        <td id="td3"></td>
+                        <td id="td4"></td>
+                    </tr>
+                    <tr>
+                        <td>30 minutos</td>
+                        <td id="td5"></td>
+                        <td id="td6"></td>
+                    </tr>
+                    <tr>
+                        <td>1 hora e 30 minutos</td>
+                        <td id="td7"></td>
+                        <td id="td8"></td>
+                    </tr>
+                </table>
+            </div>
+            <h4 class="txt-finance">
+                Como podemos perceber, em minutos de desatenção você pode ter uma perda considerável.
+                Quer mesmo depender do fator humano?
+            </h4>
+            <button class="btn-chamada" onclick="abrirPopUp()">NÃO!!!</button>
+        </div>
+
+        <div id="fale_conosco"></div>
+        
+        
+    </section>
+</body>
+</html>
+<script src="../JS/simulador.js"></script>
+<script src="../JS/faleConosco.js"></script>
+<script>
+    function home(){
+        window.location.href = '/';
+    }
+</script>
