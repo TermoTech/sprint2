@@ -5,11 +5,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TermoTech</title>
-    <link rel="stylesheet" href="../src/css/reset.css">
-    <link rel="stylesheet" href="../src/css/historico.css">
-    <link rel="stylesheet" href="../src/css/faleConosco.css">
-    <link rel="stylesheet" href="../src/css/filtrarHistorico.css">
-    <link rel="stylesheet" href="../src/css/layout.css">
+    <link rel="stylesheet" href="/staticDashboard/css/reset.css">
+    <link rel="stylesheet" href="/staticDashboard/css/historico.css">
+    <link rel="stylesheet" href="/staticDashboard/css/faleConosco.css">
+    <link rel="stylesheet" href="/staticDashboard/css/filtrarHistorico.css">
+    <link rel="stylesheet" href="/staticDashboard/css/layout.css">
 </head>
 
 <body>
@@ -19,35 +19,35 @@
             <h3>Bem-vindo(a), Caramico</h3>
               <ul>
                 <li>
-                  <a href="painel.html"><img src="../src/img/imagensPaineis/Vetor Painel.png" alt="vetorPainel" />Painel</a>
+                  <a href="/supervisorBasic/painel"><img src="/staticDashboard/img/imagensPaineis/Vetor Painel.png" alt="vetorPainel" />Painel</a>
                 </li>
                 <li>
-                  <a href="historico.html"><img src="../src/img/imagensPaineis/Calendar.png" alt="vetorCalendario" />Histórico</a>
+                  <a href="/supervisorBasic/historico"><img src="/staticDashboard/img/imagensPaineis/Calendar.png" alt="vetorCalendario" />Histórico</a>
                 </li>
                 <li>
-                  <a href="maquinas.html"><img src="../src/img/imagensPaineis/Vetor Maquinas.png" alt="vetorMaquinas" />Máquinas</a>
+                  <a href="/supervisorBasic/maquinas"><img src="/staticDashboard/img/imagensPaineis/Vetor Maquinas.png" alt="vetorMaquinas" />Máquinas</a>
                 </li>
                
-                <!-- <li>
-                  <a href="usuarios.html"><img src="../src/img/imagensPaineis/Vetor Usuarios.png"alt="vetorUsuario" />Funcionários</a>
-                </li> -->
+                <li>
+                  <a href="/supervisorBasic/usuarios"><img src="/staticDashboard/img/imagensPaineis/Vetor Usuarios.png"alt="vetorUsuario" />Funcionários</a>
+                </li>
                 <li class="sair">
-                  <a href="../../Site Institucional/src/html/login.html"><img src="../src/img/imagensPaineis/log-out.png" alt="vetorLogOut" />Sair</a>
+                  <a href="/login"><img src="/staticDashboard/img/imagensPaineis/log-out.png" alt="vetorLogOut" />Sair</a>
                 </li>
               </ul>
           </div>
             <section class="section-principal">
                 <div class="div-principal-topo">
-                  <img class="id-logo" src="../src/img/imagensPaineis/logo.png" alt="logo_termoTech" />
+                  <img class="id-logo" src="/staticDashboard/img/imagensPaineis/logo.png" alt="logo_termoTech" />
                   <span class="page-title">Histórico</span>
                   <a class="vetor-contato-a">
-                    <img onclick="abrirPopUp()" src="../src/img/imagensPaineis/vetor contato.png" class="vetor-contato" id="vetor_contato" /></a>
-                  <a class="vetor-Notificacao" class="vetor-notificacao-a">
-                    <img src="../src/img/imagensPaineis/Notification.png" class="vetor-notificacao" id="vetor_notificacao" />
+                    <img onclick="abrirPopUp()" src="/staticDashboard/img/imagensPaineis/vetor contato.png" class="vetor-contato" id="vetor_contato" /></a>
+                  <a href="" class="vetor-Notificacao" class="vetor-notificacao-a">
+                    <img src="/staticDashboard/img/imagensPaineis/Notification.png" class="vetor-notificacao" id="vetor_notificacao" />
                   </a>
                 </div>
                 <div class="div-principal-central">
-                    <div class="topo-tabela"><img class="icon-ampulheta" src="../src/img/ampulheta.svg"
+                    <div class="topo-tabela"><img class="icon-ampulheta" src="/staticDashboard/img/ampulheta.svg"
                             alt="ampulhetaPNG">
                         <h3 class="title-tabela">Histórico</h3>
                         <button class="button-filtrar" onclick="abrirPopUpFtr()">Filtrar</button>
@@ -68,9 +68,6 @@
                                 <th>
                                     Temperatura
                                 </th>
-                                <!-- <th>
-                                    Umidade
-                                </th> -->
                                 <th>
                                     Máquina
                                 </th>
@@ -90,7 +87,7 @@
         <div class="div-fora-ftr">
             <div class="div-pop-up-ftr">
                 <div class="header-ftr"><u>Filtrar histórico</u> <img onclick="fecharPopUpFtr()" class="quit-ftr"
-                        src="../src/img/quitFC.png"></div>
+                        src="/staticDashboard/img/quitFC.png"></div>
 
                     <span class="titulos-ftr">Intervalo de dias</span>
 
@@ -123,9 +120,9 @@
 
                 <div class="selects-maquina-processo">
                     <select class="select-maquina" id="select_maquina">
-                        <!-- <option value="0">Todas</option> -->
+                        <option value="0">Todas</option>
                         <option value="1">Máquina 1</option>
-                        <!-- <option value="2">Máquina 2</option> -->
+                        <option value="2">Máquina 2</option>
                     </select>
                 </div>
 
@@ -154,5 +151,5 @@
 </body>
 
 </html>
-<script src="../src/js/faleConosco.js"></script>
-<script src="../src/js/historicoBasic.js"></script>
+<script src="/staticDashboard/js/faleConosco.js"></script>
+<script src="/staticDashboard/js/historicoBasic.js"></script>
