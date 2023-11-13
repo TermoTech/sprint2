@@ -109,11 +109,11 @@
 
         <div class="inputs_style">
             <label for="nome_do_usuario" class="inputs_label">Nome:</label>
-            <input type="text" id="input_nome" class="inputs_campos" onkeyup="gerarEmail()">
+            <input type="text" id="input_nome" class="inputs_campos">
         </div>
         <div class="inputs_style">
             <label for="nome_email" class="inputs_label">Email:</label>
-            <input type="text" id="input_email" class="inputs_campos" readonly>
+            <input type="text" id="input_email" class="inputs_campos">
         </div>
         <div class="inputs_style">
             <label for="nome_senha" class="inputs_label">Senha:</label>
@@ -130,29 +130,6 @@
             </p>
         </div>
 
-        <div class="inputs_style">
-            <label for="Maquina_usuario" class="inputs_label">Responsável pela máquina:</label>
-            
-            <div style="display: flex; justify-content: center;">
-                <input type="checkbox" id="chk_maquina1" value="Maquina 1">
-                <label for="chk_maquina1">Máquina 1</label>
-            </div>
-
-            <div style="display: flex; justify-content: center;">
-                <input type="checkbox" id="chk_maquina2" value="Maquina 2">
-                <label for="chk_maquina2">Máquina 2</label>
-            </div>
-
-            <!-- <div style="display: flex; justify-content: center;">
-                <input type="checkbox" id="chk_maquina3" value="Maquina 3">
-                <label for="chk_maquina3">Máquina 3</label>
-            </div>
-
-            <div style="display: flex; justify-content: center;">
-                <input type="checkbox" id="chk_maquina4" value="Maquina 4">
-                <label for="chk_maquina4">Máquina 4</label>
-            </div> -->
-        </div>
 
         <button onclick="criarUsuario()" onmousemove="chkForm()" id="button_criar_usuario" disabled>Criar Usuário</button>
     </div>

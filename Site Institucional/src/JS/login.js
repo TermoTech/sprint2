@@ -1,24 +1,45 @@
 function fazerLogin(){
-    var user = ipt_user.value;
     var senha = ipt_senha.value;
+    var login = ipt_user.value;
 
-    var users = ['fernanda.caramico@basic.admin', 'fernanda.caramico@premium.admin', 'fernanda.caramico@basic.funcionario', 'fernanda.caramico@premium.funcionario'];
-
-    var senhas = ['ipt1230', 'ipt1231', 'ipt1232', 'ipt1233'];
-    if(user == users[0] && senha == senhas[0]){
-        window.location = "/supervisorBasic/painel"; 
-    
-    } else if(user == users[1] && senha == senhas[1]){
-        window.location = "/supervisorPremium/painel"; 
-    
-    } else if(user == users[2] && senha == senhas[2]){
-        window.location = "/usuarioBasic/painel"; 
-    } else if(user == users[3] && senha == senhas[3]){
-        window.location = "/usuarioPremium/painel"; 
-    } else{
-         mensagem_erro.style.display = "flex";
+    let datas = {
+        senha,
+        login
     }
+
+    fetch("/login/entrar", {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json",
+        },
+        body: JSON.stringify(datas),
+    })
+    .then((res) => {
+        if (res.ok) {
+            console.log("dentro do then res.ok no login")
+
+            res.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+                sessionStorage.EMAIL_USUARIO = json.email;
+                sessionStorage.ID_USUARIO = json.id;
+                sessionStorafe.ACESSO_USUARIO = json.acesso;
+            })
+
+        } else {
+            console.log("Erro ao realizar o login");
+            res.text().then(text => {
+                console.error(text);
+            })
+        }
+    }).catch((error) => {
+        console.log(error);
+    })
+
+
+
 }
+
 
 var cont0 = 0;
 
