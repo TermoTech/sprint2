@@ -23,7 +23,7 @@ function fazerLogin(){
                 console.log(JSON.stringify(json));
                 sessionStorage.EMAIL_USUARIO = json.email;
                 sessionStorage.ID_USUARIO = json.id;
-                sessionStorafe.ACESSO_USUARIO = json.acesso;
+                sessionStorage.ACESSO_USUARIO = json.acesso;
             })
 
         } else {
