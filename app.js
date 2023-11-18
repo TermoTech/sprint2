@@ -21,10 +21,10 @@ const simuladorRouter = require("./Site Institucional/src/routes/simuladorRouter
 const loginRouter = require("./Site Institucional/src/routes/loginRouter");
 const sobreRouter = require("./Site Institucional/src/routes/sobreRouter");
 
-app.get("/", indexRouter);
-app.get("/simulador", simuladorRouter);
-app.get("/login", loginRouter);
-app.get("/sobre", sobreRouter);
+app.use("/", indexRouter);
+app.use("/simulador", simuladorRouter);
+app.use("/login", loginRouter);
+app.use("/sobre", sobreRouter);
 
 // Routes das dashboards
 const supervisorBasicRouter = require("./dashboard/src/routes/supervisorBasicRouter");
@@ -32,20 +32,10 @@ const supervisorPremiumRouter = require("./dashboard/src/routes/supervisorPremiu
 const usuarioBasicRouter = require("./dashboard/src/routes/usuarioBasicRouter");
 const usuarioPremiumRouter = require("./dashboard/src/routes/usuarioPremiumRouter");
 
-app.get("/supervisorBasic/painel", supervisorBasicRouter);
-app.get("/supervisorBasic/historico", supervisorBasicRouter);
-app.get("/supervisorBasic/maquinas", supervisorBasicRouter);
-app.get("/supervisorBasic/usuarios", supervisorBasicRouter);
+app.use("/supervisorBasic", supervisorBasicRouter);
 
-app.get("/supervisorPremium/painel", supervisorPremiumRouter);
-app.get("/supervisorPremium/historico", supervisorPremiumRouter);
-app.get("/supervisorPremium/maquinas", supervisorPremiumRouter);
-app.get("/supervisorPremium/usuarios", supervisorPremiumRouter);
+app.use("/supervisorPremium", supervisorPremiumRouter);
 
-app.get("/usuarioBasic/painel", usuarioBasicRouter);
-app.get("/usuarioBasic/historico", usuarioBasicRouter);
-app.get("/usuarioBasic/maquinas", usuarioBasicRouter);
+app.use("/usuarioBasic", usuarioBasicRouter);
 
-app.get("/usuarioPremium/painel", usuarioPremiumRouter);
-app.get("/usuarioPremium/historico", usuarioPremiumRouter);
-app.get("/usuarioPremium/maquinas", usuarioPremiumRouter);
+app.use("/usuarioPremium", usuarioPremiumRouter);

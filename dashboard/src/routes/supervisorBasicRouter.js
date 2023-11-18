@@ -2,19 +2,19 @@ const express = require("express");
 const router = express.Router();
 var usuariosModels = require("../controllers/usuarioController");
 
-router.get("/supervisorBasic/painel", (req, res) => {
+router.get("/painel", (req, res) => {
     res.render("supervisorBasic/painel");
 })
 
-router.get("/supervisorBasic/historico", (req, res) => {
+router.get("/historico", (req, res) => {
     res.render("supervisorBasic/historico");
 })
 
-router.get("/supervisorBasic/maquinas", (req, res) => {
+router.get("/maquinas", (req, res) => {
     res.render("supervisorBasic/maquinas");
 })
 
-router.get("/supervisorBasic/usuarios", (req, res) => {
+router.get("/usuarios", (req, res) => {
     res.render("supervisorBasic/usuarios");
 })
 

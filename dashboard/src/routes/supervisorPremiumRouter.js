@@ -1,19 +1,19 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/supervisorPremium/painel", (req, res) => {
+router.get("/painel", (req, res) => {
     res.render("supervisorPremium/painel");
 })
 
-router.get("/supervisorPremium/historico", (req, res) => {
+router.get("/historico", (req, res) => {
     res.render("supervisorPremium/historico");
 })
 
-router.get("/supervisorPremium/maquinas", (req, res) => {
+router.get("/maquinas", (req, res) => {
     res.render("supervisorPremium/maquinas");
 })
 
-router.get("/supervisorPremium/usuarios", (req, res) => {
+router.get("/usuarios", (req, res) => {
     res.render("supervisorPremium/usuarios");
 })
 
