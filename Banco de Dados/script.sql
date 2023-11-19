@@ -46,7 +46,7 @@ idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
  CREATE TABLE sensores (
  idSensor INT PRIMARY KEY AUTO_INCREMENT,
  tipo VARCHAR(45),
- localizacao VARCHAR(45),
+ parteProcesso VARCHAR(45),
  temperatura FLOAT,
  umidade FLOAT,
  horario DATETIME DEFAULT CURRENT_TIMESTAMP,
