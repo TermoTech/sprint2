@@ -7,7 +7,49 @@ var chart;
 var ultimaHoraApresentada = new Date();
 var indexChart = 0;
 
+// PUXANDO OS DADOS DO BANCO DE DADOS EM TEMPO REAL
 function geraDados() {
+
+  // var idUser = sessionStorage.id_user;
+  // var fkEmpresa = sessionStorage.fk_empresa;
+  var idUser = 1;
+  var fkEmpresa = 1;
+
+  fetch("/supervisorPremium/tempoReal", {
+    method: "POST",
+    headers:{
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        idUserServer: idUser,
+        fkEmpresaServer: fkEmpresa
+    }),
+}).then(function (resposta){
+    if(resposta.ok) {
+        resposta.json().then(function (resposta) {
+            console.log("Dados recebidos: ", JSON.stringify(resposta));
+            var dados = resposta[0];
+
+            if(dados.verificacao == 1){
+                document.getElementById('btn_seguir').innerText = "Deixar de Seguir";
+            } else{
+                document.getElementById('btn_seguir').innerText = "Seguir";
+            }
+
+        });
+        carregarQtdSeguidores()
+    }
+})
+
+
+
+
+
+
+
+
+
+
   var nomeMaquina = "Maquina 1";
   var dadosMatriz = Math.floor(Math.random() * (300 - 150) + 150);
   var dadosAnelResfriamento = Math.floor(Math.random() * (80 - 20) + 20);

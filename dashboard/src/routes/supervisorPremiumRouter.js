@@ -23,4 +23,9 @@ router.post("/filtrarGeral", (req, res) => {
     filtrarController.filtrarGeral(req, res);
 })
 
+router.post("/tempoReal", (req, res) => {
+    filtrarController.tempoReal(req, res);
+})
+
+
 module.exports = router;
