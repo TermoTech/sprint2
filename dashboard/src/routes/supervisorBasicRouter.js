@@ -18,6 +18,10 @@ router.get("/usuarios", (req, res) => {
     res.render("supervisorBasic/usuarios");
 })
 
+router.get("/usuarios/listar", (req, res) => {
+    usuarioController.listar(req, res);
+})
+
 router.post("/cadastrar", (req, res) => {
     usuarioController.cadastrar(req, res);
 })

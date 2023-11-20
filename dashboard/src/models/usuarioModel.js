@@ -9,6 +9,14 @@ function cadastrar(nome, email, senha) {
     return database.executar(instrucao);
 }
 
+function listarModel(){
+    var instrucao = `
+        select * from usuario where acesso = 1 and fkEmpresa = 1;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
-    cadastrar
+    cadastrar, listarModel
 }

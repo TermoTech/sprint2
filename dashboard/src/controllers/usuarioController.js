@@ -22,7 +22,25 @@ function cadastrar(req, res) {
         );
 }
 
+function listar(req, res){
+    usuarioModel.listarModel() //Depois é necessário adicionar os parâmetros após o login estar funcionando
+        .then(
+            function(resultado){
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao listar os usuários! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        )
+}
+
 module.exports = {
-    cadastrar
+    cadastrar, listar
 }
 
