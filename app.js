@@ -1,6 +1,13 @@
 const express = require("express");
+const cors = require('cors');
+const bodyParser = require("body-parser");
 const path = require("path");
 const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 const port = 8080;
 
@@ -14,6 +21,8 @@ app.set("views", path.join(__dirname, "/views"));
 app.listen(port, () => {
     console.log("Servidor iniciado na porta " + port);
 });
+
+app.use(cors());
 
 // Routes do site institucional
 const indexRouter = require("./Site Institucional/src/routes/indexRouter");

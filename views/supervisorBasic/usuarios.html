@@ -131,7 +131,7 @@
         </div>
 
 
-        <button onclick="criarUsuario()" onmousemove="chkForm()" id="button_criar_usuario" disabled>Criar Usuário</button>
+        <button onclick="criarUsuario()" id="button_criar_usuario" disabled>Criar Usuário</button>
     </div>
 </div>
 
@@ -152,22 +152,6 @@
         input_email.value = ``;
         input_senha.value = ``;
         input_repetir_senha.value = ``;
-
-        //capturar valores do check
-        if(chk_maquina1.checked){ 
-            chk_maquina1.checked = false;  
-
-        }  if(chk_maquina2.checked){ 
-            chk_maquina2.checked = false;
-
-        }  
-        // if(chk_maquina3.checked){ 
-        //     chk_maquina3.checked = false;
-
-        // }  if(chk_maquina4.checked){
-        //     chk_maquina4.checked = false;
-
-        // }
     }
 
     function abrirAtualFunc(){

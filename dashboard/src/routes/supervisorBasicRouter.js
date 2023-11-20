@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-var usuariosModels = require("../controllers/usuarioController");
+var usuarioController = require("../controllers/usuarioController");
 
 router.get("/painel", (req, res) => {
     res.render("supervisorBasic/painel");
@@ -18,8 +18,8 @@ router.get("/usuarios", (req, res) => {
     res.render("supervisorBasic/usuarios");
 })
 
-router.post("/supervisorBasic/usuarios/cadastrar", function (req, res) {
-    usuariosModels.cadastrar(req, res);
-});
+router.post("/cadastrar", (req, res) => {
+    usuarioController.cadastrar(req, res);
+})
 
 module.exports = router;

@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 var filtrarController = require("../controllers/filtrarController")
+var painelController = require("../controllers/painelController")
 
 router.get("/painel", (req, res) => {
     res.render("supervisorPremium/painel");
@@ -24,7 +25,7 @@ router.post("/filtrarGeral", (req, res) => {
 })
 
 router.post("/tempoReal", (req, res) => {
-    filtrarController.tempoReal(req, res);
+    painelController.tempoReal(req, res);
 })
 
 
