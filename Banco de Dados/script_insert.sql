@@ -12,10 +12,10 @@ INSERT INTO usuario VALUES
 
 -- DANDO INSERT NA TABELA MAQUINAS
 INSERT INTO maquina VALUES
-(null, 2),
-(null, 2),
-(null, 1),
-(null, 1);
+(null, 2, 1),
+(null, 2, 2),
+(null, 1, 1),
+(null, 1, 2);
 
 -- DANDO INSERT NA TABELA USUARIO_MAQUINA
 INSERT INTO usuario_maquina VALUES

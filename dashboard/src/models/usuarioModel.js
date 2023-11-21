@@ -11,7 +11,7 @@ function cadastrar(nome, email, senha, fkempresa) {
 
 function listarModel(fkEmpresa){
     var instrucao = `
-        select * from usuario where nivelAcesso = 0 and fkEmpresa = ${fkEmpresa};
+        select * from usuario join acesso on fkUsuario = idUsuario join maquina on fkMaquina = idMaquina where nivelAcesso = 0 and usuario.fkEmpresa = ${fkEmpresa};
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

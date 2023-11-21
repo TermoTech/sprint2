@@ -41,6 +41,7 @@ idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
  CREATE TABLE maquina (
  idMaquina INT PRIMARY KEY AUTO_INCREMENT,
  fkEmpresa INT,
+ numMaquina INT,
  FOREIGN KEY (fkEmpresa) references empresa(idEmpresa));
  
  -- TABELA SENSORES
