@@ -4,8 +4,9 @@ function cadastrar(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
+    var fkEmpresa = req.body.fkEmpresaServer
     console.log(nome);
-    usuarioModel.cadastrar(nome, email, senha)
+    usuarioModel.cadastrar(nome, email, senha, fkEmpresa)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -23,7 +24,8 @@ function cadastrar(req, res) {
 }
 
 function listar(req, res){
-    usuarioModel.listarModel() //Depois é necessário adicionar os parâmetros após o login estar funcionando
+    var fkEmpresa = req.body.fkEmpresaServer
+    usuarioModel.listarModel(fkEmpresa) //Depois é necessário adicionar os parâmetros após o login estar funcionando
         .then(
             function(resultado){
                 res.json(resultado);

@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 var usuarioController = require("../controllers/usuarioController");
 
+// Rotas de backend serão feitas pelo supervisorBasic
+
 router.get("/painel", (req, res) => {
     res.render("supervisorBasic/painel");
 })
@@ -18,7 +20,7 @@ router.get("/usuarios", (req, res) => {
     res.render("supervisorBasic/usuarios");
 })
 
-router.get("/usuarios/listar", (req, res) => {
+router.post("/usuarios/listar", (req, res) => {
     usuarioController.listar(req, res);
 })
 

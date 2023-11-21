@@ -25,8 +25,27 @@ function fazerLogin(){
                 sessionStorage.ACESSO_USUARIO = json.acesso;
                 sessionStorage.FK_EMPRESA = json.fkEmpresa;
                 sessionStorage.NOME_USUARIO = json.nome;
+                sessionStorage.PLANO_EMPRESA = json.plano;
+                sessionStorage.NOME_EMPRESA = json.nomeEmpresa;
+                // verEmpresa()
 
-                verEmpresa()
+                if(json.plano == 1){
+                    if(json.acesso == 1){
+                        //Supervisor premium
+                        window.location = '/supervisorPremium/painel'
+                    } else{
+                        //Funcionário premium
+                        window.location = '/usuarioPremim/painel'
+                    }
+                } else{
+                    if(json.acesso == 1){
+                        //Supervisor básico
+                        window.location = '/supervisorPremium/painel'
+                    } else{
+                        //Funcionário básico
+                        window.location = '/supervisorPremium/painel'
+                    }
+                }
             })
 
         } else {

@@ -15,8 +15,8 @@
     <div class="div-conteiner">
         <div class="div-principal">
             <div class="div-lateral">
-                <h3>Bem-vindo(a), Caramico</h3>
-              <ul>
+                <h3 id="name_user">Bem-vindo(a), </h3>
+                <ul>
                 <li>
                   <a href="/supervisorPremium/painel"><img src="/staticDashboard/img/imagensPaineis/Vetor Painel.png" alt="vetorPainel" />Painel</a>
                 </li>
@@ -109,7 +109,7 @@
 
         <div class="inputs_style">
             <label for="nome_do_usuario" class="inputs_label">Nome:</label>
-            <input type="text" id="input_nome" class="inputs_campos" onkeyup="gerarEmail()">
+            <input type="text" id="input_nome" class="inputs_campos">
         </div>
         <div class="inputs_style">
             <label for="nome_email" class="inputs_label">E-mail:</label>
@@ -168,6 +168,8 @@
 <script src="/staticDashboard/js/faleConosco.js"></script>
 <script src="/staticDashboard/js/funcionarios.js"></script>
 <script>
+    name_user.innerHTML += sessionStorage.NOME_USUARIO;
+
     function abrirAddFunc(){
         popop_add_func.style.display = "flex";
         titulo_atualizar.innerHTML = 'Adicionar Funcionários';
