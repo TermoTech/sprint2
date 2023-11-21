@@ -1,17 +1,27 @@
-fetch(`/supervisorBasic/usuarios/listar`)
-.then(resposta => {
-    if(resposta.status == 200){
-        resposta.json().then(resposta => {
-            console.log(`Usuários encontrados com sucesso:${JSON.stringify(resposta)}`)
-            mostrarUsuarios(resposta);
-        })
-    } else{
-        console.log('Não foi encontrado nenhum usuário.')
-    }
-})
-.catch(function (error) {
-    console.error(`Erro na obtenção dos dados dos usuários: ${error.message}`);
-});
+function listaUsuarios(){
+    fetch(`/supervisorBasic/usuarios/listar`,{
+        method: 'POST',
+        headers: {
+            "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+            fkEmpresaServer: sessionStorage.FK_EMPRESA
+        }),
+    })
+    .then(resposta => {
+        if(resposta.status == 200){
+            resposta.json().then(resposta => {
+                console.log(`Usuários encontrados com sucesso:${JSON.stringify(resposta)}`)
+                mostrarUsuarios(resposta);
+            })
+        } else{
+            console.log('Não foi encontrado nenhum usuário.')
+        }
+    })
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados dos usuários: ${error.message}`);
+    });
+}
 
 
 
@@ -31,14 +41,16 @@ function criarUsuario(){
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         emailServer: emailVar,
-        senhaServer: senhaVar
+        senhaServer: senhaVar,
+        fkEmpresaServer: sessionStorage.FK_EMPRESA
       }),
   })
       .then(function (resposta) {
           console.log("resposta: ", resposta);
 
           if (resposta.ok) {
-              window.location = "/login";
+                fecharAddFunc()
+                listaUsuarios()
           } else{
               throw "Houve um erro ao tentar se cadastrar!";
           }
@@ -78,6 +90,7 @@ function mostrarUsuarios(resposta){
                     ${resposta[i].email}
                 </td>
                 <td>
+                    Máquina: ${resposta[i].numMaquina}
                 </td>
                 <td>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" onclick="abrirAtualFunc()">
@@ -99,3 +112,4 @@ function mostrarUsuarios(resposta){
         `;
     }
 }
+listaUsuarios()

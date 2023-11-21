@@ -16,8 +16,10 @@ function entrar(req, res) {
                     res.json({
                         id: result[0].idUsuario,
                         nome: result[0].nome,
-                        acesso: result[0].acesso,
-                        fkEmpresa: result[0].fkEmpresa
+                        acesso: result[0].nivelAcesso,
+                        fkEmpresa: result[0].fkEmpresa,
+                        plano: result[0].plano,
+                        nomeEmpresa: result[0].nomeEmpresa
                     })
                 } else {
                     res.status(403).send("Email e/ou senha inválidos");

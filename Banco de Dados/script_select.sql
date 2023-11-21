@@ -27,3 +27,6 @@ SELECT * FROM usuario_maquina;
 SELECT * FROM sensores JOIN maquina ON fkMaquina = idMaquina;
 SELECT * FROM sensores;
 
+ select * from usuario join ACESSO on idUsuario = fkUsuario join maquina on fkMaquina = idMaquina join empresa on usuario.fkEmpresa = idEmpresa;
+ 
+ select * from usuario join acesso on fkUsuario = idUsuario join maquina on fkMaquina = idMaquina where nivelAcesso = 0 and usuario.fkEmpresa = 1;

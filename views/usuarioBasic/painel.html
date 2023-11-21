@@ -16,8 +16,8 @@
   <div class="div-conteiner">
     <div class="div-principal">
       <div class="div-lateral">
-        <h3>Bem-vindo(a), Caramico</h3>
-          <ul>
+        <h3 id="name_user">Bem-vindo(a), </h3>
+        <ul>
             <li>
               <a href="/usuarioBasic/painel"><img src="/staticDashboard/img/imagensPaineis/Vetor Painel.png" alt="vetorPainel" />Painel</a>
             </li>
@@ -229,3 +229,6 @@
 </body>
 
 </html>
+<script>
+  name_user.innerHTML += sessionStorage.NOME_USUARIO;
+</script>

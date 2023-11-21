@@ -13,7 +13,7 @@
     <div class="div-conteiner">
       <div class="div-principal">
         <div class="div-lateral">
-          <h3>Bem-vindo(a), Caramico</h3>
+            <h3 id="name_user">Bem-vindo(a), </h3>
             <ul>
               <li>
                 <a href="/supervisorBasic/painel"><img src="/staticDashboard/img/imagensPaineis/Vetor Painel.png" alt="vetorPainel" />Painel</a>
@@ -421,4 +421,7 @@
             `;
         }
     }
+</script>
+<script>
+  name_user.innerHTML += sessionStorage.NOME_USUARIO;
 </script>
