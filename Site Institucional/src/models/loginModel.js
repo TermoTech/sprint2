@@ -1,8 +1,8 @@
 const database = require("../../../database/db");
 
-function entrar(email, senha) {
+function entrar(login, senha) {
     var instrucao = `
-        SELECT email, senha, acesso FROM usuario WHERE email=${email} AND senha=${senha}
+        SELECT * FROM usuario WHERE email='${login}' AND senha='${senha}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

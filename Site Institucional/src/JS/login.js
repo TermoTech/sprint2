@@ -3,8 +3,8 @@ function fazerLogin(){
     var login = ipt_user.value;
 
     let datas = {
-        senha,
-        login
+        login,
+        senha
     }
 
     fetch("/login/entrar", {
@@ -21,9 +21,12 @@ function fazerLogin(){
             res.json().then(json => {
                 console.log(json);
                 console.log(JSON.stringify(json));
-                sessionStorage.EMAIL_USUARIO = json.email;
                 sessionStorage.ID_USUARIO = json.id;
                 sessionStorage.ACESSO_USUARIO = json.acesso;
+                sessionStorage.FK_EMPRESA = json.fkEmpresa;
+                sessionStorage.NOME_USUARIO = json.nome;
+
+                verEmpresa()
             })
 
         } else {
@@ -35,9 +38,6 @@ function fazerLogin(){
     }).catch((error) => {
         console.log(error);
     })
-
-
-
 }
 
 

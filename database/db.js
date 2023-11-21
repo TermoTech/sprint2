@@ -6,16 +6,16 @@ var mySqlConfig = {
     host: "localhost",
     database: "termotech",
     user: "root",
-    password: "",
+    password: "sptech",
 };
 
 function executar(instrucao) {
     return new Promise(function (resolve, reject) {
         var conexao = mysql.createConnection({
             host: "localhost",
-            database: "termotech",
-            user: "root",
-            password: "54157592808",
+            database: "termoTech",
+            user: "aluno",
+            password: "sptech",
         });
         conexao.connect();
         conexao.query(instrucao, function (erro, resultados) {
