@@ -15,7 +15,7 @@ function executar(instrucao) {
             host: "localhost",
             database: "termoTech",
             user: "root",
-            password: "54157592808",
+            password: "",
         });
         conexao.connect();
         conexao.query(instrucao, function (erro, resultados) {

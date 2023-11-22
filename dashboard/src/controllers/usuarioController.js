@@ -42,7 +42,26 @@ function listar(req, res){
         )
 }
 
+function listarMaquinas(req, res){
+    var fkEmpresa = req.body.fkEmpresaServer
+    usuarioModel.listarMaquinas(fkEmpresa) //Depois é necessário adicionar os parâmetros após o login estar funcionando
+        .then(
+            function(resultado){
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao listar os usuários! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        )
+}
+
 module.exports = {
-    cadastrar, listar
+    cadastrar, listar, listarMaquinas
 }
 
