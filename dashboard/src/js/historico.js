@@ -12,27 +12,34 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
+horarios = [];
+localizacoes = [];
+temperaturas = [];
+maquinas = [];
+
 function mostrarHistorico() {
   tabela_historico.innerHTML = ``;
 
   filtrarGeral();
 
-  tabela_historico.innerHTML += `
+  for(var i=0; i<horarios.length; i++){
+    tabela_historico.innerHTML += `
     <tr>
         <th>
-        ${sessionStorage.HORARIO_REGISTRO}
+        ${horarios[i]}
         </th>
         <th>
-        ${sessionStorage.LOCALIZACAO_REGISTRO}
+        ${localizacoes[i]}
         </th>
         <th>
-        ${sessionStorage.TEMPERATURA_REGISTRO}
+        ${temperaturas[i]}
         </th>
         <th>
-        ${sessionStorage.MAQUINA_REGISTRO}
+        ${maquinas[i]}
         </th>
     </tr>
     `;
+  }
   fecharPopUpFtr();
 }
 
@@ -116,10 +123,12 @@ function filtarParte() {
     })
     .then((json) => {
       console.log(JSON.stringify(json));
-      sessionStorage.HORARIO_REGISTRO = json.horario;
-      sessionStorage.PROCESSO_REGISTRO = json.parteProcesso;
-      sessionStorage.TEMPERATURA_REGISTRO = json.temperatura;
-      sessionStorage.MAQUINA_REGISTRO = json.fkMaquina;
+      for(var i=0; i<json.length; i++){
+        horarios.push(json[i].horario);
+        localizacoes.push(json[i].localizacao);
+        temperaturas.push(json[i].temperatura);
+        maquinas.push(json[i].fkMaquina);
+      }
       // verEmpresa()
     })
     .catch(function (resposta) {
