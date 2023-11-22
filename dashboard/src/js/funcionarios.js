@@ -1,5 +1,5 @@
-function listaUsuarios(){
-    fetch(`/supervisorBasic/usuarios/listar`,{
+function listaUsuarios() {
+    fetch(`/supervisorBasic/usuarios/listar`, {
         method: 'POST',
         headers: {
             "Content-type": "application/json",
@@ -8,44 +8,41 @@ function listaUsuarios(){
             fkEmpresaServer: sessionStorage.FK_EMPRESA
         }),
     })
-    .then(resposta => {
-        if(resposta.status == 200){
-            resposta.json().then(resposta => {
-                console.log(`Usuários encontrados com sucesso:${JSON.stringify(resposta)}`)
-                mostrarUsuarios(resposta);
-            })
-        } else{
-            console.log('Não foi encontrado nenhum usuário.')
-        }
-    })
-    .catch(function (error) {
-        console.error(`Erro na obtenção dos dados dos usuários: ${error.message}`);
-    });
+        .then(resposta => {
+            if (resposta.status == 200) {
+                resposta.json().then(resposta => {
+                    console.log(`Usuários encontrados com sucesso:${JSON.stringify(resposta)}`)
+                    mostrarUsuarios(resposta);
+                })
+            } else {
+                console.log('Não foi encontrado nenhum usuário.')
+            }
+        })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados dos usuários: ${error.message}`);
+        });
 }
 
 
 
-function criarUsuario(){
+function criarUsuario() {
     exibir.innerHTML = ``;
     var nomeVar = input_nome.value;
     var emailVar = input_email.value;
     var senhaVar = input_senha.value;
 
-    var Addchk_maquina1 = document.getElementById('Addchk_maquina1');
-    var Addchk_maquina2 = document.getElementById('Addchk_maquina2');
-
-
+//Editar aqui posteriormente -----------------------------------
     var maquina = 1; 
-    Addchk_maquina1.addEventListener('click', function () {
-        maquina = Addchk_maquina1.checked ? 1 : 0;
+    Addchk_maquina1.addEventListener('change', function () {
         if (Addchk_maquina1.checked) {
+            maquina = 1
             Addchk_maquina2.checked = false;
         }
     });
 
-    Addchk_maquina2.addEventListener('click', function () {
-        maquina = Addchk_maquina2.checked ? 2 : 0;
+    Addchk_maquina2.addEventListener('change', function () {
         if (Addchk_maquina2.checked) {
+            maquina = 2
             Addchk_maquina1.checked = false;
         }
     });
@@ -58,8 +55,6 @@ function criarUsuario(){
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            // crie um atributo que recebe o valor recuperado aqui
-            // Agora vá para o arquivo routes/usuario.js
             nomeServer: nomeVar,
             emailServer: emailVar,
             senhaServer: senhaVar,
@@ -91,7 +86,7 @@ function mensagemDeErro(){
     var senha2 = input_repetir_senha.value;
 
     //Mensagem de erro
-    if(senha != senha2){ 
+    if (senha != senha2) {
         erro.style.display = "flex";
         button_criar_usuario.disabled = true;
 
