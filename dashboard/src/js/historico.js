@@ -41,7 +41,7 @@ function filtrarGeral() {
   var diaFinal = input_dia_final.value;
 
   var maquinaSelecionada = Number(select_maquina.value);
-  var processoSelecionado = Number(select_processo.value);
+  var processoSelecionado = select_processo.value;
 
   fetch(`/supervisorPremium/filtrarGeral`, {
     method: "POST",
@@ -85,40 +85,42 @@ function filtrarGeral() {
 function filtarParte() {
   var diaInicial = input_dia_inicio.value;
   var diaFinal = input_dia_final.value;
-
   var maquinaSelecionada = Number(select_maquina.value);
   var processoSelecionado = Number(select_processo.value);
 
-  fetch(`/filtrarGeral`, {
+  fetch(`/supervisorPremium/filtrarGeral`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      inicilDia: diaInicial,
+      inicialDia: diaInicial,
       finalDia: diaFinal,
       idMaquina: maquinaSelecionada,
       parteProcesso: processoSelecionado,
+      maquinaSelecionada: maquinaSelecionada,
+      processoSelecionado: processoSelecionado,
     }),
   })
-    .then(function (resposta) {
-      console.log("resposta: ", resposta);
-
-      if (resposta.ok) {
-        console.log(
-          "Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!"
-        );
-        // window.location = "/dashboard/mural.html";
-        // limparFormulario();
-        // finalizarAguardar();
-      } else if (resposta.status == 404) {
+    .then((respostas) => {
+      if (respostas.ok) {
+        return respostas.json();
+      } else if (respostas.status == 404) {
         window.alert("Deu 404!");
       } else {
         throw (
           "Houve um erro ao tentar realizar a postagem! Código da resposta: " +
-          resposta.status
+          respostas.status
         );
       }
+    })
+    .then((json) => {
+      console.log(JSON.stringify(json));
+      sessionStorage.HORARIO_REGISTRO = json.horario;
+      sessionStorage.PROCESSO_REGISTRO = json.parteProcesso;
+      sessionStorage.TEMPERATURA_REGISTRO = json.temperatura;
+      sessionStorage.MAQUINA_REGISTRO = json.fkMaquina;
+      // verEmpresa()
     })
     .catch(function (resposta) {
       console.log(`#ERRO: ${resposta}`);
