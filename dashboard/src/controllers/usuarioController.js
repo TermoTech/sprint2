@@ -1,5 +1,25 @@
 var usuarioModel = require("../models/usuarioModel");
 
+function listarMaquinas(req, res){
+    var fkEmpresa = req.body.fkEmpresaServer
+    usuarioModel.listarMaquinasModel(fkEmpresa)
+    .then(
+        function(resultado){
+            res.json(resultado);
+        }
+    ).catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao listar as maquinas! Erro: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        }
+    )
+}
+
+
 function cadastrar(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
@@ -40,7 +60,7 @@ function cadastrar(req, res) {
 
 function listar(req, res){
     var fkEmpresa = req.body.fkEmpresaServer
-    usuarioModel.listarModel(fkEmpresa) //Depois é necessário adicionar os parâmetros após o login estar funcionando
+    usuarioModel.listarModel(fkEmpresa)
         .then(
             function(resultado){
                 res.json(resultado);
@@ -90,6 +110,6 @@ function excluirUser(req, res){
 }
 
 module.exports = {
-    cadastrar, listar, editarUser, excluirUser
+    cadastrar, listar, editarUser, excluirUser, listarMaquinas
 }
 

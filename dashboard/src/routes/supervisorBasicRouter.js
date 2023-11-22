@@ -24,6 +24,10 @@ router.post("/usuarios/listar", (req, res) => {
     usuarioController.listar(req, res);
 })
 
+router.post("/usuarios/listarMaquinas", (req, res) => {
+    usuarioController.listarMaquinas(req, res);
+})
+
 router.put("/editar", (req, res) => {
     usuarioController.editarUser(req, res);
 })

@@ -130,20 +130,20 @@
             </p>
         </div>
 
-        <div class="inputs_style">
+        <div class="inputs_style" id="checkbox_div">
             <label for="Maquina_usuario" class="inputs_label">Responsável pela máquina:</label>
             
-            <div style="display: flex; justify-content: center;">
-                <input type="checkbox" id="Addchk_maquina1" value="Maquina 1">
+            <!-- <div style="display: flex; justify-content: center;">
+                <input type="checkbox" id="chk_maquina1" value="Maquina 1">
                 <label for="chk_maquina1">Máquina 1</label>
             </div>
 
             <div style="display: flex; justify-content: center;">
-                <input type="checkbox" id="Addchk_maquina2" value="Maquina 2">
+                <input type="checkbox" id="chk_maquina2" value="Maquina 2">
                 <label for="chk_maquina2">Máquina 2</label>
-            </div>
-
-            <!-- <div style="display: flex; justify-content: center;">
+            </div> -->
+<!-- 
+            <div style="display: flex; justify-content: center;">
                 <input type="checkbox" id="chk_maquina3" value="Maquina 3">
                 <label for="chk_maquina3">Maquina 3</label>
             </div>
@@ -170,30 +170,4 @@
 <script>
     name_user.innerHTML += sessionStorage.NOME_USUARIO;
 
-    function abrirAddFunc(){
-        popop_add_func.style.display = "flex";
-        titulo_atualizar.innerHTML = 'Adicionar Funcionários';
-        button_criar_usuario.innerHTML = `Criar Usuário`;
-        input_nome.value = ``;
-        erro.style.display = 'none'
-        input_email.value = ``;
-        input_senha.value = ``;
-        input_repetir_senha.value = ``;
-
-        //capturar valores do check
-        if(Addchk_maquina1.checked){ 
-            Addchk_maquina1.checked = false;  
-
-        }  if(Addchk_maquina2.checked){ 
-            Addchk_maquina2.checked = false;
-
-        }  
-        // if(chk_maquina3.checked){ 
-        //     chk_maquina3.checked = false;
-
-        // }  if(chk_maquina4.checked){
-        //     chk_maquina4.checked = false;
-
-        // }
-    }
 </script>

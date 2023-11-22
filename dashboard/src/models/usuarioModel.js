@@ -61,7 +61,16 @@ function editarAcessoUserModel(idUser, idMaquina){
     return database.executar(instrucao);
 }
 
+function listarMaquinasModel(fkEmpresa){
+    var instrucao = `
+        select * from maquina where fkEmpresa = ${fkEmpresa};
+    `;
+    console.log('Executando a instrução SQL: \n" + instrucao')
+    return database.executar(instrucao);
+}
+
 module.exports = {
     cadastrar, listarModel, editarUsuarioModel, excluirAcessoModel,
-    excluirUsuarioModel, editarAcessoUserModel, achaIdUsuario, criaAcessoUsuario
+    excluirUsuarioModel, editarAcessoUserModel, achaIdUsuario, criaAcessoUsuario,
+    listarMaquinasModel
 }
