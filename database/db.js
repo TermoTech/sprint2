@@ -14,8 +14,8 @@ function executar(instrucao) {
         var conexao = mysql.createConnection({
             host: "localhost",
             database: "termoTech",
-            user: "root",
-            password: "54157592808",
+            user: "sptech",
+            password: "aluno",
         });
         conexao.connect();
         conexao.query(instrucao, function (erro, resultados) {

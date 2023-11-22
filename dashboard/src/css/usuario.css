@@ -223,6 +223,14 @@ body{
     margin: 10px 0;
 }
 
+.inputs_style_radius{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90%;
+    margin: 10px 0;
+}
+
 .select_maquinas{
     width: 60%;
     font-size: 15px;
@@ -230,6 +238,7 @@ body{
     border: 1px solid #B3AFB2;
     background: rgba(217, 217, 217, 0.50);
 }
+
 
 /*Usuários*/
 table{

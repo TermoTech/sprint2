@@ -24,6 +24,10 @@ router.post("/usuarios/listar", (req, res) => {
     usuarioController.listar(req, res);
 })
 
+router.post("/usuarios/listarMaquinas", (req, res) => {
+    usuarioController.listarMaquinas(req, res);
+})
+
 router.post("/cadastrar", (req, res) => {
     usuarioController.cadastrar(req, res);
 })
