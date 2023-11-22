@@ -55,31 +55,32 @@ function filtrarGeral() {
       parteProcesso: processoSelecionado,
     }),
   })
-  .then((respostas) => {
-    if (respostas.ok) {
-      return respostas.json();
-     } else if (respostas.status == 404) {
-      window.alert("Deu 404!");
-    } else {
-      throw (
-        "Houve um erro ao tentar realizar a postagem! Código da resposta: " +
-        respostas.status
-      );
-    }
-  })
-  .then((json) => {
-    console.log(JSON.stringify(json));
-    sessionStorage.HORARIO_REGISTRO = json.horario;
-    sessionStorage.PROCESSO_REGISTRO = json.parteProcesso;
-    sessionStorage.TEMPERATURA_REGISTRO = json.temperatura;
-    sessionStorage.MAQUINA_REGISTRO = json.fkMaquina;
-    // verEmpresa()
-  })
-  .catch(function (resposta) {
-    console.log(`#ERRO: ${resposta}`);
-    // finalizarAguardar();
-  });
+    .then((respostas) => {
+      if (respostas.ok) {
+        return respostas.json();
+      } else if (respostas.status == 404) {
+        window.alert("Deu 404!");
+      } else {
+        throw (
+          "Houve um erro ao tentar realizar a postagem! Código da resposta: " +
+          respostas.status
+        );
+      }
+    })
+    .then((json) => {
+      console.log(JSON.stringify(json));
+      sessionStorage.HORARIO_REGISTRO = json.horario;
+      sessionStorage.PROCESSO_REGISTRO = json.parteProcesso;
+      sessionStorage.TEMPERATURA_REGISTRO = json.temperatura;
+      sessionStorage.MAQUINA_REGISTRO = json.fkMaquina;
+      // verEmpresa()
+    })
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+      // finalizarAguardar();
+    });
 }
+
 
 function filtarParte() {
   var diaInicial = input_dia_inicio.value;

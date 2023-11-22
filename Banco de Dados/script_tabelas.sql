@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS termotech;
+
 -- CRIANDO O BANCO DE DADOS
 CREATE DATABASE termotech;
 USE termotech;
@@ -18,9 +20,8 @@ cep CHAR(9));
 -- TABELA EMPRESA
 CREATE TABLE empresa (
 idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
- nomeEmpresa VA
- RCHAR(45),
--- emailEmpresa VARCHAR(45),
+ nomeEmpresa VARCHAR(45),
+emailEmpresa VARCHAR(45),
  plano INT,
  fkEndereco INT,
  constraint fkEndereco foreign key (fkEndereco) references endereco (idEndereco),
