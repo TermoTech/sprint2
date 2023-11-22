@@ -24,6 +24,14 @@ router.post("/usuarios/listar", (req, res) => {
     usuarioController.listar(req, res);
 })
 
+router.put("/editar", (req, res) => {
+    usuarioController.editarUser(req, res);
+})
+
+router.post("/excluir", (req, res) => {
+    usuarioController.excluirUser(req, res);
+})
+
 router.post("/cadastrar", (req, res) => {
     usuarioController.cadastrar(req, res);
 })
