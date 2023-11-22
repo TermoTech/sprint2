@@ -4,8 +4,8 @@ var mysql = require("mysql2");
 // CONEXÃO DO MYSQL WORKBENCH
 var mySqlConfig = {
     host: "localhost",
-    database: "termotech",
-    user: "root",
+    database: "termoTech",
+    user: "aluno",
     password: "sptech",
 };
 
@@ -14,8 +14,8 @@ function executar(instrucao) {
         var conexao = mysql.createConnection({
             host: "localhost",
             database: "termoTech",
-            user: "root",
-            password: "54157592808",
+            user: "aluno",
+            password: "sptech",
         });
         conexao.connect();
         conexao.query(instrucao, function (erro, resultados) {
