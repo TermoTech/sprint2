@@ -13,7 +13,7 @@ function executar(instrucao) {
     return new Promise(function (resolve, reject) {
         var conexao = mysql.createConnection({
             host: "localhost",
-            database: "termoTech",
+            database: "termotech",
             user: "aluno",
             password: "sptech",
         });

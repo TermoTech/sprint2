@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div div_container class="div-conteiner">
+    <div id="div_container" class="div-conteiner">
         <div class="div-principal">
             <div class="div-lateral">
                 <h3 id="name_user">Bem-vindo(a), </h3>
@@ -112,8 +112,8 @@
             <input type="text" id="input_nome" class="inputs_campos">
         </div>
         <div class="inputs_style">
-            <label for="updt_input_email" class="inputs_label">Email:</label>
-            <input type="text" id="updt_input_email" class="inputs_campos">
+            <label for="nome_email" class="inputs_label">E-mail:</label>
+            <input type="text" id="input_email" class="inputs_campos">
         </div>
         <div class="inputs_style">
             <label for="nome_senha" class="inputs_label">Senha:</label>
@@ -124,94 +124,45 @@
             <input type="password" onchange="mensagemDeErro()" id="input_repetir_senha" class="inputs_campos">
         </div>
 
-        <div id="erro_add" class="inputs_style" style="display: none; height: 5px;">    
-            <p style="color: red;">
-                Senha incorreta!
-            </p>
-        </div>
-
-        <div class="inputs_style" id="maquinas_empresa">
-
-        </div>
-
-        <button onclick="criarUsuario()" id="button_criar_usuario" disabled>Criar Usuário</button>
-    </div>
-</div>
-
-<div id="update_dados_popup" style="display: none;">
-    <!--Atualizar dados-->
-    <div id="inputs_dados2">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" style="position: absolute; left: 70%; cursor: pointer;" width="32" height="32" viewBox="0 0 32 32" onclick="fecharAddFunc()"><path fill="currentColor" d="M16 2C8.2 2 2 8.2 2 16s6.2 14 14 14s14-6.2 14-14S23.8 2 16 2zm0 26C9.4 28 4 22.6 4 16S9.4 4 16 4s12 5.4 12 12s-5.4 12-12 12z"/><path fill="currentColor" d="M21.4 23L16 17.6L10.6 23L9 21.4l5.4-5.4L9 10.6L10.6 9l5.4 5.4L21.4 9l1.6 1.6l-5.4 5.4l5.4 5.4z"/></svg>
-
-        <h3 style="color: black; font-size: 30px;" id="titulo_atualizar">Atualizar funcionário Funcionários</h3>
-        
-        <br><br>
-
-        <div class="inputs_style">
-            <label for="updt_nome_do_usuario" class="inputs_label">Nome:</label>
-            <input type="text" id="updt_input_nome" class="inputs_campos">
-        </div>
-        <div class="inputs_style">
-            <label for="updt_input_email" class="inputs_label">Email:</label>
-            <input type="text" id="input_email" class="inputs_campos">
-        </div>
-        <div class="inputs_style">
-            <label for="updt_input_senha" class="inputs_label">Senha:</label>
-            <input type="password" id="updt_input_senha" class="inputs_campos">
-        </div>
-        <div class="inputs_style">
-            <label for="updt_input_repetir_senha" class="inputs_label">Repetir Senha:</label>
-            <input type="password" onchange="mensagemDeErro()" id="updt_input_repetir_senha" class="inputs_campos">
-        </div>
-
         <div id="erro" class="inputs_style" style="display: none; height: 5px;">    
             <p style="color: red;">
                 Senha incorreta!
             </p>
         </div>
 
-        <div class="inputs_style_radius" id="maquinas_empresa_updt">
-            <label class="inputs_label">
-                Responsável pela máquina:
-            </label>
+        <div class="inputs_style" id="checkbox_div">
+            <label for="Maquina_usuario" class="inputs_label">Responsável pela máquina:</label>
+            
+            <!-- <div style="display: flex; justify-content: center;">
+                <input type="checkbox" id="chk_maquina1" value="Maquina 1">
+                <label for="chk_maquina1">Máquina 1</label>
+            </div>
+
+            <div style="display: flex; justify-content: center;">
+                <input type="checkbox" id="chk_maquina2" value="Maquina 2">
+                <label for="chk_maquina2">Máquina 2</label>
+            </div> -->
+<!-- 
+            <div style="display: flex; justify-content: center;">
+                <input type="checkbox" id="chk_maquina3" value="Maquina 3">
+                <label for="chk_maquina3">Maquina 3</label>
+            </div>
+
+            <div style="display: flex; justify-content: center;">
+                <input type="checkbox" id="chk_maquina4" value="Maquina 4">
+                <label for="chk_maquina4">Maquina 4</label>
+            </div> -->
         </div>
-        <button onclick="updtUsuario()" id="button_updt_usuario" disabled>Criar Usuário</button>
+
+        <button onclick="criarUsuario()" id="button_criar_usuario">Criar Usuário</button>
     </div>
 </div>
-
-    <!-- Div para o fale conosco -->
     <div  id="fale_conosco"></div>
 </body>
 </html>
 
 <script src="/staticDashboard/js/faleConosco.js"></script>
 <script src="/staticDashboard/js/funcionarios.js"></script>
-<script>
-    function abrirAddFunc(){
-        popop_add_func.style.display = "flex";
-        titulo_atualizar.innerHTML = 'Adicionar Funcionários';
-        button_criar_usuario.innerHTML = `Criar Usuário`;
-        erro_add.style.display = 'none'
-        input_nome.value = ``;
-        input_email.value = ``;
-        input_senha.value = ``;
-        input_repetir_senha.value = ``;
-        listarMaquinas();
-    }
-<<<<<<< HEAD
-=======
-
-    function update_dados_popup(){
-        popop_add_func.style.display = "flex";
-        titulo_atualizar.innerHTML = 'Atulizar Inforamções do Usuário'
-        button_criar_usuario.innerHTML = `Atualizar Usuário`;
-    }
-    function fecharAddFunc(){
-        popop_add_func.style.display = "none";
-    }
->>>>>>> cc1860ddb667ce1d25b7499ade82caf4e60ba1d6
-</script>
 <script>
     name_user.innerHTML += sessionStorage.NOME_USUARIO;
 </script>
