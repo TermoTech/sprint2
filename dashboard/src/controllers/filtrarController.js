@@ -13,7 +13,8 @@ function filtrarGeral(req, res) {
         parteProcesso: resposta[0].parteProcesso,
         temperatura: resposta[0].temperatura,
         fkMaquina: resposta[0].fkMaquina,
-    })
+    });
+    console.log(resposta);
     })
     .catch(function(erro){
       res.status(500).json(erro.sqlMessage);

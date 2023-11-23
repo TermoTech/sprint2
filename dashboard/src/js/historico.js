@@ -22,8 +22,9 @@ function mostrarHistorico() {
 
   filtrarGeral();
 
-  for(var i=0; i<horarios.length; i++){
-    tabela_historico.innerHTML += `
+  setTimeout(function () {
+    for (var i = 0; i < horarios.length; i++) {
+      tabela_historico.innerHTML += `
     <tr>
         <th>
         ${horarios[i]}
@@ -39,7 +40,8 @@ function mostrarHistorico() {
         </th>
     </tr>
     `;
-  }
+    }
+  }, 2000);
   fecharPopUpFtr();
 }
 
@@ -76,10 +78,12 @@ function filtrarGeral() {
     })
     .then((json) => {
       console.log(JSON.stringify(json));
-      sessionStorage.HORARIO_REGISTRO = json.horario;
-      sessionStorage.PROCESSO_REGISTRO = json.parteProcesso;
-      sessionStorage.TEMPERATURA_REGISTRO = json.temperatura;
-      sessionStorage.MAQUINA_REGISTRO = json.fkMaquina;
+      for (var i = 0; i < json.length; i++) {
+        horarios.push(json[i].horario);
+        localizacoes.push(json[i].parteProcesso);
+        temperaturas.push(json[i].temperatura);
+        maquinas.push(json[i].fkMaquina);
+      }
       // verEmpresa()
     })
     .catch(function (resposta) {
@@ -87,7 +91,6 @@ function filtrarGeral() {
       // finalizarAguardar();
     });
 }
-
 
 function filtarParte() {
   var diaInicial = input_dia_inicio.value;
@@ -123,7 +126,7 @@ function filtarParte() {
     })
     .then((json) => {
       console.log(JSON.stringify(json));
-      for(var i=0; i<json.length; i++){
+      for (var i = 0; i < json.length; i++) {
         horarios.push(json[i].horario);
         localizacoes.push(json[i].localizacao);
         temperaturas.push(json[i].temperatura);
