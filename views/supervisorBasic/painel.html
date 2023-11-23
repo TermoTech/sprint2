@@ -10,9 +10,10 @@
   <link rel="stylesheet" href="/staticDashboard/css/popupAlert.css">
   <link rel="stylesheet" href="/staticDashboard/css/layout.css" />
   <link rel="stylesheet" href="/staticDashboard/css/StyleDashboard.css">
+  <script src="/staticDashboard/JS/session.js"></script>
 </head>
 
-<body>
+<body onload="validarSessao()">
   <div class="div-conteiner">
     <div class="div-principal">
       <div class="div-lateral">
@@ -32,7 +33,7 @@
               <a href="/supervisorBasic/usuarios"><img src="/staticDashboard/img/imagensPaineis/Vetor Usuarios.png"alt="vetorUsuario" />Funcionários</a>
             </li>
             <li class="sair">
-              <a href="/login"><img src="/staticDashboard/img/imagensPaineis/log-out.png" alt="vetorLogOut" />Sair</a>
+              <a onclick="sairConta()"><img src="/staticDashboard/img/imagensPaineis/log-out.png" alt="vetorLogOut" />Sair</a>
             </li>
           </ul>
       </div>
