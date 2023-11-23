@@ -13,9 +13,10 @@ document.addEventListener("keydown", function (event) {
 });
 
 horarios = [];
-localizacoes = [];
+parteProcesso = [];
 temperaturas = [];
 maquinas = [];
+umidades = [];
 
 function mostrarHistorico() {
   tabela_historico.innerHTML = ``;
@@ -30,10 +31,13 @@ function mostrarHistorico() {
         ${horarios[i]}
         </th>
         <th>
-        ${localizacoes[i]}
+        ${parteProcesso[i]}
         </th>
         <th>
         ${temperaturas[i]}
+        </th>
+        <th>
+        ${umidades[i]}
         </th>
         <th>
         ${maquinas[i]}
