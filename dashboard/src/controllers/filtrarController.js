@@ -33,7 +33,7 @@ function filtarParte(){
       res.status(200).json(resposta);
       res.json({
         horario: resposta[0].horario,
-        parteProcesso: resposta[0].parteProcesso,
+        countTemp: resposta[0].countTemp,
         temperatura: resposta[0].temperatura,
         fkMaquina: resposta[0].fkMaquina,
     })
@@ -44,4 +44,5 @@ function filtarParte(){
 }
 module.exports = {
   filtrarGeral,
+  filtarParte,
 };

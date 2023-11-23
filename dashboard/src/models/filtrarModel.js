@@ -15,14 +15,10 @@ WHERE horario BETWEEN '${diaInicial}' AND '${diaFinal}';
 function filtrarParte(
   diaInicial,
   diaFinal,
-  maximo,
-  minimo,
-  idMaquina,
   parteProcesso
 ) {
   var instrucao = `
-    select horario, parteProcesso, temperatura, umidade, fkMaquina from sensores join maquina on idMaquina = fkMaquina 
-    where temperatura >= ${minimo} and temperatura ${maximo} and fkMaquina = ${idMaquina} and horario >= '${diaInicial}' and horario <= '${diaFinal}' and parteProcesso = '${parteProcesso}' group by localizacao;
+  select parteProcesso, count(temperatura) as countTemp from sensores where horario between '${diaInicial}' and '${diaFinal}' group by ${parteProcesso};
     `;
   console.log("Executando a instrução SQL: \n" + instrucao);
   return database.executar(instrucao);

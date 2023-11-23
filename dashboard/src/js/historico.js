@@ -12,8 +12,21 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
+
+errosTotais = 0;
 horarios = [];
 parteProcesso = [];
+
+function calcularQuantidadeItens(lista, nome) {
+  let quantidade = 0;
+  for (let i = 0; i < lista.length; i++) {
+    if (lista[i] === nome) {
+      quantidade++;
+      errosTotais++;
+    }
+  }
+  return quantidade;
+}
 temperaturas = [];
 maquinas = [];
 umidades = [];
@@ -84,7 +97,7 @@ function filtrarGeral() {
       console.log(JSON.stringify(json));
       for (var i = 0; i < json.length; i++) {
         horarios.push(json[i].horario);
-        localizacoes.push(json[i].parteProcesso);
+        parteProcesso.push(json[i].parteProcesso);
         temperaturas.push(json[i].temperatura);
         maquinas.push(json[i].fkMaquina);
       }
@@ -94,13 +107,15 @@ function filtrarGeral() {
       console.log(`#ERRO: ${resposta}`);
       // finalizarAguardar();
     });
+
+  filtarParte();
 }
 
 function filtarParte() {
   var diaInicial = input_dia_inicio.value;
   var diaFinal = input_dia_final.value;
   var maquinaSelecionada = Number(select_maquina.value);
-  var processoSelecionado = Number(select_processo.value);
+  var processoSelecionado = select_processo.value;
 
   fetch(`/supervisorPremium/filtrarGeral`, {
     method: "POST",
@@ -112,8 +127,6 @@ function filtarParte() {
       finalDia: diaFinal,
       idMaquina: maquinaSelecionada,
       parteProcesso: processoSelecionado,
-      maquinaSelecionada: maquinaSelecionada,
-      processoSelecionado: processoSelecionado,
     }),
   })
     .then((respostas) => {
@@ -130,12 +143,13 @@ function filtarParte() {
     })
     .then((json) => {
       console.log(JSON.stringify(json));
-      for (var i = 0; i < json.length; i++) {
-        horarios.push(json[i].horario);
-        localizacoes.push(json[i].localizacao);
-        temperaturas.push(json[i].temperatura);
-        maquinas.push(json[i].fkMaquina);
-      }
+      numero_erro_matriz.innerHTML = calcularQuantidadeItens(
+        parteProcesso,
+        "Processo1"
+      );
+      numero_erro_anel.innerHTML = calcularQuantidadeItens(parteProcesso, "Processo2");
+      numero_erro_reator.innerHTML = calcularQuantidadeItens(parteProcesso, "Processo3");
+      numero_erro_total.innerHTML = errosTotais;
       // verEmpresa()
     })
     .catch(function (resposta) {
