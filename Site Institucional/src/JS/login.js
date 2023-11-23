@@ -35,15 +35,15 @@ function fazerLogin(){
                         window.location = '/supervisorPremium/painel'
                     } else{
                         //Funcionário premium
-                        window.location = '/usuarioPremim/painel'
+                        window.location = '/usuarioPremium/painel'
                     }
                 } else{
                     if(json.acesso == 1){
                         //Supervisor básico
-                        window.location = '/supervisorPremium/painel'
+                        window.location = '/supervisorBasic/painel'
                     } else{
                         //Funcionário básico
-                        window.location = '/supervisorPremium/painel'
+                        window.location = '/usuarioBasic/painel'
                     }
                 }
             })
