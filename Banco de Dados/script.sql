@@ -54,8 +54,17 @@ idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
  fkMaquina INT,
  FOREIGN KEY (fkMaquina) references maquina(idMaquina));
  
+ CREATE TABLE historico(
+	idHist int auto_increment,
+    fkSensor int,
+    CONSTRAINT fkSensor FOREIGN KEY (fkSensor) REFERENCES sensores(idSensor),
+    captura float,
+    horario datetime default current_timestamp,
+    primary key(idHist, fkSensor)
+ );
+ 
  -- TABELA ACESSO
- CREATE TABLE ACESSO (
+ CREATE TABLE acesso (
  fkUsuario INT,
  FOREIGN KEY (fkUsuario) references usuario (idUsuario),
  fkMaquina INT,
