@@ -12,266 +12,131 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-// Carregando os selects de inicio do intervalo
-select_de_mes.addEventListener("change", function () {
-  select_de_dia.innerHTML = "<option value=`dia`>Dia</option>";
-  var deDia = 1;
-  var deDiaMax = 1;
-  while (deDia <= deDiaMax) {
-    var max = Number(select_de_mes.value);
-    if (
-      max == 1 ||
-      max == 3 ||
-      max == 5 ||
-      max == 7 ||
-      max == 8 ||
-      max == 10 ||
-      max == 12
-    ) {
-      deDiaMax = 31;
-    } else if (max == 2) {
-      deDiaMax = 28;
-    } else {
-      deDiaMax = 30;
-    }
+horarios = [];
+parteProcesso = [];
+temperaturas = [];
+maquinas = [];
+umidades = [];
 
-    if (select_de_mes.value != `mês`) {
-      select_de_dia.innerHTML += `
-        <option value="${deDia}">${deDia}</option>`;
-    } else {
-      select_de_dia.innerHTML = "<option value=`dia`>Dia</option>";
-    }
-
-    deDia++;
-  }
-});
-
-var deMes = 1;
-while (deMes <= 12) {
-  select_de_mes.innerHTML += `
-        <option value="${deMes}">${deMes}</option>`;
-
-  deMes++;
-}
-
-// Carregando os selects de fim do intervalo
-select_ate_mes.addEventListener("change", function () {
-  select_ate_dia.innerHTML = "<option value=`dia`>Dia</option>";
-
-  var ateDia = 1;
-  var ateDiaMax = 1;
-  while (ateDia <= ateDiaMax) {
-    var max = Number(select_ate_mes.value);
-    if (
-      max == 1 ||
-      max == 3 ||
-      max == 5 ||
-      max == 7 ||
-      max == 8 ||
-      max == 10 ||
-      max == 12
-    ) {
-      ateDiaMax = 31;
-    } else if (max == 2) {
-      ateDiaMax = 28;
-    } else {
-      ateDiaMax = 30;
-    }
-
-    if (select_ate_mes.value != `mês`) {
-      select_ate_dia.innerHTML += `
-        <option value="${ateDia}">${ateDia}</option>`;
-    } else {
-      select_ate_dia.innerHTML = "<option value=dia>Dia</option>";
-    }
-
-    ateDia++;
-  }
-});
-
-// Aqui carrego o select de mês
-var ateMes = 1;
-while (ateMes <= 12) {
-  select_ate_mes.innerHTML += `
-        <option value="${ateMes}">${ateMes}</option>`;
-
-  ateMes++;
-}
-
-// Aqui crio a função para exibir o histórico filtrado e também faço as validações de preenchimento
 function mostrarHistorico() {
   tabela_historico.innerHTML = ``;
 
-  var diaInicial = Number(select_de_dia.value);
-  var diaFinal = Number(select_ate_dia.value);
-  var mesInicial = Number(select_de_mes.value);
-  var mesFinal = Number(select_ate_mes.value);
-  var diaAtual = diaInicial;
-  var mesAtual = mesInicial;
+  filtrarGeral();
 
-  var maquinaSelecionada = Number(select_maquina.value);
-  var processoSelecionado = Number(select_processo.value);
-
-  if (isNaN(diaInicial) || isNaN(diaFinal)) {
-    erro_filtrar.style.display = "flex";
-  } else if (
-    (diaInicial > diaFinal && mesFinal <= mesInicial) ||
-    mesFinal < mesInicial
-  ) {
-    erro_filtrar.style.display = "flex";
-  } else {
-    erro_filtrar.style.display = "none";
-    while (mesAtual <= mesFinal) {
-      var quantidadeRegistrosDia = Math.floor(Math.random() * 4);
-      var contadorRegistros = 1;
-      while (contadorRegistros <= quantidadeRegistrosDia) {
-        var tempMin = Math.random() * (100 - 80) + 80;
-        tempMin = tempMin.toFixed(2);
-
-        var tempMax = Math.random() * (300 - 260) + 260;
-        tempMax = tempMax.toFixed(2);
-
-        var umidMax = Math.random() * (100 - 61) + 61;
-        umidMax = umidMax.toFixed(2);
-
-        var hora = Math.floor(Math.random() * 24);
-        var minutos = Math.floor(Math.random() * 60);
-
-        if (hora < 10) {
-          hora = "0" + hora;
-        }
-        if (minutos < 10) {
-          minutos = "0" + minutos;
-        }
-
-        var temperatura = [tempMin, tempMax];
-        var umidade = [umidMax];
-
-        if (processoSelecionado == 0) {
-          var parteProcesso = [`Matriz`, `Reator`, `Anel de resfriamento`];
-        } else if (processoSelecionado == 1) {
-          var parteProcesso = ["Matriz"];
-        } else if (processoSelecionado == 2) {
-          var parteProcesso = ["Reator"];
-        } else {
-          var parteProcesso = ["Anel de resfriamento"];
-        }
-
-        if (maquinaSelecionada == 0) {
-          var maquina = ["1", "2"];
-        } else if (maquinaSelecionada == 1) {
-          var maquina = ["1"];
-        } else {
-          var maquina = ["2"];
-        }
-
-        var indiceTemp = Math.floor(Math.random() * temperatura.length);
-        var indiceParte = Math.floor(Math.random() * parteProcesso.length);
-        var indiceMaquina = Math.floor(Math.random() * maquina.length);
-
-        tabela_historico.innerHTML += `
+  setTimeout(function () {
+    for (var i = 0; i < horarios.length; i++) {
+      tabela_historico.innerHTML += `
     <tr>
         <th>
-        ${diaAtual}/${mesAtual}/2023
+        ${horarios[i]}
         </th>
         <th>
-        ${hora}:${minutos}
+        ${parteProcesso[i]}
         </th>
         <th>
-        ${parteProcesso[indiceParte]}
+        ${temperaturas[i]}
         </th>
         <th>
-        ${temperatura[indiceTemp]}
+        ${umidades[i]}
         </th>
         <th>
-        ${umidade[0]}%
-        </th>
-        <th>
-        ${maquina[indiceMaquina]}
+        ${maquinas[i]}
         </th>
     </tr>
     `;
-
-        contadorRegistros++;
-      }
-
-      if (
-        (mesAtual == 1 ||
-          mesAtual == 3 ||
-          mesAtual == 5 ||
-          mesAtual == 7 ||
-          mesAtual == 8 ||
-          mesAtual == 10 ||
-          mesAtual == 12) &&
-        diaAtual == 31
-      ) {
-        diaAtual = 1;
-        mesAtual++;
-      } else if (mesAtual == 2 && diaAtual == 28) {
-        diaAtual = 1;
-        mesAtual++;
-      } else if (
-        (mesAtual == 4 || mesAtual == 6 || mesAtual == 9 || mesAtual == 11) &&
-        diaAtual == 30
-      ) {
-        diaAtual = 1;
-        mesAtual++;
-      } else {
-        diaAtual++;
-      }
-
-      if (mesAtual == mesFinal && diaAtual > diaFinal) {
-        break;
-      }
     }
-    fecharPopUpFtr();
-    filtarGeral();
-  }
+  }, 2000);
+  fecharPopUpFtr();
 }
 
-function filtarGeral() {
-  var diaInicial = Number(select_de_dia.value);
-  var diaFinal = Number(select_ate_dia.value);
-  var mesInicial = Number(select_de_mes.value);
-  var mesFinal = Number(select_ate_mes.value);
-  var diaAtual = diaInicial;
-  var mesAtual = mesInicial;
+function filtrarGeral() {
+  var diaInicial = input_dia_inicio.value;
+  var diaFinal = input_dia_final.value;
 
   var maquinaSelecionada = Number(select_maquina.value);
-  var processoSelecionado = Number(select_processo.value);
+  var processoSelecionado = select_processo.value;
 
-  fetch(`/filtrarGeral`, {
+  fetch(`/supervisorPremium/filtrarGeral`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
       inicialDia: diaInicial,
-      inicialMes: mesInicial,
       finalDia: diaFinal,
-      finalmes: mesFinal,
       idMaquina: maquinaSelecionada,
       parteProcesso: processoSelecionado,
     }),
   })
-    .then(function (resposta) {
-      console.log("resposta: ", resposta);
-
-      if (resposta.ok) {
-        console.log(
-          "Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!"
-        );
-        // window.location = "/dashboard/mural.html";
-        // limparFormulario();
-        // finalizarAguardar();
-      } else if (resposta.status == 404) {
+    .then((respostas) => {
+      if (respostas.ok) {
+        return respostas.json();
+      } else if (respostas.status == 404) {
         window.alert("Deu 404!");
       } else {
         throw (
           "Houve um erro ao tentar realizar a postagem! Código da resposta: " +
-          resposta.status
+          respostas.status
         );
       }
+    })
+    .then((json) => {
+      console.log(JSON.stringify(json));
+      for (var i = 0; i < json.length; i++) {
+        horarios.push(json[i].horario);
+        localizacoes.push(json[i].parteProcesso);
+        temperaturas.push(json[i].temperatura);
+        maquinas.push(json[i].fkMaquina);
+      }
+      // verEmpresa()
+    })
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+      // finalizarAguardar();
+    });
+}
+
+function filtarParte() {
+  var diaInicial = input_dia_inicio.value;
+  var diaFinal = input_dia_final.value;
+  var maquinaSelecionada = Number(select_maquina.value);
+  var processoSelecionado = Number(select_processo.value);
+
+  fetch(`/supervisorPremium/filtrarGeral`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      inicialDia: diaInicial,
+      finalDia: diaFinal,
+      idMaquina: maquinaSelecionada,
+      parteProcesso: processoSelecionado,
+      maquinaSelecionada: maquinaSelecionada,
+      processoSelecionado: processoSelecionado,
+    }),
+  })
+    .then((respostas) => {
+      if (respostas.ok) {
+        return respostas.json();
+      } else if (respostas.status == 404) {
+        window.alert("Deu 404!");
+      } else {
+        throw (
+          "Houve um erro ao tentar realizar a postagem! Código da resposta: " +
+          respostas.status
+        );
+      }
+    })
+    .then((json) => {
+      console.log(JSON.stringify(json));
+      for (var i = 0; i < json.length; i++) {
+        horarios.push(json[i].horario);
+        localizacoes.push(json[i].localizacao);
+        temperaturas.push(json[i].temperatura);
+        maquinas.push(json[i].fkMaquina);
+      }
+      // verEmpresa()
     })
     .catch(function (resposta) {
       console.log(`#ERRO: ${resposta}`);

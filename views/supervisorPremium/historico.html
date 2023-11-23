@@ -57,10 +57,7 @@
                         <table>
                             <tr>
                                 <th>
-                                    Data
-                                </th>
-                                <th>
-                                    Hora
+                                    Data/Hora
                                 </th>
                                 <th>
                                     Parte do Processo
@@ -115,30 +112,16 @@
 
                     <span class="titulos-ftr">Intervalo de dias</span>
 
-                <div class="selects-intervalo"> 
-                    De: <select class="select-item" id="select_de_dia">
-                        <option value="dia">Dia</option>
-                    </select> 
-                    <select class="select-item" id="select_de_mes">
-                        <option value="mês">Mês</option>
-                    </select> 
-                    <select class="select-item" id="select_de_ano">
-                        <option value="2023">2023</option>
-                    </select>
-                </div>
-
-
-                <div class="selects-intervalo2"> 
-                    Até: <select class="select-item" id="select_ate_dia">
-                        <option value="dia">Dia</option>
-                    </select> 
-                    <select class="select-item" id="select_ate_mes">
-                        <option value="mês">Mês</option>
-                    </select> 
-                    <select class="select-item" id="select_ate_ano">
-                        <option value="2023">2023</option>
-                    </select>
-                </div>
+                    <div class="selects-intervalo"> 
+                        <label for="input_dia_inicio">De:</label>
+                        <input type="date" id="input_dia_inicio">
+                     </div>
+     
+     
+                     <div class="selects-intervalo2"> 
+                         <label for="input_dia_final">Até</label>
+                         <input type="date" id="input_dia_final">
+                     </div>
 
                 <span class="titulos-ftr">Selecione a máquina</span>
 
@@ -155,9 +138,9 @@
                 <div class="selects-maquina-processo">
                     <select class="select-processo" id="select_processo">
                         <option value="0">Todas</option>
-                        <option value="1">Matriz</option>
-                        <option value="2">Reator</option>
-                        <option value="3">Anel de resfriamento</option>
+                        <option value="Matriz">Matriz</option>
+                        <option value="Reator">Reator</option>
+                        <option value="Anel de resfriamento">Anel de resfriamento</option>
                     </select>
                 </div>
 
