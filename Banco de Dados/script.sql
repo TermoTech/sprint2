@@ -128,3 +128,40 @@ INSERT INTO sensores VALUES
 (null, 'DHT11', null, null, 70.60, default , 4);
 
 select * from usuario;
+
+-- PROCEDURE
+
+DELIMITER $$
+
+CREATE PROCEDURE dadosSensores(empresa INT, maquina int)
+BEGIN
+	DECLARE temperaturaMatriz FLOAT;
+    DECLARE temperaturaAnelResfriamento FLOAT;
+    DECLARE temperaturaReator FLOAT;
+    DECLARE umidadeMaquina FLOAT;
+    DECLARE idDaMaquina int;
+    
+    SELECT s.temperatura INTO temperaturaMatriz FROM maquina as m join sensores as s
+    on s.fkMaquina = m.idMaquina WHERE m.fkEmpresa = empresa AND s.parteProcesso = 'Matriz' AND m.idMaquina = maquina
+    ORDER BY horario DESC LIMIT 1;
+    
+    SELECT s.temperatura INTO temperaturaAnelResfriamento FROM maquina as m join sensores as s
+    on s.fkMaquina = m.idMaquina WHERE m.fkEmpresa = empresa AND s.parteProcesso = 'Anel de Resfriamento' AND m.idMaquina = maquina
+	ORDER BY horario DESC LIMIT 1;
+    
+    SELECT s.temperatura INTO temperaturaReator FROM maquina as m join sensores as s
+    on s.fkMaquina = m.idMaquina WHERE m.fkEmpresa = empresa AND s.parteProcesso = 'Reator' AND m.idMaquina = maquina
+    ORDER BY horario DESC LIMIT 1;
+    
+    SELECT s.umidade INTO umidadeMaquina FROM maquina as m join sensores as s
+    on s.fkMaquina = m.idMaquina WHERE m.fkEmpresa = empresa AND s.tipo = 'DHT11' AND m.idMaquina = maquina ORDER BY horario DESC LIMIT 1;
+    
+    SELECT m.idMaquina INTO idDaMaquina FROM maquina as m join sensores as s
+    on s.fkMaquina = m.idMaquina WHERE m.fkEmpresa = empresa AND m.idMaquina = maquina limit 1;
+    
+    SELECT temperaturaAnelResfriamento, temperaturaReator, temperaturaMatriz, umidadeMaquina, idDaMaquina;
+END$$
+DELIMITER ;
+
+CALL dadosSensores(1, 3);
+DROP PROCEDURE IF EXISTS dadosSensores;
