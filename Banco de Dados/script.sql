@@ -3,6 +3,11 @@ CREATE DATABASE termotech;
 USE termotech;
 drop database termotech;
 
+CREATE USER 'aluno'@'localhost' IDENTIFIED BY 'sptech';
+
+grant select, insert, delete, update on termotech.* to 'aluno'@'localhost';
+
+
 -- CRIANDO AS TABELAS
 
 -- CRIANDO A TABELA ENDEREÇO
@@ -42,15 +47,17 @@ idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
  numMaquina INT,
  fkEmpresa INT,
  FOREIGN KEY (fkEmpresa) references empresa(idEmpresa));
- 
+
  -- TABELA SENSORES
  CREATE TABLE sensores (
  idSensor INT PRIMARY KEY AUTO_INCREMENT,
  tipo VARCHAR(45),
- parteProcesso VARCHAR(45),
- temperatura FLOAT,
- umidade FLOAT,
- horario DATETIME DEFAULT CURRENT_TIMESTAMP,
+ localizacao VARCHAR(45),
+ minimo float,
+ maximo float,
+ -- temperatura FLOAT,
+ -- umidade FLOAT,
+ -- horario DATETIME DEFAULT CURRENT_TIMESTAMP,
  fkMaquina INT,
  FOREIGN KEY (fkMaquina) references maquina(idMaquina));
  
@@ -71,6 +78,16 @@ idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
  FOREIGN KEY (fkMaquina) references maquina (idMaquina),
  PRIMARY KEY (fkUsuario, fkMaquina));
  
+CREATE TABLE captura(
+	idCaptura int,
+    captura float,
+    horario datetime,
+    erro int,
+    fkSensor int,
+		constraint fkMaquinaSensor foreign key (fkSensor) references sensores(idSensor),
+	primary key(idCaptura, fkSensor)
+);
+
  -- INSERTS
  
  -- DANDO INSERT NA TABELA ENDERECO
@@ -108,26 +125,52 @@ INSERT INTO acesso VALUES
 
 select * from usuario;
 
--- DANDO INSERT NA TABELA SENSORES
+-- DANDO INSERT NA TABELA SENSORES (ANTIGA) PROVISÓRIO
+
+-- INSERT INTO sensores VALUES
+-- (null, 'LM35', 'Reator', 153, null, default, 1),
+-- (null, 'LM35', 'Matriz', 210.12, null, default, 1),
+-- (null, 'LM35', 'Anel de Resfriamento', 48.52, null, default, 1),
+-- (null, 'DHT11', null, null, 62.60, default , 1),
+-- (null, 'LM35', 'Reator', 123, null, default, 2),
+-- (null, 'LM35', 'Matriz', 190.42, null, default, 2),
+-- (null, 'LM35', 'Anel de Resfriamento', 50.52, null, default, 2),
+-- (null, 'DHT11', null, null, 40.60, default , 2),
+-- (null, 'LM35', 'Reator', 140, null, default, 3),
+-- (null, 'LM35', 'Matriz', 209, null, default, 3),
+-- (null, 'LM35', 'Anel de Resfriamento', 38.52, null, default, 3),
+-- (null, 'DHT11', null, null, 32.60, default , 3),
+-- (null, 'LM35', 'Reator', 173.67, null, default, 4),
+-- (null, 'LM35', 'Matriz', 156.62, null, default, 4),
+-- (null, 'LM35', 'Anel de Resfriamento', 58.11, null, default, 4),
+-- (null, 'DHT11', null, null, 70.60, default , 4);
+
+-- INSERTS para teste da nova modelagem
+
 INSERT INTO sensores VALUES
-(null, 'LM35', 'Reator', 153, null, default, 1),
-(null, 'LM35', 'Matriz', 210.12, null, default, 1),
-(null, 'LM35', 'Anel de Resfriamento', 48.52, null, default, 1),
-(null, 'DHT11', null, null, 62.60, default , 1),
-(null, 'LM35', 'Reator', 123, null, default, 2),
-(null, 'LM35', 'Matriz', 190.42, null, default, 2),
-(null, 'LM35', 'Anel de Resfriamento', 50.52, null, default, 2),
-(null, 'DHT11', null, null, 40.60, default , 2),
-(null, 'LM35', 'Reator', 140, null, default, 3),
-(null, 'LM35', 'Matriz', 209, null, default, 3),
-(null, 'LM35', 'Anel de Resfriamento', 38.52, null, default, 3),
-(null, 'DHT11', null, null, 32.60, default , 3),
-(null, 'LM35', 'Reator', 173.67, null, default, 4),
-(null, 'LM35', 'Matriz', 156.62, null, default, 4),
-(null, 'LM35', 'Anel de Resfriamento', 58.11, null, default, 4),
-(null, 'DHT11', null, null, 70.60, default , 4);
+	(null, 'temperatura', 'Anel de resfriamento', null, null, 1),
+	(null, 'temperatura', 'Reator', null, null, 1),
+	(null, 'temperatura', 'Matriz', null, null, 1),
+	(null, 'Umidade', 'Ambiente', null, null, 1),
+	(null, 'temperatura', 'Anel de resfriamento', null, null, 2),
+	(null, 'temperatura', 'Reator', null, null, 2),
+	(null, 'temperatura', 'Matriz', null, null, 2),
+	(null, 'temperatura', 'Anel de resfriamento', null, null, 3),
+	(null, 'temperatura', 'Reator', null, null, 3),
+	(null, 'temperatura', 'Matriz', null, null, 3),
+	(null, 'Umidade', 'Ambiente', null, null, 3),
+	(null, 'temperatura', 'Anel de resfriamento', null, null, 4),
+	(null, 'temperatura', 'Reator', null, null, 4),
+	(null, 'temperatura', 'Matriz', null, null, 4);
 
 select * from usuario;
+select * from maquina;
+select * from acesso;
+select * from empresa;
+select * from endereco;
+select * from sensores;
+
+drop table sensores;
 
 -- PROCEDURE
 
@@ -165,3 +208,4 @@ DELIMITER ;
 
 CALL dadosSensores(1, 3);
 DROP PROCEDURE IF EXISTS dadosSensores;
+    

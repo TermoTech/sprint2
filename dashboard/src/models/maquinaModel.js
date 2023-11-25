@@ -24,4 +24,20 @@ function listaDadosMaquina(idMaquina){
     return database.executar(instrucao);
 }
 
-module.exports = {listarTodasMaquinasModel, achaMaquinaUsuario, listaDadosMaquina}
+function achaSetupModel(idMaquina){
+    var instrucao = `
+        select * from sensores where fkMaquina = ${idMaquina};
+    `
+    console.log(instrucao)
+    return database.executar(instrucao)
+}
+
+function updateSetupModel(valoresSetup){
+    var instrucao = `
+        update sensores set minimo = ${valoresSetup.valorMin}, maximo = ${valoresSetup.valorMax} where idSensor = ${valoresSetup.idSensor};
+    `
+    console.log(instrucao)
+    return database.executar(instrucao)
+}
+
+module.exports = {listarTodasMaquinasModel, achaMaquinaUsuario, listaDadosMaquina, achaSetupModel, updateSetupModel}

@@ -8,7 +8,7 @@ fetch(`/supervisorBasic/maquinas/listar`, {
         idUsuarioServer: sessionStorage.ID_USUARIO,
         acessoServer: sessionStorage.ACESSO_USUARIO
     }),
-})
+    })
     .then(resposta => {
         if (resposta.status == 200) {
             resposta.json().then(resposta => {
@@ -25,6 +25,7 @@ fetch(`/supervisorBasic/maquinas/listar`, {
 
 function exibeMaquinas(resposta){
     for(var i = 0; i < resposta.length; i++){
+        
         var divMaquina = document.getElementById(`div_user${resposta[i].idMaquina}`);
         if (!divMaquina){
             section_details.innerHTML += `
@@ -52,7 +53,7 @@ function exibeMaquinas(resposta){
                           <div class="circle-stats"></div>
                         </div>
                       </div>
-                      <div class="maq-inp-temp" id="div_interval_temp">
+                      <div class="maq-inp-temp" id="div_interval_temp${resposta[i].idMaquina}">
                             <table class="info-temp-table">
                               <tr>
                                 <th></th>
@@ -76,7 +77,7 @@ function exibeMaquinas(resposta){
                                 <td id="td_min_umidade">20%</td>
                               </tr>
                             </table>
-                            <div onclick="trocar()" class="div-pen">
+                            <div onclick="trocar(${resposta[i].idMaquina}, div_interval_temp${resposta[i].idMaquina})" class="div-pen">
                               <img  src="/staticDashboard/img/imagensPaineis/Vetor lapis.png" alt="">
                             </div>
                       </div>
@@ -110,113 +111,122 @@ function geraDivUsuarios(div, usuario) {
     }
 }
 
-function trocar(){
-    div_interval_temp.innerHTML = '';
-    div_interval_temp.innerHTML = `
-        <div class="update-interval">
-            <h6>Temperatura Matriz</h6><br>
-            <h6>Max</h6>
-            <input type="number" id="input_temp_max_matriz"><br>
-            <h6>Min</h6>
-            <input type="number" id="input_temp_min_matriz">
-        </div>
-        <div class="update-interval">
-          <h6>Temperatura Reator</h6><br>
-          <h6>Max</h6>
-          <input type="number" id="input_temp_max_reator"><br>
-          <h6>Min</h6>
-          <input type="number" id="input_temp_min_reator">
-        </div>
-        <div class="update-interval">
-          <h6>Temperatura Anel</h6><br>
-          <h6>Max</h6>
-          <input type="number" id="input_temp_max_anel"><br>
-          <h6>Min</h6>
-          <input type="number" id="input_temp_min_anel">
-        </div>
-        <div class="update-interval">
-          <h6>Umidade</h6><br>
-          <h6>Max</h6>
-          <input type="number" id="input_temp_max_umidade"><br>
-          <h6>Min</h6>
-          <input type="number" id="input_temp_min_umidade">
-        </div>
-        <div class="div-btns"> 
-          <button onclick="save()">Salvar</button>
-        </div>
-    `;
-  }
-  function save(){
-    var tempMinMatriz = Number(input_temp_min_matriz.value)
-    var tempMaxMatriz = Number(input_temp_max_matriz.value)
-    var tempMinReator = Number(input_temp_min_reator.value)
-    var tempMaxReator = Number(input_temp_max_reator.value)
-    var tempMinAnel = Number(input_temp_min_anel.value)
-    var tempMaxAnel = Number(input_temp_max_anel.value)
-    var minUmidade = Number(input_temp_min_umidade.value)
-    var maxUmidade = Number(input_temp_max_umidade.value)
+function trocar(idMaquina, div) {
+  div.innerHTML = '';
 
-    if(tempMaxMatriz == '' || tempMinMatriz == '' || tempMaxAnel == '' || tempMaxReator == '' || tempMinAnel == '' || tempMinReator == '' || maxUmidade == '' || minUmidade == ''){
-        input_temp_max_matriz.placeholder = 'Insira um valor';
-        input_temp_min_matriz.placeholder = 'Insira um valor';
-        input_temp_min_reator.placeholder = 'Insira um valor';
-        input_temp_max_reator.placeholder = 'Insira um valor';
-        input_temp_min_anel.placeholder = 'Insira um valor';
-        input_temp_max_anel.placeholder = 'Insira um valor';
-        input_temp_min_umidade.placeholder = 'Insira um valor';
-        input_temp_max_umidade.placeholder = 'Insira um valor';
-
-    } else if(tempMaxMatriz <= tempMinMatriz || tempMaxReator <= tempMinReator || tempMaxAnel <= tempMinAnel || maxUmidade <= minUmidade){
-        input_temp_max_matriz.placeholder = '';
-        input_temp_min_matriz.value = '';
-        input_temp_min_reator.value = '';
-        input_temp_max_reator.value = '';
-        input_temp_min_anel.value = '';
-        input_temp_max_anel.value = '';
-        input_temp_min_umidade.value = '';
-        input_temp_max_umidade.value = '';
-
-        input_temp_max_matriz.placeholder = 'Intervalo inválido';
-        input_temp_min_matriz.placeholder = 'Intervalo inválido';
-        input_temp_min_reator.placeholder = 'Intervalo inválido';
-        input_temp_max_reator.placeholder = 'Intervalo inválido';
-        input_temp_min_anel.placeholder = 'Intervalo inválido';
-        input_temp_max_anel.placeholder = 'Intervalo inválido';
-        input_temp_min_umidade.placeholder = 'Intervalo inválido';
-        input_temp_max_umidade.placeholder = 'Intervalo inválido';
-    } else{
-        div_interval_temp.innerHTML = "";
-        div_interval_temp.innerHTML = `
-            <table class="info-temp-table">
-              <tr>
-                <th></th>
-                <th>MATRIZ</th>
-                <th>REATOR</th>
-                <th>ANEL DE RESFRIAMENTO</th>
-                <th>UMIDADE</th>
-              </tr>
-              <tr>
-                <td>MAX</td>
-                <td id="td_max_matriz">${tempMaxMatriz}°C</td>
-                <td id="td_max_reator">${tempMaxReator}°C</td>
-                <td id="td_max_anel">${tempMaxAnel}°C</td>
-                <td id="td_max_umidade">${maxUmidade}%</td>
-              </tr>
-              <tr>
-                <td>MIN</td>
-                <td id="td_min_matriz">${tempMinMatriz}°C</td>
-                <td id="td_min_reator">${tempMinReator}°C</td>
-                <td id="td_min_anel">${tempMinAnel}°C</td>
-                <td id="td_min_umidade">${minUmidade}%</td>
-              </tr>
-            </table>
-            <div class="div-pen">
-              <img onclick="trocar()" src="/staticDashboard/img/imagensPaineis/Vetor lapis.png" alt="">
-            </div>
-        `;
-    }
-
+  fetch('/supervisorBasic/maquinas/mostraConfigsMaquina', {
+      method: 'POST',
+      headers: {
+          "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+          idMaquinaServer: idMaquina
+      }),
+  })
+  .then(resposta => {
+      if (resposta.status == 200) {
+          resposta.json().then(resposta => {
+              console.log(`Setups encontrados com sucesso:${JSON.stringify(resposta)}`)
+              exibirSetups(resposta, idMaquina, div);
+          })
+      } else {
+          console.log('Não foi encontrado nenhum setup.')
+      }
+  })
+  .catch(function (error) {
+      console.error(`Erro na obtenção dos dados dos setups: ${error.message}`);
+  });
 }
+
+function exibirSetups(resposta, idMaquina, div) {
+  var listaIdSensor = [];
+
+  for (var i = 0; i < resposta.length; i++) {
+      div.innerHTML += `
+          <div class="update-interval">
+              <h6>${resposta[i].localizacao}</h6><br>
+              <h6>Max</h6>
+              <input type="number" id="input_temp_max_matriz${resposta[i].idSensor}" value="${resposta[i].maximo}"><br>
+              <h6>Min</h6>
+              <input type="number" id="input_temp_min_matriz${resposta[i].idSensor}" value="${resposta[i].minimo}">
+          </div>
+      `;
+      listaIdSensor.push(resposta[i].idSensor);
+  }
+
+  div.innerHTML += `
+      <div class="div-btns"> 
+          <button onclick="save(${idMaquina}, ${JSON.stringify(listaIdSensor)})">Salvar</button>
+      </div>
+  `;
+}
+
+function save(idMaquina, listaIdSensor) {
+  var erros = 0
+  var listaValores = [];
+  var inputsInvalidos = [];
+
+  for (var i = 0; i < listaIdSensor.length; i++) {
+      var inputMax = document.getElementById(`input_temp_max_matriz${listaIdSensor[i]}`);
+      var inputMin = document.getElementById(`input_temp_min_matriz${listaIdSensor[i]}`);
+
+      var valorMax = Number(inputMax.value);
+      var valorMin = Number(inputMin.value);
+
+      listaValores.push({
+          idMaquina: idMaquina,
+          idSensor: listaIdSensor[i],
+          valorMax: valorMax,
+          valorMin: valorMin
+      });
+
+      if (valorMax <= valorMin) {
+          inputsInvalidos.push({ inputMax, inputMin });
+          erros++
+      }
+  }
+
+  for (var i = 0; i < inputsInvalidos.length; i++) {
+      inputsInvalidos[i].inputMax.value = '';
+      inputsInvalidos[i].inputMin.value = '';
+      inputsInvalidos[i].inputMax.placeholder = 'Valor inválido';
+      inputsInvalidos[i].inputMin.placeholder = 'Valor inválido';
+  }
+  if(erros == 0){
+    fetch('/supervisorBasic/maquinas/updateSetup', {
+      method: 'POST',
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+          listaSetupsServer: listaValores
+      })
+    })
+    .then(
+      resposta => {
+        if(resposta.status == 200){
+          resposta.json().then(resposta => {
+            console.log(`Setups editados com sucesso:${JSON.stringify(resposta)}`)
+            if(sessionStorage.PLANO_EMPRESA == 1){
+              if(sessionStorage.ACESSO_USUARIO == 1){
+                  window.location = '/supervisorPremium/maquinas'
+              } else{
+                  window.location = '/usuarioPremium/maquinas'
+              }
+          } else{
+              if(sessionStorage.ACESSO_USUARIO == 1){
+                  window.location = '/supervisorBasic/maquinas'
+              } else{
+                  window.location = '/usuarioBasic/maquinas'
+              }
+          }
+          })
+        }
+      }
+    )
+  }
+}
+
 function trocar2(){
     div_interval_temp2.innerHTML = '';
     div_interval_temp2.innerHTML = `

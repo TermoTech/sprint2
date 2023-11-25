@@ -33,7 +33,7 @@ function exibeConfigsMaquina(req, res){
                     function (erro) {
                         console.log(erro);
                         console.log(
-                            "\nHouve um erro ao dados da máquina dos usuários! Erro: ",
+                            "\nHouve um erro ao listar os dados da máquina dos usuários! Erro: ",
                             erro.sqlMessage
                         );
                         res.status(500).json(erro.sqlMessage);
@@ -53,4 +53,44 @@ function exibeConfigsMaquina(req, res){
     }
 }
 
-module.exports = { exibeConfigsMaquina}
+function setupMaquinasController(req, res){
+    var idMaquina = req.body.idMaquinaServer
+    maquinasConfigsModel.achaSetupModel(idMaquina)
+    .then(
+        function(resultado){
+            res.json(resultado);
+        }
+    ).catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao listar o setup! Erro: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        }
+    )
+}
+
+function updateSetupController(req, res){
+    var listaValores = req.body.listaSetupsServer
+    for(var i = 0; i < listaValores.length; i++){
+        maquinasConfigsModel.updateSetupModel(listaValores[i])
+        .then(
+            function(resultado){
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao editar o setup! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        )
+    }
+}
+
+module.exports = { exibeConfigsMaquina, setupMaquinasController, updateSetupController }
