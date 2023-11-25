@@ -62,4 +62,8 @@ router.post("/maquinas/updateSetup", (req, res) => {
     maquinaConfigController.updateSetupController(req, res)
 })
 
+router.post("/maquinas/mostraConfigsMaquina", (req, res) => {
+    maquinaConfigController.mostraProcessosController(req, res)
+})
+
 module.exports = router;

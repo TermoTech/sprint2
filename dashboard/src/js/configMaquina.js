@@ -25,7 +25,6 @@ fetch(`/supervisorBasic/maquinas/listar`, {
 
 function exibeMaquinas(resposta){
     for(var i = 0; i < resposta.length; i++){
-        
         var divMaquina = document.getElementById(`div_user${resposta[i].idMaquina}`);
         if (!divMaquina){
             section_details.innerHTML += `
@@ -55,26 +54,14 @@ function exibeMaquinas(resposta){
                       </div>
                       <div class="maq-inp-temp" id="div_interval_temp${resposta[i].idMaquina}">
                             <table class="info-temp-table">
-                              <tr>
+                              <tr id="nameProcess${resposta[i].idMaquina}">
                                 <th></th>
-                                <th>MATRIZ</th>
-                                <th>REATOR</th>
-                                <th>ANEL DE RESFRIAMENTO</th>
-                                <th>UMIDADE</th>
                               </tr>
-                              <tr>
+                              <tr id="maxProcess${resposta[i].idMaquina}">
                                 <td>MÁX</td>
-                                <td id="td_max_matriz">300°C</td>
-                                <td id="td_max_reator">300°C</td>
-                                <td id="td_max_anel">80°C</td>
-                                <td id="td_max_umidade">50%</td>
                               </tr>
-                              <tr>
-                                <td>MÍNN</td>
-                                <td id="td_min_matriz">150°C</td>
-                                <td id="td_min_reator">100°C</td>
-                                <td id="td_min_anel">20°C</td>
-                                <td id="td_min_umidade">20%</td>
+                              <tr id="minProcess${resposta[i].idMaquina}">
+                                <td>MÍN</td>
                               </tr>
                             </table>
                             <div onclick="trocar(${resposta[i].idMaquina}, div_interval_temp${resposta[i].idMaquina})" class="div-pen">
@@ -91,9 +78,41 @@ function exibeMaquinas(resposta){
                     </div>
                 </details>
             `;
-        }
-        geraDivUsuarios(document.getElementById(`div_user${resposta[i].idMaquina}`), resposta[i]);
+            insereTabela(resposta[i].idMaquina, document.getElementById(`nameProcess${resposta[i].idMaquina}`), document.getElementById(`maxProcess${resposta[i].idMaquina}`), document.getElementById(`minProcess${resposta[i].idMaquina}`))
+          }
+          geraDivUsuarios(document.getElementById(`div_user${resposta[i].idMaquina}`), resposta[i]);
     }
+}
+
+function insereTabela(idMaquina, nomeProcesso, maxProcesso, minProcesso){
+  fetch('/supervisorBasic/maquinas/mostraConfigsMaquina', {
+    method: 'POST',
+    headers: {
+        "Content-type": "application/json",
+    },
+    body: JSON.stringify({
+        idMaquinaServer: idMaquina
+    }),
+  })
+  .then(
+    resposta => {
+      if (resposta.status == 200) {
+        resposta.json().then(resposta => {
+            console.log(`Processos encontrados com sucesso:${JSON.stringify(resposta)}`)
+            exibirProcessos(resposta);
+        })
+      } else {
+          console.log('Não foi encontrado nenhum processo.')
+      }
+    }
+  )
+  function exibirProcessos(resposta){
+    for(var i = 0; i < resposta.length; i++){
+      nomeProcesso.innerHTML += `<th>${resposta[i].localizacao}</th>`
+      maxProcesso.innerHTML += `<td id="td_max_matriz">${resposta[i].maximo}</td>`
+      minProcesso.innerHTML += `<td id="td_min_matriz">${resposta[i].minimo}</td>`
+    }
+  }
 }
 
 function geraDivUsuarios(div, usuario) {
@@ -225,112 +244,4 @@ function save(idMaquina, listaIdSensor) {
       }
     )
   }
-}
-
-function trocar2(){
-    div_interval_temp2.innerHTML = '';
-    div_interval_temp2.innerHTML = `
-        <div class="update-interval">
-            <h6>Temperatura Matriz</h6><br>
-            <h6>Max</h6>
-            <input type="number" id="input_temp_max_matriz2"><br>
-            <h6>Min</h6>
-            <input type="number" id="input_temp_min_matriz2">
-        </div>
-        <div class="update-interval">
-          <h6>Temperatura Reator</h6><br>
-          <h6>Max</h6>
-          <input type="number" id="input_temp_max_reator2"><br>
-          <h6>Min</h6>
-          <input type="number" id="input_temp_min_reator2">
-        </div>
-        <div class="update-interval">
-          <h6>Temperatura Anel</h6><br>
-          <h6>Max</h6>
-          <input type="number" id="input_temp_max_anel2"><br>
-          <h6>Min</h6>
-          <input type="number" id="input_temp_min_anel2">
-        </div>
-        <div class="update-interval">
-          <h6>Umidade</h6><br>
-          <h6>Max</h6>
-          <input type="number" id="input_temp_max_umidade2"><br>
-          <h6>Min</h6>
-          <input type="number" id="input_temp_min_umidade2">
-        </div>
-        <div class="div-btns"> 
-          <button onclick="save2()">Salvar</button>
-        </div>
-    `;
-  }
-  function save2(){
-    var tempMinMatriz2 = Number(input_temp_min_matriz2.value)
-    var tempMaxMatriz2 = Number(input_temp_max_matriz2.value)
-    var tempMinReator2 = Number(input_temp_min_reator2.value)
-    var tempMaxReator2 = Number(input_temp_max_reator2.value)
-    var tempMinAnel2 = Number(input_temp_min_anel2.value)
-    var tempMaxAnel2 = Number(input_temp_max_anel2.value)
-    var minUmidade2 = Number(input_temp_min_umidade2.value)
-    var maxUmidade2 = Number(input_temp_max_umidade2.value)
-
-    if(tempMaxMatriz2 == '' || tempMinMatriz2 == '' || tempMaxAnel2 == '' || tempMaxReator2 == '' || tempMinAnel2 == '' || tempMinReator2 == '' || maxUmidade2 == '' || minUmidade2 == ''){
-        input_temp_max_matriz2.placeholder = 'Insira um valor';
-        input_temp_min_matriz2.placeholder = 'Insira um valor';
-        input_temp_min_reator2.placeholder = 'Insira um valor';
-        input_temp_max_reator2.placeholder = 'Insira um valor';
-        input_temp_min_anel2.placeholder = 'Insira um valor';
-        input_temp_max_anel2.placeholder = 'Insira um valor';
-        input_temp_min_umidade2.placeholder = 'Insira um valor';
-        input_temp_max_umidade2.placeholder = 'Insira um valor';
-
-    } else if(tempMaxMatriz2 <= tempMinMatriz2 || tempMaxReator2 <= tempMinReator2 || tempMaxAnel2 <= tempMinAnel2 || maxUmidade2 <= minUmidade2){
-        input_temp_max_matriz2.placeholder = '';
-        input_temp_min_matriz2.value = '';
-        input_temp_min_reator2.value = '';
-        input_temp_max_reator2.value = '';
-        input_temp_min_anel2.value = '';
-        input_temp_max_anel2.value = '';
-        input_temp_min_umidade2.value = '';
-        input_temp_max_umidade2.value = '';
-
-        input_temp_max_matriz2.placeholder = 'Intervalo inválido';
-        input_temp_min_matriz2.placeholder = 'Intervalo inválido';
-        input_temp_min_reator2.placeholder = 'Intervalo inválido';
-        input_temp_max_reator2.placeholder = 'Intervalo inválido';
-        input_temp_min_anel2.placeholder = 'Intervalo inválido';
-        input_temp_max_anel2.placeholder = 'Intervalo inválido';
-        input_temp_min_umidade2.placeholder = 'Intervalo inválido';
-        input_temp_max_umidade2.placeholder = 'Intervalo inválido';
-    } else{
-        div_interval_temp2.innerHTML = "";
-        div_interval_temp2.innerHTML = `
-            <table class="info-temp-table">
-              <tr>
-                <th></th>
-                <th>MATRIZ</th>
-                <th>REATOR</th>
-                <th>ANEL DE RESFRIAMENTO</th>
-                <th>UMIDADE</th>
-              </tr>
-              <tr>
-                <td>MAX</td>
-                <td id="td_max_matriz2">${tempMaxMatriz2}°C</td>
-                <td id="td_max_reator2">${tempMaxReator2}°C</td>
-                <td id="td_max_anel2">${tempMaxAnel2}°C</td>
-                <td id="td_max_umidade2">${maxUmidade2}%</td>
-              </tr>
-              <tr>
-                <td>MIN</td>
-                <td id="td_min_matriz2">${tempMinMatriz2}°C</td>
-                <td id="td_min_reator2">${tempMinReator2}°C</td>
-                <td id="td_min_anel2">${tempMinAnel2}°C</td>
-                <td id="td_min_umidade2">${minUmidade2}%</td>
-              </tr>
-            </table>
-            <div class="div-pen">
-              <img onclick="trocar2()" src="/staticDashboard/img/imagensPaineis/Vetor lapis.png" alt="">
-            </div>
-        `;
-    }
-
 }

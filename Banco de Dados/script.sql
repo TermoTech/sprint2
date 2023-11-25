@@ -5,8 +5,9 @@ drop database termotech;
 
 CREATE USER 'aluno'@'localhost' IDENTIFIED BY 'sptech';
 
-grant select, insert, delete, update on termotech.* to 'aluno'@'localhost';
+GRANT SELECT,INSERT, DELETE, UPDATE ON termotech.* TO 'aluno'@'localhost';
 
+GRANT EXECUTE ON PROCEDURE termotech.dadosSensores TO 'aluno'@'localhost';
 
 -- CRIANDO AS TABELAS
 

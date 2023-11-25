@@ -3,14 +3,16 @@ const cors = require('cors');
 const bodyParser = require("body-parser");
 const path = require("path");
 const app = express();
+process.env.AMBIENTE_PROCESSO = "desenvolvimento";
+// process.env.AMBIENTE_PROCESSO = "producao";
+
+var PORTA = process.env.AMBIENTE_PROCESSO == "desenvolvimento" ? 3333 : 8080;
 
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-
-const port = 8080;
 
 app.use("/staticSite", express.static(__dirname + "/Site Institucional/src"));
 app.use("/staticDashboard", express.static(__dirname + "/dashboard/src"));
@@ -19,8 +21,8 @@ app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
 app.set("views", path.join(__dirname, "/views"));
 
-app.listen(port, () => {
-    console.log("Servidor iniciado na porta " + port);
+app.listen(PORTA, () => {
+    console.log("Servidor iniciado na porta " + PORTA);
 });
 
 app.use(cors());

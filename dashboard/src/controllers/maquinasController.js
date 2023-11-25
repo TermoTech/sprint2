@@ -93,4 +93,23 @@ function updateSetupController(req, res){
     }
 }
 
-module.exports = { exibeConfigsMaquina, setupMaquinasController, updateSetupController }
+function mostraProcessosController(req, res){
+    var idMaquina = req.body.idMaquinaServer
+    maquinasConfigsModel.achaProcessosModel(idMaquina)
+    .then(
+        function(resultado){
+            res.json(resultado);
+        }
+    ).catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao listar os processos! Erro: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        }
+    )
+}
+
+module.exports = { exibeConfigsMaquina, setupMaquinasController, updateSetupController, mostraProcessosController }

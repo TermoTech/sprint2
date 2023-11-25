@@ -40,4 +40,12 @@ function updateSetupModel(valoresSetup){
     return database.executar(instrucao)
 }
 
-module.exports = {listarTodasMaquinasModel, achaMaquinaUsuario, listaDadosMaquina, achaSetupModel, updateSetupModel}
+function achaProcessosModel(idMaquina){
+    var instrucao = `
+        select sensores.* from sensores join maquina on fkMaquina = idMaquina where idMaquina = ${idMaquina};
+    `
+    console.log(instrucao)
+    return database.executar(instrucao)
+}
+
+module.exports = {listarTodasMaquinasModel, achaMaquinaUsuario, listaDadosMaquina, achaSetupModel, updateSetupModel, achaProcessosModel}
