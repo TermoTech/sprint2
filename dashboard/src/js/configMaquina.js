@@ -78,13 +78,13 @@ function exibeMaquinas(resposta){
                     </div>
                 </details>
             `;
-            insereTabela(resposta[i].idMaquina, document.getElementById(`nameProcess${resposta[i].idMaquina}`), document.getElementById(`maxProcess${resposta[i].idMaquina}`), document.getElementById(`minProcess${resposta[i].idMaquina}`))
+            insereTabela(resposta[i].idMaquina)
           }
           geraDivUsuarios(document.getElementById(`div_user${resposta[i].idMaquina}`), resposta[i]);
     }
 }
 
-function insereTabela(idMaquina, nomeProcesso, maxProcesso, minProcesso){
+function insereTabela(idMaquina){
   fetch('/supervisorBasic/maquinas/mostraConfigsMaquina', {
     method: 'POST',
     headers: {
@@ -107,10 +107,15 @@ function insereTabela(idMaquina, nomeProcesso, maxProcesso, minProcesso){
     }
   )
   function exibirProcessos(resposta){
+    console.log("Exibindo processos:", resposta);
     for(var i = 0; i < resposta.length; i++){
-      nomeProcesso.innerHTML += `<th>${resposta[i].localizacao}</th>`
-      maxProcesso.innerHTML += `<td id="td_max_matriz">${resposta[i].maximo}</td>`
-      minProcesso.innerHTML += `<td id="td_min_matriz">${resposta[i].minimo}</td>`
+      console.log("Processo:", resposta[i]);
+      var nomes = document.getElementById(`nameProcess${idMaquina}`) 
+      var max = document.getElementById(`maxProcess${idMaquina}`)
+      var min = document.getElementById(`minProcess${idMaquina}`)
+      nomes.innerHTML += `<th>${resposta[i].localizacao}</th>`
+      max.innerHTML += `<td id="td_max_matriz">${resposta[i].maximo}</td>`
+      min.innerHTML += `<td id="td_min_matriz">${resposta[i].minimo}</td>`
     }
   }
 }

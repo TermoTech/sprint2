@@ -50,14 +50,6 @@ router.post("/maquinas/listar", (req, res) => {
     maquinaConfigController.exibeConfigsMaquina(req, res)
 })
 
-router.post("/maquinas/listarTabelaSetup", (req, res) => {
-    maquinaConfigController.exibeConfigsMaquina(req, res)
-})
-
-router.post("/maquinas/mostraConfigsMaquina", (req, res) => {
-    maquinaConfigController.setupMaquinasController(req, res)
-})
-
 router.post("/maquinas/updateSetup", (req, res) => {
     maquinaConfigController.updateSetupController(req, res)
 })

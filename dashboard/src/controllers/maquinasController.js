@@ -53,25 +53,6 @@ function exibeConfigsMaquina(req, res){
     }
 }
 
-function setupMaquinasController(req, res){
-    var idMaquina = req.body.idMaquinaServer
-    maquinasConfigsModel.achaSetupModel(idMaquina)
-    .then(
-        function(resultado){
-            res.json(resultado);
-        }
-    ).catch(
-        function (erro) {
-            console.log(erro);
-            console.log(
-                "\nHouve um erro ao listar o setup! Erro: ",
-                erro.sqlMessage
-            );
-            res.status(500).json(erro.sqlMessage);
-        }
-    )
-}
-
 function updateSetupController(req, res){
     var listaValores = req.body.listaSetupsServer
     for(var i = 0; i < listaValores.length; i++){
@@ -112,4 +93,4 @@ function mostraProcessosController(req, res){
     )
 }
 
-module.exports = { exibeConfigsMaquina, setupMaquinasController, updateSetupController, mostraProcessosController }
+module.exports = { exibeConfigsMaquina, updateSetupController, mostraProcessosController }
