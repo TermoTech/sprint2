@@ -51,74 +51,74 @@ const serial = async (
         if (HABILITAR_OPERACAO_INSERIR) {
             // Inserts na empresa 1
             await poolBancoDados.execute(
-                'INSERT INTO sensores (tipo, parteProcesso, temperatura, fkMaquina) VALUES (?, ?, ?, ?)',
-                ['LM35', 'Matriz', lm35Temperatura*10, 3]
+                'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
+                [lm35Temperatura*2.5, 0, 1]
             );
             await poolBancoDados.execute(
-                'INSERT INTO sensores (tipo, parteProcesso, temperatura, fkMaquina) VALUES (?, ?, ?, ?)',
-                ['LM35', 'Reator', lm35Temperatura*10, 3]
+                'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
+                [lm35Temperatura*10, 0, 2]
             );
             await poolBancoDados.execute(
-                'INSERT INTO sensores (tipo, parteProcesso, temperatura, fkMaquina) VALUES (?, ?, ?, ?)',
-                ['LM35', 'Anel de resfriamento', lm35Temperatura*2.5, 3]
+                'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
+                [lm35Temperatura*10, 0, 3]
             );
             await poolBancoDados.execute(
-                'INSERT INTO sensores (tipo, parteProcesso, umidade, fkMaquina) VALUES (?, ?, ?, ?)',
-                ['DHT11', 'Ambiente', dht11Umidade*0.9, 3]
+                'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
+                [dht11Umidade*0.9, 0, 4]
             );
 
             await poolBancoDados.execute(
-                'INSERT INTO sensores (tipo, parteProcesso, temperatura, fkMaquina) VALUES (?, ?, ?, ?)',
-                ['LM35', 'Matriz', lm35Temperatura*10, 4]
+                'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
+                [lm35Temperatura*2.5, 0, 5]
             );
             await poolBancoDados.execute(
-                'INSERT INTO sensores (tipo, parteProcesso, temperatura, fkMaquina) VALUES (?, ?, ?, ?)',
-                ['LM35', 'Reator', lm35Temperatura*10, 4]
+                'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
+                [lm35Temperatura*10, 0, 6]
             );
             await poolBancoDados.execute(
-                'INSERT INTO sensores (tipo, parteProcesso, temperatura, fkMaquina) VALUES (?, ?, ?, ?)',
-                ['LM35', 'Anel de resfriamento', lm35Temperatura*2.5, 4]
+                'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
+                [lm35Temperatura*10, 0, 7]
             );
             await poolBancoDados.execute(
-                'INSERT INTO sensores (tipo, parteProcesso, umidade, fkMaquina) VALUES (?, ?, ?, ?)',
-                ['DHT11', 'Ambiente', dht11Umidade*0.9, 4]
+                'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
+                [dht11Umidade*0.9, 0, 8]
             );
         }
 
         if (HABILITAR_OPERACAO_INSERIR) {
             // Inserts na empresa 2
             await poolBancoDados.execute(
-                'INSERT INTO sensores (tipo, parteProcesso, temperatura, fkMaquina) VALUES (?, ?, ?, ?)',
-                ['LM35', 'Matriz', lm35Temperatura*10, 2]
+                'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
+                [lm35Temperatura*2.5, 0, 9]
             );
             await poolBancoDados.execute(
-                'INSERT INTO sensores (tipo, parteProcesso, temperatura, fkMaquina) VALUES (?, ?, ?, ?)',
-                ['LM35', 'Reator', lm35Temperatura*10, 2]
+                'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
+                [lm35Temperatura*10, 0, 10]
             );
             await poolBancoDados.execute(
-                'INSERT INTO sensores (tipo, parteProcesso, temperatura, fkMaquina) VALUES (?, ?, ?, ?)',
-                ['LM35', 'Anel de resfriamento', lm35Temperatura*2.5, 2]
+                'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
+                [lm35Temperatura*10, 0, 11]
             );
             await poolBancoDados.execute(
-                'INSERT INTO sensores (tipo, parteProcesso, umidade, fkMaquina) VALUES (?, ?, ?, ?)',
-                ['DHT11', 'Ambiente', dht11Umidade*0.9, 2]
+                'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
+                [dht11Umidade*0.9, 0, 12]
             );
-    
+
             await poolBancoDados.execute(
-                'INSERT INTO sensores (tipo, parteProcesso, temperatura, fkMaquina) VALUES (?, ?, ?, ?)',
-                ['LM35', 'Matriz', lm35Temperatura*10, 1]
-            );
-            await poolBancoDados.execute(
-                'INSERT INTO sensores (tipo, parteProcesso, temperatura, fkMaquina) VALUES (?, ?, ?, ?)',
-                ['LM35', 'Reator', lm35Temperatura*10, 1]
+                'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
+                [lm35Temperatura*2.5, 0, 13]
             );
             await poolBancoDados.execute(
-                'INSERT INTO sensores (tipo, parteProcesso, temperatura, fkMaquina) VALUES (?, ?, ?, ?)',
-                ['LM35', 'Anel de resfriamento', lm35Temperatura*2.5, 1]
+                'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
+                [lm35Temperatura*10, 0, 14]
             );
             await poolBancoDados.execute(
-                'INSERT INTO sensores (tipo, parteProcesso, umidade, fkMaquina) VALUES (?, ?, ?, ?)',
-                ['DHT11', 'Ambiente', dht11Umidade*0.9, 1]
+                'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
+                [lm35Temperatura*10, 0, 15]
+            );
+            await poolBancoDados.execute(
+                'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
+                [dht11Umidade*0.9, 0, 16]
             );
         }
     });

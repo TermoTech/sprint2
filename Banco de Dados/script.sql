@@ -169,7 +169,7 @@ select * from maquina;
 select * from acesso;
 select * from empresa;
 select * from endereco;
-select * from sensores;
+select * from sensores;	
 
 drop table sensores;
 
