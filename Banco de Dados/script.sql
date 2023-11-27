@@ -1,12 +1,11 @@
+drop database termotech;
 -- CRIANDO O BANCO DE DADOS
 CREATE DATABASE termotech;
 USE termotech;
-drop database termotech;
 
-CREATE USER 'aluno'@'localhost' IDENTIFIED BY 'sptech';
-
-GRANT SELECT,INSERT, DELETE, UPDATE ON termotech.* TO 'aluno'@'localhost';
-GRANT EXECUTE ON PROCEDURE termotech.dadosSensores TO 'aluno'@'localhost';
+-- CREATE USER 'aluno'@'localhost' IDENTIFIED BY 'sptech';
+-- GRANT SELECT,INSERT, DELETE, UPDATE ON termotech.* TO 'aluno'@'localhost';
+-- GRANT EXECUTE ON PROCEDURE termotech.dadosSensores TO 'aluno'@'localhost';
 
 -- CRIANDO AS TABELAS
 
@@ -61,20 +60,6 @@ idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
  fkMaquina INT,
  FOREIGN KEY (fkMaquina) references maquina(idMaquina));
  
- ALTER TABLE sensores ADD COLUMN temperatura float;
- ALTER TABLE sensores ADD COLUMN umidade float;
- ALTER TABLE sensores ADD COLUMN horario datetime DEFAULT current_timestamp;
- 
- 
- CREATE TABLE historico(
-	idHist int auto_increment,
-    fkSensor int,
-    CONSTRAINT fkSensor FOREIGN KEY (fkSensor) REFERENCES sensores(idSensor),
-    captura float,
-    horario datetime default current_timestamp,
-    primary key(idHist, fkSensor)
- );
- 
  -- TABELA ACESSO
  CREATE TABLE acesso (
  fkUsuario INT,
@@ -84,9 +69,9 @@ idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
  PRIMARY KEY (fkUsuario, fkMaquina));
  
 CREATE TABLE captura(
-	idCaptura int,
+	idCaptura int auto_increment,
     captura float,
-    horario datetime,
+    horario datetime default current_timestamp,
     erro int,
     fkSensor int,
 		constraint fkMaquinaSensor foreign key (fkSensor) references sensores(idSensor),
@@ -160,6 +145,7 @@ INSERT INTO sensores VALUES
 	(null, 'temperatura', 'Anel de resfriamento', null, null, 2),
 	(null, 'temperatura', 'Reator', null, null, 2),
 	(null, 'temperatura', 'Matriz', null, null, 2),
+    (null, 'umidade', 'ambiente', null, null, 2),
 	(null, 'temperatura', 'Anel de resfriamento', null, null, 3),
 	(null, 'temperatura', 'Reator', null, null, 3),
 	(null, 'temperatura', 'Matriz', null, null, 3),
@@ -200,7 +186,7 @@ insert into sensores values
 
 DELIMITER $$
 
-CREATE PROCEDURE dadosSensores(empresa INT, maquina int)
+CREATE PROCEDURE dadosSensores(empresa INT, maquinaUser int)
 BEGIN
 	DECLARE temperaturaMatriz FLOAT;
     DECLARE temperaturaAnelResfriamento FLOAT;
@@ -208,27 +194,26 @@ BEGIN
     DECLARE umidadeMaquina FLOAT;
     DECLARE idDaMaquina int;
     
-    SELECT s.temperatura INTO temperaturaMatriz FROM maquina as m join sensores as s
-    on s.fkMaquina = m.idMaquina WHERE m.fkEmpresa = empresa AND s.localizacao = 'Matriz' AND m.idMaquina = maquina
-    ORDER BY horario DESC LIMIT 1;
+    SELECT c.captura INTO temperaturaMatriz FROM sensores as s JOIN maquina as m ON s.fkMaquina = m.idMaquina JOIN captura as c on c.fkSensor = s.idSensor
+    WHERE s.localizacao = 'Matriz' AND m.idMaquina = maquinaUser ORDER BY horario DESC LIMIT 1;
     
-    SELECT s.temperatura INTO temperaturaAnelResfriamento FROM maquina as m join sensores as s
-    on s.fkMaquina = m.idMaquina WHERE m.fkEmpresa = empresa AND s.localizacao = 'Anel de Resfriamento' AND m.idMaquina = maquina
-	ORDER BY horario DESC LIMIT 1;
+	SELECT c.captura INTO temperaturaAnelResfriamento FROM sensores as s JOIN maquina as m ON s.fkMaquina = m.idMaquina JOIN captura as c on c.fkSensor = s.idSensor
+    WHERE s.localizacao = 'Anel de Resfriamento' AND m.idMaquina = maquinaUser ORDER BY horario DESC LIMIT 1;
     
-    SELECT s.temperatura INTO temperaturaReator FROM maquina as m join sensores as s
-    on s.fkMaquina = m.idMaquina WHERE m.fkEmpresa = empresa AND s.localizacao = 'Reator' AND m.idMaquina = maquina
-    ORDER BY horario DESC LIMIT 1;
+	SELECT c.captura INTO temperaturaReator FROM sensores as s JOIN maquina as m ON s.fkMaquina = m.idMaquina JOIN captura as c on c.fkSensor = s.idSensor
+    WHERE s.localizacao = 'Reator' AND m.idMaquina = maquinaUser ORDER BY horario DESC LIMIT 1;
     
-    SELECT s.umidade INTO umidadeMaquina FROM maquina as m join sensores as s
-    on s.fkMaquina = m.idMaquina WHERE m.fkEmpresa = empresa AND s.tipo = 'DHT11' AND m.idMaquina = maquina ORDER BY horario DESC LIMIT 1;
+    SELECT c.captura INTO umidadeMaquina FROM sensores as s join maquina as m on s.fkMaquina = m.idMaquina join captura as c on c.fkSensor = s.idSensor
+    WHERE m.fkEmpresa = empresa AND s.localizacao = 'ambiente' AND m.idMaquina = maquinaUser ORDER BY horario DESC LIMIT 1;
     
     SELECT m.idMaquina INTO idDaMaquina FROM maquina as m join sensores as s
-    on s.fkMaquina = m.idMaquina WHERE m.fkEmpresa = empresa AND m.idMaquina = maquina limit 1;
+    on s.fkMaquina = m.idMaquina WHERE m.fkEmpresa = empresa AND m.idMaquina = maquinaUser limit 1;
     
     SELECT temperaturaAnelResfriamento, temperaturaReator, temperaturaMatriz, umidadeMaquina, idDaMaquina;
 END$$
 DELIMITER ;
 
-CALL dadosSensores(1, 3);
+select * from captura;
+
+CALL dadosSensores(1, 4);
 DROP PROCEDURE IF EXISTS dadosSensores;
