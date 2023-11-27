@@ -80,7 +80,7 @@ idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
  PRIMARY KEY (fkUsuario, fkMaquina));
  
 CREATE TABLE captura(
-	idCaptura int,
+	idCaptura int auto_increment,
     captura float,
     horario datetime,
     erro int,
