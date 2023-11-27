@@ -17,9 +17,8 @@ var time = new Date(ultimaHoraApresentada);
 function geraDados() {
 
   // var idUser = sessionStorage.id_user;
-  // var fkEmpresa = sessionStorage.fk_empresa;
+  var fkEmpresa = sessionStorage.FK_EMPRESA;
   var idMaquina = 3;
-  var fkEmpresa = 1;
 
   fetch("/supervisorPremium/tempoReal", {
     method: "POST",

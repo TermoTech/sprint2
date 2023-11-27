@@ -6,7 +6,6 @@ drop database termotech;
 CREATE USER 'aluno'@'localhost' IDENTIFIED BY 'sptech';
 
 GRANT SELECT,INSERT, DELETE, UPDATE ON termotech.* TO 'aluno'@'localhost';
-
 GRANT EXECUTE ON PROCEDURE termotech.dadosSensores TO 'aluno'@'localhost';
 
 -- CRIANDO AS TABELAS
@@ -62,6 +61,11 @@ idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
  fkMaquina INT,
  FOREIGN KEY (fkMaquina) references maquina(idMaquina));
  
+ ALTER TABLE sensores ADD COLUMN temperatura float;
+ ALTER TABLE sensores ADD COLUMN umidade float;
+ ALTER TABLE sensores ADD COLUMN horario datetime DEFAULT current_timestamp;
+ 
+ 
  CREATE TABLE historico(
 	idHist int auto_increment,
     fkSensor int,
@@ -80,7 +84,7 @@ idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
  PRIMARY KEY (fkUsuario, fkMaquina));
  
 CREATE TABLE captura(
-	idCaptura int auto_increment,
+	idCaptura int,
     captura float,
     horario datetime,
     erro int,
@@ -162,16 +166,35 @@ INSERT INTO sensores VALUES
 	(null, 'Umidade', 'Ambiente', null, null, 3),
 	(null, 'temperatura', 'Anel de resfriamento', null, null, 4),
 	(null, 'temperatura', 'Reator', null, null, 4),
-	(null, 'temperatura', 'Matriz', null, null, 4);
+	(null, 'temperatura', 'Matriz', null, null, 4),
+	(null, 'Umidade', 'Ambiente', null, null, 4);
 
 select * from usuario;
 select * from maquina;
 select * from acesso;
 select * from empresa;
 select * from endereco;
-select * from sensores;	
+select * from sensores;
+
+
+
+SELECT *
+FROM sensores
+RIGHT JOIN maquina ON idMaquina = fkMaquina RIGHT join captura on fkSensor = idSensor
+WHERE horario BETWEEN '2023-11-09' AND '2023-11-30';
+
+select sensores.* from sensores join maquina on fkMaquina = idMaquina where idMaquina = 3 order by idSensor;
 
 drop table sensores;
+
+insert into maquina (numMaquina, fkEmpresa) values 
+	(3, 1);
+    
+insert into sensores values
+	(null, 'temperatura', 'Anel de resfriamento', null, null, 5),
+	(null, 'temperatura', 'Reator', null, null, 599),
+	(null, 'temperatura', 'Matriz', null, null, 5),
+	(null, 'Umidade', 'Ambiente', null, null, 5);
 
 -- PROCEDURE
 
@@ -186,15 +209,15 @@ BEGIN
     DECLARE idDaMaquina int;
     
     SELECT s.temperatura INTO temperaturaMatriz FROM maquina as m join sensores as s
-    on s.fkMaquina = m.idMaquina WHERE m.fkEmpresa = empresa AND s.parteProcesso = 'Matriz' AND m.idMaquina = maquina
+    on s.fkMaquina = m.idMaquina WHERE m.fkEmpresa = empresa AND s.localizacao = 'Matriz' AND m.idMaquina = maquina
     ORDER BY horario DESC LIMIT 1;
     
     SELECT s.temperatura INTO temperaturaAnelResfriamento FROM maquina as m join sensores as s
-    on s.fkMaquina = m.idMaquina WHERE m.fkEmpresa = empresa AND s.parteProcesso = 'Anel de Resfriamento' AND m.idMaquina = maquina
+    on s.fkMaquina = m.idMaquina WHERE m.fkEmpresa = empresa AND s.localizacao = 'Anel de Resfriamento' AND m.idMaquina = maquina
 	ORDER BY horario DESC LIMIT 1;
     
     SELECT s.temperatura INTO temperaturaReator FROM maquina as m join sensores as s
-    on s.fkMaquina = m.idMaquina WHERE m.fkEmpresa = empresa AND s.parteProcesso = 'Reator' AND m.idMaquina = maquina
+    on s.fkMaquina = m.idMaquina WHERE m.fkEmpresa = empresa AND s.localizacao = 'Reator' AND m.idMaquina = maquina
     ORDER BY horario DESC LIMIT 1;
     
     SELECT s.umidade INTO umidadeMaquina FROM maquina as m join sensores as s
@@ -209,4 +232,3 @@ DELIMITER ;
 
 CALL dadosSensores(1, 3);
 DROP PROCEDURE IF EXISTS dadosSensores;
-    
