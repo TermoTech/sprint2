@@ -1,3 +1,179 @@
+setTimeout(plotarGraficos, 1000);
+var listaGraficos = [];
+
+function plotarGraficos() {
+  var empresa = sessionStorage.FK_EMPRESA;
+  var acesso = sessionStorage.ACESSO_USUARIO;
+  var id = sessionStorage.ID_USUARIO;
+
+  fetch("/supervisorPremium/listarMaquinas", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      fkEmpresaServer: empresa,
+      acessoServer: acesso,
+      idServer: id
+    })
+  }).then(function (resposta) {
+    if (resposta.ok) {
+      resposta.json().then(function (resposta) {
+        console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+        var mostrarGrafico = document.getElementById("chart_machine1");
+        var barraMaquina = document.getElementById("div_chart2");
+        var selectMaquinas = document.getElementById("selector_machine");
+
+        for (
+          var cont = 0;
+          cont < resposta.length;
+          cont += 1
+        ) {
+          var dados = resposta[cont];
+
+          if (cont == 0) {
+            mostrarGrafico.innerHTML = `
+            <canvas id="myChart${dados.idMaquina}"></canvas>
+          `;
+            var cxt = document.getElementById(`myChart${dados.idMaquina}`);
+
+            chart = new Chart(cxt, {
+              type: "line",
+              data: {
+                labels: "tem",
+                datasets: [
+                  {
+                    label: "Matriz",
+                    data: [220, 330, 110],
+                    borderWidth: 1,
+                    borderColor: "red",
+                  },
+                  {
+                    label: "Anel de Resfriamento",
+                    data: [220, 330, 110],
+                    borderWidth: 1,
+                    borderColor: "blue",
+                  },
+                  {
+                    label: "Reator",
+                    data: [220, 330, 110],
+                    borderWidth: 1,
+                    borderColor: "green",
+                  },
+                  {
+                    label: "Umidade",
+                    data: [220, 330, 110],
+                    borderWidth: 1,
+                    borderColor: "orange",
+                  },
+                ],
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                  },
+                },
+                plugins: {
+                  title: {
+                    display: true,
+                    text: 'Medidas Atuais',
+                    fontSize: 18
+                  },
+                  legend: {
+                    display: true,
+                    position: "bottom",
+                  },
+
+                },
+
+              },
+            });
+
+            listaGraficos.push(chart);
+          }
+
+          selectMaquinas.innerHTML += `
+          <option value="${dados.idMaquina}">Máquina ${dados.idMaquina}</option>
+          `;
+
+          barraMaquina.innerHTML += `
+          <div class="div-maquinas-geral">
+
+          <div class="div-maquinas-geral-titulo">
+            <h1>Máquina ${dados.idMaquina}</h1>
+          </div>
+
+          <div class="div-maquinas-geral-conteudo">
+
+            <div class="div-maquinas-geral-filho">
+              <div class="div-maquinas-geral-neto">
+                <h1>Reator</h1>
+              </div>
+              <div class="div-maquinas-geral-neto">
+                <h1>Matriz</h1>
+              </div>
+              <div class="div-maquinas-geral-neto">
+                <h1>Anel de Resfriamento</h1>
+              </div>
+              <div class="div-maquinas-geral-neto">
+                <h1>Umidade do ar</h1>
+              </div>
+            </div>
+
+            <div class="div-maquinas-geral-filho">
+
+              <div class="div-maquinas-geral-neto">
+                <progress id="progress_reator${dados.idMaquina}" class="barra-progresso" value="0" max="300" min="10"></progress>
+              </div>
+
+              <div class="div-maquinas-geral-neto">
+                <progress id="progress_matriz${dados.idMaquina}" class="barra-progresso" value="0" max="300" min="15"></progress>
+              </div>
+
+              <div class="div-maquinas-geral-neto">
+                <progress id="progress_anel${dados.idMaquina}" class="barra-progresso" value="0" max="100" min="20"></progress>
+              </div>
+
+              <div class="div-maquinas-geral-neto">
+                <progress id="progress_umidade${dados.idMaquina}" class="barra-progresso" value="0" max="100" min="10"></progress>
+              </div>
+
+            </div>
+
+            <div class="div-maquinas-geral-filho">
+              <div class="div-maquinas-geral-neto">
+                <span>Temperatura atual </span>
+                <span id="temp_reator${dados.idMaquina}">00</span>°C
+              </div>
+
+              <div class="div-maquinas-geral-neto">
+                <span>Temperatura atual </span>
+                <span id="temp_matriz${dados.idMaquina}">00</span>°C
+              </div>
+
+              <div class="div-maquinas-geral-neto">
+                <span>Temperatura atual</span>
+                <span id="temp_anel${dados.idMaquina}">00</span>°C
+              </div>
+
+              <div class="div-maquinas-geral-neto">
+                <span>Umidade do ar</span>
+                <span id="umidade_maq${dados.idMaquina}">00</span>%
+              </div>
+
+            </div>
+          </div>
+        </div>
+          `;
+        }
+
+      });
+    }
+  })
+}
+
 var temperaturasMatriz = [];
 var temperaturasAnelResfriamento = [];
 var temperaturasReator = [];
@@ -31,23 +207,23 @@ function geraDados() {
     }),
   }).then(function (resposta) {
     if (resposta.ok) {
-        resposta.json().then(function (resposta) {
+      resposta.json().then(function (resposta) {
         console.log("Dados recebidos: ", JSON.stringify(resposta));
         var dados = resposta[0][0];
 
-           nomeMaquina = `maquina ${dados.idDaMaquina}`;
-           dadosMatriz = dados.temperaturaMatriz;
-           dadosAnelResfriamento = dados.temperaturaAnelResfriamento;
-           dadosReator = dados.temperaturaReator;
-           dadosUmidade = dados.umidadeMaquina;
-           time = new Date(ultimaHoraApresentada);
-      
+        nomeMaquina = `maquina ${dados.idDaMaquina}`;
+        dadosMatriz = dados.temperaturaMatriz;
+        dadosAnelResfriamento = dados.temperaturaAnelResfriamento;
+        dadosReator = dados.temperaturaReator;
+        dadosUmidade = dados.umidadeMaquina;
+        time = new Date(ultimaHoraApresentada);
+
       });
     }
   })
 
   if (indexChart >= 1) {
-    time.setMinutes(time.getMinutes() + 15);
+    time.setMinutes(time.getMinutes());
   }
   var horaComoString = time.getHours() + ":" + time.getMinutes();
 
@@ -163,7 +339,7 @@ function updateChart(dMatriz, dAnelResfriamento, dReator, dUmidade, t) {
     chart.update();
   }
 }
-setInterval(geraDados, 2000);
+//setInterval(geraDados, 2000);
 
 //Gerando dados do segundo gráfico
 
@@ -185,7 +361,7 @@ function geraDados2() {
   var dadosUmidade2 = Math.floor(Math.random() * (100 - 20) + 20);
   var time2 = new Date(ultimaHoraApresentada2);
   if (indexChart2 >= 1) {
-    time2.setMinutes(time2.getMinutes() + 15);
+    time2.setMinutes(time2.getMinutes());
   }
   var horaComoString2 = time2.getHours() + ":" + time2.getMinutes();
 
@@ -305,23 +481,92 @@ function updateChart2(dMatriz2, dAnelResfriamento2, dReator2, dUmidade2, t2) {
     chart2.update();
   }
 }
-setInterval(geraDados2, 2000);
+//setInterval(geraDados2, 2000);
 
 var selectorMachine = document.getElementById("selector_machine");
-var grafico1 = document.getElementById("myChart");
-var grafico2 = document.getElementById("myChart2");
+
+var grafico ="";
 
 selectorMachine.addEventListener("change", function () {
-  var valueSelectedMachine = selectorMachine.value;
+  var valueSelectedMachine = Number(selectorMachine.value);
+  var mostrarGrafico = document.getElementById("chart_machine1");
+  
+  fetch("/supervisorPremium/listarUmaMaquina", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      idMaquina: valueSelectedMachine
+    })
+  }).then(function (resposta) {
+    if (resposta.ok) {
+      resposta.json().then(function (resposta) {
+        console.log("Dados recebidos: ", JSON.stringify(resposta));
+        mostrarGrafico.innerHTML = `
+          <canvas id="myChart${valueSelectedMachine}"></canvas>
+        `;
 
-  if (valueSelectedMachine === "maquina1") {
-    grafico1.style.display = "block";
-    grafico2.style.display = "none";
-  } else {
-    grafico1.style.display = "none";
-    grafico2.style.display = "block";
+        var cxt = document.getElementById(`myChart${valueSelectedMachine}`);
+
+            chart = new Chart(cxt, {
+              type: "line",
+              data: {
+                labels: "tem",
+                datasets: [
+                  {
+                    label: "Matriz",
+                    data: [220, 330, 110],
+                    borderWidth: 1,
+                    borderColor: "red",
+                  },
+                  {
+                    label: "Anel de Resfriamento",
+                    data: [220, 330, 110],
+                    borderWidth: 1,
+                    borderColor: "blue",
+                  },
+                  {
+                    label: "Reator",
+                    data: [220, 330, 110],
+                    borderWidth: 1,
+                    borderColor: "green",
+                  },
+                  {
+                    label: "Umidade",
+                    data: [220, 330, 110],
+                    borderWidth: 1,
+                    borderColor: "orange",
+                  },
+                ],
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                  },
+                },
+                plugins: {
+                  title: {
+                    display: true,
+                    text: 'Medidas Atuais',
+                    fontSize: 18
+                  },
+                  legend: {
+                    display: true,
+                    position: "bottom",
+                  },
+
+                },
+
+              },
+            });
+            listaGraficos.shift();
+            listaGraficos.push(chart);
+    });
   }
 });
+})
 
 const divAlerta = document.getElementById("div_alerta");
 
@@ -533,3 +778,4 @@ function alertaDiv() {
 //         `;
 //     });
 // }
+

@@ -28,5 +28,13 @@ router.post("/tempoReal", (req, res) => {
     painelController.tempoReal(req, res);
 })
 
+router.post("/listarMaquinas", (req, res) => {
+    painelController.exibeConfigsMaquina(req, res);
+});
+
+router.post("/listarUmaMaquina", (req, res) => {
+    painelController.listarUmaMaquina(req, res);
+});
+
 
 module.exports = router;
