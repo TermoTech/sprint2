@@ -45,25 +45,25 @@ function plotarGraficos() {
                 datasets: [
                   {
                     label: "Matriz",
-                    data: [220, 330, 110],
+                    data: [],
                     borderWidth: 1,
                     borderColor: "red",
                   },
                   {
                     label: "Anel de Resfriamento",
-                    data: [220, 330, 110],
+                    data: [],
                     borderWidth: 1,
                     borderColor: "blue",
                   },
                   {
                     label: "Reator",
-                    data: [220, 330, 110],
+                    data: [],
                     borderWidth: 1,
                     borderColor: "green",
                   },
                   {
                     label: "Umidade",
-                    data: [220, 330, 110],
+                    data: [],
                     borderWidth: 1,
                     borderColor: "orange",
                   },
@@ -194,7 +194,7 @@ function geraDados() {
 
   // var idUser = sessionStorage.id_user;
   var fkEmpresa = sessionStorage.FK_EMPRESA;
-  var idMaquina = 3;
+  var idMaquina = Number(selectorMachine.value);
 
   fetch("/supervisorPremium/tempoReal", {
     method: "POST",
@@ -202,21 +202,33 @@ function geraDados() {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      idUserServer: idMaquina,
       fkEmpresaServer: fkEmpresa
     }),
   }).then(function (resposta) {
     if (resposta.ok) {
       resposta.json().then(function (resposta) {
         console.log("Dados recebidos: ", JSON.stringify(resposta));
-        var dados = resposta[0][0];
+        for(
+          cont = 0;
+          cont < resposta.length;
+          cont += 1
+        ){
+          var dados = resposta[cont];
+          
+          var progressReator = document.getElementById(`progress_reator${dados.idMaquina}`);
+          var progressMatriz = document.getElementById(`progress_matriz${dados.idMaquina}`);
+          var progressAnel = document.getElementById(`progress_anel${dados.idMaquina}`);
+          var progressUmidade = document.getElementById(`progress_umidade${dados.idMaquina}`);
 
-        nomeMaquina = `maquina ${dados.idDaMaquina}`;
-        dadosMatriz = dados.temperaturaMatriz;
-        dadosAnelResfriamento = dados.temperaturaAnelResfriamento;
-        dadosReator = dados.temperaturaReator;
-        dadosUmidade = dados.umidadeMaquina;
-        time = new Date(ultimaHoraApresentada);
+          //reator
+          progressReator.value = dados.captura;
+          progressReator.min = dados.min;
+          progressReator.max = dados.max;
+
+          //Matriz
+          progressMatriz.value = dados.captura;
+          
+        }
 
       });
     }
