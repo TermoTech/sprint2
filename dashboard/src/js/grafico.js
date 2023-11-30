@@ -1,5 +1,6 @@
 setTimeout(plotarGraficos, 1000);
-var listaGraficos = [];
+setInterval(geraDados, 1000);
+var listaGraficos;
 
 function plotarGraficos() {
   var empresa = sessionStorage.FK_EMPRESA;
@@ -38,10 +39,10 @@ function plotarGraficos() {
           `;
             var cxt = document.getElementById(`myChart${dados.idMaquina}`);
 
-            chart = new Chart(cxt, {
+            var chart = new Chart(cxt, {
               type: "line",
               data: {
-                labels: "tem",
+                labels: [],
                 datasets: [
                   {
                     label: "Matriz",
@@ -91,7 +92,7 @@ function plotarGraficos() {
               },
             });
 
-            listaGraficos.push(chart);
+            listaGraficos = chart;
           }
 
           selectMaquinas.innerHTML += `
@@ -179,7 +180,6 @@ var temperaturasAnelResfriamento = [];
 var temperaturasReator = [];
 var temperaturasUmidade = [];
 var tempo = [];
-var chart;
 var ultimaHoraApresentada = new Date();
 var indexChart = 0;
 var nomeMaquina = ``;
@@ -191,8 +191,6 @@ var time = new Date(ultimaHoraApresentada);
 
 // PUXANDO OS DADOS DO BANCO DE DADOS EM TEMPO REAL
 function geraDados() {
-
-  // var idUser = sessionStorage.id_user;
   var fkEmpresa = sessionStorage.FK_EMPRESA;
   var idMaquina = Number(selectorMachine.value);
 
@@ -202,34 +200,64 @@ function geraDados() {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      fkEmpresaServer: fkEmpresa
+      fkEmpresaServer: fkEmpresa,
+      maquinaServer: idMaquina
     }),
   }).then(function (resposta) {
     if (resposta.ok) {
       resposta.json().then(function (resposta) {
         console.log("Dados recebidos: ", JSON.stringify(resposta));
-        for(
-          cont = 0;
-          cont < resposta.length;
-          cont += 1
-        ){
-          var dados = resposta[cont];
+      
+          var dados = resposta[0][0];
           
-          var progressReator = document.getElementById(`progress_reator${dados.idMaquina}`);
-          var progressMatriz = document.getElementById(`progress_matriz${dados.idMaquina}`);
-          var progressAnel = document.getElementById(`progress_anel${dados.idMaquina}`);
-          var progressUmidade = document.getElementById(`progress_umidade${dados.idMaquina}`);
+          var progressReator = document.getElementById(`progress_reator${dados.idDaMaquina}`);
+          var progressMatriz = document.getElementById(`progress_matriz${dados.idDaMaquina}`);
+          var progressAnel = document.getElementById(`progress_anel${dados.idDaMaquina}`);
+          var progressUmidade = document.getElementById(`progress_umidade${dados.idDaMaquina}`);
 
           //reator
-          progressReator.value = dados.captura;
-          progressReator.min = dados.min;
-          progressReator.max = dados.max;
+          progressReator.value = dados.temperaturaReator;
+          //progressReator.min = dados.minReator;
+          //progressReator.max = dados.maxReator;
+
+          //Anel
+          progressAnel.value = dados.temperaturaAnelResfriamento;
+          //progressAnel.min = dados.maxAnel;
+          //progressAnel.max = dados.minAnel;
 
           //Matriz
-          progressMatriz.value = dados.captura;
-          
-        }
+          progressMatriz.value = dados.temperaturaMatriz;
+          //progressMatriz.min = dados.minMatriz;
+         // progressMatriz.max = dados.maxMatriz;
 
+          //Umidade
+          progressUmidade.value = dados.umidadeMaquina;
+          //progressUmidade.max = dados.maxUmidade;
+          //progressUmidade.min = dados.minUmidade;
+          
+          var dadosMatriz = dados.temperaturaMatriz;
+          var dadosAnelResfriamento = dados.temperaturasAnelResfriamento;
+          var dadosReator = dados.temperaturaReator;
+          var dadosUmidade = dados.umidadeMaquina;
+          var time = new Date();
+          var hora = time.getHours();
+          var minutos = time.getMinutes();
+          var tempo = `${hora}:${minutos}`;      
+
+          listaGraficos.labels.shift();
+          listaGraficos.labels.push(tempo)
+
+          listaGraficos.datasets[0].shift();
+          listaGraficos.datasets[0].push(dadosMatriz);
+
+          listaGraficos.datasets[1].shift();
+          listaGraficos.datasets[1].push(dadosAnelResfriamento);
+
+          listaGraficos.datasets[2].shift();
+          listaGraficos.datasets[2].push(dadosReator);
+
+          listaGraficos.datasets[3].shift();
+          listaGraficos.datasets[3].push(dadosUmidade);
       });
     }
   })
@@ -242,22 +270,6 @@ function geraDados() {
   indexChart++;
 
   ultimaHoraApresentada = new Date(time);
-  updateChart(
-    dadosMatriz,
-    dadosAnelResfriamento,
-    dadosReator,
-    dadosUmidade,
-    horaComoString
-  );
-  updateProgress(dadosMatriz, dadosAnelResfriamento, dadosReator, dadosUmidade);
-  verificaAlerta(
-    dadosMatriz,
-    dadosAnelResfriamento,
-    dadosReator,
-    dadosUmidade,
-    horaComoString,
-    nomeMaquina
-  );
 }
 
 function updateProgress(dMatriz, dAnelResfriamento, dReator, dUmidade) {
@@ -573,8 +585,7 @@ selectorMachine.addEventListener("change", function () {
 
               },
             });
-            listaGraficos.shift();
-            listaGraficos.push(chart);
+            listaGraficos = chart;
     });
   }
 });

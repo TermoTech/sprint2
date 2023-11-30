@@ -40,11 +40,11 @@ function exibeConfigsMaquina(req, res){
 }
 
 function tempoReal(req,res) {
-    var idUser = req.body.idUserServer;
+    var maquina = req.body.maquinaServer;
     var fkEmpresa = req.body.fkEmpresaServer;
     
 
-    painelModels.tempoReal(idUser, fkEmpresa).then((resultado) => {
+    painelModels.tempoReal(maquina, fkEmpresa).then((resultado) => {
         if (resultado.length > 0) {
           res.status(200).json(resultado);
         } else {
