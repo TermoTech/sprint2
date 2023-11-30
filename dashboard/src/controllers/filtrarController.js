@@ -9,10 +9,10 @@ function filtrarGeral(req, res) {
     .then(function(resposta){
       res.status(200).json(resposta);
       res.json({
-        horario: resposta[0].horario,
+        horario: resposta[0].hora,
         parteProcesso: resposta[0].parteProcesso,
         temperatura: resposta[0].temperatura,
-        fkMaquina: resposta[0].fkMaquina,
+        fkMaquina: resposta[0].maquina,
     });
     console.log(resposta);
     })
