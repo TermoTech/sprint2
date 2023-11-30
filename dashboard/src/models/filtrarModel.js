@@ -2,10 +2,10 @@ var database = require("../../../database/db.js");
 
 function filtrarGeral(diaInicial, diaFinal) {
   var instrucao = `
-    SELECT horario, parteProcesso, temperatura, umidade, fkMaquina 
-FROM sensores 
-JOIN maquina ON idMaquina = fkMaquina
-WHERE horario BETWEEN '${diaInicial}' AND '${diaFinal}';
+  select c.horario as hora, sensores.localizacao as parteProcesso, c.captura as temperatura, sensores.fkMaquina as maquina FROM captura as c
+  JOIN sensores ON c.fkSensor = sensores.idSensor
+  JOIN maquina ON sensores.fkMaquina = maquina.idMaquina  
+  where c.erro = 1 and c.horario BETWEEN '${diaInicial}' and '${diaFinal}';
       `;
   console.log("Executando a instrução SQL: \n" + instrucao);
 
