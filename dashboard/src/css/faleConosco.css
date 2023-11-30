@@ -17,10 +17,16 @@
 
 .div-pop-up-fc {
     width: 45vh;
-    background-image: url(../img/background.PNG);
+    height: 400px;
+    background-image: url(../imagens/background.PNG);
     color: white;
     border-radius: 15px;
     font-family: 'Montserrat', sans-serif;
+}
+
+form{
+    height: 100%;
+    width: 100%;
 }
 
 .margem-titulos-fc {
