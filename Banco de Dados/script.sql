@@ -253,4 +253,3 @@ select * from captura;
 
 CALL dadosSensores(1, 4);
 DROP PROCEDURE IF EXISTS dadosSensores;
-

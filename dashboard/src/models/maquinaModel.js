@@ -40,4 +40,28 @@ function achaProcessosModel(idMaquina){
     return database.executar(instrucao)
 }
 
-module.exports = {listarTodasMaquinasModel, achaMaquinaUsuario, listaDadosMaquina, updateSetupModel, achaProcessosModel}
+function pegaMinMaxModelTodas(fkEmpresa){
+    var instrucao = `
+        select * from sensores join maquina on fkMaquina = idMaquina join empresa on fkEmpresa = idEmpresa where idEmpresa = ${fkEmpresa};
+    `
+    console.log(instrucao)
+    return database.executar(instrucao)
+}
+
+function achaTempSensor(idSensor){
+    var instrucao = `
+        select * from captura join sensores on fkSensor = idSensor where idSensor = ${idSensor};
+    `
+    console.log(instrucao)
+    return database.executar(instrucao)
+}
+
+function atualizaErro(idCaptura){
+    var instrucao = `
+        update captura set erro = 1 where idCaptura = ${idCaptura};
+    `
+    console.log(instrucao)
+    return database.executar(instrucao)
+}
+
+module.exports = {listarTodasMaquinasModel, achaMaquinaUsuario, listaDadosMaquina, updateSetupModel, achaProcessosModel, pegaMinMaxModelTodas, achaTempSensor, atualizaErro}

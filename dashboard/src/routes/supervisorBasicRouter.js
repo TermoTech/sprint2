@@ -58,4 +58,18 @@ router.post("/maquinas/mostraConfigsMaquina", (req, res) => {
     maquinaConfigController.mostraProcessosController(req, res)
 })
 
+// Rotas para criar erro----------------------------------------------------------------------------
+
+router.post('/erro/achaMinMax', (req, res) => {
+    maquinaConfigController.pegaMinMax(req, res)
+})
+
+router.post('/erro/verifica', (req, res) => {
+    maquinaConfigController.achaTemp(req, res)
+})
+
+router.post('/erro/validaErro', (req, res) => {
+    maquinaConfigController.updateCaptura(req, res)
+})
+
 module.exports = router;
