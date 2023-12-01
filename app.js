@@ -6,7 +6,7 @@ const app = express();
 process.env.AMBIENTE_PROCESSO = "desenvolvimento";
 // process.env.AMBIENTE_PROCESSO = "producao";
 
-var PORTA = process.env.AMBIENTE_PROCESSO == "desenvolvimento" ? 3333 : 8080;
+var PORTA = process.env.AMBIENTE_PROCESSO == "desenvolvimento" ? 8080 : 3333 ;
 
 app.use(bodyParser.json());
 

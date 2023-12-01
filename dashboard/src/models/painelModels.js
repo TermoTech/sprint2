@@ -10,7 +10,7 @@ function listarTodasMaquinasModel(idEmpresa){
 
 function achaMaquinaUsuario(idUsuario, idEmpresa){
     var instrucao = `
-        select idMaquina from maquina left join acesso on fkMaquina = idMaquina left join usuario on fkUsuario = idUsuario where maquina.fkEmpresa = ${idEmpresa} and idUsuario = ${idUsuario};
+        select idMaquina, numMaquina from maquina left join acesso on fkMaquina = idMaquina left join usuario on fkUsuario = idUsuario where maquina.fkEmpresa = ${idEmpresa} and idUsuario = ${idUsuario};
     `;
     console.log(instrucao)
     return database.executar(instrucao);

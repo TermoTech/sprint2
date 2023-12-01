@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="/staticDashboard/css/faleConosco.css">
     <link rel="stylesheet" href="/staticDashboard/css/filtrarHistorico.css">
     <link rel="stylesheet" href="/staticDashboard/css/layout.css">
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <script src="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.css">
 </head>
 
 <body>
@@ -57,7 +60,10 @@
                         <table>
                             <tr>
                                 <th>
-                                    Data/Hora
+                                    Data
+                                </th>
+                                <th>
+                                    Hora
                                 </th>
                                 <th>
                                     Parte do Processo
@@ -78,19 +84,19 @@
                         </div>
                         <div class="erro-matriz">
                             <h2>Matriz:</h2>
-                            <span id="numero-erro-matriz">xx</span>
+                            <span id="numero_erro_matriz"></span>
                         </div>
                         <div class="erro-anel">
                             <h2>Anel de Resfriamento:</h2>
-                            <span id="numero-erro-anel">xx</span>
+                            <span id="numero_erro_anel"></span>
                         </div>
                         <div class="erro-reator">
                             <h2>Reator:</h2>
-                            <span id="numero-erro-reator">xx</span>
+                            <span id="numero_erro_reator"></span>
                         </div>
                         <div class="erro-total">
                             <h2>Total:</h2>
-                            <span id="numero-erro-total">xx</span>
+                            <span id="numero_erro_total"></span>
                         </div>
                     </div>
                 </div>
@@ -133,18 +139,20 @@
 
                 <div class="selects-maquina-processo">
                     <select class="select-processo" id="select_processo">
-                        <option value="0">Todas</option>
-                        <option value="1">Matriz</option>
-                        <option value="2">Reator</option>
-                        <option value="3">Anel de resfriamento</option>
+                        <option value="todas">Todas</option>
+                        <option value="Matriz">Matriz</option>
+                        <option value="Reator">Reator</option>
+                        <option value="Anel de Resfriamento">Anel de resfriamento</option>
                     </select>
                 </div>
 
                 <p class="erro-filtrar" id="erro_filtrar">Preencha os campos corretamente para filtrar</p>
 
-                    <div class="div-botao"> <button class="botao-filtrar" id="botao_filtrar" onclick="mostrarHistorico()">
+                    <div class="div-botao"> 
+                        <button class="botao-filtrar" id="botao_filtrar" onclick="mostrarHistorico()">
                         Filtrar
-                    </button> </div>
+                    </button> 
+                </div>
             </div>
         </div>
     </div>
@@ -155,7 +163,8 @@
 
 </html>
 <script src="/staticDashboard/js/faleConosco.js"></script>
-<script src="/staticDashboard/js/historicoBasic.js"></script>
+<script src="/staticDashboard/js/historico.js"></script>
+
 <script>
     name_user.innerHTML += sessionStorage.NOME_USUARIO;
 </script>
