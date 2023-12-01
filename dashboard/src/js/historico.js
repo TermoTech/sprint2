@@ -60,7 +60,14 @@ function mostrarHistorico() {
     </tr>
     `;
     }
-  }, 2000);
+    numero_erro_matriz.innerHTML = calcularQuantidadeItens(
+      parteProcesso,
+      "Matriz"
+    );
+    numero_erro_anel.innerHTML = calcularQuantidadeItens(parteProcesso, "Anel");
+    numero_erro_reator.innerHTML = calcularQuantidadeItens(parteProcesso, "Reator");
+    numero_erro_total.innerHTML = errosTotais;
+  }, 1000);
   fecharPopUpFtr();
 }
 
@@ -146,13 +153,13 @@ function filtrarGeral() {
 //     })
 //     .then((json) => {
 //       console.log(JSON.stringify(json));
-//       numero_erro_matriz.innerHTML = calcularQuantidadeItens(
-//         parteProcesso,
-//         "Processo1"
-//       );
-//       numero_erro_anel.innerHTML = calcularQuantidadeItens(parteProcesso, "Processo2");
-//       numero_erro_reator.innerHTML = calcularQuantidadeItens(parteProcesso, "Processo3");
-//       numero_erro_total.innerHTML = errosTotais;
+      // numero_erro_matriz.innerHTML = calcularQuantidadeItens(
+      //   parteProcesso,
+      //   "Processo1"
+      // );
+      // numero_erro_anel.innerHTML = calcularQuantidadeItens(parteProcesso, "Processo2");
+      // numero_erro_reator.innerHTML = calcularQuantidadeItens(parteProcesso, "Processo3");
+      // numero_erro_total.innerHTML = errosTotais;
 //       // verEmpresa()
 //     })
 //     .catch(function (resposta) {

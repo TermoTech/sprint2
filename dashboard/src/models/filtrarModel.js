@@ -2,7 +2,7 @@ var database = require("../../../database/db.js");
 
 function filtrarGeral(diaInicial, diaFinal, parteProcesso) {
 
-  if(parteProcesso == "todos"){
+  if(parteProcesso == "todas"){
 
     var instrucao = `select c.horario as hora, sensores.parteProcesso as parteProcesso, c.captura as temperatura, sensores.fkMaquina as maquina FROM captura as c
     JOIN sensores ON c.fkSensor = sensores.idSensor
