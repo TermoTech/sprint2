@@ -36,21 +36,23 @@ var maquinas = [];
 var umidades = [];
 
 function mostrarHistorico() {
-  errosTotais = 0;
+  if (sessionStorage.PLANO_EMPRESA == 0) {
+    errosTotais = 0;
 
-  tabela_historico.innerHTML = ``;
-  horarios = [];
-  parteProcesso = [];
-  temperaturas = [];
-  maquinas = [];
-  umidades = [];
-  dia = [];
+    tabela_historico.innerHTML = ``;
+    horarios = [];
+    parteProcesso = [];
+    temperaturas = [];
+    maquinas = [];
+    umidades = [];
+    dia = [];
 
-  filtrarGeral();
+    filtrarGeral();
 
-  setTimeout(function () {
-    for (var i = 0; i < horarios.length; i++) {
-      tabela_historico.innerHTML += `
+    setTimeout(function () {
+      for (var i = 0; i < horarios.length; i++) {
+        if (parteProcesso[i] != "Ambiente") {
+          tabela_historico.innerHTML += `
     <tr>
         <th>
         ${dia[i]}
@@ -69,14 +71,56 @@ function mostrarHistorico() {
         </th>
     </tr>
     `;
-    }
+        }
+      }
+      numero_erro_matriz.innerHTML = calcularQuantidadeItens(parteProcesso, "Matriz");
+      numero_erro_anel.innerHTML = calcularQuantidadeItens(parteProcesso, "Anel de resfriamento");
+      numero_erro_reator.innerHTML = calcularQuantidadeItens(parteProcesso, "Reator");
+      numero_erro_total.innerHTML = errosTotais;
+    }, 1000);
+    fecharPopUpFtr();
+  }else{
+    errosTotais = 0;
 
-    numero_erro_matriz.innerHTML = calcularQuantidadeItens(parteProcesso, "Matriz");
-    numero_erro_anel.innerHTML = calcularQuantidadeItens(parteProcesso, "Anel de resfriamento");
-    numero_erro_reator.innerHTML = calcularQuantidadeItens(parteProcesso, "Reator");
-    numero_erro_total.innerHTML = errosTotais;
-  }, 1000);
-  fecharPopUpFtr();
+    tabela_historico.innerHTML = ``;
+    horarios = [];
+    parteProcesso = [];
+    temperaturas = [];
+    maquinas = [];
+    umidades = [];
+    dia = [];
+
+    filtrarGeral();
+
+    setTimeout(function () {
+      for (var i = 0; i < horarios.length; i++) {
+          tabela_historico.innerHTML += `
+    <tr>
+        <th>
+        ${dia[i]}
+        </th>
+        <th>
+        ${horarios[i]}
+        </th>
+        <th>
+        ${parteProcesso[i]}
+        </th>
+        <th>
+        ${temperaturas[i]}
+        </th>
+        <th>
+        ${maquinas[i]}
+        </th>
+    </tr>
+    `;
+      }
+      numero_erro_matriz.innerHTML = calcularQuantidadeItens(parteProcesso, "Matriz");
+      numero_erro_anel.innerHTML = calcularQuantidadeItens(parteProcesso, "Anel de resfriamento");
+      numero_erro_reator.innerHTML = calcularQuantidadeItens(parteProcesso, "Reator");
+      numero_erro_total.innerHTML = errosTotais;
+    }, 1000);
+    fecharPopUpFtr();
+  }
 }
 
 
@@ -162,13 +206,13 @@ function filtrarGeral() {
 //     })
 //     .then((json) => {
 //       console.log(JSON.stringify(json));
-      // numero_erro_matriz.innerHTML = calcularQuantidadeItens(
-      //   parteProcesso,
-      //   "Processo1"
-      // );
-      // numero_erro_anel.innerHTML = calcularQuantidadeItens(parteProcesso, "Processo2");
-      // numero_erro_reator.innerHTML = calcularQuantidadeItens(parteProcesso, "Processo3");
-      // numero_erro_total.innerHTML = errosTotais;
+// numero_erro_matriz.innerHTML = calcularQuantidadeItens(
+//   parteProcesso,
+//   "Processo1"
+// );
+// numero_erro_anel.innerHTML = calcularQuantidadeItens(parteProcesso, "Processo2");
+// numero_erro_reator.innerHTML = calcularQuantidadeItens(parteProcesso, "Processo3");
+// numero_erro_total.innerHTML = errosTotais;
 //       // verEmpresa()
 //     })
 //     .catch(function (resposta) {

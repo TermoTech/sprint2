@@ -58,6 +58,7 @@ function validaMedida(resposta, maximo, minimo){
         let medida = resposta[i].captura;
         let idMedida = resposta[i].idCaptura
         if(medida >= maximo || medida <= minimo){
+            // Adicionar function do alerta
             fetch('/supervisorBasic/erro/validaErro', {
                 method: 'POST',
                 headers: {
