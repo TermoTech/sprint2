@@ -42,18 +42,17 @@ function achaProcessosModel(idMaquina){
 
 function pegaMinMaxModelTodas(fkEmpresa){
     var instrucao = `
-        select * from sensores join maquina on fkMaquina = idMaquina join empresa on fkEmpresa = idEmpresa where idEmpresa = ${fkEmpresa};
+        select idSensor, minimo, maximo from sensores join maquina on fkMaquina = idMaquina join empresa on fkEmpresa = idEmpresa where idEmpresa = ${fkEmpresa};
     `
-    console.log(instrucao)
+    // console.log(instrucao)
     return database.executar(instrucao)
 }
 
 function achaTempSensor(idSensor){
     var instrucao = `
-        select * from captura join sensores on fkSensor = idSensor where idSensor = ${idSensor} order by horario desc limit 1;
-    ;
+    select * from captura join sensores on fkSensor = idSensor where idSensor = ${idSensor} order by captura.horario desc limit 1;
     `
-    console.log(instrucao)
+    // console.log(instrucao)
     return database.executar(instrucao)
 }
 
@@ -61,7 +60,7 @@ function atualizaErro(idCaptura){
     var instrucao = `
         update captura set erro = 1 where idCaptura = ${idCaptura};
     `
-    console.log(instrucao)
+    // console.log(instrucao)
     return database.executar(instrucao)
 }
 

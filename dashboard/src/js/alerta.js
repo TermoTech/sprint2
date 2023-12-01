@@ -1,6 +1,6 @@
-var dados 
-
-setInterval(() => {
+setInterval(achaMinMax, 5000);
+var dados;
+function achaMinMax(){
     fetch('/supervisorBasic/erro/achaMinMax', {
         method: 'POST',
         headers: {
@@ -16,7 +16,6 @@ setInterval(() => {
         resposta => {
             resposta.json().then( resposta => {
                 dados = resposta
-                console.log(resposta)
                 verificaErro()
             })
         }
@@ -26,7 +25,7 @@ setInterval(() => {
             console.error(`Erro na obtenção dos dados dos setups para verificação de erro: ${error.message}`);
         }
     )
-}, 5000);
+}
 
 function verificaErro() {
     console.log('Esta é a resposta', dados);
@@ -45,7 +44,6 @@ function verificaErro() {
         })
         .then(resposta => {
             resposta.json().then(resposta => {
-                console.log('Medidas do sensor ', idSensor, ':', resposta);
                 validaMedida(resposta, max, min);
             });
         })
@@ -56,7 +54,7 @@ function verificaErro() {
 }
 
 function validaMedida(resposta, maximo, minimo){
-    for(var i = 0; i < resposta.length; i++){
+    for(let i = 0; i < resposta.length; i++){
         let medida = resposta[i].captura;
         let idMedida = resposta[i].idCaptura
         if(medida >= maximo || medida <= minimo){
@@ -70,9 +68,7 @@ function validaMedida(resposta, maximo, minimo){
                 })
             })
             .then(resposta => {
-                resposta.json().then(resposta => {
-                    // console.log(resposta)
-                });
+                console.log(resposta)
             })
             .catch(error => {
                 console.error(`Erro na alteração dos dados das medidas dos sensores para um erro / erro: ${error.message}`);
