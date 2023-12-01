@@ -1,4 +1,4 @@
-setInterval(achaMinMax, 5000);
+setInterval(achaMinMax, 10000);
 var dados;
 function achaMinMax(){
     fetch('/supervisorBasic/erro/achaMinMax', {

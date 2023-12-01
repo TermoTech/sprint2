@@ -2,7 +2,7 @@ var filtrarModel = require("../models/filtrarModel");
 
 function filtrarGeral(req, res) {
   var diaInicial = req.body.inicialDia;
-  var diaFinal = req.body.finalDia;
+  var diaFinal = req.body.finalDia + 1;
   var processoSelecionado = req.body.parteProcesso;
   var idMaquina = req.body.idMaquina
 

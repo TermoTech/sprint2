@@ -63,13 +63,7 @@ function plotarGraficos() {
                     data: [],
                     borderWidth: 1,
                     borderColor: "green",
-                  },
-                  {
-                    label: "Umidade",
-                    data: [],
-                    borderWidth: 1,
-                    borderColor: "orange",
-                  },
+                  }
                 ],
               },
               options: {
