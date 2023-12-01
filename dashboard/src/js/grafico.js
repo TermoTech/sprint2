@@ -1,5 +1,5 @@
 setTimeout(plotarGraficos, 1000);
-setInterval(geraDados, 1000);
+setInterval(geraDados, 5000);
 var listaGraficos;
 var listaMaquinas = [];
 

@@ -295,40 +295,40 @@ BEGIN
     DECLARE idDaMaquina int;
     
     SELECT c.captura INTO temperaturaMatriz FROM sensores as s JOIN maquina as m ON s.fkMaquina = m.idMaquina JOIN captura as c on c.fkSensor = s.idSensor
-    WHERE s.localizacao = 'Matriz' AND m.idMaquina = maquinaUser ORDER BY c.horario ASC LIMIT 1;
+    WHERE s.localizacao = 'Matriz' AND m.idMaquina = maquinaUser ORDER BY c.horario DESC LIMIT 1;
 	
     SELECT s.maximo INTO minMatriz FROM sensores as s JOIN maquina as m ON s.fkMaquina = m.idMaquina JOIN captura as c on c.fkSensor = s.idSensor
-    WHERE s.localizacao = 'Matriz' AND m.idMaquina = maquinaUser ORDER BY c.horario ASC LIMIT 1;
+    WHERE s.localizacao = 'Matriz' AND m.idMaquina = maquinaUser ORDER BY c.horario DESC LIMIT 1;
     
 	SELECT s.minimo INTO maxMatriz FROM sensores as s JOIN maquina as m ON s.fkMaquina = m.idMaquina JOIN captura as c on c.fkSensor = s.idSensor
-    WHERE s.localizacao = 'Matriz' AND m.idMaquina = maquinaUser ORDER BY c.horario ASC LIMIT 1;
+    WHERE s.localizacao = 'Matriz' AND m.idMaquina = maquinaUser ORDER BY c.horario DESC LIMIT 1;
     
 	SELECT c.captura INTO temperaturaAnelResfriamento FROM sensores as s JOIN maquina as m ON s.fkMaquina = m.idMaquina JOIN captura as c on c.fkSensor = s.idSensor
-    WHERE s.localizacao = 'Anel de Resfriamento' AND m.idMaquina = maquinaUser ORDER BY c.horario ASC LIMIT 1;
+    WHERE s.localizacao = 'Anel de Resfriamento' AND m.idMaquina = maquinaUser ORDER BY c.horario DESC LIMIT 1;
     
 	SELECT s.minimo INTO minAnel FROM sensores as s JOIN maquina as m ON s.fkMaquina = m.idMaquina JOIN captura as c on c.fkSensor = s.idSensor
-    WHERE s.localizacao = 'Anel de Resfriamento' AND m.idMaquina = maquinaUser ORDER BY c.horario ASC LIMIT 1;
+    WHERE s.localizacao = 'Anel de Resfriamento' AND m.idMaquina = maquinaUser ORDER BY c.horario DESC LIMIT 1;
     
 	SELECT s.maximo INTO maxAnel FROM sensores as s JOIN maquina as m ON s.fkMaquina = m.idMaquina JOIN captura as c on c.fkSensor = s.idSensor
-    WHERE s.localizacao = 'Anel de Resfriamento' AND m.idMaquina = maquinaUser ORDER BY c.horario ASC LIMIT 1;
+    WHERE s.localizacao = 'Anel de Resfriamento' AND m.idMaquina = maquinaUser ORDER BY c.horario DESC LIMIT 1;
     
 	SELECT c.captura INTO temperaturaReator FROM sensores as s JOIN maquina as m ON s.fkMaquina = m.idMaquina JOIN captura as c on c.fkSensor = s.idSensor
-    WHERE s.localizacao = 'Reator' AND m.idMaquina = maquinaUser ORDER BY c.horario ASC LIMIT 1;
+    WHERE s.localizacao = 'Reator' AND m.idMaquina = maquinaUser ORDER BY c.horario DESC LIMIT 1;
     
 	SELECT s.minimo INTO minReator FROM sensores as s JOIN maquina as m ON s.fkMaquina = m.idMaquina JOIN captura as c on c.fkSensor = s.idSensor
-    WHERE s.localizacao = 'Reator' AND m.idMaquina = maquinaUser ORDER BY c.horario ASC LIMIT 1;
+    WHERE s.localizacao = 'Reator' AND m.idMaquina = maquinaUser ORDER BY c.horario DESC LIMIT 1;
     
    	SELECT s.minimo INTO maxReator FROM sensores as s JOIN maquina as m ON s.fkMaquina = m.idMaquina JOIN captura as c on c.fkSensor = s.idSensor
-    WHERE s.localizacao = 'Reator' AND m.idMaquina = maquinaUser ORDER BY c.horario ASC LIMIT 1;
+    WHERE s.localizacao = 'Reator' AND m.idMaquina = maquinaUser ORDER BY c.horario DESC LIMIT 1;
     
     SELECT c.captura INTO umidadeMaquina FROM sensores as s join maquina as m on s.fkMaquina = m.idMaquina join captura as c on c.fkSensor = s.idSensor
-    WHERE m.fkEmpresa = empresa AND s.localizacao = 'ambiente' AND m.idMaquina = maquinaUser ORDER BY c.horario ASC LIMIT 1;
+    WHERE m.fkEmpresa = empresa AND s.localizacao = 'ambiente' AND m.idMaquina = maquinaUser ORDER BY c.horario DESC LIMIT 1;
     
     SELECT s.minimo INTO minUmidade FROM sensores as s join maquina as m on s.fkMaquina = m.idMaquina join captura as c on c.fkSensor = s.idSensor
-    WHERE m.fkEmpresa = empresa AND s.localizacao = 'ambiente' AND m.idMaquina = maquinaUser ORDER BY c.horario ASC LIMIT 1;
+    WHERE m.fkEmpresa = empresa AND s.localizacao = 'ambiente' AND m.idMaquina = maquinaUser ORDER BY c.horario DESC LIMIT 1;
     
     SELECT s.maximo INTO maxUmidade FROM sensores as s join maquina as m on s.fkMaquina = m.idMaquina join captura as c on c.fkSensor = s.idSensor
-    WHERE m.fkEmpresa = empresa AND s.localizacao = 'ambiente' AND m.idMaquina = maquinaUser ORDER BY c.horario ASC LIMIT 1;
+    WHERE m.fkEmpresa = empresa AND s.localizacao = 'ambiente' AND m.idMaquina = maquinaUser ORDER BY c.horario DESC LIMIT 1;
     
     SELECT m.idMaquina INTO idDaMaquina FROM maquina as m join sensores as s
     on s.fkMaquina = m.idMaquina WHERE m.fkEmpresa = empresa AND m.idMaquina = maquinaUser limit 1;
