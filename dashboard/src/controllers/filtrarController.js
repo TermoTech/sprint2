@@ -10,7 +10,8 @@ function filtrarGeral(req, res) {
     .then(function(resposta){
       res.status(200).json(resposta);
       res.json({
-        horario: resposta[0].hora,
+        dia:resposta[0].dia,
+        horario: resposta[0].horario,
         parteProcesso: resposta[0].parteProcesso,
         temperatura: resposta[0].temperatura,
         fkMaquina: resposta[0].maquina,

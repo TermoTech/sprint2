@@ -16,18 +16,22 @@ document.addEventListener("keydown", function (event) {
 var errosTotais = 0;
 horarios = [];
 var parteProcesso = [];
+var dia = [];
 
 function calcularQuantidadeItens(lista, nome) {
   var quantidade = 0;
   errosTotais = 0;
-  for (let i = 0; i < lista.length; i++) {
-    if (lista[i] === nome) {
+
+  lista.forEach(item => {
+    if (item === nome) {
       quantidade++;
       errosTotais++;
     }
-  }
+  });
+
   return quantidade;
 }
+
 var temperaturas = [];
 var maquinas = [];
 var umidades = [];
@@ -39,6 +43,7 @@ function mostrarHistorico() {
   temperaturas = [];
   maquinas = [];
   umidades = [];
+  dia = [];
 
   filtrarGeral();
 
@@ -46,6 +51,9 @@ function mostrarHistorico() {
     for (var i = 0; i < horarios.length; i++) {
       tabela_historico.innerHTML += `
     <tr>
+        <th>
+        ${dia[i]}
+        </th>
         <th>
         ${horarios[i]}
         </th>
@@ -61,11 +69,9 @@ function mostrarHistorico() {
     </tr>
     `;
     }
-    numero_erro_matriz.innerHTML = calcularQuantidadeItens(
-      parteProcesso,
-      "Matriz"
-    );
-    numero_erro_anel.innerHTML = calcularQuantidadeItens(parteProcesso, "Anel");
+
+    numero_erro_matriz.innerHTML = calcularQuantidadeItens(parteProcesso, "Matriz");
+    numero_erro_anel.innerHTML = calcularQuantidadeItens(parteProcesso, "Anel de Resfriamento");
     numero_erro_reator.innerHTML = calcularQuantidadeItens(parteProcesso, "Reator");
     numero_erro_total.innerHTML = errosTotais;
   }, 1000);
@@ -108,7 +114,8 @@ function filtrarGeral() {
     .then((json) => {
       console.log(JSON.stringify(json));
       for (var i = 0; i < json.length; i++) {
-        horarios.push(json[i].hora);
+        dia.push(json[i].dia)
+        horarios.push(json[i].horario);
         parteProcesso.push(json[i].parteProcesso);
         temperaturas.push(json[i].temperatura);
         maquinas.push(json[i].maquina);
