@@ -13,12 +13,13 @@ document.addEventListener("keydown", function (event) {
 });
 
 
-errosTotais = 0;
+var errosTotais = 0;
 horarios = [];
 var parteProcesso = [];
 
 function calcularQuantidadeItens(lista, nome) {
-  let quantidade = 0;
+  var quantidade = 0;
+  errosTotais = 0;
   for (let i = 0; i < lista.length; i++) {
     if (lista[i] === nome) {
       quantidade++;
