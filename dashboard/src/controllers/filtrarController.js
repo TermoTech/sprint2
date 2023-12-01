@@ -4,9 +4,10 @@ function filtrarGeral(req, res) {
   var diaInicial = req.body.inicialDia;
   var diaFinal = req.body.finalDia;
   var processoSelecionado = req.body.parteProcesso;
+  var idMaquina = req.body.idMaquina
 
   filtrarModel
-    .filtrarGeral(diaInicial, diaFinal, processoSelecionado)
+    .filtrarGeral(diaInicial, diaFinal, processoSelecionado, idMaquina)
     .then(function(resposta){
       res.status(200).json(resposta);
       res.json({

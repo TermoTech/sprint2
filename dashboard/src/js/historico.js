@@ -20,7 +20,6 @@ var dia = [];
 
 function calcularQuantidadeItens(lista, nome) {
   var quantidade = 0;
-  errosTotais = 0;
 
   lista.forEach(item => {
     if (item === nome) {
@@ -37,6 +36,8 @@ var maquinas = [];
 var umidades = [];
 
 function mostrarHistorico() {
+  errosTotais = 0;
+
   tabela_historico.innerHTML = ``;
   horarios = [];
   parteProcesso = [];
@@ -71,7 +72,7 @@ function mostrarHistorico() {
     }
 
     numero_erro_matriz.innerHTML = calcularQuantidadeItens(parteProcesso, "Matriz");
-    numero_erro_anel.innerHTML = calcularQuantidadeItens(parteProcesso, "Anel de Resfriamento");
+    numero_erro_anel.innerHTML = calcularQuantidadeItens(parteProcesso, "Anel de resfriamento");
     numero_erro_reator.innerHTML = calcularQuantidadeItens(parteProcesso, "Reator");
     numero_erro_total.innerHTML = errosTotais;
   }, 1000);

@@ -71,7 +71,7 @@ function validaMedida(resposta, maximo, minimo){
             })
             .then(resposta => {
                 resposta.json().then(resposta => {
-                    console.log(resposta)
+                    // console.log(resposta)
                 });
             })
             .catch(error => {
