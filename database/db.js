@@ -12,10 +12,10 @@ var mySqlConfig = {
 function executar(instrucao) {
     return new Promise(function (resolve, reject) {
         var conexao = mysql.createConnection({
-            host: "10.18.36.79",
+            host: "localhost",
             database: "termotech",
-            user: "aluno",
-            password: "sptech",
+            user: "root",
+            password: "",
         })
         conexao.connect();
         conexao.query(instrucao, function (erro, resultados) {
