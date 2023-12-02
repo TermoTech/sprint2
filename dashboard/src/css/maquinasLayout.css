@@ -97,7 +97,7 @@
 
 .maquinas {
     margin-top: 2%;
-    justify-content: space-between;
+    justify-content: center;
     display: flex;
     width: 100%;
 }
@@ -185,6 +185,7 @@
     justify-content: center;
     margin-right: 2.5%;
     width: 65%;
+    height: 125px;
     display: flex;
     font-size: 13px;
     border-radius: 5px;

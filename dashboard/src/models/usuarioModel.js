@@ -15,11 +15,11 @@ function achaIdUsuario(email, senha, fkEmpresa){
     return database.executar(instrucao);
 }
 
-function criaAcessoUsuario(fkUsuario, fkMaquina){
-    var instrucao = `insert into acesso values (${fkUsuario}, ${fkMaquina})`;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
+// function criaAcessoUsuario(fkUsuario, fkMaquina){
+//     var instrucao = `insert into acesso values (${fkUsuario}, ${fkMaquina})`;
+//     console.log("Executando a instrução SQL: \n" + instrucao);
+//     return database.executar(instrucao);
+// }
 
 function listarModel(fkEmpresa){
     var instrucao = `
@@ -71,6 +71,6 @@ function listarMaquinasModel(fkEmpresa){
 
 module.exports = {
     cadastrar, listarModel, editarUsuarioModel, excluirAcessoModel,
-    excluirUsuarioModel, editarAcessoUserModel, achaIdUsuario, criaAcessoUsuario,
+    excluirUsuarioModel, editarAcessoUserModel, achaIdUsuario, 
     listarMaquinasModel
 }

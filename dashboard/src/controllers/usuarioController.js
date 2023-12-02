@@ -32,7 +32,7 @@ function cadastrar(req, res) {
             function (resultado) {
                 usuarioModel.achaIdUsuario(email, senha, fkEmpresa)
                     .then(function(resultado){
-                        usuarioModel.criaAcessoUsuario(resultado[0].idUsuario, idMaquina)
+                        // usuarioModel.criaAcessoUsuario(resultado[0].idUsuario, idMaquina)
                         res.json(resultado)
                     }).catch(
                         function (erro) {

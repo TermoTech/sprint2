@@ -2,19 +2,19 @@ var database = require('../../../database/db')
 
 function listarTodasMaquinasModel(idEmpresa){
     var instrucao = `
-        select * from maquina left join acesso on fkMaquina = idMaquina left join usuario on fkUsuario = idUsuario where maquina.fkEmpresa = ${idEmpresa};
+        select usuario.*, maquina.* from empresa join maquina on maquina.fkEmpresa = idEmpresa left join usuario on usuario.fkEmpresa = idEmpresa where maquina.fkEmpresa = ${idEmpresa};
     `;
     console.log(instrucao)
     return database.executar(instrucao);
 }
 
-function achaMaquinaUsuario(idUsuario, idEmpresa){
-    var instrucao = `
-        select idMaquina from maquina left join acesso on fkMaquina = idMaquina left join usuario on fkUsuario = idUsuario where maquina.fkEmpresa = ${idEmpresa} and idUsuario = ${idUsuario};
-    `;
-    console.log(instrucao)
-    return database.executar(instrucao);
-}
+// function achaMaquinaUsuario(idUsuario, idEmpresa){
+//     var instrucao = `
+//         select idMaquina from maquina left join acesso on fkMaquina = idMaquina left join usuario on fkUsuario = idUsuario where maquina.fkEmpresa = ${idEmpresa};
+//     `;
+//     console.log(instrucao)
+//     return database.executar(instrucao);
+// }
 
 function listaDadosMaquina(idMaquina){
     var instrucao = `
@@ -64,4 +64,4 @@ function atualizaErro(idCaptura){
     return database.executar(instrucao)
 }
 
-module.exports = {listarTodasMaquinasModel, achaMaquinaUsuario, listaDadosMaquina, updateSetupModel, achaProcessosModel, pegaMinMaxModelTodas, achaTempSensor, atualizaErro}
+module.exports = {listarTodasMaquinasModel, listaDadosMaquina, updateSetupModel, achaProcessosModel, pegaMinMaxModelTodas, achaTempSensor, atualizaErro}
