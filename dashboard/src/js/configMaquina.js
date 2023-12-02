@@ -81,11 +81,11 @@ function exibeMaquinas(resposta){
                       <table class="analytics-table" id="table_analytics${resposta[i].idMaquina}">
                         <tr>
                           <th></th>
-                          <th>ALERTA CRÍTICO(MÍN)</th>
-                          <th>ALERTA (ATENÇÃO)</th>
-                          <th>IDEAL</th>
-                          <th>ALERTA (ATENÇÃO)</th>
-                          <th>ALERTA CRÍTICO(MÁX)</th>
+                          <th class='critico'>ALERTA CRÍTICO(MÍN)</th>
+                          <th class='alerta'>ALERTA (ATENÇÃO)</th>
+                          <th class='ideal'>IDEAL</th>
+                          <th class='alerta'>ALERTA (ATENÇÃO)</th>
+                          <th class='critico'>ALERTA CRÍTICO(MÁX)</th>
                         </tr>
                       </table>
                     </div>
@@ -135,11 +135,11 @@ function insereTabela(idMaquina){
       var newRow = `
         <tr>
           <th>${resposta[i].localizacao}</th>
-          <td>${resposta[i].minimo}°</td>
-          <td>${resposta[i].minimo + resposta[i].minimo * 0.1}</td>
-          <td>maior que ${resposta[i].minimo + resposta[i].minimo * 0.1}° e menor que ${resposta[i].maximo - resposta[i].maximo * 0.1}°</td>
-          <td>${resposta[i].maximo - resposta[i].maximo * 0.1}°</td>
-          <td>${resposta[i].maximo}°</td>
+          <td class='critico'>${resposta[i].minimo}°</td>
+          <td class='alerta'>${resposta[i].minimo + resposta[i].minimo * 0.1}</td>
+          <td class='ideal'>maior que ${resposta[i].minimo + resposta[i].minimo * 0.1}° e menor que ${resposta[i].maximo - resposta[i].maximo * 0.1}°</td>
+          <td class='alerta'>${resposta[i].maximo - resposta[i].maximo * 0.1}°</td>
+          <td class='critico'>${resposta[i].maximo}°</td>
         </tr>
       `;
       tableAnalytics.innerHTML += newRow;

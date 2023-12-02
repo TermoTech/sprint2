@@ -308,3 +308,12 @@
 .analytics h5{
     margin-bottom: 10px;
 }
+.ideal{
+    background-color: rgba(0, 128, 0, 0.584);
+}
+.critico{
+    background-color: rgba(255, 0, 0, 0.568);
+}
+.alerta{
+    background-color: rgba(255, 255, 0, 0.515);
+}
