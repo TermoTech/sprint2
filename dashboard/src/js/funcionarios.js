@@ -207,15 +207,11 @@ function abrirAtualFunc(id, nome, email, senha){
     popUpUpdate.style.display = "flex";
 
     button_update_usuario.addEventListener('click', function () {
-        if (maquina === 0) {
-            console.error('Selecione pelo menos uma máquina.');
-        } else {
-            var nomeUser = document.getElementById(`input_nome${id}`).value
-            var emailUser = document.getElementById(`input_email${id}`).value
-            var senhaUser = document.getElementById(`input_senha${id}`).value
-            updateUsuario(id, nomeUser, emailUser, senhaUser);
-            fecharUpdateFunc(popUpUpdate)
-        }
+        var nomeUser = document.getElementById(`input_nome${id}`).value
+        var emailUser = document.getElementById(`input_email${id}`).value
+        var senhaUser = document.getElementById(`input_senha${id}`).value
+        updateUsuario(id, nomeUser, emailUser, senhaUser);
+        fecharUpdateFunc(popUpUpdate)
     });
 }
 

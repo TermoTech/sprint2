@@ -53,13 +53,13 @@ function excluirUsuarioModel(idUser){
 
 }
 
-function editarAcessoUserModel(idUser, idMaquina){
-    var instrucao = `        
-        update acesso set fkMaquina = ${idMaquina} where fkUsuario = ${idUser};
-    `;
-    console.log('Executando a instrução SQL: \n" + instrucao')
-    return database.executar(instrucao);
-}
+// function editarAcessoUserModel(idUser, idMaquina){
+//     var instrucao = `        
+//         update acesso set fkMaquina = ${idMaquina} where fkUsuario = ${idUser};
+//     `;
+//     console.log('Executando a instrução SQL: \n" + instrucao')
+//     return database.executar(instrucao);
+// }
 
 function listarMaquinasModel(fkEmpresa){
     var instrucao = `
@@ -71,6 +71,6 @@ function listarMaquinasModel(fkEmpresa){
 
 module.exports = {
     cadastrar, listarModel, editarUsuarioModel, excluirAcessoModel,
-    excluirUsuarioModel, editarAcessoUserModel, achaIdUsuario, 
+    excluirUsuarioModel, achaIdUsuario, 
     listarMaquinasModel
 }

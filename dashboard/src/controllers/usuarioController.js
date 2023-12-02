@@ -82,10 +82,8 @@ function editarUser(req, res){
     var nome = req.body.nomeServer
     var email = req.body.emailServer
     var senha = req.body.senhaUpdateServer
-    var maquina = req.body.idMaquinaServer 
     usuarioModel.editarUsuarioModel(idUsuario, nome, email, senha)
         .then(resultado => {
-            usuarioModel.editarAcessoUserModel(idUsuario, maquina)
             res.json(resultado);
         })
         .catch(erro => {
