@@ -76,6 +76,19 @@ function exibeMaquinas(resposta){
                             <h6>E-mail</h6>
                         </div>
                     </div>
+                    <div class="analytics">
+                      <h5>ANÁLISE DE ALERTAS</h5>
+                      <table class="analytics-table" id="table_analytics${resposta[i].idMaquina}">
+                        <tr>
+                          <th></th>
+                          <th class='critico'>ALERTA CRÍTICO(MÍN)</th>
+                          <th class='alerta'>ALERTA (ATENÇÃO)</th>
+                          <th class='ideal'>IDEAL</th>
+                          <th class='alerta'>ALERTA (ATENÇÃO)</th>
+                          <th class='critico'>ALERTA CRÍTICO(MÁX)</th>
+                        </tr>
+                      </table>
+                    </div>
                 </details>
             `;
             insereTabela(resposta[i].idMaquina)
@@ -106,18 +119,33 @@ function insereTabela(idMaquina){
       }
     }
   )
-  function exibirProcessos(resposta){
+  function exibirProcessos(resposta) {
     console.log("Exibindo processos:", resposta);
-    for(var i = 0; i < resposta.length; i++){
+    var tableAnalytics = document.getElementById(`table_analytics${idMaquina}`);
+    var nomes = document.getElementById(`nameProcess${idMaquina}`);
+    var max = document.getElementById(`maxProcess${idMaquina}`);
+    var min = document.getElementById(`minProcess${idMaquina}`);
+  
+    for (var i = 0; i < resposta.length; i++) {
       console.log("Processo:", resposta[i]);
-      var nomes = document.getElementById(`nameProcess${idMaquina}`) 
-      var max = document.getElementById(`maxProcess${idMaquina}`)
-      var min = document.getElementById(`minProcess${idMaquina}`)
-      nomes.innerHTML += `<th>${resposta[i].localizacao}</th>`
-      max.innerHTML += `<td id="td_max_matriz">${resposta[i].maximo}</td>`
-      min.innerHTML += `<td id="td_min_matriz">${resposta[i].minimo}</td>`
+  
+      nomes.innerHTML += `<th>${resposta[i].localizacao}</th>`;
+      max.innerHTML += `<td id="td_max_matriz">${resposta[i].maximo}</td>`;
+      min.innerHTML += `<td id="td_min_matriz">${resposta[i].minimo}</td>`;
+      var newRow = `
+        <tr>
+          <th>${resposta[i].localizacao}</th>
+          <td class='critico'>${resposta[i].minimo}°</td>
+          <td class='alerta'>${resposta[i].minimo + resposta[i].minimo * 0.1}</td>
+          <td class='ideal'>maior que ${resposta[i].minimo + resposta[i].minimo * 0.1}° e menor que ${resposta[i].maximo - resposta[i].maximo * 0.1}°</td>
+          <td class='alerta'>${resposta[i].maximo - resposta[i].maximo * 0.1}°</td>
+          <td class='critico'>${resposta[i].maximo}°</td>
+        </tr>
+      `;
+      tableAnalytics.innerHTML += newRow;
     }
   }
+  
 }
 
 function geraDivUsuarios(div, usuario) {
