@@ -297,10 +297,10 @@ BEGIN
     SELECT c.captura INTO temperaturaMatriz FROM sensores as s JOIN maquina as m ON s.fkMaquina = m.idMaquina JOIN captura as c on c.fkSensor = s.idSensor
     WHERE s.localizacao = 'Matriz' AND m.idMaquina = maquinaUser ORDER BY c.horario DESC LIMIT 1;
 	
-    SELECT s.maximo INTO minMatriz FROM sensores as s JOIN maquina as m ON s.fkMaquina = m.idMaquina JOIN captura as c on c.fkSensor = s.idSensor
+    SELECT s.minimo INTO minMatriz FROM sensores as s JOIN maquina as m ON s.fkMaquina = m.idMaquina JOIN captura as c on c.fkSensor = s.idSensor
     WHERE s.localizacao = 'Matriz' AND m.idMaquina = maquinaUser ORDER BY c.horario DESC LIMIT 1;
     
-	SELECT s.minimo INTO maxMatriz FROM sensores as s JOIN maquina as m ON s.fkMaquina = m.idMaquina JOIN captura as c on c.fkSensor = s.idSensor
+	SELECT s.maximo INTO maxMatriz FROM sensores as s JOIN maquina as m ON s.fkMaquina = m.idMaquina JOIN captura as c on c.fkSensor = s.idSensor
     WHERE s.localizacao = 'Matriz' AND m.idMaquina = maquinaUser ORDER BY c.horario DESC LIMIT 1;
     
 	SELECT c.captura INTO temperaturaAnelResfriamento FROM sensores as s JOIN maquina as m ON s.fkMaquina = m.idMaquina JOIN captura as c on c.fkSensor = s.idSensor
@@ -318,7 +318,7 @@ BEGIN
 	SELECT s.minimo INTO minReator FROM sensores as s JOIN maquina as m ON s.fkMaquina = m.idMaquina JOIN captura as c on c.fkSensor = s.idSensor
     WHERE s.localizacao = 'Reator' AND m.idMaquina = maquinaUser ORDER BY c.horario DESC LIMIT 1;
     
-   	SELECT s.minimo INTO maxReator FROM sensores as s JOIN maquina as m ON s.fkMaquina = m.idMaquina JOIN captura as c on c.fkSensor = s.idSensor
+   	SELECT s.maximo INTO maxReator FROM sensores as s JOIN maquina as m ON s.fkMaquina = m.idMaquina JOIN captura as c on c.fkSensor = s.idSensor
     WHERE s.localizacao = 'Reator' AND m.idMaquina = maquinaUser ORDER BY c.horario DESC LIMIT 1;
     
     SELECT c.captura INTO umidadeMaquina FROM sensores as s join maquina as m on s.fkMaquina = m.idMaquina join captura as c on c.fkSensor = s.idSensor
@@ -333,7 +333,7 @@ BEGIN
     SELECT m.idMaquina INTO idDaMaquina FROM maquina as m join sensores as s
     on s.fkMaquina = m.idMaquina WHERE m.fkEmpresa = empresa AND m.idMaquina = maquinaUser limit 1;
     
-    SELECT temperaturaAnelResfriamento, maxAnel, minAnel, temperaturaReator, minReator, maxReator, temperaturaMatriz, minReator, maxReator, umidadeMaquina,
+    SELECT temperaturaAnelResfriamento, maxAnel, minAnel, temperaturaReator, minReator, maxReator, temperaturaMatriz, minMatriz, maxMatriz, umidadeMaquina,
     maxUmidade, minUmidade, idDaMaquina;
 END$$
 DELIMITER ;
