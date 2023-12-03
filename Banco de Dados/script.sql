@@ -60,14 +60,6 @@ idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
  fkMaquina INT,
  FOREIGN KEY (fkMaquina) references maquina(idMaquina));
  
- -- TABELA ACESSO
- CREATE TABLE acesso (
- fkUsuario INT,
- FOREIGN KEY (fkUsuario) references usuario (idUsuario),
- fkMaquina INT,
- FOREIGN KEY (fkMaquina) references maquina (idMaquina),
- PRIMARY KEY (fkUsuario, fkMaquina));
- 
 CREATE TABLE captura(
 	idCaptura int auto_increment,
     captura float,
@@ -103,37 +95,6 @@ INSERT INTO maquina VALUES
 (null, 2,2),
 (null, 1,1),
 (null, 2,1);
-
--- DANDO INSERT NA TABELA ACESSO
-INSERT INTO acesso VALUES
-(1, 3),
-(1, 4),
-(2, 3),
-(3, 1),
-(3,2),
-(4,1);
-
-select * from usuario;
-
--- DANDO INSERT NA TABELA SENSORES (ANTIGA) PROVISÓRIO
-
--- INSERT INTO sensores VALUES
--- (null, 'LM35', 'Reator', 153, null, default, 1),
--- (null, 'LM35', 'Matriz', 210.12, null, default, 1),
--- (null, 'LM35', 'Anel de Resfriamento', 48.52, null, default, 1),
--- (null, 'DHT11', null, null, 62.60, default , 1),
--- (null, 'LM35', 'Reator', 123, null, default, 2),
--- (null, 'LM35', 'Matriz', 190.42, null, default, 2),
--- (null, 'LM35', 'Anel de Resfriamento', 50.52, null, default, 2),
--- (null, 'DHT11', null, null, 40.60, default , 2),
--- (null, 'LM35', 'Reator', 140, null, default, 3),
--- (null, 'LM35', 'Matriz', 209, null, default, 3),
--- (null, 'LM35', 'Anel de Resfriamento', 38.52, null, default, 3),
--- (null, 'DHT11', null, null, 32.60, default , 3),
--- (null, 'LM35', 'Reator', 173.67, null, default, 4),
--- (null, 'LM35', 'Matriz', 156.62, null, default, 4),
--- (null, 'LM35', 'Anel de Resfriamento', 58.11, null, default, 4),
--- (null, 'DHT11', null, null, 70.60, default , 4);
 
 -- INSERTS para teste da nova modelagem
 
@@ -244,14 +205,22 @@ INSERT INTO captura (idCaptura, captura, horario, erro, fkSensor) VALUES
 (84, 60.3, '2023-11-27 16:26:44', 0, 8),
 (85, 72.1, '2023-11-27 16:26:44', 0, 9);
 
+INSERT INTO captura (idCaptura, captura, horario, erro, fkSensor) VALUES
+(86, 72.1, '2023-11-27 16:26:44', 0, 1),
+(87, 70.875, '2023-11-27 16:26:44', 0, 2),
+(88, 288.4, '2023-11-27 16:26:44', 0, 3),
+(89, 283.5, '2023-11-27 16:26:44', 0, 4),
+(90, 60.3, '2023-11-27 16:26:44', 0, 5),
+(91, 72.1, '2023-11-27 16:26:44', 0, 6),
+(92, 70.875, '2023-11-27 16:26:44', 0, 7),
+(93, 288.4, '2023-11-27 16:26:44', 0, 8),
+(94, 283.5, '2023-11-27 16:26:44', 0, 9);
+
 select * from usuario;
 select * from maquina;
-select * from acesso;
 select * from empresa;
 select * from endereco;
 select * from sensores;
-
-
 
 SELECT *
 FROM sensores
@@ -259,8 +228,6 @@ RIGHT JOIN maquina ON idMaquina = fkMaquina RIGHT join captura on fkSensor = idS
 WHERE horario BETWEEN '2023-11-09' AND '2023-11-30';
 
 select sensores.* from sensores join maquina on fkMaquina = idMaquina where idMaquina = 3 order by idSensor;
-
-drop table sensores;
 
 insert into maquina (numMaquina, fkEmpresa) values 
 	(3, 1);
@@ -342,3 +309,9 @@ select * from captura;
 
 CALL dadosSensores(1, 4);
 DROP PROCEDURE IF EXISTS dadosSensores;
+
+SELECT usuario.nome, usuario.idUsuario, usuario.fkEmpresa, usuario.nivelAcesso, maquina.idMaquina, empresa.nomeEmpresa, empresa.plano
+	FROM empresa JOIN usuario ON usuario.fkEmpresa = idEmpresa JOIN maquina on maquina.fkEmpresa = idEmpresa;
+    
+select idMaquina, numMaquina from empresa join maquina on maquina.fkEmpresa = idEmpresa left join usuario on usuario.fkEmpresa = empresa.idEmpresa where maquina.fkEmpresa = 1;
+select * from empresa join maquina on maquina.fkEmpresa = idEmpresa join usuario on usuario.fkEmpresa = idEmpresa where maquina.idMaquina = 4;
