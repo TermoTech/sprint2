@@ -15,15 +15,10 @@ function achaIdUsuario(email, senha, fkEmpresa){
     return database.executar(instrucao);
 }
 
-// function criaAcessoUsuario(fkUsuario, fkMaquina){
-//     var instrucao = `insert into acesso values (${fkUsuario}, ${fkMaquina})`;
-//     console.log("Executando a instrução SQL: \n" + instrucao);
-//     return database.executar(instrucao);
-// }
 
 function listarModel(fkEmpresa){
     var instrucao = `
-        select * from usuario left join acesso on fkUsuario = idUsuario left join maquina on fkMaquina = idMaquina where nivelAcesso = 0 and usuario.fkEmpresa = ${fkEmpresa};
+        select * from empresa join usuario on fkEmpresa = idEmpresa where nivelAcesso = 0 and fkEmpresa = ${fkEmpresa};
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -40,11 +35,6 @@ function editarUsuarioModel(idUser, nome, email, senha) {
     return database.executar(instrucao);
 }
 
-function excluirAcessoModel(idUser){
-    var instrucao = `delete from acesso where fkUsuario = ${idUser}`;
-    console.log('Executando a instrução SQL: \n" + instrucao')
-    return database.executar(instrucao);
-}
 
 function excluirUsuarioModel(idUser){
     var instrucao = `delete from usuario where idUsuario = ${idUser}`;
@@ -52,14 +42,6 @@ function excluirUsuarioModel(idUser){
     return database.executar(instrucao);
 
 }
-
-// function editarAcessoUserModel(idUser, idMaquina){
-//     var instrucao = `        
-//         update acesso set fkMaquina = ${idMaquina} where fkUsuario = ${idUser};
-//     `;
-//     console.log('Executando a instrução SQL: \n" + instrucao')
-//     return database.executar(instrucao);
-// }
 
 function listarMaquinasModel(fkEmpresa){
     var instrucao = `
@@ -70,7 +52,7 @@ function listarMaquinasModel(fkEmpresa){
 }
 
 module.exports = {
-    cadastrar, listarModel, editarUsuarioModel, excluirAcessoModel,
+    cadastrar, listarModel, editarUsuarioModel,
     excluirUsuarioModel, achaIdUsuario, 
     listarMaquinasModel
 }

@@ -9,7 +9,7 @@ function achaMinMax() {
         body: JSON.stringify({
             fkEmpresaServer: sessionStorage.getItem('FK_EMPRESA'),
             idUsuarioServer: sessionStorage.getItem('ID_USUARIO'),
-            acessoServer: sessionStorage.getItem('ACESSO_USUARIO')
+            // acessoServer: sessionStorage.getItem('ACESSO_USUARIO')
         })
     })
         .then(
@@ -102,7 +102,7 @@ function atualizaProgressBar(min, max, resposta) {
     var textoUmidade = document.getElementById(`porcentagem_umidade_${fkMaquina}`);
 
     if (localizacao == 'Reator') {
-        var porcentagemReator = (captura / intervalo) * 100;
+        var porcentagemReator = (intervalo * 100) / captura;
         porcentagemReator = porcentagemReator.toFixed(2);
         tempReator.innerHTML = captura.toFixed(2);
         textoReator.innerHTML = `${porcentagemReator}%`;
@@ -127,7 +127,7 @@ function atualizaProgressBar(min, max, resposta) {
     }
 
     if (localizacao == 'Matriz') {
-        var porcentagemMatriz = (captura / intervalo) * 100;
+        var porcentagemMatriz = (intervalo * 100) / captura;
         porcentagemMatriz = porcentagemMatriz.toFixed(2);
         tempMatriz.innerHTML = captura.toFixed(2);
         textoMatriz.innerHTML = `${porcentagemMatriz}%`;
@@ -152,7 +152,7 @@ function atualizaProgressBar(min, max, resposta) {
     }
 
     if (localizacao == 'Anel de resfriamento') {
-        var porcentagemAnel = (captura / intervalo) * 100;
+        var porcentagemAnel = (intervalo * 100) / captura;
         porcentagemAnel = porcentagemAnel.toFixed(2);
         tempAnel.innerHTML = captura.toFixed(2);
         textoAnel.innerHTML = `${porcentagemAnel}%`;
@@ -177,7 +177,7 @@ function atualizaProgressBar(min, max, resposta) {
     }
 
     if (localizacao == 'Ambiente') {
-        var porcentagemUmidade = (captura / intervalo) * 100;
+        var porcentagemUmidade = (intervalo * 100) / captura;
         porcentagemUmidade = porcentagemUmidade.toFixed(2);
         maqUmidade.innerHTML = captura.toFixed(2);
         textoUmidade.innerHTML = `${porcentagemUmidade}%`;

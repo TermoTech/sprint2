@@ -95,9 +95,8 @@ function editarUser(req, res){
 
 function excluirUser(req, res){
     var idUsuario = req.body.idUserServer;
-    usuarioModel.excluirAcessoModel(idUsuario)
+    usuarioModel.excluirUsuarioModel(idUsuario)
         .then(resultado =>{
-            usuarioModel.excluirUsuarioModel(idUsuario)
             res.json(resultado);
         })
         .catch(erro => {

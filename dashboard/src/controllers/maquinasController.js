@@ -97,7 +97,6 @@ function pegaMinMax(req, res){
     var fkEmpresa = req.body.fkEmpresaServer
     var idUsuario = req.body.idUsuarioServer
     var acesso = req.body.acessoServer
-    if(acesso == 1){
         maquinasConfigsModel.pegaMinMaxModelTodas(fkEmpresa)
         .then(
             function(resultado){
@@ -114,9 +113,6 @@ function pegaMinMax(req, res){
                 res.status(500).json(erro.sqlMessage);
             }
         )
-    } else{
-
-    }
 }
 
 function achaTemp(req, res){

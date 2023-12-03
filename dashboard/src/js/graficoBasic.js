@@ -5,7 +5,7 @@ var listaMaquinas = [];
 
 function plotarGraficos() {
   var empresa = sessionStorage.FK_EMPRESA;
-  var acesso = sessionStorage.ACESSO_USUARIO;
+  // var acesso = sessionStorage.ACESSO_USUARIO;
   var id = sessionStorage.ID_USUARIO;
 
   fetch("/supervisorBasic/listarMaquinas", {
@@ -15,7 +15,7 @@ function plotarGraficos() {
     },
     body: JSON.stringify({
       fkEmpresaServer: empresa,
-      acessoServer: acesso,
+      // acessoServer: acesso,
       idServer: id
     })
   }).then(function (resposta) {
