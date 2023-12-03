@@ -117,7 +117,7 @@ function atualizaProgressBar(min, max, resposta) {
 
             if (porcentagemReator < 10) {
                 progressUmidade.style.backgroundColor = "red";
-                if (popupAlerta.style.display == "none") {
+                if (popupAlerta.style.display == "none" || popupAlerta.style.display == "") {
                     popupAlerta.style.display = "flex";
                     popupAlerta.innerHTML = `
             <div class="alert">
@@ -138,7 +138,7 @@ function atualizaProgressBar(min, max, resposta) {
 
             if (porcentagemReator >= 10 && porcentagemReator < 25) {
                 progressReator.style.backgroundColor = "yellow";
-                if (popupAlerta.style.display == "none") {
+                if (popupAlerta.style.display == "none" || popupAlerta.style.display == "") {
                     popupAlerta.style.display = "flex";
                     popupAlerta.innerHTML = `
             <div class="alert">
@@ -165,7 +165,7 @@ function atualizaProgressBar(min, max, resposta) {
             }
             if (porcentagemReator >= 75 && porcentagemReator < 90) {
                 progressReator.style.backgroundColor = "yellow";
-                if (popupAlerta.style.display == "none") {
+                if (popupAlerta.style.display == "none" || popupAlerta.style.display == "") {
                     popupAlerta.style.display = "flex";
                     popupAlerta.innerHTML = `
             <div class="alert">
@@ -183,14 +183,14 @@ function atualizaProgressBar(min, max, resposta) {
             `;
                 }
             }
-            if (porcentagemReator >= 90 && porcentagemReator < 100) {
+            if (porcentagemReator >= 90) {
                 progressReator.style.backgroundColor = "red";
-                if (popupAlerta.style.display == "none") {
+                if (popupAlerta.style.display == "none" || popupAlerta.style.display == "") {
                     popupAlerta.style.display = "flex";
                     popupAlerta.innerHTML = `
             <div class="alert">
-            <div class="head-card">
-              <h4 id='titulo_alerta'>ALERTA ATENÇÃO</h4>
+            <div class="head-card" style="background-color: red;">
+              <h4 id='titulo_alerta'>ALERTA CRÍTICO</h4>
               <svg onclick="fecharAlerta()" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>    </div>
             <div class="body-card-alert">
               <h5 id='texto_alerta'>
@@ -218,7 +218,7 @@ function atualizaProgressBar(min, max, resposta) {
 
             if (porcentagemMatriz < 10) {
                 progressUmidade.style.backgroundColor = "red";
-                if (popupAlerta.style.display == "none") {
+                if (popupAlerta.style.display == "none" || popupAlerta.style.display == "") {
                     popupAlerta.style.display = "flex";
                     popupAlerta.innerHTML = `
             <div class="alert">
@@ -238,7 +238,7 @@ function atualizaProgressBar(min, max, resposta) {
             }
             if (porcentagemMatriz >= 10 && porcentagemMatriz < 25) {
                 progressMatriz.style.backgroundColor = "yellow";
-                if (popupAlerta.style.display == "none"){
+                if (popupAlerta.style.display == "none" || popupAlerta.style.display == ""){
                     popupAlerta.style.display = "flex"; 
                     popupAlerta.innerHTML = `
             <div class="alert">
@@ -265,7 +265,7 @@ function atualizaProgressBar(min, max, resposta) {
             }
             if (porcentagemMatriz >= 75 && porcentagemMatriz < 90) {
                 progressMatriz.style.backgroundColor = "yellow";
-                if (popupAlerta.style.display == "none"){
+                if (popupAlerta.style.display == "none" || popupAlerta.style.display == ""){
                     popupAlerta.style.display = "flex";
                     popupAlerta.innerHTML = `
             <div class="alert">
@@ -283,14 +283,14 @@ function atualizaProgressBar(min, max, resposta) {
             `;
             }
         }
-            if (porcentagemMatriz >= 90 && porcentagemMatriz < 100) {
+            if (porcentagemMatriz >= 90) {
                 progressMatriz.style.backgroundColor = "red";
-                if (popupAlerta.style.display == "none"){
+                if (popupAlerta.style.display == "none" || popupAlerta.style.display == ""){
                     popupAlerta.style.display = "flex";
                     popupAlerta.innerHTML = `
             <div class="alert">
             <div class="head-card" style="background-color: red;">
-              <h4 id='titulo_alerta'>ALERTA ATENÇÃO</h4>
+              <h4 id='titulo_alerta'>ALERTA CRÍTICO</h4>
               <svg onclick="fecharAlerta()" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>    </div>
             <div class="body-card-alert">
               <h5 id='texto_alerta'>
@@ -316,14 +316,14 @@ function atualizaProgressBar(min, max, resposta) {
                 progressAnel.style.width = `${porcentagemAnel}%`;
             }
 
-            if (porcentagemAnel >= 0 && porcentagemAnel < 10) {
+            if (porcentagemAnel < 10) {
                 progressUmidade.style.backgroundColor = "red";
-                if (popupAlerta.style.display == "none"){
+                if (popupAlerta.style.display == "none" || popupAlerta.style.display == ""){
                     popupAlerta.style.display = "flex";
                     popupAlerta.innerHTML = `
             <div class="alert">
             <div class="head-card" style="background-color: red;">
-              <h4 id='titulo_alerta'>ALERTA ATENÇÃO</h4>
+              <h4 id='titulo_alerta'>ALERTA CRÍTICO</h4>
               <svg onclick="fecharAlerta()" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>    </div>
             <div class="body-card-alert">
               <h5 id='texto_alerta'>
@@ -338,7 +338,7 @@ function atualizaProgressBar(min, max, resposta) {
         }
             if (porcentagemAnel >= 10 && porcentagemAnel < 25) {
                 progressAnel.style.backgroundColor = "yellow";
-                if (popupAlerta.style.display == "none"){
+                if (popupAlerta.style.display == "none" || popupAlerta.style.display == ""){
                     popupAlerta.style.display = "flex";
                     popupAlerta.innerHTML = `
             <div class="alert">
@@ -365,7 +365,7 @@ function atualizaProgressBar(min, max, resposta) {
             }
             if (porcentagemAnel >= 75 && porcentagemAnel < 90) {
                 progressAnel.style.backgroundColor = "yellow";
-                if (popupAlerta.style.display == "none"){
+                if (popupAlerta.style.display == "none" || popupAlerta.style.display == ""){
                     popupAlerta.style.display = "flex";
                     popupAlerta.innerHTML = `
             <div class="alert">
@@ -383,14 +383,14 @@ function atualizaProgressBar(min, max, resposta) {
             `;
             }
         }
-            if (porcentagemAnel >= 90 && porcentagemAnel < 100) {
+            if (porcentagemAnel >= 90) {
                 progressAnel.style.backgroundColor = "red";
-                if (popupAlerta.style.display == "none"){ 
+                if (popupAlerta.style.display == "none" || popupAlerta.style.display == ""){ 
                     popupAlerta.style.display = "flex";
                     popupAlerta.innerHTML = `
             <div class="alert">
             <div class="head-card" style="background-color: red;">
-              <h4 id='titulo_alerta'>ALERTA ATENÇÃO</h4>
+              <h4 id='titulo_alerta'>ALERTA CRÍTICO</h4>
               <svg onclick="fecharAlerta()" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>    </div>
             <div class="body-card-alert">
               <h5 id='texto_alerta'>
@@ -415,14 +415,14 @@ function atualizaProgressBar(min, max, resposta) {
                 progressUmidade.style.width = `${porcentagemUmidade}%`;
             }
 
-            if (porcentagemUmidade >= 0 && porcentagemUmidade < 10) {
+            if (porcentagemUmidade < 10) {
                 progressUmidade.style.backgroundColor = "red";
-                if (popupAlerta.style.display == "none"){
+                if (popupAlerta.style.display == "none" || popupAlerta.style.display == ""){
                     popupAlerta.style.display = "flex";
                     popupAlerta.innerHTML = `
             <div class="alert">
             <div class="head-card" style="background-color: red;">
-              <h4 id='titulo_alerta'>ALERTA ATENÇÃO</h4>
+              <h4 id='titulo_alerta'>ALERTA CRÍTICO</h4>
               <svg onclick="fecharAlerta()" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>    </div>
             <div class="body-card-alert">
               <h5 id='texto_alerta'>
@@ -437,7 +437,7 @@ function atualizaProgressBar(min, max, resposta) {
         }
             if (porcentagemUmidade >= 10 && porcentagemUmidade < 25) {
                 progressUmidade.style.backgroundColor = "yellow";
-                if (popupAlerta.style.display == "none"){
+                if (popupAlerta.style.display == "none" || popupAlerta.style.display == ""){
                     popupAlerta.style.display = "flex";
                     popupAlerta.innerHTML = `
             <div class="alert">
@@ -457,7 +457,7 @@ function atualizaProgressBar(min, max, resposta) {
         }
             if (porcentagemUmidade >= 25 && porcentagemUmidade < 75) {
                 progressUmidade.style.backgroundColor = "green";
-                if(popupAlerta.style.display != "flex"){ 
+                if(popupAlerta.style.display != "flex" || popupAlerta.style.display == ""){ 
                     popupAlerta.style.display = `none`;
                     popupAlerta.innerHTML = ``;
                     
@@ -465,7 +465,7 @@ function atualizaProgressBar(min, max, resposta) {
             }
             if (porcentagemUmidade >= 75 && porcentagemUmidade < 90) {
                 progressUmidade.style.backgroundColor = "yellow";
-                if (popupAlerta.style.display == "none"){
+                if (popupAlerta.style.display == "none" || popupAlerta.style.display == ""){
                     popupAlerta.style.display = "flex";
                     popupAlerta.innerHTML = `
             <div class="alert">
@@ -483,14 +483,14 @@ function atualizaProgressBar(min, max, resposta) {
             `;
             }
         }
-            if (porcentagemUmidade >= 90 && porcentagemUmidade < 100) {
+            if (porcentagemUmidade >= 90) {
                 progressUmidade.style.backgroundColor = "red";
-                if (popupAlerta.style.display == "none"){
+                if (popupAlerta.style.display == "none" ){
                     popupAlerta.style.display = "flex";
                     popupAlerta.innerHTML = `
             <div class="alert">
             <div class="head-card" style="background-color: red;">
-              <h4 id='titulo_alerta'>ALERTA ATENÇÃO</h4>
+              <h4 id='titulo_alerta'>ALERTA CRÍTICO</h4>
               <svg onclick="fecharAlerta()" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>    </div>
             <div class="body-card-alert">
               <h5 id='texto_alerta'>

@@ -276,3 +276,16 @@ td{
     padding: 5px;
     text-align: center;
 }
+#button_update_usuario{
+    color: #EAEAEA;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 10px;
+    line-height: normal;
+    text-align: center;
+    border-radius: 5px;
+    background: rgba(77, 77, 77, 0.90);
+    cursor: pointer;
+}

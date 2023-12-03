@@ -62,7 +62,8 @@
     width: 150px;
     height: auto;
     border: 2px solid #000000;
-    border-radius: 8px;
+    border-radius: 1rem;
+    overflow: hidden;
 }
 
 .porcentagem{
@@ -78,9 +79,10 @@
     display: flex;
     font-size: 6px;
     height: 16px;
+    box-shadow: #000 0 0 5px 0;
     width: 0%;
     background-color: red;
-    border-radius: 8px;
+    border-radius: 1rem;
     transition: 1s all ease-in-out;
 }
 
