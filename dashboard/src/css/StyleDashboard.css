@@ -79,7 +79,7 @@
     font-size: 6px;
     height: 16px;
     width: 0%;
-    background-color: green;
+    background-color: red;
     border-radius: 8px;
     transition: 1s all ease-in-out;
 }

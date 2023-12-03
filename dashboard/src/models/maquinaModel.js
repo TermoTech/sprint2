@@ -42,7 +42,7 @@ function pegaMinMaxModelTodas(fkEmpresa){
 
 function achaTempSensor(idSensor){
     var instrucao = `
-    select * from captura join sensores on fkSensor = idSensor where idSensor = ${idSensor} order by captura.horario desc limit 1;
+    select c.*, s.*, m.numMaquina from captura as c join sensores as s on c.fkSensor = s.idSensor join maquina as m on s.fkMaquina = m.idMaquina where s.idSensor = ${idSensor} order by c.horario desc limit 1;
     `
     // console.log(instrucao)
     return database.executar(instrucao)
