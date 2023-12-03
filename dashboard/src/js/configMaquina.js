@@ -34,24 +34,6 @@ function exibeMaquinas(resposta){
                       Configuração dos sensores:
                     </div>
                     <div class="maquinas">
-                      <div class="maquinas-sensores">
-                        <div class="card-sensor">
-                          <h6>Matriz</h6>
-                          <div class="circle-stats"></div>
-                        </div>
-                        <div class="card-sensor">
-                          <h6>Anel</h6>
-                          <div class="circle-stats"></div>
-                        </div>
-                        <div class="card-sensor">
-                            <h6>Reator</h6>
-                            <div class="circle-stats"></div>
-                        </div>
-                        <div class="card-sensor">
-                          <h6>Umidade</h6>
-                          <div class="circle-stats"></div>
-                        </div>
-                      </div>
                       <div class="maq-inp-temp" id="div_interval_temp${resposta[i].idMaquina}">
                             <table class="info-temp-table">
                               <tr id="nameProcess${resposta[i].idMaquina}">
@@ -130,16 +112,18 @@ function insereTabela(idMaquina){
       console.log("Processo:", resposta[i]);
   
       nomes.innerHTML += `<th>${resposta[i].localizacao}</th>`;
-      max.innerHTML += `<td id="td_max_matriz">${resposta[i].maximo}</td>`;
-      min.innerHTML += `<td id="td_min_matriz">${resposta[i].minimo}</td>`;
+      max.innerHTML += `<td id="td_max_matriz">${resposta[i].maximo}°</td>`;
+      min.innerHTML += `<td id="td_min_matriz">${resposta[i].minimo}°</td>`;
+
+      var intervalo = resposta[i].maximo - resposta[i].minimo;
       var newRow = `
         <tr>
           <th>${resposta[i].localizacao}</th>
-          <td class='critico'>${resposta[i].minimo}°</td>
-          <td class='alerta'>${resposta[i].minimo + resposta[i].minimo * 0.1}</td>
-          <td class='ideal'>maior que ${resposta[i].minimo + resposta[i].minimo * 0.1}° e menor que ${resposta[i].maximo - resposta[i].maximo * 0.1}°</td>
-          <td class='alerta'>${resposta[i].maximo - resposta[i].maximo * 0.1}°</td>
-          <td class='critico'>${resposta[i].maximo}°</td>
+          <td class='critico'>${resposta[i].minimo + intervalo * 0.1}°</td>
+          <td class='alerta'>${resposta[i].minimo + intervalo * 0.25}°</td>
+          <td class='ideal'>maior que ${resposta[i].minimo + intervalo * 0.25}° e menor que ${resposta[i].maximo - intervalo * 0.25}°</td>
+          <td class='alerta'>${resposta[i].maximo - intervalo * 0.25}°</td>
+          <td class='critico'>${resposta[i].maximo - intervalo * 0.1}°</td>
         </tr>
       `;
       tableAnalytics.innerHTML += newRow;
@@ -207,8 +191,8 @@ function exibirSetups(resposta, idMaquina, div) {
   }
 
   div.innerHTML += `
-      <div class="div-btns"> 
-          <button onclick="save(${idMaquina}, ${JSON.stringify(listaIdSensor)})">Salvar</button>
+      <div class="div-btns" onclick="save(${idMaquina}, ${JSON.stringify(listaIdSensor)})"> 
+          <button >Salvar</button>
       </div>
   `;
 }

@@ -10,48 +10,48 @@ function abrirAddFunc(){
     achaMaquina(checkbox_div)
 }
 
-function achaMaquina(div){
-    fetch(`/supervisorBasic/usuarios/listarMaquinas`, {
-        method: 'POST',
-        headers: {
-            "Content-type": "application/json",
-        },
-        body: JSON.stringify({
-            fkEmpresaServer: sessionStorage.FK_EMPRESA
-        }),
-    })
-    .then(resultado => {
-        if (resultado.status == 200) {
-            resultado.json().then(resultado => {
-                console.log(`Máquinas encontrados com sucesso:${JSON.stringify(resultado)}`)
-                geraCheckBox(resultado, div)
-            })
-        } else {
-            console.log('Não foi encontrado nenhuma máquina.')
-        }
-    })
-    .catch(function (error) {
-        console.error(`Erro na obtenção das máquinas: ${error.message}`);
-    });
-}
+// function achaMaquina(div){
+//     fetch(`/supervisorBasic/usuarios/listarMaquinas`, {
+//         method: 'POST',
+//         headers: {
+//             "Content-type": "application/json",
+//         },
+//         body: JSON.stringify({
+//             fkEmpresaServer: sessionStorage.FK_EMPRESA
+//         }),
+//     })
+//     .then(resultado => {
+//         if (resultado.status == 200) {
+//             resultado.json().then(resultado => {
+//                 console.log(`Máquinas encontrados com sucesso:${JSON.stringify(resultado)}`)
+//                 geraCheckBox(resultado, div)
+//             })
+//         } else {
+//             console.log('Não foi encontrado nenhuma máquina.')
+//         }
+//     })
+//     .catch(function (error) {
+//         console.error(`Erro na obtenção das máquinas: ${error.message}`);
+//     });
+// }
 
-function geraCheckBox(resultado, div){
-    div.innerHTML = '<label for="Maquina_usuario" class="inputs_label">Responsável pela máquina:</label>'
-    for(var i = 0; i < resultado.length; i++){
-        div.innerHTML += `
-        <div style="display: flex; justify-content: center;">
-        <input onchange="verificaInput(${resultado[i].idMaquina})" type="checkbox" id="chk_maquina${resultado[i].idMaquina}" value="${resultado[i].numMaquina}">
-        <label for="chk_maquina1">Máquina ${resultado[i].numMaquina}</label>
-        </div>
-        `;
-    }
-}
+// function geraCheckBox(resultado, div){
+//     div.innerHTML = '<label for="Maquina_usuario" class="inputs_label">Responsável pela máquina:</label>'
+//     for(var i = 0; i < resultado.length; i++){
+//         div.innerHTML += `
+//         <div style="display: flex; justify-content: center;">
+//         <input onchange="verificaInput(${resultado[i].idMaquina})" type="checkbox" id="chk_maquina${resultado[i].idMaquina}" value="${resultado[i].numMaquina}">
+//         <label for="chk_maquina1">Máquina ${resultado[i].numMaquina}</label>
+//         </div>
+//         `;
+//     }
+// }
 
-var maquina = 0; 
+// var maquina = 0; 
 
-function verificaInput( idMaquina){
-    maquina = idMaquina;
-}
+// function verificaInput( idMaquina){
+//     maquina = idMaquina;
+// }
 
 function listaUsuarios() {
     fetch(`/supervisorBasic/usuarios/listar`, {
@@ -84,9 +84,7 @@ function criarUsuario() {
     var emailVar = input_email.value;
     var senhaVar = input_senha.value;
 
-    if (maquina === 0) {
-        console.error('Selecione pelo menos uma máquina.');
-    } else {        
+    
         fetch("/supervisorBasic/cadastrar", {
           method: "POST", 
           headers: {
@@ -97,9 +95,9 @@ function criarUsuario() {
             emailServer: emailVar,
             senhaServer: senhaVar,
             fkEmpresaServer: sessionStorage.FK_EMPRESA,
-            maquinaServer: maquina
+            // maquinaServer: maquina
           }),
-      })
+        })
           .then(function (resposta) {
               console.log("resposta: ", resposta);
     
@@ -117,7 +115,6 @@ function criarUsuario() {
     
           return false;
         }
-    }
       
 function mensagemDeErro(){
     var senha = input_senha.value;
@@ -144,9 +141,6 @@ function mostrarUsuarios(resposta){
                 </td>
                 <td>
                     ${resposta[i].email}
-                </td>
-                <td>
-                    Máquina: ${resposta[i].numMaquina}
                 </td>
                 <td>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" onclick="abrirAtualFunc(${resposta[i].idUsuario}, '${resposta[i].nome}', '${resposta[i].email}', '${resposta[i].senha}')">
@@ -204,29 +198,20 @@ function abrirAtualFunc(id, nome, email, senha){
                     </p>
                 </div>
 
-                <div class="inputs_style" id='div_maquinas${id}'>
-                    <label for="Maquina_usuario" class="inputs_label">Responsável pela máquina:</label>
-                    
-                </div>
-
                 <button id="button_update_usuario">Editar Usuário</button>
                 </div>
         </div>
     `;
-    achaMaquina(document.getElementById(`div_maquinas${id}`), id)
+    // achaMaquina(document.getElementById(`div_maquinas${id}`), id)
     var popUpUpdate = document.getElementById(`popop_update_func${id}`)
     popUpUpdate.style.display = "flex";
 
     button_update_usuario.addEventListener('click', function () {
-        if (maquina === 0) {
-            console.error('Selecione pelo menos uma máquina.');
-        } else {
-            var nomeUser = document.getElementById(`input_nome${id}`).value
-            var emailUser = document.getElementById(`input_email${id}`).value
-            var senhaUser = document.getElementById(`input_senha${id}`).value
-            updateUsuario(id, nomeUser, emailUser, senhaUser, maquina);
-            fecharUpdateFunc(popUpUpdate)
-        }
+        var nomeUser = document.getElementById(`input_nome${id}`).value
+        var emailUser = document.getElementById(`input_email${id}`).value
+        var senhaUser = document.getElementById(`input_senha${id}`).value
+        updateUsuario(id, nomeUser, emailUser, senhaUser);
+        fecharUpdateFunc(popUpUpdate)
     });
 }
 
@@ -239,8 +224,8 @@ function fecharAddFunc(){
     popop_add_func.style.display = "none";
 }
 
-function updateUsuario(id, nome, email, senha, maquina) {
-    console.log(id, nome, email, senha, maquina)
+function updateUsuario(id, nome, email, senha) {
+    console.log(id, nome, email, senha)
     fetch(`/supervisorBasic/editar`, {
         method: 'PUT',
         headers: {
@@ -251,7 +236,7 @@ function updateUsuario(id, nome, email, senha, maquina) {
             nomeServer: nome,
             emailServer: email,
             senhaUpdateServer: senha,
-            idMaquinaServer: maquina
+            // idMaquinaServer: maquina
             // maquinaServer: maquina
         }),
     }).then(function (resposta) {

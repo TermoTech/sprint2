@@ -32,7 +32,7 @@ function cadastrar(req, res) {
             function (resultado) {
                 usuarioModel.achaIdUsuario(email, senha, fkEmpresa)
                     .then(function(resultado){
-                        usuarioModel.criaAcessoUsuario(resultado[0].idUsuario, idMaquina)
+                        // usuarioModel.criaAcessoUsuario(resultado[0].idUsuario, idMaquina)
                         res.json(resultado)
                     }).catch(
                         function (erro) {
@@ -82,10 +82,8 @@ function editarUser(req, res){
     var nome = req.body.nomeServer
     var email = req.body.emailServer
     var senha = req.body.senhaUpdateServer
-    var maquina = req.body.idMaquinaServer 
     usuarioModel.editarUsuarioModel(idUsuario, nome, email, senha)
         .then(resultado => {
-            usuarioModel.editarAcessoUserModel(idUsuario, maquina)
             res.json(resultado);
         })
         .catch(erro => {
