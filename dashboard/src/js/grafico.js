@@ -128,21 +128,37 @@ function plotarGraficos() {
             <div class="div-maquinas-geral-filho">
 
               <div class="div-maquinas-geral-neto">
-                <progress id="progress_reator${dados.idMaquina}" class="barra-progresso" value="0" max="300" min="10"></progress>
+              <div class="progress">
+              <p class="porcentagem" id="porcentagem_reator_${dados.idMaquina}">0%</p>
+                <div id="progress_reator${dados.idMaquina}" class="barra-progresso">
+                </div>
+                </div>
               </div>
 
               <div class="div-maquinas-geral-neto">
-                <progress id="progress_matriz${dados.idMaquina}" class="barra-progresso" value="0" max="300" min="15"></progress>
+                <div class="progress">
+                <p class="porcentagem" id="porcentagem_matriz_${dados.idMaquina}">0%</p>
+                 <div id="progress_matriz${dados.idMaquina}" class="barra-progresso">
+                 </div>
+                </div>
               </div>
 
               <div class="div-maquinas-geral-neto">
-                <progress id="progress_anel${dados.idMaquina}" class="barra-progresso" value="0" max="100" min="20"></progress>
+              <div class="progress">
+              <p class="porcentagem" id="porcentagem_anel_${dados.idMaquina}">0%</p>
+              <div id="progress_anel${dados.idMaquina}" class="barra-progresso">
+              </div>
+              </div>
               </div>
 
               <div class="div-maquinas-geral-neto">
-                <progress id="progress_umidade${dados.idMaquina}" class="barra-progresso" value="0" max="100" min="10"></progress>
+                <div class="progress">
+                <p class="porcentagem" id="porcentagem_umidade_${dados.idMaquina}">0%</p>
+                  <div id="progress_umidade${dados.idMaquina}" class="barra-progresso">
+                  </div>
+                </div>
               </div>
-
+            
             </div>
 
             <div class="div-maquinas-geral-filho">
@@ -198,75 +214,76 @@ function geraDados() {
 
         var dados = resposta[0][0];
 
-        for (
-          var i = 0;
-          i < listaMaquinas.length;
-          i += 1
-        ) {
-          var id = listaMaquinas[i];
-          var progressReator = document.getElementById(`progress_reator${id}`);
-          var progressMatriz = document.getElementById(`progress_matriz${id}`);
-          var progressAnel = document.getElementById(`progress_anel${id}`);
-          var progressUmidade = document.getElementById(`progress_umidade${id}`);
+        // for (
+        //   var i = 0;
+        //   i < listaMaquinas.length;
+        //   i += 1
+        // ) {
+        //   console.log(dados);
+        //   var id = listaMaquinas[i];
+        //   var progressReator = document.getElementById(`progress_reator${id}`);
+        //   var progressMatriz = document.getElementById(`progress_matriz${id}`);
+        //   var progressAnel = document.getElementById(`progress_anel${id}`);
+        //   var progressUmidade = document.getElementById(`progress_umidade${id}`);
 
-          var tempReator = document.getElementById(`temp_reator${id}`);
-          var tempMatriz = document.getElementById(`temp_matriz${id}`);
-          var tempAnel = document.getElementById(`temp_anel${id}`);
-          var maqUmidade = document.getElementById(`umidade_maq${id}`);
+        //   var tempReator = document.getElementById(`temp_reator${id}`);
+        //   var tempMatriz = document.getElementById(`temp_matriz${id}`);
+        //   var tempAnel = document.getElementById(`temp_anel${id}`);
+        //   var maqUmidade = document.getElementById(`umidade_maq${id}`);
 
-          if (id == dados.idDaMaquina) {
-            //reator
-            progressReator.value = dados.temperaturaReator;
-            //progressReator.min = dados.minReator;
-            //progressReator.max = dados.maxReator;
-            tempReator.innerHTML = dados.temperaturaReator;
+        //   if (id == dados.idDaMaquina) {
+        //     //reator
+        //     progressReator.value = dados.temperaturaReator;
+        //     //progressReator.min = dados.minReator;
+        //     //progressReator.max = dados.maxReator;
+        //     tempReator.innerHTML = dados.temperaturaReator;
 
-            //Anels
-            progressAnel.value = dados.temperaturaAnelResfriamento;
-            //progressAnel.min = dados.maxAnel;
-            //progressAnel.max = dados.minAnel;
-            tempAnel.innerHTML = dados.temperaturaAnelResfriamento;
+        //     //Anels
+        //     progressAnel.value = dados.temperaturaAnelResfriamento;
+        //     //progressAnel.min = dados.maxAnel;
+        //     //progressAnel.max = dados.minAnel;
+        //     tempAnel.innerHTML = dados.temperaturaAnelResfriamento;
 
-            //Matriz
-            progressMatriz.value = dados.temperaturaMatriz;
-            //progressMatriz.min = dados.minMatriz;
-            // progressMatriz.max = dados.maxMatriz;
-            tempMatriz.innerHTML = dados.temperaturaMatriz;
+        //     //Matriz
+        //     progressMatriz.value = dados.temperaturaMatriz;
+        //     //progressMatriz.min = dados.minMatriz;
+        //     // progressMatriz.max = dados.maxMatriz;
+        //     tempMatriz.innerHTML = dados.temperaturaMatriz;
 
-            //Umidade
-            progressUmidade.value = dados.umidadeMaquina;
-            //progressUmidade.max = dados.maxUmidade;
-            //progressUmidade.min = dados.minUmidade;
-            maqUmidade.innerHTML = dados.umidadeMaquina;
-          } else{
-            //Número random
+        //     //Umidade
+        //     progressUmidade.value = dados.umidadeMaquina;
+        //     //progressUmidade.max = dados.maxUmidade;
+        //     //progressUmidade.min = dados.minUmidade;
+        //     maqUmidade.innerHTML = dados.umidadeMaquina;
+        //   } else{
+        //     //Número random
             
 
-            //reator
-            progressReator.value = dados.temperaturaReator + 5;
-            //progressReator.min = dados.minReator;
-            //progressReator.max = dados.maxReator;
-            tempReator.innerHTML = dados.temperaturaReator + 5;
+        //     //reator
+        //     progressReator.value = dados.temperaturaReator + 5;
+        //     //progressReator.min = dados.minReator;
+        //     //progressReator.max = dados.maxReator;
+        //     tempReator.innerHTML = dados.temperaturaReator + 5;
 
-            //Anel
-            progressAnel.value = dados.temperaturaAnelResfriamento + 3;
-            //progressAnel.min = dados.maxAnel;
-            //progressAnel.max = dados.minAnel;
-            tempAnel.innerHTML = dados.temperaturaAnelResfriamento + 3;
+        //     //Anel
+        //     progressAnel.value = dados.temperaturaAnelResfriamento + 3;
+        //     //progressAnel.min = dados.maxAnel;
+        //     //progressAnel.max = dados.minAnel;
+        //     tempAnel.innerHTML = dados.temperaturaAnelResfriamento + 3;
 
-            //Matriz
-            progressMatriz.value = dados.temperaturaMatriz - 6;
-            //progressMatriz.min = dados.minMatriz;
-            // progressMatriz.max = dados.maxMatriz;
-            tempMatriz.innerHTML = dados.temperaturaMatriz  - 6;
+        //     //Matriz
+        //     progressMatriz.value = dados.temperaturaMatriz - 6;
+        //     //progressMatriz.min = dados.minMatriz;
+        //     // progressMatriz.max = dados.maxMatriz;
+        //     tempMatriz.innerHTML = dados.temperaturaMatriz  - 6;
 
-            //Umidade
-            progressUmidade.value = dados.umidadeMaquina + 2;
-            //progressUmidade.max = dados.maxUmidade;
-            //progressUmidade.min = dados.minUmidade;
-            maqUmidade.innerHTML = dados.umidadeMaquina + 2;
-          }
-        }
+        //     //Umidade
+        //     progressUmidade.value = dados.umidadeMaquina + 2;
+        //     //progressUmidade.max = dados.maxUmidade;
+        //     //progressUmidade.min = dados.minUmidade;
+        //     maqUmidade.innerHTML = dados.umidadeMaquina + 2;
+        //   }
+        // }
 
         var dadosMatriz = dados.temperaturaMatriz;
         var dadosAnelResfriamento = dados.temperaturaAnelResfriamento;

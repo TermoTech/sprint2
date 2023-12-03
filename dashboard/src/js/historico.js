@@ -64,7 +64,7 @@ function mostrarHistorico() {
         ${parteProcesso[i]}
         </th>
         <th>
-        ${temperaturas[i]}
+        ${temperaturas[i].toFixed(2)}
         </th>
         <th>
         ${maquinas[i]}
@@ -106,7 +106,7 @@ function mostrarHistorico() {
         ${parteProcesso[i]}
         </th>
         <th>
-        ${temperaturas[i]}
+        ${temperaturas[i].toFixed(2)}
         </th>
         <th>
         ${maquinas[i]}
