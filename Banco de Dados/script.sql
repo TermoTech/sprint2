@@ -234,7 +234,7 @@ insert into maquina (numMaquina, fkEmpresa) values
     
 insert into sensores values
 	(null, 'temperatura', 'Anel de resfriamento', null, null, 5),
-	(null, 'temperatura', 'Reator', null, null, 599),
+	(null, 'temperatura', 'Reator', null, null, 5),
 	(null, 'temperatura', 'Matriz', null, null, 5),
 	(null, 'Umidade', 'Ambiente', null, null, 5);
 
