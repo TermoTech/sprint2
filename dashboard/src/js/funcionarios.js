@@ -115,22 +115,6 @@ function criarUsuario() {
     
           return false;
         }
-      
-function mensagemDeErro(){
-    var senha = input_senha.value;
-    var senha2 = input_repetir_senha.value;
-
-    //Mensagem de erro
-    if (senha != senha2) {
-        erro.style.display = "flex";
-        button_criar_usuario.disabled = true;
-
-    } else {
-        erro.style.display = "none";
-        button_criar_usuario.disabled = false;
-
-    }
-}
 
 function mostrarUsuarios(resposta){
     for(var i = 0; i < resposta.length; i++){
@@ -189,7 +173,7 @@ function abrirAtualFunc(id, nome, email, senha){
                 </div>
                 <div class="inputs_style">
                     <label for="input_repetir_senha" class="inputs_label" >Repetir Senha:</label>
-                    <input type="password" id="input_repetir_senha" class="inputs_campos" value="${senha}">
+                    <input type="password" id="input_repetir_senha${id}" class="inputs_campos" value="${senha}">
                 </div>
 
                 <div id="erro" class="inputs_style" style="display: none; height: 5px;">    
@@ -206,12 +190,35 @@ function abrirAtualFunc(id, nome, email, senha){
     var popUpUpdate = document.getElementById(`popop_update_func${id}`)
     popUpUpdate.style.display = "flex";
 
-    button_update_usuario.addEventListener('click', function () {
+    button_update_usuario.addEventListener('click', function () { 
+
         var nomeUser = document.getElementById(`input_nome${id}`).value
         var emailUser = document.getElementById(`input_email${id}`).value
         var senhaUser = document.getElementById(`input_senha${id}`).value
-        updateUsuario(id, nomeUser, emailUser, senhaUser);
-        fecharUpdateFunc(popUpUpdate)
+
+        var senha2 = document.getElementById(`input_repetir_senha${id}`).value;
+    
+        //Mensagem de erro
+        if (senhaUser != senha2) {
+            document.getElementById(`input_senha${id}`).value = '';
+            document.getElementById(`input_senha${id}`).placeholder = 'Senhas diferentes';
+            document.getElementById(`input_repetir_senha${id}`).value = '';
+            document.getElementById(`input_repetir_senha${id}`).placeholder = 'Senhas diferentes';
+        } else {
+            if(nomeUser == '' || emailUser == '' || senhaUser == '' || senha2 == ''){
+                document.getElementById(`input_nome${id}`).value = '';
+                document.getElementById(`input_email${id}`).value = '';
+                document.getElementById(`input_nome${id}`).placeholder = 'Campo vazio'
+                document.getElementById(`input_email${id}`).placeholder = 'Campo vazio'
+                document.getElementById(`input_senha${id}`).value = '';
+                document.getElementById(`input_senha${id}`).placeholder = 'Campo vazio';
+                document.getElementById(`input_repetir_senha${id}`).value = '';
+                document.getElementById(`input_repetir_senha${id}`).placeholder = 'Campo vazio';
+            }  else{
+                updateUsuario(id, nomeUser, emailUser, senhaUser);
+                fecharUpdateFunc(popUpUpdate)
+            }
+        }
     });
 }
 

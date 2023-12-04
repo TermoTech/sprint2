@@ -164,7 +164,7 @@ function filtrarGeral() {
         horarios.push(json[i].horario);
         parteProcesso.push(json[i].parteProcesso);
         temperaturas.push(json[i].temperatura);
-        maquinas.push(json[i].maquina);
+        maquinas.push(json[i].numeroMaquina);
       }
       // verEmpresa()
     })

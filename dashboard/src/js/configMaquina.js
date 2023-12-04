@@ -115,9 +115,15 @@ function insereTabela(idMaquina){
           break
         }
       }
+
       nomes.innerHTML += `<th>${resposta[i].localizacao}</th>`;
-      max.innerHTML += `<td id="td_max_matriz">${resposta[i].maximo}°</td>`;
-      min.innerHTML += `<td id="td_min_matriz">${resposta[i].minimo}°</td>`;
+      if(resposta[i].localizacao == 'Ambiente' || resposta[i].localizacao == 'ambiente'){
+        max.innerHTML += `<td id="td_max_matriz">${resposta[i].maximo}%</td>`;
+        min.innerHTML += `<td id="td_min_matriz">${resposta[i].minimo}%</td>`;
+      } else{
+        max.innerHTML += `<td id="td_max_matriz">${resposta[i].maximo}°C</td>`;
+        min.innerHTML += `<td id="td_min_matriz">${resposta[i].minimo}°C</td>`;
+      }
 
       var intervalo = resposta[i].maximo - resposta[i].minimo;
       var newRow = `

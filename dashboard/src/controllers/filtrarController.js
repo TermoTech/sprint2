@@ -7,8 +7,7 @@ function filtrarGeral(req, res) {
   var idMaquina = req.body.idMaquina
   var fkEmpresa = req.body.fkEmpresaServer
 
-  filtrarModel
-    .filtrarGeral(diaInicial, diaFinal, processoSelecionado, idMaquina, fkEmpresa)
+  filtrarModel.filtrarGeral(diaInicial, diaFinal, processoSelecionado, idMaquina, fkEmpresa)
     .then(function(resposta){
       res.status(200).json(resposta);
       res.json({

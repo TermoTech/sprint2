@@ -107,7 +107,7 @@ function atualizaProgressBar(min, max, resposta) {
         if (localizacao == 'Reator') {
             var porcentagemReator = (captura - min) * 100 / intervalo;
             porcentagemReator = porcentagemReator.toFixed(2);
-            tempReator.innerHTML = `Mínimo: ${min}  <br> Máximo: ${max}`;
+            tempReator.innerHTML = `Mínimo: ${min}°C  <br> Máximo: ${max}°C`;
             textoReator.innerHTML = `${captura}°C`;
             if (porcentagemReator >= 100) {
                 progressReator.style.width = `100%`;
