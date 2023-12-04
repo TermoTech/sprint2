@@ -107,7 +107,7 @@ function atualizaProgressBar(min, max, resposta) {
         if (localizacao == 'Reator') {
             var porcentagemReator = (captura - min) * 100 / intervalo;
             porcentagemReator = porcentagemReator.toFixed(2);
-            tempReator.innerHTML = `Mínimo: ${min}  Máximo: ${max}`;
+            tempReator.innerHTML = `Mínimo: ${min}  <br> Máximo: ${max}`;
             textoReator.innerHTML = `${captura}°C`;
             if (porcentagemReator >= 100) {
                 progressReator.style.width = `100%`;
@@ -208,7 +208,7 @@ function atualizaProgressBar(min, max, resposta) {
         if (localizacao == 'Matriz') {
             var porcentagemMatriz = (captura - min) * 100 / intervalo;
             porcentagemMatriz = porcentagemMatriz.toFixed(2);
-            tempMatriz.innerHTML = `Mínimo: ${min}  Máximo: ${max}`;;
+            tempMatriz.innerHTML = `Mínimo: ${min}  <br> Máximo: ${max}`;;
             textoMatriz.innerHTML = `${captura}°C`;
             if (porcentagemMatriz >= 100) {
                 progressMatriz.style.width = `100%`;
@@ -308,7 +308,7 @@ function atualizaProgressBar(min, max, resposta) {
         if (localizacao == 'Anel de resfriamento') {
             var porcentagemAnel = (captura - min) * 100 / intervalo;
             porcentagemAnel = porcentagemAnel.toFixed(2);
-            tempAnel.innerHTML = `Mínimo: ${min}  Máximo: ${max}`;;
+            tempAnel.innerHTML = `Mínimo: ${min}  <br> Máximo: ${max}`;;
             textoAnel.innerHTML = `${captura}°C`;
             if (porcentagemAnel >= 100) {
                 progressAnel.style.width = `100%`;
@@ -407,7 +407,7 @@ function atualizaProgressBar(min, max, resposta) {
         if (localizacao == 'Ambiente') {
             var porcentagemUmidade = (captura - min) * 100 / intervalo;
             porcentagemUmidade = porcentagemUmidade.toFixed(2);
-            maqUmidade.innerHTML = `Mínimo: ${min}  Máximo: ${max}`;;
+            maqUmidade.innerHTML = `Mínimo: ${min}  <br> Máximo: ${max}`;;
             textoUmidade.innerHTML = `${captura}°C`;
             if (porcentagemUmidade >= 100) {
                 progressUmidade.style.width = `100%`;

@@ -142,6 +142,7 @@ function filtrarGeral() {
       finalDia: diaFinal,
       idMaquina: maquinaSelecionada,
       parteProcesso: processoSelecionado,
+      fkEmpresaServer: sessionStorage.getItem('FK_EMPRESA')
     }),
   })
     .then((respostas) => {

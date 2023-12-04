@@ -1,13 +1,13 @@
 var database = require("../../../database/db.js");
 
-function filtrarGeral(diaInicial, diaFinal, parteProcesso, idMaquina) {
+function filtrarGeral(diaInicial, diaFinal, parteProcesso, idMaquina, fkEmpresa) {
 
   if(parteProcesso == "todas" && idMaquina == 0){
 
     var instrucao = `select DATE_FORMAT(c.horario, '%d-%m-%y') as dia, TIME(c.horario) as horario, sensores.localizacao as parteProcesso, c.captura as temperatura, sensores.fkMaquina as maquina FROM captura as c
     JOIN sensores ON c.fkSensor = sensores.idSensor
     JOIN maquina ON sensores.fkMaquina = maquina.idMaquina
-    where c.erro = 1 and c.horario BETWEEN '${diaInicial}' and '${diaFinal}';
+    where c.erro = 1 and c.horario BETWEEN '${diaInicial}' and '${diaFinal}' and fkEmpresa = ${fkEmpresa};
         `;
   } else if(parteProcesso == "todas" && idMaquina != 0) {
 
@@ -15,7 +15,7 @@ function filtrarGeral(diaInicial, diaFinal, parteProcesso, idMaquina) {
   select DATE_FORMAT(c.horario, '%d-%m-%y') as dia, TIME(c.horario) as horario, sensores.localizacao as parteProcesso, c.captura as temperatura, sensores.fkMaquina as maquina FROM captura as c
   JOIN sensores ON c.fkSensor = sensores.idSensor
   JOIN maquina ON sensores.fkMaquina = maquina.idMaquina  
-  where c.erro = 1 and c.horario BETWEEN '${diaInicial}' and '${diaFinal}' and fkMaquina = ${idMaquina};
+  where c.erro = 1 and c.horario BETWEEN '${diaInicial}' and '${diaFinal}' and fkMaquina = ${idMaquina}  and fkEmpresa = ${fkEmpresa};
       `;
   }
     else if(parteProcesso != "todas" && idMaquina == 0){
@@ -23,14 +23,14 @@ function filtrarGeral(diaInicial, diaFinal, parteProcesso, idMaquina) {
       var instrucao = `select DATE_FORMAT(c.horario, '%d-%m-%y') as dia, TIME(c.horario) as horario, sensores.localizacao as parteProcesso, c.captura as temperatura, sensores.fkMaquina as maquina FROM captura as c
       JOIN sensores ON c.fkSensor = sensores.idSensor
       JOIN maquina ON sensores.fkMaquina = maquina.idMaquina  
-      where c.erro = 1 and c.horario BETWEEN '${diaInicial}' and '${diaFinal}' and sensores.localizacao = '${parteProcesso}'; `
+      where c.erro = 1 and c.horario BETWEEN '${diaInicial}' and '${diaFinal}' and sensores.localizacao = '${parteProcesso}' and fkEmpresa = ${fkEmpresa}; `
     }
 
     else {
       var instrucao = `select DATE_FORMAT(c.horario, '%d-%m-%y') as dia, TIME(c.horario) as horario, sensores.localizacao as parteProcesso, c.captura as temperatura, sensores.fkMaquina as maquina FROM captura as c
       JOIN sensores ON c.fkSensor = sensores.idSensor
       JOIN maquina ON sensores.fkMaquina = maquina.idMaquina  
-      where c.erro = 1 and c.horario BETWEEN '${diaInicial}' and '${diaFinal}' and sensores.localizacao = '${parteProcesso}' and fkMaquina = ${idMaquina};
+      where c.erro = 1 and c.horario BETWEEN '${diaInicial}' and '${diaFinal}' and sensores.localizacao = '${parteProcesso}' and fkMaquina = ${idMaquina} and fkEmpresa = ${fkEmpresa};
       ` 
     }
   console.log("Executando a instrução SQL: \n" + instrucao);
