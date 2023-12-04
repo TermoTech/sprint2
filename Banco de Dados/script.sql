@@ -229,14 +229,14 @@ WHERE horario BETWEEN '2023-11-09' AND '2023-11-30';
 
 select sensores.* from sensores join maquina on fkMaquina = idMaquina where idMaquina = 3 order by idSensor;
 
-insert into maquina (numMaquina, fkEmpresa) values 
-	(3, 1);
+-- insert into maquina (numMaquina, fkEmpresa) values 
+-- 	(3, 1);
     
-insert into sensores values
-	(null, 'temperatura', 'Anel de resfriamento', null, null, 5),
-	(null, 'temperatura', 'Reator', null, null, 5),
-	(null, 'temperatura', 'Matriz', null, null, 5),
-	(null, 'Umidade', 'Ambiente', null, null, 5);
+-- insert into sensores values
+-- 	(null, 'temperatura', 'Anel de resfriamento', null, null, 5),
+-- 	(null, 'temperatura', 'Reator', null, null, 5),
+-- 	(null, 'temperatura', 'Matriz', null, null, 5),
+-- 	(null, 'Umidade', 'Ambiente', null, null, 5);
 
 -- PROCEDURE
 
@@ -308,7 +308,7 @@ DELIMITER ;
 select * from captura;
 
 CALL dadosSensores(1, 4);
-DROP PROCEDURE IF EXISTS dadosSensores;
+-- DROP PROCEDURE IF EXISTS dadosSensores;
 
 SELECT usuario.nome, usuario.idUsuario, usuario.fkEmpresa, usuario.nivelAcesso, maquina.idMaquina, empresa.nomeEmpresa, empresa.plano
 	FROM empresa JOIN usuario ON usuario.fkEmpresa = idEmpresa JOIN maquina on maquina.fkEmpresa = idEmpresa;
