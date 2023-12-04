@@ -103,7 +103,7 @@ function atualizaProgressBar(min, max, resposta) {
         var textoMatriz = document.getElementById(`porcentagem_matriz_${fkMaquina}`);
         var textoAnel = document.getElementById(`porcentagem_anel_${fkMaquina}`);
         var textoUmidade = document.getElementById(`porcentagem_umidade_${fkMaquina}`);
-
+      
         if (localizacao == 'Reator') {
             var porcentagemReator = (captura - min) * 100 / intervalo;
             porcentagemReator = porcentagemReator.toFixed(2);
@@ -317,7 +317,7 @@ function atualizaProgressBar(min, max, resposta) {
             }
 
             if (porcentagemAnel < 10) {
-                progressUmidade.style.backgroundColor = "red";
+                progressAnel.style.backgroundColor = "red";
                 if (popupAlerta.style.display == "none" || popupAlerta.style.display == ""){
                     popupAlerta.style.display = "flex";
                     popupAlerta.innerHTML = `
