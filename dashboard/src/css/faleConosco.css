@@ -18,7 +18,8 @@
 .div-pop-up-fc {
     width: 45vh;
     height: 400px;
-    background-image: url(../imagens/background.PNG);
+    background-image: url(../img/background.PNG);
+    background-size: cover;
     color: white;
     border-radius: 15px;
     font-family: 'Montserrat', sans-serif;
