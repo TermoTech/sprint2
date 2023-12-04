@@ -107,8 +107,8 @@ function atualizaProgressBar(min, max, resposta) {
         if (localizacao == 'Reator') {
             var porcentagemReator = (captura - min) * 100 / intervalo;
             porcentagemReator = porcentagemReator.toFixed(2);
-            tempReator.innerHTML = captura.toFixed(2);
-            textoReator.innerHTML = `${porcentagemReator}%`;
+            tempReator.innerHTML = `Mínimo: ${min}  Máximo: ${max}`;
+            textoReator.innerHTML = `${captura}°C`;
             if (porcentagemReator >= 100) {
                 progressReator.style.width = `100%`;
             } else {
@@ -194,7 +194,7 @@ function atualizaProgressBar(min, max, resposta) {
               <svg onclick="fecharAlerta()" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>    </div>
             <div class="body-card-alert">
               <h5 id='texto_alerta'>
-                A máquina ${numMaquina} está chegando perto da ${tipo} limite!!!<br>
+                A máquina ${numMaquina} ultrapassou a ${tipo} limite!!!<br>
                 Medida Registrada: ${captura}°C<br>
                 Parte do processo: ${localizacao}
               </h5>
@@ -208,8 +208,8 @@ function atualizaProgressBar(min, max, resposta) {
         if (localizacao == 'Matriz') {
             var porcentagemMatriz = (captura - min) * 100 / intervalo;
             porcentagemMatriz = porcentagemMatriz.toFixed(2);
-            tempMatriz.innerHTML = captura.toFixed(2);
-            textoMatriz.innerHTML = `${porcentagemMatriz}%`;
+            tempMatriz.innerHTML = `Mínimo: ${min}  Máximo: ${max}`;;
+            textoMatriz.innerHTML = `${captura}°C`;
             if (porcentagemMatriz >= 100) {
                 progressMatriz.style.width = `100%`;
             } else {
@@ -294,7 +294,7 @@ function atualizaProgressBar(min, max, resposta) {
               <svg onclick="fecharAlerta()" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>    </div>
             <div class="body-card-alert">
               <h5 id='texto_alerta'>
-                A máquina ${numMaquina} está chegando perto da ${tipo} limite!!!<br>
+                A máquina ${numMaquina} ultrapassou a ${tipo} limite!!!<br>
                 Medida Registrada: ${captura}°C<br>
                 Parte do processo: ${localizacao}
               </h5>
@@ -308,8 +308,8 @@ function atualizaProgressBar(min, max, resposta) {
         if (localizacao == 'Anel de resfriamento') {
             var porcentagemAnel = (captura - min) * 100 / intervalo;
             porcentagemAnel = porcentagemAnel.toFixed(2);
-            tempAnel.innerHTML = captura.toFixed(2);
-            textoAnel.innerHTML = `${porcentagemAnel}%`;
+            tempAnel.innerHTML = `Mínimo: ${min}  Máximo: ${max}`;;
+            textoAnel.innerHTML = `${captura}°C`;
             if (porcentagemAnel >= 100) {
                 progressAnel.style.width = `100%`;
             } else {
@@ -327,7 +327,7 @@ function atualizaProgressBar(min, max, resposta) {
               <svg onclick="fecharAlerta()" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>    </div>
             <div class="body-card-alert">
               <h5 id='texto_alerta'>
-                A máquina ${numMaquina} está chegando perto da ${tipo} limite!!!<br>
+                A máquina ${numMaquina} ultrapassou a ${tipo} limite!!!<br>
                 Medida Registrada: ${captura}C°<br>
                 Parte do processo: ${localizacao}
               </h5>
@@ -394,7 +394,7 @@ function atualizaProgressBar(min, max, resposta) {
               <svg onclick="fecharAlerta()" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>    </div>
             <div class="body-card-alert">
               <h5 id='texto_alerta'>
-                A máquina ${numMaquina} está chegando perto da ${tipo} limite!!!<br>
+                A máquina ${numMaquina} ultrapassou a ${tipo} limite!!!<br>
                 Medida Registrada: ${captura}°C<br>
                 Parte do processo: ${localizacao}
               </h5>
@@ -407,8 +407,8 @@ function atualizaProgressBar(min, max, resposta) {
         if (localizacao == 'Ambiente') {
             var porcentagemUmidade = (captura - min) * 100 / intervalo;
             porcentagemUmidade = porcentagemUmidade.toFixed(2);
-            maqUmidade.innerHTML = captura.toFixed(2);
-            textoUmidade.innerHTML = `${porcentagemUmidade}%`;
+            maqUmidade.innerHTML = `Mínimo: ${min}  Máximo: ${max}`;;
+            textoUmidade.innerHTML = `${captura}°C`;
             if (porcentagemUmidade >= 100) {
                 progressUmidade.style.width = `100%`;
             } else {
@@ -426,7 +426,7 @@ function atualizaProgressBar(min, max, resposta) {
               <svg onclick="fecharAlerta()" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>    </div>
             <div class="body-card-alert">
               <h5 id='texto_alerta'>
-                A máquina ${numMaquina} está chegando perto da ${tipo} limite!!!<br>
+                A máquina ${numMaquina} ultrapassou a ${tipo} limite!!!<br>
                 Medida Registrada: ${captura}%<br>
                 Parte do processo: ${localizacao}
               </h5>
@@ -494,7 +494,7 @@ function atualizaProgressBar(min, max, resposta) {
               <svg onclick="fecharAlerta()" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>    </div>
             <div class="body-card-alert">
               <h5 id='texto_alerta'>
-                A máquina ${numMaquina} está chegando perto da ${tipo} limite!!!<br>
+                A máquina ${numMaquina} ultrapassou a ${tipo} limite!!!<br>
                 Medida Registrada: ${captura}%<br>
                 Parte do processo: ${localizacao}
               </h5>

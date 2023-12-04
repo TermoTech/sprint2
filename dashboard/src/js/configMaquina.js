@@ -110,7 +110,11 @@ function insereTabela(idMaquina){
   
     for (var i = 0; i < resposta.length; i++) {
       console.log("Processo:", resposta[i]);
-  
+      if(sessionStorage.getItem('PLANO_EMPRESA') == 0){
+        if(resposta[i].localizacao == 'Ambiente' || resposta[i].localizacao == 'ambiente'){
+          break
+        }
+      }
       nomes.innerHTML += `<th>${resposta[i].localizacao}</th>`;
       max.innerHTML += `<td id="td_max_matriz">${resposta[i].maximo}°</td>`;
       min.innerHTML += `<td id="td_min_matriz">${resposta[i].minimo}°</td>`;
@@ -178,6 +182,11 @@ function exibirSetups(resposta, idMaquina, div) {
   var listaIdSensor = [];
 
   for (var i = 0; i < resposta.length; i++) {
+    if(sessionStorage.getItem('PLANO_EMPRESA') == 0){
+      if(resposta[i].localizacao == 'Ambiente' || resposta[i].localizacao == 'ambiente'){
+        break
+      }
+    }
       div.innerHTML += `
           <div class="update-interval">
               <h6>${resposta[i].localizacao}</h6><br>

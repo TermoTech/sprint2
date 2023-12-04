@@ -129,7 +129,7 @@ function plotarGraficos() {
 
               <div class="div-maquinas-geral-neto">
               <div class="progress">
-              <p class="porcentagem" id="porcentagem_reator_${dados.idMaquina}">0%</p>
+              <p class="porcentagem" id="porcentagem_reator_${dados.idMaquina}">0°C</p>
                 <div id="progress_reator${dados.idMaquina}" class="barra-progresso">
                 </div>
                 </div>
@@ -137,7 +137,7 @@ function plotarGraficos() {
 
               <div class="div-maquinas-geral-neto">
                 <div class="progress">
-                <p class="porcentagem" id="porcentagem_matriz_${dados.idMaquina}">0%</p>
+                <p class="porcentagem" id="porcentagem_matriz_${dados.idMaquina}">0°C</p>
                  <div id="progress_matriz${dados.idMaquina}" class="barra-progresso">
                  </div>
                 </div>
@@ -145,7 +145,7 @@ function plotarGraficos() {
 
               <div class="div-maquinas-geral-neto">
               <div class="progress">
-              <p class="porcentagem" id="porcentagem_anel_${dados.idMaquina}">0%</p>
+              <p class="porcentagem" id="porcentagem_anel_${dados.idMaquina}">0°C</p>
               <div id="progress_anel${dados.idMaquina}" class="barra-progresso">
               </div>
               </div>
@@ -153,7 +153,7 @@ function plotarGraficos() {
 
               <div class="div-maquinas-geral-neto">
                 <div class="progress">
-                <p class="porcentagem" id="porcentagem_umidade_${dados.idMaquina}">0%</p>
+                <p class="porcentagem" id="porcentagem_umidade_${dados.idMaquina}">0°C</p>
                   <div id="progress_umidade${dados.idMaquina}" class="barra-progresso">
                   </div>
                 </div>
@@ -163,23 +163,19 @@ function plotarGraficos() {
 
             <div class="div-maquinas-geral-filho">
               <div class="div-maquinas-geral-neto">
-                <span>Temperatura atual </span>
-                <span id="temp_reator${dados.idMaquina}">00</span>°C
+                <span id="temp_reator${dados.idMaquina}">Loading...</span>
               </div>
 
               <div class="div-maquinas-geral-neto">
-                <span>Temperatura atual </span>
-                <span id="temp_matriz${dados.idMaquina}">00</span>°C
+                <span id="temp_matriz${dados.idMaquina}">Loading...</span>
               </div>
 
               <div class="div-maquinas-geral-neto">
-                <span>Temperatura atual</span>
-                <span id="temp_anel${dados.idMaquina}">00</span>°C
+                <span id="temp_anel${dados.idMaquina}">Loading...</span>
               </div>
 
               <div class="div-maquinas-geral-neto">
-                <span>Umidade do ar</span>
-                <span id="umidade_maq${dados.idMaquina}">00</span>%
+                <span id="umidade_maq${dados.idMaquina}">Loading...</span>
               </div>
 
             </div>
@@ -503,7 +499,7 @@ function alertaDiv() {
 //     // swal("Titulo" , "texto/paragrafo", "icone")
 //     swal(
 //       "Atenção",
-//       `A Umidade da sala esta  em ${umidade}%
+//       `A Umidade da sala esta  em ${umidade}°C
 //           Registro: ${hora}
 //           `,
 //       "info"
@@ -512,7 +508,7 @@ function alertaDiv() {
 //     // swal("Titulo" , "texto/paragrafo", "icone")
 //     swal(
 //       "Atenção",
-//       `A Umidade da sala esta  em ${umidade}%
+//       `A Umidade da sala esta  em ${umidade}°C
 //           Registro: ${hora}
 //           `,
 //       "error"
@@ -589,7 +585,7 @@ function alertaDiv() {
 //     // swal("Titulo" , "texto/paragrafo", "icone")
 //     swal(
 //       "Atenção",
-//       `A Umidade da sala esta  em ${umidade}%
+//       `A Umidade da sala esta  em ${umidade}°C
 //           Registro: ${hora}
 //           `,
 //       "info"
@@ -598,7 +594,7 @@ function alertaDiv() {
 //     // swal("Titulo" , "texto/paragrafo", "icone")
 //     swal(
 //       "Atenção",
-//       `A Umidade da sala esta  em ${umidade}%
+//       `A Umidade da sala esta  em ${umidade}°C
 //           Registro: ${hora}
 //           `,
 //       "error"
