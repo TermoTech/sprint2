@@ -5,6 +5,11 @@ const mysql = require('mysql2');
 const SERIAL_BAUD_RATE = 9600; 
 const SERVIDOR_PORTA = 3000; 
 const HABILITAR_OPERACAO_INSERIR = true; 
+
+function pause() {
+    setTimeout(() => { return null }, 5000);
+}
+
 const serial = async (
     valoresDht11Umidade,
     //valoresDht11Temperatura,
@@ -13,11 +18,11 @@ const serial = async (
     // valoresChave
 ) => {
     const poolBancoDados = mysql.createPool({
-        host: 'localhost',
+        host: '10.18.34.254',
         port: 3306,
         user: 'aluno',
         password: 'sptech',
-        database: 'termoTech'
+        database: 'termotech'
     }).promise();
 
     const portas = await serialport.SerialPort.list();
@@ -52,7 +57,7 @@ const serial = async (
             // Inserts na empresa 1
             await poolBancoDados.execute(
                 'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
-                [lm35Temperatura*2.5, 0, 1]
+                [lm35Temperatura*2, 0, 1]
             );
             await poolBancoDados.execute(
                 'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
@@ -60,28 +65,28 @@ const serial = async (
             );
             await poolBancoDados.execute(
                 'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
-                [lm35Temperatura*10, 0, 3]
+                [lm35Temperatura*8, 0, 3]
             );
             await poolBancoDados.execute(
                 'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
-                [dht11Umidade*0.9, 0, 4]
+                [dht11Umidade*0.1, 0, 4]
             );
 
             await poolBancoDados.execute(
                 'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
-                [lm35Temperatura*2.5, 0, 5]
+                [lm35Temperatura, 0, 5]
             );
             await poolBancoDados.execute(
                 'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
-                [lm35Temperatura*10, 0, 6]
+                [lm35Temperatura*6.3, 0, 6]
             );
             await poolBancoDados.execute(
                 'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
-                [lm35Temperatura*10, 0, 7]
+                [lm35Temperatura*7, 0, 7]
             );
             await poolBancoDados.execute(
                 'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
-                [dht11Umidade*0.9, 0, 8]
+                [dht11Umidade*0.1, 0, 8]
             );
         }
 
@@ -89,7 +94,7 @@ const serial = async (
             // Inserts na empresa 2
             await poolBancoDados.execute(
                 'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
-                [lm35Temperatura*2.5, 0, 9]
+                [lm35Temperatura*2, 0, 9]
             );
             await poolBancoDados.execute(
                 'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
@@ -97,32 +102,32 @@ const serial = async (
             );
             await poolBancoDados.execute(
                 'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
-                [lm35Temperatura*10, 0, 11]
+                [lm35Temperatura*8, 0, 11]
             );
             await poolBancoDados.execute(
                 'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
-                [dht11Umidade*0.9, 0, 12]
+                [dht11Umidade*0.1, 0, 12]
             );
 
             await poolBancoDados.execute(
                 'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
-                [lm35Temperatura*2.5, 0, 13]
+                [lm35Temperatura, 0, 13]
             );
             await poolBancoDados.execute(
                 'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
-                [lm35Temperatura*10, 0, 14]
+                [lm35Temperatura*6.3, 0, 14]
             );
             await poolBancoDados.execute(
                 'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
-                [lm35Temperatura*10, 0, 15]
+                [lm35Temperatura*7, 0, 15]
             );
             await poolBancoDados.execute(
                 'INSERT INTO captura (captura, erro, fkSensor) VALUES (?, ?, ?)',
-                [dht11Umidade*0.9, 0, 16]
+                [dht11Umidade*0.1, 0, 16]
             );
         }
     });
-
+    pause();
     
 
     arduino.on('error', (mensagem) => {
@@ -143,6 +148,7 @@ const servidor = (
         response.header('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept');
         next();
     });
+    
 
     app.listen(SERVIDOR_PORTA, () => {
         console.log(`API executada com sucesso na porta ${SERVIDOR_PORTA}`);
@@ -165,6 +171,7 @@ const servidor = (
     // });
 }
 
+
 (async () => {
     const valoresDht11Umidade = [];
     //const valoresDht11Temperatura = [];
@@ -186,3 +193,4 @@ const servidor = (
         // valoresChave
     );
 })();
+
