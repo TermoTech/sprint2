@@ -147,15 +147,15 @@ function plotarGraficos() {
 
             <div class="div-maquinas-geral-filho">
               <div class="div-maquinas-geral-neto">
-                <span id="temp_reator${dados.idMaquina}">Loading...</span>''
+                <span id="temp_reator${dados.idMaquina}">Loading...</span>
               </div>
 
               <div class="div-maquinas-geral-neto">
-                <span id="temp_matriz${dados.idMaquina}">Loading...</span>''
+                <span id="temp_matriz${dados.idMaquina}">Loading...</span>
               </div>
 
               <div class="div-maquinas-geral-neto">
-                <span id="temp_anel${dados.idMaquina}">Loading...</span>''
+                <span id="temp_anel${dados.idMaquina}">Loading...</span>
               </div>
 
 

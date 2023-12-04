@@ -53,6 +53,11 @@ function fazerLogin(){
             res.text().then(text => {
                 console.error(text);
             })
+            Swal.fire({
+                title: "Erro ao realizar o login",
+                text: "Seu usuário ou senha estão incorretos",
+                icon: "error"
+              });
         }
     }).catch((error) => {
         console.log(error);
